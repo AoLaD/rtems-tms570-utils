@@ -5,11 +5,14 @@ AS = $(ARCH)-gcc-as
 AR = $(ARCH)-gcc-ar
 NM = $(ARCH)-gcc-nm
 
+#LINKCMDS = linkcmds.tms570ls3137_hdk_sdram
+LINKCMDS = linkcmds.tms570ls3137_hdk_intram
+
 CPU_CFLAGS = -march=armv7-r -mthumb -mbig-endian
 CFLAGS = $(CPU_CFLAGS) -ggdb
 LDFLAGS = $(CPU_CFLAGS) -L . -ggdb
 CPPFLAGS = -I .
-LDFLAGS += -Wl,-T,linkcmds.tms570ls3137_hdk_intram
+LDFLAGS += -Wl,-T,$(LINKCMDS)
 
 LDFLAGS += -Wl,-Map,$@.map
 
