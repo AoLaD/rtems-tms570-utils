@@ -17,6 +17,23 @@ asm(
 " \n"
 );
 
+#include <stdint.h>
+
+#define UART_FLR (*(volatile uint32_t *)(0xFFF7E500U+0x1C))
+#define UART_TD (*(volatile uint32_t *)(0xFFF7E500U+0x38))
+
+void myPrint(const char *text)
+{
+
+    while(text[0]!=0)
+    {
+        while ((UART_FLR & 0x100) == 0); /* wait until busy */
+	UART_TD = text[0];
+	text+=1;
+    };
+}
 int main(void){
+	myPrint("HELLO WORLD");
+	while(1==1);
 	return 0;
 }

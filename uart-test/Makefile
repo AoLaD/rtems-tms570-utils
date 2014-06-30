@@ -9,7 +9,7 @@ CPU_CFLAGS = -march=armv7-r -mthumb -mbig-endian
 CFLAGS = $(CPU_CFLAGS) -ggdb
 LDFLAGS = $(CPU_CFLAGS) -L . -ggdb
 CPPFLAGS = -I .
-LDFLAGS += -Wl,-T,linkcmds.tms570ls3137_hdk_sdram
+LDFLAGS += -Wl,-T,linkcmds.tms570ls3137_hdk_intram
 
 LDFLAGS += -Wl,-Map,$@.map
 
