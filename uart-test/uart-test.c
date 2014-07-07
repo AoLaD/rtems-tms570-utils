@@ -18,9 +18,13 @@ asm(
 );
 
 #include <stdint.h>
+#include <stdio.h>
 
-#define UART_FLR (*(volatile uint32_t *)(0xFFF7E500U+0x1C))
-#define UART_TD (*(volatile uint32_t *)(0xFFF7E500U+0x38))
+#define UART_BASE 0xFFF7E500U
+//#define UART_BASE 0xFFF7E400U
+
+#define UART_FLR (*(volatile uint32_t *)(UART_BASE+0x1C))
+#define UART_TD (*(volatile uint32_t *)(UART_BASE+0x38))
 
 void myPrint(const char *text)
 {
