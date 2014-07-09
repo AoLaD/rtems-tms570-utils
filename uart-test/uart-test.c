@@ -25,6 +25,7 @@ asm(
 #include <reent.h>
 #include <string.h>
 #include "system_stub.h"
+#include "tms570_pom.h"
 
 //#define UART_BASE 0xFFF7E500U
 #define UART_BASE 0xFFF7E400U
@@ -139,11 +140,41 @@ void test_sdram(void)
     mem_dump((uint8_t *)0x80000000, 0x80000000, 256, 1);
 }
 
+void test_pom(void)
+{
+    int i;
+    uint32_t vec_overlay_start = 0x08000000;
+    volatile uint32_t *p32 = (uint32_t *)vec_overlay_start;
+    for (i = 0 ; i < 16; i++)
+        p32[i] = 0x12345600 + i;
+
+    TMS570_POM.GLBCTRL = 0;
+
+    for (i = 0; i < TMS570_POM_REGIONS; i++)
+        TMS570_POM.REG[i].REGSIZE = TMS570_POM_REGSIZE_DISABLED;
+
+    TMS570_POM.REG[0].PROGSTART = 0x0 & TMS570_POM_REGADDRMASK;
+    TMS570_POM.REG[0].OVLSTART = vec_overlay_start & TMS570_POM_REGADDRMASK;
+    TMS570_POM.REG[0].REGSIZE = TMS570_POM_REGSIZE_64B;
+
+    TMS570_POM.GLBCTRL = TMS570_POM_GLBCTRL_ENABLE |
+                         (vec_overlay_start & ~TMS570_POM_REGADDRMASK);
+
+    p32[1] = 0xe12fff1e;
+
+    mem_dump((uint8_t *)0x00000000, 0x00000000, 256, 1);
+
+    printf("Probing call to address 0x00000004\n");
+    ((void(*)(void))4)();
+    printf("POM call really returned\n");
+}
+
 int main(void){
-	myPrint("HELLO WORLD\n");
-	system_stub_ops.write=uartcon_write;
-	_REENT_INIT_PTR(_REENT);
-	test_sdram();
-	while(1==1);
-	return 0;
+    myPrint("HELLO WORLD\n");
+    system_stub_ops.write=uartcon_write;
+    _REENT_INIT_PTR(_REENT);
+    test_sdram();
+    test_pom();
+    while(1==1);
+    return 0;
 }
