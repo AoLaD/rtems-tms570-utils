@@ -143,7 +143,9 @@ void test_sdram(void)
 void test_pom(void)
 {
     int i;
+    volatile uint32_t volatile_zero = 0; 
     uint32_t vec_overlay_start = 0x08000000;
+    uint32_t original_reset_vector;
     volatile uint32_t *p32 = (uint32_t *)vec_overlay_start;
     for (i = 0 ; i < 16; i++)
         p32[i] = 0x12345600 + i;
@@ -157,9 +159,13 @@ void test_pom(void)
     TMS570_POM.REG[0].OVLSTART = vec_overlay_start & TMS570_POM_REGADDRMASK;
     TMS570_POM.REG[0].REGSIZE = TMS570_POM_REGSIZE_64B;
 
+    memcpy(&original_reset_vector, (volatile void*)volatile_zero, 4);
+
     TMS570_POM.GLBCTRL = TMS570_POM_GLBCTRL_ENABLE |
                          (vec_overlay_start & ~TMS570_POM_REGADDRMASK);
 
+    printf("Original reset vector = 0x%08x\n", original_reset_vector);
+    p32[0] = original_reset_vector;
     p32[1] = 0xe12fff1e;
 
     mem_dump((uint8_t *)0x00000000, 0x00000000, 256, 1);
