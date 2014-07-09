@@ -13,31 +13,137 @@ asm(
 "main_addr: \n"
 "	.word main\n"
 " \n"
+".space 1024, 0 \n"
 ".code 16\n"
 " \n"
 );
 
 #include <stdint.h>
 #include <stdio.h>
+#include <stdarg.h>
+#include <sys/reent.h>
+#include <reent.h>
+#include <string.h>
+#include "system_stub.h"
 
-#define UART_BASE 0xFFF7E500U
-//#define UART_BASE 0xFFF7E400U
+//#define UART_BASE 0xFFF7E500U
+#define UART_BASE 0xFFF7E400U
 
 #define UART_FLR (*(volatile uint32_t *)(UART_BASE+0x1C))
 #define UART_TD (*(volatile uint32_t *)(UART_BASE+0x38))
 
+static inline
+int my_printf(const char *format, ...) __attribute__ ((format (printf, 1, 2)));
+
+#define printf my_printf
+
+void myPrint(const char *text);
+
+int my_vprintf(const char *format, va_list ap)
+{
+  char s[40];
+  int ret;
+  ret = vsnprintf(s, sizeof(s)-1, format, ap);
+  s[sizeof(s)-1] = 0;
+  myPrint(s);
+  return ret;
+}
+
+static inline
+int my_printf(const char *format, ...)
+{
+  int ret;
+  va_list ap;
+  va_start (ap, format);
+  ret = my_vprintf(format, ap);
+  va_end (ap);
+  return ret;
+}
+
+void uartPutch(int ch)
+{
+    while ((UART_FLR & 0x100) == 0); /* wait until busy */
+    UART_TD = ch;
+}
+
 void myPrint(const char *text)
 {
 
-    while(text[0]!=0)
-    {
-        while ((UART_FLR & 0x100) == 0); /* wait until busy */
-	UART_TD = text[0];
-	text+=1;
+    while(*text != 0) {
+        if(*text == 0xa)
+            uartPutch(0xd);
+        uartPutch(*text);
+        text+=1;
     };
 }
+
+int uartcon_write(int file, const char * ptr, int len)
+{
+  int cnt;
+  unsigned char ch;
+  for(cnt=0;cnt<len;cnt++,ptr++){
+    ch=*ptr;
+    if(ch==0xa)
+      uartPutch(0xd);
+    uartPutch(ch);
+  }
+  return cnt;
+}
+
+
+int mem_dump(void *buf, unsigned long start, unsigned long len, int blen)
+{
+  unsigned long addr=start;
+  volatile unsigned char *p=buf;
+  int i;
+
+  while(len){
+    printf("%08lX:",addr);
+    i=len>16?16:len;
+    addr+=i;
+    len-=i;
+    while(i>0){
+      i -= blen;
+      switch(blen){
+        case 4:
+          printf("%08lX%c",(unsigned long)*(volatile uint32_t*)p,i>0?' ':'\n');
+          break;
+        case 2:
+          printf("%04X%c",*(volatile uint16_t*)p,i>0?' ':'\n');
+          break;
+        default:
+          printf("%02X%c",*(volatile uint8_t*)(p),i>0?' ':'\n');
+          break;
+      }
+      p += blen;
+    }
+  }
+  return 0;
+}
+
+
+void test_sdram(void)
+{
+    int i;
+
+    volatile uint8_t *p8 = (uint8_t *)0x80000000;
+
+    volatile uint32_t *p32 = (uint32_t *)0x80000000;
+
+    for (i = 0 ; i < 16; i++)
+        p32[i] = 0x123456ff;
+
+    for (i = 0 ; i < 16; i++)
+        p8[i * 4 +3] = i;
+
+    mem_dump((uint8_t *)0x80000000, 0x80000000, 256, 1);
+}
+
 int main(void){
-	myPrint("HELLO WORLD");
+	myPrint("HELLO WORLD\n");
+	system_stub_ops.write=uartcon_write;
+	_REENT_INIT_PTR(_REENT);
+	test_sdram();
 	while(1==1);
 	return 0;
 }
