@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+SRCFROMD="$(dirname "$0")/sources-from-deps.py"
+if [ ! -e "$SRCFROMD" ]; then
+  SRCFROMD=sources-from-deps.py
+fi
+
+"$SRCFROMD" >cscope.files || exit 1
+
+cscope -b -icscope.files
