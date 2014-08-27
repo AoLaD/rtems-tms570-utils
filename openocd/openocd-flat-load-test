@@ -1,0 +1,48 @@
+#!/bin/bash
+
+SCRIP_DIR="$(dirname "$(readlink -f "$0")")"
+
+run_single_test()
+{
+  echo "Preparing application $1"
+
+  arm-rtems4.11-objcopy -O binary "$1" "$1.bin"
+  cat 'end!' >>"$1.bin"
+
+  #load_image /home/pi/repo/rtems/tms570/bin/ticker.exe.bin 0x80000000 bin
+  openocd -f $SCRIP_DIR/openocd.cfg -c "load_image "$1.bin" 0x80000000 bin" -c "resume 0x80000000" &
+  OPENOCD_PID=$!
+  nc -w 10 -z localhost 4444
+  if [ $? -ne 0 ]; then
+    echo "OpenOCD start failed"
+  fi
+
+  sleep 4
+
+  echo "Running application $1"
+  read -p "Inform if test result id OK [y/n]" -t 300 RESPONSE
+  if [ $? -ne 0 ]; then
+    RESPONSE='Timeout'
+  fi
+
+  echo "Test result $RESPONSE" >>"$1.res"
+
+  kill $OPENOCD_PID
+
+  if [ "$RESPONSE" = "q" ] ; then
+    echo "Quitting on user resquest"
+    exit 1
+  fi
+}
+
+if [ $# -lt 1 ] ; then
+  echo >2 'test.exe is expected as an argument or all to find all *.exe found'
+fi
+
+if [ "$1" != "all" ] ; then
+  run_single_test "$1"
+else
+  for e in $(find -name '*.exe' | sort ) ; do
+    run_single_test "$e" ;
+  done
+fi
