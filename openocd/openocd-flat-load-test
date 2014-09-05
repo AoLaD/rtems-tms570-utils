@@ -7,10 +7,25 @@ run_single_test()
   echo "Preparing application $1"
 
   arm-rtems4.11-objcopy -O binary "$1" "$1.bin"
-  cat 'end!' >>"$1.bin"
+  echo 'end!' >>"$1.bin"
+
+  # 00040040 T _start
+  START_ADDRESS="$(arm-rtems4.11-nm "$1" | sed -n -e 's/^\([0-9A-Fa-f]\+\)[ \t]\+T[ \t]\+_start$/\1/p')"
+
+  # 0 .start        000001fc  00040000  00040000  000000c0  2**2
+  IMAGE_BASE="$(arm-rtems4.11-objdump --headers "$1" | sed -n -e 's/^ *[0-9]\+[ \t]\+\.start[ \t]\+[0-9A-Fa-f]\+[ \t]\+\([0-9A-Fa-f]\+\)[ \t]\+.*$/\1/p')"
+
+  if [ -z "$IMAGE_BASE" ] ; then
+    IMAGE_BASE="$(arm-rtems4.11-objdump --headers "$1" | sed -n -e 's/^ *[0-9]\+[ \t]\+\.text[ \t]\+[0-9A-Fa-f]\+[ \t]\+\([0-9A-Fa-f]\+\)[ \t]\+.*$/\1/p')"
+  fi
+
+  if [ -z "$IMAGE_BASE" ] ; then
+    echo "Cannot find image base address"
+    exit 1
+  fi
 
   #load_image /home/pi/repo/rtems/tms570/bin/ticker.exe.bin 0x80000000 bin
-  openocd -f $SCRIP_DIR/openocd.cfg -c "load_image "$1.bin" 0x80000000 bin" -c "resume 0x80000000" &
+  openocd -f $SCRIP_DIR/openocd.cfg -c "load_image "$1.bin" 0x$IMAGE_BASE bin" -c "resume 0x$START_ADDRESS" &
   OPENOCD_PID=$!
   nc -w 10 -z localhost 4444
   if [ $? -ne 0 ]; then
