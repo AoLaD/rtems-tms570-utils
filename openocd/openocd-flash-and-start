@@ -1,0 +1,52 @@
+#!/bin/bash
+
+SCRIP_DIR="$(dirname "$(readlink -f "$0")")"
+
+flash_program()
+{
+  echo "Flashing application $1 started"
+
+  openocd -f $SCRIP_DIR/openocd-halt-immediatelly.cfg -c "flash probe 0" -c "program $1"
+
+  if [ $? -ne 0 ]; then
+    echo "OpenOCD flash programing failed"
+    return 1
+  fi
+  echo "Flashing application $1 done"
+}
+
+run_program()
+{
+  echo "Running application $1"
+
+  # 00040040 T _start
+  START_ADDRESS="$(arm-rtems4.11-nm "$1" | sed -n -e 's/^\([0-9A-Fa-f]\+\)[ \t]\+T[ \t]\+_start$/\1/p')"
+
+  openocd -f $SCRIP_DIR/openocd.cfg -c "resume 0x$START_ADDRESS" &
+  OPENOCD_PID=$!
+  nc -w 10 -z localhost 4444
+  if [ $? -ne 0 ]; then
+    echo "OpenOCD start failed"
+  fi
+
+  sleep 2
+
+  echo "Running application $1"
+  read -p "Press to quit [q]" -t 300 RESPONSE
+  if [ $? -ne 0 ]; then
+    RESPONSE='Timeout'
+  fi
+
+  kill $OPENOCD_PID
+
+  if [ "$RESPONSE" = "q" ] ; then
+    echo "Quitting on user resquest"
+  fi
+}
+
+if [ $# -lt 1 ] ; then
+  echo >2 'test.exe is expected as an argument'
+fi
+
+flash_program "$1"
+run_program "$1"
