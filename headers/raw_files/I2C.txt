@@ -1,0 +1,579 @@
+{
+          "name" : "I2COAR",
+          "info" : "I2C Own Address Manager",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "OA",
+               "info" : "Own address"
+             }
+          ]
+        },
+{
+          "name" : "I2CIMR",
+          "info" : "I2C Interupt Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "AASEN",
+               "info" : "Address As Slave Interrupt Enable"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SCDEN",
+               "info" : "Stop Condition Interrupt Enable"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TXRDYEN",
+               "info" : "Transmit Data Ready Interrupt Enable"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RXRDYEN",
+               "info" : "Receive Data Ready Interrupt Enable"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "ARDYEN",
+               "info" : "Register Access Ready Interrupt Enable"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "NACKEN",
+               "info" : "No Acknowledgement Interrupt Enable"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ALEN",
+               "info" : "Arbitration Lost Interrupt Enable"
+             }
+          ]
+        },
+{
+          "name" : "I2CSTR",
+          "info" : "I2C Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "SDIR",
+               "info" : "Slave direction"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "NACKSNT",
+               "info" : "No acknowledge sent"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "BB",
+               "info" : "Bus busy"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "RSFULL",
+               "info" : "Receiver shift full"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "XSMT",
+               "info" : "XSMT"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "AAS",
+               "info" : "Address as slave"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "AD0",
+               "info" : "Address zero status"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SCD",
+               "info" : "SCD"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TXRDY",
+               "info" : "Transmit data ready interrupt flag"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RXRDY",
+               "info" : "Receive data ready interrupt flag"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "ARDY",
+               "info" : "Register access ready interrupt flag"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "NACK",
+               "info" : "No acknowledgement interrupt"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "AL",
+               "info" : "Arbitration lost interrupt flag"
+             }
+          ]
+        },
+{
+          "name" : "I2CCKL",
+          "info" : "I2C Clock Divider Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "I2C Clock Divider Low Registe",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CLKL",
+               "info" : "Low time clock division factor"
+             }
+          ]
+        },
+{
+          "name" : "I2CCKH",
+          "info" : "I2C Clock Control High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CLKH",
+               "info" : "High time clock division factor"
+             }
+          ]
+        },
+{
+          "name" : "I2CCNT",
+          "info" : "I2C Data Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CNT",
+               "info" : "Data counter"
+             }
+          ]
+        },
+{
+          "name" : "I2CDRR",
+          "info" : "I2C Data Receive Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "DATARX",
+               "info" : "Receive data"
+             }
+          ]
+        },
+{
+          "name" : "I2CSAR",
+          "info" : "I2C Slave Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "SA",
+               "info" : "7- or 10-bit programmable slave address"
+             }
+          ]
+        },
+{
+          "name" : "I2CDXR",
+          "info" : "I2C Data Transmit Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "DATATX",
+               "info" : "Transmit data"
+             }
+          ]
+        },
+{
+          "name" : "I2CMDR",
+          "info" : "I2C Mode Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "NACKMOD",
+               "info" : "No-acknowledge (NACK) mode"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "FREE",
+               "info" : "Free running bit"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "STT",
+               "info" : "Start condition"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "STP",
+               "info" : "Stop condition"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "MST",
+               "info" : "Master/slave mode bit"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "TRX",
+               "info" : "Transmit/receive bit"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "XA",
+               "info" : "Expand address enable bit"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RM",
+               "info" : "RM"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "DLB",
+               "info" : "Digital loop back enable bit"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "nIRS",
+               "info" : "I2C reset enable bit"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "STB",
+               "info" : "Start byte mode enable bit (Master mode only)"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "FDF",
+               "info" : "Free data format enable bit"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "BC",
+               "info" : "Bit count"
+             }
+          ]
+        },
+{
+          "name" : "I2CIVR",
+          "info" : "I2C Interrupt Vector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "TESTMD",
+               "info" : "Reserved for internal testing."
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "INTCODE",
+               "info" : "Interrupt Code Bits"
+             }
+          ]
+        },
+{
+          "name" : "I2CEMDR",
+          "info" : "I2C Extended Mode Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "IGNACK",
+               "info" : "Ignore NACK mode"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "BCM",
+               "info" : "Backwards compatibility mode"
+             }
+          ]
+        },
+{
+          "name" : "I2CPSC",
+          "info" : "I2CPSC",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "I2C Prescale Register Sectio",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "PSC",
+               "info" : "Prescale"
+             }
+          ]
+        },
+{
+          "name" : "I2CPID1",
+          "info" : "I2C Peripheral ID Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "CLASS",
+               "info" : "Peripheral class"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "REVISION",
+               "info" : "Revision level of the I2C"
+             }
+          ]
+        },
+{
+          "name" : "I2CPID2",
+          "info" : "I2C Peripheral ID Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "TYPE",
+               "info" : "Peripheral type"
+             }
+          ]
+        },
+{
+          "name" : "I2CDMACR",
+          "info" : "I2C DMA Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TXDMAEN",
+               "info" : "Transmitter DMA enable"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RXDMAEN",
+               "info" : "Receive DMA enable"
+             }
+          ]
+        },
+{
+          "name" : "I2CPFNC",
+          "info" : "I2C Pin Function Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PINFUNC",
+               "info" : "SDA and SCL Pin Function"
+             }
+          ]
+        },
+{
+          "name" : "I2CPDIR",
+          "info" : "I2C Pin Direction Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDADIR",
+               "info" : "SDA direction"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLDIR",
+               "info" : "SCL direction"
+             }
+          ]
+        },
+{
+          "name" : "I2CDIN",
+          "info" : "I2C Data Input Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDAIN",
+               "info" : "Serial data in"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLIN",
+               "info" : "Serial clock data in"
+             }
+          ]
+        },
+{
+          "name" : "I2CDOUT",
+          "info" : "I2C Data Output Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDAOUT",
+               "info" : "SDA Data Output"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLOUT",
+               "info" : "SCL Data Output"
+             }
+          ]
+        },
+{
+          "name" : "I2CDSET",
+          "info" : "I2C Data Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDASET",
+               "info" : "Serial Data Set"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLSET",
+               "info" : "Serial Clock Set"
+             }
+          ]
+        },
+{
+          "name" : "I2CDCLR",
+          "info" : "I2C Data Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDACLR",
+               "info" : "Serial Data Clear"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLCLR",
+               "info" : "Serial Clock Clear"
+             }
+          ]
+        },
+{
+          "name" : "I2CPDR",
+          "info" : "I2C Pin Open Drain Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDAPDR",
+               "info" : "SDA pin open drain enable"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLPDR",
+               "info" : "SCL pin open drain enable"
+             }
+          ]
+        },
+{
+          "name" : "I2CPDIS",
+          "info" : "I2C Pull Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDAPDIS",
+               "info" : "SDA pull disable"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLPDIS",
+               "info" : "SCL pull disable"
+             }
+          ]
+        },
+{
+          "name" : "I2CPSEL",
+          "info" : "I2C Pull Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDAPSEL",
+               "info" : "SDA pull select"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLPSEL",
+               "info" : "SCL pull select"
+             }
+          ]
+        },
+{
+          "name" : "I2CSRS",
+          "info" : "I2C Pins Slew Rate Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SDASRS",
+               "info" : "SDA Slew Rate select"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SCLSRS",
+               "info" : "SCL Slew Rate select"
+             }
+          ]
+        },

@@ -5,3 +5,4 @@ SPI D8-F4 DUPL
 SPI F8-114 DUPL
 LIN check
 LIN 5c?
+I2C 16bit reg
