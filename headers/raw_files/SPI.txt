@@ -1,0 +1,1370 @@
+{
+          "name" : "SPIGCR0",
+          "info" : "SPI Global Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "nRESET",
+               "info" : "This is the local reset control for the module. This bit needs to be set to ‘1’ before any operation"
+             }
+          ]
+        },
+{
+          "name" : "SPIGCR1",
+          "info" : "SPI Global Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "SPIEN",
+               "info" : "SPI enable. This bit enables SPI transfers. This bit must be set to 1 after all other SPI configuration"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "LOOPBACK",
+               "info" : "Internal loop-back test mode. The internal self-test option can be enabled by setting this bit. If the"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "POWERDOWN",
+               "info" : "When active, the SPI state machine enters a power-down state."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKMOD",
+               "info" : "Clock mode. This bit selects either an internal or external clock source. This bit also determines the"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "MASTER",
+               "info" : "SPISIMO/SPISOMI pin direction determination. Sets the direction of the SPISIMO and SPISOMI"
+             }
+          ]
+        },
+{
+          "name" : "SPIINT0",
+          "info" : "SPI Interrupt Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "ENABLEHIGHZ",
+               "info" : "SPIENA pin high-impedance enable. When active, the SPIENA pin (when it is configured as"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "DMAREQEN",
+               "info" : "DMA request enable. Enables the DMA request signal to be generated for both receive and"
+             }
+          ]
+        },
+{
+          "name" : "SPILVL",
+          "info" : "SPI Interrupt Level Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "TXINTLVL",
+               "info" : "Transmit interrupt level."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RXINTLVL",
+               "info" : "Receive interrupt level."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RXOVRNINTLVL",
+               "info" : "Receive overrun interrupt level."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "BITERRLVL",
+               "info" : "Bit error interrupt level."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DESYNCLVL",
+               "info" : "Desynchronized slave interrupt level. (master mode only)."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "PARERRLVL",
+               "info" : "Parity error interrupt level."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TIMEOUTLVL",
+               "info" : "SPIENA pin time-out interrupt level."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "DLENERRLVL",
+               "info" : "Data length error interrupt level (line) select."
+             }
+          ]
+        },
+{
+          "name" : "SPIFLG",
+          "info" : "SPI Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "BUFINITACTIVE",
+               "info" : "Indicates the status of multi-buffer initialization process. Software can poll for this bit to"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "TXINTFLG",
+               "info" : "Transmitter-empty interrupt flag. Serves as an interrupt flag indicating that the transmit"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RXINTFLG",
+               "info" : "Receiver-full interrupt flag. This flag is set when a word is received and copied into the"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RXOVRNINTFLG",
+               "info" : "Receiver overrun flag. The SPI hardware sets this bit when a receive operation completes"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "BITERRFLG",
+               "info" : "Mismatch of internal transmit data and transmitted data. This flag can be cleared by one of"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DESYNCFLG",
+               "info" : "Desynchronization of slave device. Desynchronization monitor is active in master mode"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "PARITYERRFLG",
+               "info" : "Calculated parity differs from received parity bit. If the parity generator is enabled (can be"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TIMEOUTFLG",
+               "info" : "Time-out caused by nonactivation of ENA signal. This flag can be cleared by one of the"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "DLENERRFLG",
+               "info" : "Data-length error flag. This flag can be cleared by one of the following methods:"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC0",
+          "info" : "SPI Pin Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIFUN",
+               "info" : "Slave out, master in function. Determines whether SPISOMI[x] is to be used as a general-purpose I/O"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMOFUN",
+               "info" : "Slave in, master out function. Determines whether SPISIMO[x] is to be used as a general-purpose I/O"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIFUN0",
+               "info" : "SOMIFUN0"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOFUN0",
+               "info" : "Slave in, master out function. This bits determine whether each SPISIMO0 pin is to be used as a"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKFUN",
+               "info" : "CLKFUN"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENAFUN",
+               "info" : "SPIENA function. This bit determines whether the SPIENA pin is to be used as a general-purpose I/O"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSFUN",
+               "info" : "SPISCSx function. Determines whether each SPISCSx pin is to be used as a general-purpose I/O pin"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC1",
+          "info" : "SPI Pin Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIDIR",
+               "info" : "SPISOMIx direction. Controls the direction of SPISOMIx when used for general-purpose I/O. If"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMODIR",
+               "info" : "SPISIMOx direction. Controls the direction of SPISIMOx when used for general-purpose I/O. If"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIDIR0",
+               "info" : "PISOMI0 direction. This bit controls the direction of the SPISOMI0 pin when it is used as a generalpurpose"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMODIR0",
+               "info" : "SPISIMO0 direction. This bit controls the direction of the SPISIMO0 pin when it is used as a generalpurpose"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKDIR",
+               "info" : "SPICLK direction. This bit controls the direction of the SPICLK pin when it is used as a generalpurpose"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENADIR",
+               "info" : "SPIENA direction. This bit controls the direction of the SPIENA pin when it is used as a generalpurpose"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSDIR",
+               "info" : "SPISCSx direction. These bits control the direction of each SPISCSx pin when it is used as a"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC2",
+          "info" : "SPI Pin Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIDIN",
+               "info" : "SPISOMIx data in. The value of the SPISOMIx pins."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMODIN",
+               "info" : "SPISIMOx data in. The value of the SPISIMOx pins."
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIDIN0",
+               "info" : "SPISOMI0 data in. The value of the SPISOMI0 pin."
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMODIN0",
+               "info" : "SPISIMO0 data in. The value of the SPISIMO0 pin."
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKDIN",
+               "info" : "Clock data in. The value of the SPICLK pin. pin."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENADIN",
+               "info" : "SPIENA data in. The the value of the SPIENA pin."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSDIN",
+               "info" : "SPISCSx data in. The value of the SPISCSx pin."
+             }
+          ]
+        },
+{
+          "name" : "SPIPC3",
+          "info" : "SPI Pin Control Register 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIDOUT",
+               "info" : "SPISOMIx data out write. This bit is only active when the SPISOMIx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMODOUT",
+               "info" : "SPISIMOx data out write. This bit is only active when the SPISIMOx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIDOUT0",
+               "info" : "SPISOMI0 data out write. This bit is only active when the SPISOMI0 pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMODOUT0",
+               "info" : "SPISIMO0 data out write. This bit is only active when the SPISIMO0 pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKDOUT",
+               "info" : "SPICLK data out write. This bit is only active when the SPICLK pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENADOUT",
+               "info" : "SPIENA data out write. Only active when the SPIENA pin is configured as a general-purpose I/O pin"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSDOUT",
+               "info" : "SPISCSx data out write. Only active when the SPISCSx pins are configured as a general-purpose"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC4",
+          "info" : "SPI Pin Control Register 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMISET",
+               "info" : "SPISOMIx data out set. This pin is only active when the SPISOMIx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMOSET",
+               "info" : "SPISIMOx data out set. This bit is only active when the SPISIMOx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMISET0",
+               "info" : "SPISOMI0 data out set. This pin is only active when the SPISOMI0 pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOSET0",
+               "info" : "purpose"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKSET",
+               "info" : "SPICLK data out set. This bit is only active when the SPICLK pin is configured as a general-purpose"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENASET",
+               "info" : "SPIENA data out set. This bit is only active when the SPIENA pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSSET",
+               "info" : "SPISCSx data out set. This bit is only active when the SPISCSx pin is configured as a generalpurpose"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC5",
+          "info" : "SPI Pin Control Register 5",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMICLR",
+               "info" : "SPISOMIx data out clear. This pin is only active when the SPISOMIx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMOCLR",
+               "info" : "SPISIMOx data out clear. This bit is only active when the SPISIMOx pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMICLR0",
+               "info" : "SPISOMI0 data out cleart. This pin is only active when the SPISOMI0 pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOCLR0",
+               "info" : "SPISIMO0 data out clear. This pin is only active when the SPISIMO0 pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKCLR",
+               "info" : "SPICLK data out clear. This bit is only active when the SPICLK pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENACLR",
+               "info" : "SPIENA data out clear. This bit is only active when the SPIENA pin is configured as a generalpurpose"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSCLR",
+               "info" : "SPISCSx data out clear. This bit is only active when the SPISCSx pin is configured as a generalpurpose"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC6",
+          "info" : "SPI Pin Control Register 6",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIPDR",
+               "info" : "SPISOMIx open drain enable. This bit enables open drain capability for the SPISOMIx pin if the"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMOPDR",
+               "info" : "SPISIMOx open drain enable. This bit enables open drain capability for the SPISIMOx pin if the"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIPDR0",
+               "info" : "SOMI0 open-drain enable. This bit enables open-drain capability for SOMI0 if the following conditions"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOPDR0",
+               "info" : "SPISIMO0 open-drain enable. This bit enables open -drain capability for the SPISIMO0 pin if the"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKPDR",
+               "info" : "CLK open drain enable. This bit enables open drain capability for the pin CLK if the following"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENAPDR",
+               "info" : "SPIENA pin open drain enable. This bit enables open drain capability for SPIENA if the following"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSPDR",
+               "info" : "SPISCSx open drain enable. This bit enables open drain capability for the SPISCSx pin if the"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC7",
+          "info" : "SPI Pin Control Register 7",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIDIS",
+               "info" : "SOMIx pull control enable/disable. This bit enables pull control capability for the SOMIx pin if it is in"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMODIS",
+               "info" : "SIMOx pull control enable/disable. This bit enables pull control capability for the SIMOx pin if it is in"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIPDIS0",
+               "info" : "SPISOMI0 pull control enable/disable. This bit enables pull control capability for the pin SPISOMI0"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOPDIS0",
+               "info" : "SPISIMO0 pull control enable/disable. This bit enables pull control capability for the pin SPISIMO0"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKPDIS",
+               "info" : "CLK pull control enable/disable. This bit enables pull control capability for the pin SPICLK pin if it is in"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENAPDIS",
+               "info" : "ENAPDIS ENABLE pull control enable/disable. This bit enables pull control capability for the pin SPIENA pin if it"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSPDIS",
+               "info" : "SCSx pull control enable/disable. This bit enables pull control capability for the pin SPISCSx pin if it is"
+             }
+          ]
+        },
+{
+          "name" : "SPIPC8",
+          "info" : "SPI Pin Control Register 8",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "SOMIPSEL",
+               "info" : "SPISOMIx pull select. This bit selects the type of pull logic at the SOMIx pin."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "SIMOPSEL",
+               "info" : "SIMOPSEL SPISIMOx pull select. This bit selects the type of pull logic at the SPISIMOx pin."
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "SOMIPSEL0",
+               "info" : "SOMI pull select. This bit selects the type of pull logic at the SOMI pin."
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "SIMOPSEL0",
+               "info" : "SPISIMO pull select. This bit selects the type of pull logic at the SPISIMO pin."
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CLKPSEL",
+               "info" : "CLK pull select. This bit selects the type of pull logic at the CLK pin."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENAPSEL",
+               "info" : "ENABLE pull select. This bit selects the type of pull logic at the ENABLE pin."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SCSPSEL",
+               "info" : "SCSx pull select. This bit selects the type of pull logic at the SCSx pin."
+             }
+          ]
+        },
+{
+          "name" : "SPIDAT0",
+          "info" : "SPI Transmit Data Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "TXDATA",
+               "info" : "SPI transmit data. When written, these bits will be copied to the shift register if it is empty. If"
+             }
+          ]
+        },
+{
+          "name" : "SPIDAT1",
+          "info" : "SPI Transmit Data Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "CSHOLD",
+               "info" : "Chip select hold mode. The CSHOLD bit is supported in master mode only in compatibility-mode of"
+             },
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "WDEL",
+               "info" : "Enable the delay counter at the end of the current transaction."
+             },
+             {
+               "bit_number" : "25-24",
+               "bit_Field_Name" : "DFSEL",
+               "info" : "Data word format select"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "CSNR",
+               "info" : "Chip select number. CSNR defines the chip-select that will be activated during the data transfer."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "TXDATA",
+               "info" : "ransfer data.When written, these bits are copied to the shift register if it is empty. If the shift register"
+             }
+          ]
+        },
+{
+          "name" : "SPIBUF",
+          "info" : "SPI Receive Buffer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "RXEMPTY",
+               "info" : "Receive data buffer empty.When the host reads the SPIBUF field or the entire SPIBUF register,"
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "RXOVR",
+               "info" : "Receive data buffer overrun. When a data transfer is completed and the received data is copied"
+             },
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "TXFULL",
+               "info" : "Transmit data buffer full.This flag is a read-only flag. Writing into the SPIDAT0 or SPIDAT1 field"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "BITERR",
+               "info" : "Bit error.There was a mismatch of internal transmit data and transmitted data."
+             },
+             {
+               "bit_number" : "27",
+               "bit_Field_Name" : "DESYNC",
+               "info" : "Desynchronization of slave device.This bit is valid in master mode only."
+             },
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "PARITYERR",
+               "info" : "Parity error.The calculated parity differs from the received parity bit."
+             },
+             {
+               "bit_number" : "25",
+               "bit_Field_Name" : "TIMEOUT",
+               "info" : "Time-out because of non-activation of ENA pin."
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "DLENERR",
+               "info" : "Data length error flag."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "LCSNR",
+               "info" : "control field. It contains the chip select number that was activated during the last word transfer."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "RXDATA",
+               "info" : "SPI receive data. This is the received word, transferred from the receive shift-register at the end"
+             }
+          ]
+        },
+{
+          "name" : "SPIEMU",
+          "info" : "SPI Emulation Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "EMU_RXDATA",
+               "info" : "SPI receive data. The SPI emulation register is a mirror of the SPIBUF register. The only"
+             }
+          ]
+        },
+{
+          "name" : "SPIDELAY",
+          "info" : "SPI Delay Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "C2TDELAY",
+               "info" : "Chip-select-active to transmit-start delay. See Figure 25-45 for an example. C2TDELAY is used"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "T2CDELAY",
+               "info" : "T2CDELAY"
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "T2EDELAY",
+               "info" : "Transmit-data-finished to ENA-pin-inactive time-out. T2EDELAY is used in master mode only."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "C2EDELAY",
+               "info" : "Chip-select-active to ENA-signal-active time-out. C2EDELAY is used only in master mode and"
+             }
+          ]
+        },
+{
+          "name" : "SPIDEF",
+          "info" : "SPI Default Chip Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "CDEF",
+               "info" : "Chip select default pattern. Master-mode only."
+             }
+          ]
+        },
+{
+          "name" : "5Ch SPIFMT",
+          "info" : "SPI Data Format Registers",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50h",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "WDELAY",
+               "info" : "Delay in between transmissions for data format x (x= 0,1,2,3).Idle time that will be applied"
+             },
+             {
+               "bit_number" : "23",
+               "bit_Field_Name" : "PARPOL",
+               "info" : "Parity polarity: even or odd. PARPOLx can be modified in privilege mode only. It can be"
+             },
+             {
+               "bit_number" : "22",
+               "bit_Field_Name" : "PARITYENA",
+               "info" : "Parity enable for data format x."
+             },
+             {
+               "bit_number" : "21",
+               "bit_Field_Name" : "WAITENA",
+               "info" : "The master waits for the ENA signal from slave for data format x. WAITENA is valid in"
+             },
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "SHIFTDIR",
+               "info" : "Shift direction for data format x. With bit SHIFTDIRx, the shift direction for data format x"
+             },
+             {
+               "bit_number" : "19",
+               "bit_Field_Name" : "HDUPLEX_ENAx",
+               "info" : "Half Duplex transfer mode enable for Data Format x. This bit controls the I/O function"
+             },
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "DIS CS TIMERS",
+               "info" : "Disable chip-select timers for this format.The C2TDELAY and T2CDELAY timers are"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "POLARITY",
+               "info" : "POLARITY"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "PHASE",
+               "info" : "SPI data format x clock delay. PHASEx defines the clock delay of data format x."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "PRESCALE",
+               "info" : "SPI data format x prescaler. PRESCALEx determines the bit transfer rate of data format x"
+             },
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "CHARLEN",
+               "info" : "SPI data format x data-word length. CHARLENx defines the word length of data format x."
+             }
+          ]
+        },
+{
+          "name" : "INTVECT0",
+          "info" : "Interrupt Vector 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "bit_number" : "5-1",
+               "bit_Field_Name" : "INTVECT0",
+               "info" : "INTVECT0. Interrupt vector for interrupt line INT0."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SUSPEND0",
+               "info" : "Transfer suspended / Transfer finished interrupt flag."
+             }
+          ]
+        },
+{
+          "name" : "INTVECT1",
+          "info" : "Interrupt Vector 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "bit_number" : "5-1",
+               "bit_Field_Name" : "INTVECT1",
+               "info" : "INTVECT1. Interrupt vector for interrupt line INT1."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SUSPEND1",
+               "info" : "Transfer suspended / Transfer finished interrupt flag."
+             }
+          ]
+        },
+{
+          "name" : "SPIPMCTRL",
+          "info" : "Parallel/Modulo Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "MOD CLK POL 3",
+               "info" : "Modulo mode SPICLK polarity. This bit determines the polarity of the SPICLK in modulo"
+             },
+             {
+               "bit_number" : "28-26",
+               "bit_Field_Name" : "MMODE 3",
+               "info" : "These bits determine whether the SPI/MibSPI operates with 1, 2, 4, 5, or 6 data lines (if"
+             },
+             {
+               "bit_number" : "25-24",
+               "bit_Field_Name" : "PMODE 3",
+               "info" : "Parallel mode bits determine whether the SPI/MibSPI operates with 1, 2, 4 or 8 data lines."
+             },
+             {
+               "bit_number" : "21",
+               "bit_Field_Name" : "MOD CLK POL 2",
+               "info" : "Modulo mode SPICLK polarity. This bit determines the polarity of the SPICLK in modulo"
+             },
+             {
+               "bit_number" : "20-18",
+               "bit_Field_Name" : "MMODE 2",
+               "info" : "These bits determine whether the SPI/MibSPI operates with 1, 2, 4, 5, or 6 data lines (if"
+             },
+             {
+               "bit_number" : "17-16",
+               "bit_Field_Name" : "PMODE 2",
+               "info" : "Parallel mode bits determine whether the SPI/MibSPI operates with 1, 2, 4 or 8 data lines."
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "MOD CLK POL 1",
+               "info" : "Modulo mode SPICLK polarity. This bit determines the polarity of the SPICLK in modulo"
+             },
+             {
+               "bit_number" : "12-10",
+               "bit_Field_Name" : "MMODE 1",
+               "info" : "These bits determine whether the SPI/MibSPI operates with 1, 2, 4, 5, or 6 data lines (if"
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "PMODE 1",
+               "info" : "Parallel mode bits determine whether the SPI/MibSPI operates with 1, 2, 4 or 8 data lines."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "MOD CLK POL 0",
+               "info" : "Modulo mode SPICLK polarity. This bit determines the polarity of the SPICLK in modulo"
+             },
+             {
+               "bit_number" : "4-2",
+               "bit_Field_Name" : "MMODE 0",
+               "info" : "These bits determine whether the SPI/MibSPI operates with 1, 2, 4, 5, or 6 data lines (if"
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "PMODE 0",
+               "info" : "Parallel mode bits determine whether the SPI/MibSPI operates with 1, 2, 4 or 8 data lines."
+             }
+          ]
+        },
+{
+          "name" : "MIBSPIE",
+          "info" : "Multi-buffer Mode Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "RXRAM ACCESS",
+               "info" : "Receive-RAM access control. During normal operating mode of SPI, the receive"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "MSPIENA",
+               "info" : "Multi-buffer mode enable. After power-up or reset, MSPIENA remains cleared, which means"
+             }
+          ]
+        },
+{
+          "name" : "TGITENST",
+          "info" : "TG Interrupt Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "SET INTENRDY",
+               "info" : "TG interrupt set (enable) when transfer finished."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "SET INTENSUS",
+               "info" : "TG interrupt set (enabled) when transfer suspended"
+             }
+          ]
+        },
+{
+          "name" : "TGITENCR",
+          "info" : "TG Interrupt Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "CLR INTENRDY",
+               "info" : "TG interrupt clear (disabled) when transfer finished."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CLR INTENSUS",
+               "info" : "CLR INTENSUS"
+             }
+          ]
+        },
+{
+          "name" : "TGITLVST",
+          "info" : "Transfer Group Interrupt Level Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "SET INTLVLRDY",
+               "info" : "Transfer-group completed interrupt level set."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "SET INTLVLSUS",
+               "info" : "Transfer-group suspended interrupt level set."
+             }
+          ]
+        },
+{
+          "name" : "TGITLVCR",
+          "info" : "Transfer Group Interrupt Level Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "CLR INTLVLRDY",
+               "info" : "Transfer-group completed interrupt level clear."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CLR INTLVLSUS",
+               "info" : "Transfer group suspended interrupt level clear."
+             }
+          ]
+        },
+{
+          "name" : "TGINTFLG",
+          "info" : "Transfer Group Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "INTFLGRDY",
+               "info" : "Transfer-group interrupt flag for a transfer-completed interrupt."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "INTFLGSUS",
+               "info" : "ransfer-group interrupt flag for a transfer-suspend interrupt."
+             }
+          ]
+        },
+{
+          "name" : "TICKCNT",
+          "info" : "Tick Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "TICKENA",
+               "info" : "Tick counter enable."
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "RELOAD",
+               "info" : "Pre-load the tick counter. RELOAD is a set-only bit; writing a 1 to it reloads the tick counter with"
+             },
+             {
+               "bit_number" : "29-28",
+               "bit_Field_Name" : "CLKCTRL",
+               "info" : "Tick counter clock source control. CLKCTRL defines the clock source that is used to clock the",
+               "values" : [
+                 {"value" : "0", "desc" : "SPICLK of data word format 0 is selected as the clock source of the tick counter"},
+                 {"value" : "1h", "desc" : "SPICLK of data word format 1 is selected as the clock source of the tick counter"},
+                 {"value" : "1h", "desc" : "SPICLK of data word format 2 is selected as the clock source of the tick counter"},
+                 {"value" : "3h", "desc" : "SPICLK of data word format 3 is selected as the clock source of the tick counter"}
+                ]
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "TICKVALUE",
+               "info" : "counter is loaded with the contents of TICKVALUE every time an underflow condition occurs and"
+             }
+          ]
+        },
+{
+          "name" : "LTGPEND",
+          "info" : "Last TG End Pointer",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "94",
+          "fields" : [
+             {
+               "bit_number" : "28-24",
+               "bit_Field_Name" : "TG IN SERVICE",
+               "info" : "The TG number currently being serviced by the sequencer. These bits indicate the current"
+             },
+             {
+               "bit_number" : "14-8",
+               "bit_Field_Name" : "LPEND",
+               "info" : "Last TG end pointer. Usually the TG end address (PEND) is inherently defined by the start"
+             }
+          ]
+        },
+{
+          "name" : "D4h TGxCTRL",
+          "info" : "TGx Control Registers",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "98h",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "TGENA",
+               "info" : "TGx enable."
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "ONESHOTx",
+               "info" : "Single transfer for TGx."
+             },
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "PRSTx",
+               "info" : "TGx pointer reset mode. Configures the way to resolve trigger events during an ongoing transfer."
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "TGTDx",
+               "info" : "TG triggered.",
+               "values" : [
+                 {"value" : "0", "desc" : "TGx has not been triggered or is no longer waiting for service."},
+                 {"value" : "1", "desc" : "TGx has been triggered and is either currently being serviced or waiting for servicing."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "F4h DMAxCTRL",
+          "info" : "DMA Channel Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "D8h",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "ONESHOT",
+               "info" : "Auto-disable of DMA channel after ICOUNT+1 transfers."
+             },
+             {
+               "bit_number" : "30-24",
+               "bit_Field_Name" : "BUFIDx",
+               "info" : "Buffer utilized for DMA transfer. BUFIDx defines the buffer that is utilized for the DMA"
+             },
+             {
+               "bit_number" : "23-20",
+               "bit_Field_Name" : "RXDMA_MAPx",
+               "info" : "Each MibSPI DMA channel can be linked to two physical DMA Request lines of the DMA"
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "TXDMA_MAPx",
+               "info" : "Each MibSPI DMA channel can be linked to two physical DMA Request lines of the DMA"
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RXDMAENAx",
+               "info" : "Receive data DMA channel enable."
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "TXDAMENAx",
+               "info" : "Transmit data DMA channel enable."
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "NOBRKx",
+               "info" : "Non-interleaved DMA block transfer. This bit is available in master mode only."
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "ICOUNTx",
+               "info" : "Initial count of DMA transfers. ICOUNTx is used to preset the transfer counter"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "COUNT BIT17x",
+               "info" : "The 17th bit of the COUNT field of DMAxCOUNT register."
+             },
+             {
+               "bit_number" : "5-0",
+               "bit_Field_Name" : "COUNTx",
+               "info" : "Actual number of remaining DMA transfers. This field contains the actual number of DMA"
+             }
+          ]
+        },
+{
+          "name" : "114h ICOUNT",
+          "info" : "DMAxCOUNT Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F8h",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "ICOUNTx",
+               "info" : "Every time COUNTx hits zero, it is reloaded with ICOUNTx. The real number of transfer equals"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "COUNTx",
+               "info" : "The actual number of remaining DMA transfers.COUNTx Contains the actual number of"
+             }
+          ]
+        },
+{
+          "name" : "DMACNTLEN",
+          "info" : "DMA Large Count",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "118",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "LARGE COUNT",
+               "info" : "Select either the 16-bit DMAxCOUNT counters or the smaller counters in DMAxCTRL."
+             }
+          ]
+        },
+{
+          "name" : "UERRCTRL",
+          "info" : "Multi-buffer RAM Uncorrectable Parity Error Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "120",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "PTESTEN",
+               "info" : "Parity memory test enable. This bit maps the parity bits corresponding to multi-buffer RAM"
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "EDEN",
+               "info" : "Error detection enable. These bits enable parity error detection."
+             }
+          ]
+        },
+{
+          "name" : "UERRSTAT",
+          "info" : "Multi-buffer RAM Uncorrectable Parity Error Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "124",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "EDFLG1",
+               "info" : "RXRAM."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EDFLG0",
+               "info" : "Uncorrectable parity error detection flag. This flag indicates if a parity error occurred in the"
+             }
+          ]
+        },
+{
+          "name" : "UERRADDR1",
+          "info" : "RXRAM Uncorrectable Parity Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "128",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "OVERADDR1",
+               "info" : "Uncorrectable parity error address for RXRAM. This register holds the address where"
+             }
+          ]
+        },
+{
+          "name" : "UERRADDR0",
+          "info" : "TXRAM Uncorrectable Parity Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "12C",
+          "fields" : [
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "UERRADDR0",
+               "info" : "a parity error is generated while reading from TXRAM. The TXRAM can be read either by"
+             }
+          ]
+        },
+{
+          "name" : "RXOVRN_BUF_ADDR",
+          "info" : "RXRAM Overrun Buffer Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "130",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "RXOVRN_BUF_ADDR",
+               "info" : "Address in RXRAM at which an overwrite occurred. This address value will show"
+             }
+          ]
+        },
+{
+          "name" : "IOLPBKTSTCR",
+          "info" : "I/O Loopback Test Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "134",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "SCS FAIL FLG",
+               "info" : "Bit indicating a failure on SPISCS pin compare during analog loopback."
+             },
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "CTRL BITERR",
+               "info" : "Controls inducing of BITERR during I/O loopback test mode."
+             },
+             {
+               "bit_number" : "19",
+               "bit_Field_Name" : "CTRL DESYNC",
+               "info" : "Controls inducing of the desync error during I/O loopback test mode."
+             },
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "CTRL PARERR",
+               "info" : "Controls inducing of the parity errors during I/O loopback test mode."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CTRL TIMEOUT",
+               "info" : "Controls inducing of the timeout error during I/O loopback test mode."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "CTRL DLENERR",
+               "info" : "Controls inducing of the data length error during I/O loopback test mode."
+             },
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "IOLPBKSTENA",
+               "info" : "Module I/O loopback test enable key."
+             },
+             {
+               "bit_number" : "5-3",
+               "bit_Field_Name" : "ERR SCS PIN",
+               "info" : "Inject error on chip-select pin number x. The value in this field is decoded as the"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "CTRL SCS PIN",
+               "info" : "Enable/disable the injection of an error on the SPISCS[3:0] pins. The individual",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable the SPISCS[3:0] error-inducing logic."},
+                 {"value" : "1", "desc" : "Enable the SPISCS[3:0] error-inducing logic."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "LPBK TYPE",
+               "info" : "Module I/O loopback type (analog/digital). See Figure 25-22 for the different types of"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RXP ENA",
+               "info" : "Enable analog loopback through the receive pin."
+             }
+          ]
+        },
+{
+          "name" : "EXTENDED_PRESCALE1",
+          "info" : "SPI Extended Prescale Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "138",
+          "fields" : [
+             {
+               "bit_number" : "26-16",
+               "bit_Field_Name" : "EPRESCALE_FMT1",
+               "info" : "EPRESCALE_FMT1. Extended Prescale value for SPIFMT1."
+             }
+          ]
+        },
+{
+          "name" : "EXTENDED_PRESCALE2",
+          "info" : "SPI Extended Prescale Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "13C",
+          "fields" : [
+             {
+               "bit_number" : "26-16",
+               "bit_Field_Name" : "EPRESCALE_FMT3",
+               "info" : "EPRESCALE_FMT3. Extended Prescale value for SPIFMT1."
+             }
+          ]
+        },

@@ -1,0 +1,265 @@
+{
+          "name" : "REVISION_REG",
+          "info" : "Revision Register",
+          "lenght" : "32",
+          "adress" : "FFFFEA00",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-30",
+               "bit_Field_Name" : "REV SCHEME",
+               "info" : "Revision Scheme"
+             },             
+             {
+               "bit_number" : "27-16",
+               "bit_Field_Name" : "REV MODULE",
+               "info" : "Module Id"
+             },
+             {
+               "bit_number" : "15-11",
+               "bit_Field_Name" : "REV RTL",
+               "info" : "RTL Revision"
+             },
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "REV MAJOR",
+               "info" : "Major Revision"
+             },
+             {
+               "bit_number" : "7-6",
+               "bit_Field_Name" : "REV CUSTOM",
+               "info" : "REV CUSTOM 0 Custom Revision"
+             },
+             {
+               "bit_number" : "5-0",
+               "bit_Field_Name" : "REV MINOR",
+               "info" : "Minor Revision"
+             }
+          ]
+        },
+{
+          "name" : "ENDIAN_REG",
+          "info" : "Device Endianness Register",
+          "lenght" : "32",
+          "adress" : "FFFFEA20",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ENDIAN",
+               "info" : "Device endianness",
+               "values" : [
+                 {"value" : "0", "desc" : "Device is configured in little endian mode"},
+                 {"value" : "1", "desc" : "Device is configured in big endian mode"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "KICK_REG0",
+          "info" : "Kicker Register 0",
+          "lenght" : "32",
+          "adress" : "FFFFEA38",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "KICK0",
+               "info" : "Kicker 0 Register.The value 83E7 0B13h must be written to KICK0 as part of the process to"
+             }
+          ]
+        },
+{
+          "name" : "KICK_REG1",
+          "info" : "Kicker Register 1",
+          "lenght" : "32",
+          "adress" : "FFFFEA3C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "KICK1",
+               "info" : "Kicker 1 Register.The value 95A4 F1E0h must be written to the KICK1 as part of the process to"
+             }
+          ]
+        },
+{
+          "name" : "ERR_RAW_STATUS_REG",
+          "info" : "Error Raw Status / Set Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAE0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "ADDR_ERR",
+               "info" : "Addressing Error Status and Error Signaling Enable. An Addressing Error occurs when an",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Addressing Error has not occurred."},
+                 {"value" : "1", "desc" : "Read: Addressing Error has been detected."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PROT_ERR",
+               "info" : "register inside the IOMM is written in the CPU's user mode of operation.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Protection Error has not occurred."},
+                 {"value" : "1", "desc" : "Read: Protection Error has been detected."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ERR_ENABLED_STATUS_REG",
+          "info" : "Error Enabled Status / Clear Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAE4",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "ENABLED_ADDR_ERR",
+               "info" : "Addressing Error Signaling Enable Status and Status Clear",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Addressing Error Signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Addressing Error Signalingis enabled."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ENABLED_PROT_ERR",
+               "info" : "Protection Error Signaling Enable Status and Status Clear",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Protection Error Signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Protection Error Signaling is enabled."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "ERR_ENABLE_REG",
+          "info" : "Error Signaling Enable Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAE8",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "ADDR_ERR_EN",
+               "info" : "Addressing Error Signaling Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Addressing Error Signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Addressing Error Signaling is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PROT_ERR_EN",
+               "info" : "Protection ErrorSignaling Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Protection Error Signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Protection Error Signaling is enabled."}
+                ]
+             },
+
+          ]
+        },
+         {
+          "name" : "ERR_ENABLE_CLR_REG",
+          "info" : "Error Signaling Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAEC",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "ADDR_ERR_EN_CLR",
+               "info" : "Addressing Error Signaling Enable Clear",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Addressing Error signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Addressing Error signaling is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PROT_ERR_EN_CLR",
+               "info" : "Protection Error Signaling Enable Clear",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Protection Error signaling is disabled."},
+                 {"value" : "1", "desc" : "Read: Protection Error signaling is enabled."}
+                ]
+             },
+
+          ]
+        },
+         {
+          "name" : "FAULT_ADDRESS_REG",
+          "info" : "Fault Address Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAF4",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FAULT_ADDR",
+               "info" : "Fault Address. This field captures the fault address in case of an address error or a"
+             }
+          ]
+        },
+         {
+          "name" : "FAULT_STATUS_REG",
+          "info" : "Fault Status Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAF8",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "FAULT_ID",
+               "info" : "Faulting Transaction ID"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "FAULT_MSTID",
+               "info" : "ID of Master that initiated the faulting transaction"
+             },
+             {
+               "bit_number" : "12-9",
+               "bit_Field_Name" : "FAULT_PRIVID",
+               "info" : "Faulting Privilege ID"
+             },
+             {
+               "bit_number" : "5-0",
+               "bit_Field_Name" : "FAULT_TYPE",
+               "info" : "Type of fault detected",
+               "values" : [
+                 {"value" : "20h", "desc" : "Supervisor read fault"},
+                 {"value" : "8h", "desc" : "Supervisor write fault"},
+                 {"value" : "4h", "desc" : "Supervisor execute fault"},
+                 {"value" : "3h", "desc" : "User read fault"},
+                 {"value" : "2h", "desc" : "User write fault"},
+                 {"value" : "1h", "desc" : "User execute fault"},
+                 {"value" : "0", "desc" : "No fault"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FAULT_CLEAR_REG",
+          "info" : "Fault Clear Register",
+          "lenght" : "32",
+          "adress" : "FFFFEAFC",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FAULT_CLEAR",
+               "info" : "Fault Clear",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "Read: Current value of the FAULT_CLEAR bit is 1."}
+                ]
+             }
+          ]
+        }

@@ -1,0 +1,724 @@
+{
+          "name" : "CRC_CTRL0",
+          "info" : "CRC Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CH2_PSA_SWREST",
+               "info" : "Channel 2 PSA Software Reset. When set, the PSA Signature Register is reset to all zero."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CH1_PSA_SWREST",
+               "info" : "Channel 1 PSA Software Reset. When set, the PSA Signature Register is reset to all zero."
+             }
+          ]
+        },
+{
+          "name" : "CRC_CTRL1",
+          "info" : "CRC Global Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PWDN",
+               "info" : "Power Down. When set, CRC module is put in power-down mode",
+               "values" : [
+                 {"value" : "0", "desc" : "CRC is not in power-down mode"},
+                 {"value" : "1", "desc" : "CRC is in power-down mode"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CRC_CTRL2",
+          "info" : "CRC Global Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "CH2_MODE",
+               "info" : "Channel 2 Mode Selection",
+               "values" : [
+                 {"value" : "0", "desc" : "Data Capture mode. In this mode, the PSA Signature Register does not compress data when it"},
+                 {"value" : "1h", "desc" : "AUTO Mode"},
+                 {"value" : "2h", "desc" : "Semi-CPU Mode"},
+                 {"value" : "3h", "desc" : "Full-CPU Mode"}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CH1_TRACEEN",
+               "info" : "Channel 1 Data Trace Enable. When set, the channel is put into data trace mode. The channel",
+               "values" : [
+                 {"value" : "0", "desc" : "Data Trace disable"},
+                 {"value" : "1", "desc" : "Data Trace enable"}
+                ]
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "CH1_MODE",
+               "info" : "Channel 1 Mode Selection",
+               "values" : [
+                 {"value" : "0", "desc" : "Data Capture mode. In this mode, the PSA Signature Register does not compress data when it"},
+                 {"value" : "1h", "desc" : "AUTO Mode"},
+                 {"value" : "2h", "desc" : "Semi-CPU Mode"},
+                 {"value" : "3h", "desc" : "Full-CPU Mode"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CRC_INTS",
+          "info" : "CRC Interrupt Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "CH2_TIMEOUTENS",
+               "info" : "Channel 2 Timeout Interrupt Enable Bit. Writing a one to this bit enables the timeout"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "CH2_UNDERENS",
+               "info" : "Channel 2 Underrun Interrupt Enable Bit. Writing a one to this bit enables the underrun"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "CH2_OVERENS",
+               "info" : "Channel 2 Overrun Interrupt Enable Bit. Writing a one to this bit enables the overrun"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CH2_CRCFAILENS",
+               "info" : "Channel 2 CRC Fail Interrupt Enable Bit. Writing a one to this bit enables the CRC fail"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CH2_CCITENS",
+               "info" : "Channel 2 Compression Complete Interrupt Enable Bit. Writing a one to this bit enables"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CH1_TIMEOUTENS",
+               "info" : "Channel 1 Timeout Interrupt Enable Bit. Writing a one to this bit enables the timeout"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "CH1_UNDERENS",
+               "info" : "Channel 1 Underrun Interrupt Enable Bit. Writing a one to this bit enables the underrun"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "CH1_OVERENS",
+               "info" : "CH1_OVERENS Channel 1 Overrun Interrupt Enable Bit. Writing a one to this bit enables the overrun"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CH1_CRCFAILENS",
+               "info" : "Channel 1 CRC Fail Interrupt Enable Bit. Writing a one to this bit enables the CRC fail"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CH1_CCITENS",
+               "info" : "Channel 1 Compression Complete Interrupt Enable Bit. Writing a one to this bit enables"
+             }
+          ]
+        },
+{
+          "name" : "CRC_INTR",
+          "info" : "CRC Interrupt Enable Reset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "CH2_TIMEOUTENR",
+               "info" : "Channel 2 Timeout Interrupt Enable Bit. Writing a one to this bit disables the timeout"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "CH2_UNDERENR",
+               "info" : "Channel 2 Underrun Interrupt Enable Bit. Writing a one to this bit disables the underrun"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "CH2_OVERENR",
+               "info" : "Channel 2 Overrun Interrupt Enable Bit. Writing a one to this bit disables the overrun"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CH2_CRCFAILENR",
+               "info" : "Channel 2 CRC Fail Interrupt Enable Bit. Writing a one to this bit disables the CRC fail"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CH2_CCITENR",
+               "info" : "Channel 2 Compression Complete Interrupt Enable Bit. Writing a one to this bit disables"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CH1_TIMEOUTENR",
+               "info" : "Channel 1 Timeout Interrupt Enable Bit. Writing a one to this bit disables the timeout"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "CH1_UNDERENR",
+               "info" : "interrupt. Writing a zero has no effect. Reading from this bit gives the status (interrupt"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "CH1_OVERENR",
+               "info" : "CH1_OVERENR"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CH1_CRCFAILENR",
+               "info" : "Channel 1 CRC Fail Interrupt Enable Bit. Writing a one to this bit disables the CRC fail"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CH1_CCITENR",
+               "info" : "Channel 1 Compression Complete Interrupt Enable Bit. Writing a one to this bit disables"
+             }
+          ]
+        },
+{
+          "name" : "CRC_STATUS",
+          "info" : "CRC Interrupt Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "CH2_TIMEOUT",
+               "info" : "Channel 2 CRC Timeout Status Flag. This bit is cleared by writing a '1' to it only. Writing '0'"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "CH2_UNDER",
+               "info" : "Channel 2 CRC Underrun Status Flag. This bit is cleared by writing a '1' to it only. Writing '0'",
+               "values" : [
+                 {"value" : "0", "desc" : "No Underrun Interrupt is active"},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "CH2_OVER",
+               "info" : "Channel 2 CRC Overrun Status Flag. This bit is cleared by writing a '1' to it only. Writing '0'",
+               "values" : [
+                 {"value" : "0", "desc" : "No Overrun Interrupt is active"},
+                 {"value" : "1", "desc" : "Overrun Interrupt is active"}
+                ]
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "CH2_CRCFAIL",
+               "info" : "Channel 2 CRC Compare Fail Status Flag. This bit is cleared by writing a '1' to it only. Writing",
+               "values" : [
+                 {"value" : "0", "desc" : "No CRC Fail Interrupt is active"},
+                 {"value" : "1", "desc" : "CRC Fail Interrupt is active"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CH2_CCIT",
+               "info" : "Channel 2 CRC Pattern Compression Complete Status Flag. This bit is cleared by writing a",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CH1_TIMEOUT",
+               "info" : "Writing a zero has no effect. Reading from this bit gives the status (interrupt enable/disable).",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "Timeout Interrupt disable"}
+                ]
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "CH1_UNDER",
+               "info" : "Channel 1 Underrun Interrupt Enable Bit. Writing a one to this bit disable the underrun",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "Underrun Interrupt disable"}
+                ]
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "CH1_OVER",
+               "info" : "Channel 1 Overrun Interrupt Enable Bit. Writing a one to this bit disable the overrun interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "Overrun Interrupt disable"}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CH1_CRCFAIL",
+               "info" : "Channel 1 CRC Fail Interrupt Enable Bit. Writing a one to this bit disable the CRC fail",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "CRC Fail Interrupt disable"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CH1_CCIT",
+               "info" : "Channel 1 CRC Pattern Compression Complete Status Flag. Writing a one to this bit disable",
+               "values" : [
+                 {"value" : "0", "desc" : "Has no effect"},
+                 {"value" : "1", "desc" : "Compression Complete Interrupt disable"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CRC_INT_OFFS_ET_REG",
+          "info" : "CRC Interrupt Offset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "OFSTREG",
+               "info" : "CRC Interrupt Offset. This register indicates the highest priority pending interrupt vector address.",
+               "values" : [
+                 {"value" : "0", "desc" : "Phantom"},
+                 {"value" : "1h", "desc" : "Ch1 CRC Fail"},
+                 {"value" : "2h", "desc" : "Ch2 CRC Fail"},
+                 {"value" : "9h", "desc" : "Ch1 Compression Complete"},
+                 {"value" : "Ah", "desc" : "Ch2 Compression Complete"},
+                 {"value" : "11h", "desc" : "Ch1 Overrun"},
+                 {"value" : "12h", "desc" : "Ch2 Overrun"},
+                 {"value" : "19h", "desc" : "Ch1 Underrun"},
+                 {"value" : "1Ah", "desc" : "Ch2 Underrun"},
+                 {"value" : "21h", "desc" : "Ch1 Timeout"},
+                 {"value" : "22h", "desc" : "Ch2 Timeout"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CRC_BUSY",
+          "info" : "CRC Busy Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CH2_BUSY",
+               "info" : "CH2_BUSY. During AUTO or Semi-CPU mode, the busy flag is set when the first data pattern of"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CH1_BUSY",
+               "info" : "CH1_BUSY. During AUTO or Semi-CPU mode, the busy flag is set when the first data pattern of"
+             }
+          ]
+        },
+{
+          "name" : "CRC_PCOUNT_REG1",
+          "info" : "CRC Channel 1 Pattern Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "CRC_PAT_COUNT1",
+               "info" : "Channel 1 Pattern Counter Preload Register. This register contains the number of data"
+             }
+          ]
+        },
+{
+          "name" : "CRC_SCOUNT_REG1",
+          "info" : "CRC Channel 1 Sector Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CRC_SEC_COUNT1",
+               "info" : "Channel 1 Sector Counter Preload Register. This register contains the number of sectors"
+             }
+          ]
+        },
+{
+          "name" : "CRC_CURSEC_REG1",
+          "info" : "CRC Channel 1 Current Sector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CRC_CURSEC1",
+               "info" : "Channel 1 Current Sector ID Register. In AUTO mode, this register contains the current"
+             },
+
+          ]
+        },
+{
+          "name" : "CRC_BCTOPLD1",
+          "info" : "CRC Channel 1 Block Complete Timeout Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "CRC_BCTOPLD1",
+               "info" : "Channel 1 Block Complete Timeout Counter Preload Register. This register contains the"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SIGREGL1",
+          "info" : "Channel 1 PSA Signature Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASIG1",
+               "info" : "Channel 1 PSA Signature Low Register. This register contains the value stored at PSASIG1[31:0]"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SIGREGH1",
+          "info" : "Channel 1 PSA Signature High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASIG1",
+               "info" : "register."
+             }
+          ]
+        },
+{
+          "name" : "CRC_REGL1",
+          "info" : "Channel 1 CRC Value Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CRC1",
+               "info" : "Channel 1 CRC Value Low Register. This register contains the current known good signature value"
+             }
+          ]
+        },
+{
+          "name" : "CRC_REGH1",
+          "info" : "Channel 1 CRC Value High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CRC1",
+               "info" : "Channel 1 CRC Value Low Register. This register contains the current known good signature value"
+             },
+
+          ]
+        },
+{
+          "name" : "PSA_SECSIGREGL1",
+          "info" : "Channel 1 PSA Sector Signature Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASECSIG1",
+               "info" : "Channel 1 PSA Sector Signature Low Register. This register contains the value stored at"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SECSIGREGH1",
+          "info" : "Channel 1 PSA Sector Signature High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASECSIG1",
+               "info" : "Channel 1 PSA Sector Signature High Register. This register contains the value stored at"
+             }
+          ]
+        },
+{
+          "name" : "RAW_DATAREGL1",
+          "info" : "Channel 1 Raw Data Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA1",
+               "info" : "hannel 1 Raw Data Low Register.This register contains bits 31:0 of the uncompressed raw data."
+             }
+          ]
+        },
+{
+          "name" : "RAW_DATAREGH1",
+          "info" : "Channel 1 Raw Data High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA1",
+               "info" : "Channel 1 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data."
+             }
+          ]
+        },
+{
+          "name" : "CRC_PCOUNT_REG2",
+          "info" : "CRC Channel 2 Pattern Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "CRC_PAT_COUNT2",
+               "info" : "Channel 2 Pattern Counter Preload Register. This register contains the number of data"
+             }
+          ]
+        },
+{
+          "name" : "CRC_SCOUNT_REG2",
+          "info" : "CRC Channel 2 Sector Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CRC_SEC_COUNT2",
+               "info" : "Channel 2 Sector Counter Preload Register.This register contains the number of sectors"
+             }
+          ]
+        },
+{
+          "name" : "CRC_CURSEC_REG2",
+          "info" : "CRC Current Sector Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CRC_CURSEC2",
+               "info" : "Channel 2 Current Sector ID Register. In AUTO mode, this register contains the current"
+             }
+          ]
+        },
+{
+          "name" : "CRC_WDTOPLD2",
+          "info" : "CRC Channel 2 Watchdog Timeout Preload Register A",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "CRC_WDTOPLD2",
+               "info" : "Channel 2 Watchdog Timeout Counter Preload Register. This register contains the number"
+             }
+          ]
+        },
+{
+          "name" : "CRC_BCTOPLD2",
+          "info" : "CRC Channel 2 Block Complete Timeout Preload Register B",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "CRC_BCTOPLD2",
+               "info" : "Channel 2 Block Complete Timeout Counter Preload Register. This register contains the"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SIGREGL2",
+          "info" : "Channel 2 PSA Signature Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASIG2",
+               "info" : "Channel 2 PSA Signature Low Register. This register contains the value stored at PSASIG2[31:0]"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SIGREGH2",
+          "info" : "Channel 2 PSA Signature High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASIG2",
+               "info" : "Channel 2 PSA Signature High Register. This register contains the value stored at PSASIG2[63:32]"
+             }
+          ]
+        },
+{
+          "name" : "CRC_REGL2",
+          "info" : "Channel 2 CRC Value Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CRC2",
+               "info" : "stored at CRC2[31:0] register."
+             }
+          ]
+        },
+{
+          "name" : "CRC_REGH2",
+          "info" : "Channel 2 CRC Value High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "AC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CRC2",
+               "info" : "Channel 2 CRC Value High Register. This register contains the current known good signature value"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SECSIGREGL2",
+          "info" : "Channel 2 PSA Sector Signature Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASECSIG2",
+               "info" : "Channel 2 PSA Sector Signature Low Register. This register contains the value stored at"
+             }
+          ]
+        },
+{
+          "name" : "PSA_SECSIGREGH2",
+          "info" : "Channel 2 PSA Sector Signature High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "PSASECSIG2",
+               "info" : "Channel 2 PSA Sector Signature High Register. This register contains the value stored at"
+             }
+          ]
+        },
+{
+          "name" : "RAW_DATAREGL2",
+          "info" : "Channel 2 Raw Data Low Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA2",
+               "info" : "Channel 2 Raw Data Low Register. This register contains bits 31:0 of the uncompressed raw data.."
+             }
+          ]
+        },
+{
+          "name" : "RAW_DATAREGH2",
+          "info" : "Channel 2 Raw Data High Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "BC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA2",
+               "info" : "Channel 2 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data.."
+             }
+          ]
+        },
+{
+          "name" : "CRC_BUS_SEL",
+          "info" : "Data Bus Selection Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "140",
+          "fields" : [
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "MEn",
+               "info" : "Enable/disables the tracing of Peripheral Bus Master",
+               "values" : [
+                 {"value" : "0", "desc" : "Tracing of Peripheral Bus Master has been disabled"},
+                 {"value" : "1", "desc" : "Tracing of Peripheral Bus Master has been enabled"}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DTCMEn",
+               "info" : "Enable/disables the tracing of data TCM",
+               "values" : [
+                 {"value" : "0", "desc" : "Tracing of System Odd and Even RAM buses have been disabled"},
+                 {"value" : "1", "desc" : "Tracing of System Odd and Even RAM buses have been enabled"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ITCMEn",
+               "info" : "Enable/disables the tracing of instruction TCM",
+               "values" : [
+                 {"value" : "0", "desc" : "Tracing of Flash data bus has been disabled"},
+                 {"value" : "1", "desc" : "Tracing of Flash data bus has been enabled"}
+                ]
+             }
+          ]
+        },

@@ -1,0 +1,146 @@
+{
+          "name" : "STCGCR0",
+          "info" : "STC Global Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "INTCOUNT",
+               "info" : "Number of intervals of self-test run"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RS_CNT",
+               "info" : "Restart or Continue",
+               "values" : [
+                 {"value" : "0", "desc" : "Continue STC run from the previous interval."},
+                 {"value" : "1", "desc" : "Restart STC run from interval 0."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCGCR1",
+          "info" : "STCGlobal Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "STC_ENA",
+               "info" : "Self-test run enable key",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Self-test run enabled."},
+                 {"value" : "All Others", "desc" : "Self-test run disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCTPR",
+          "info" : "Self-Test Run Timeout Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RTOD",
+               "info" : "Self-test timeout count preload"
+             }
+          ]
+        },
+{
+          "name" : "STC_CADDR",
+          "info" : "STC Current ROM Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ADDR",
+               "info" : "Current ROM Address"
+             }
+          ]
+        },
+{
+          "name" : "STCCICR",
+          "info" : "STC Current Interval Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "N",
+               "info" : "Interval Number"
+             }
+          ]
+        },
+{
+          "name" : "STCGSTAT",
+          "info" : "Self-Test Global Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TEST_FAIL",
+               "info" : "Test Fail",
+               "values" : [
+                 {"value" : "0", "desc" : "Self-test run has not failed."},
+                 {"value" : "1", "desc" : "Self-test run has failed."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TEST_DONE",
+               "info" : "Test Done",
+               "values" : [
+                 {"value" : "0", "desc" : "Not completed."},
+                 {"value" : "1", "desc" : "Self-test run completed."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCFSTAT",
+          "info" : "Self-Test Fail Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "TO_ERR",
+               "info" : "Timeout Error",
+               "values" : [
+                 {"value" : "0", "desc" : "No time out error occurred."},
+                 {"value" : "1", "desc" : "Self-test run failed due to a timeout error."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CPU2_FAIL",
+               "info" : "CPU2 failure info",
+               "values" : [
+                 {"value" : "0", "desc" : "No MISR mismatch for CPU2."},
+                 {"value" : "1", "desc" : "Self-test run failed due to MISR mismatch for CPU2."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CPU1_FAIL",
+               "info" : "CPU1 failure info",
+               "values" : [
+                 {"value" : "0", "desc" : "No MISR mismatch for CPU1."},
+                 {"value" : "1", "desc" : "Self-test run failed due to MISR mismatch for CPU1."}
+                ]
+             }
+          ]
+        },

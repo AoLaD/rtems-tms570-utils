@@ -1,0 +1,229 @@
+         {
+          "name" : "RAMCTRL",
+          "info" : "TCRAM Module Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "00",
+          "fields" : [
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "EMU TRACE DIS",
+               "info" : "Emulation Mode Trace Disable. This bit, when set, disables the tracing of read data to",
+               "values" : [
+                 {"value" : "0", "desc" : "Data is allowed to be traced out to the trace modules for emulation mode accesses."},
+                 {"value" : "1", "desc" : "Data is blocked from being traced out to the trace modules for emulation mode"}
+                ]
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "ADDR PARITY OVERRIDE",
+               "info" : "Address Parity Override. This field, when set to Dh, will invert the parity scheme",
+               "values" : [
+                 {"value" : "Dh", "desc" : "Parity scheme is opposite to the device global parity scheme."},
+                 {"value" : "All Others", "desc" : "Parity scheme is the same as the device global parity scheme."}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "ADDR PARITY DISABLE",
+               "info" : "Address Parity Detect Disable. This field, when set to Ah, disables the parity checking",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Address parity checking is disabled"},
+                 {"value" : "All Others", "desc" : "Address parity checking is enabled"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ECC WR EN",
+               "info" : "ECC Memory Write Enable. This bit is provided to prevent accidental writes to the ECC",
+               "values" : [
+                 {"value" : "0", "desc" : "ECC memory writes are disabled."},
+                 {"value" : "1", "desc" : "ECC memory writes are enabled."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "ECC DETECT EN",
+               "info" : "ECC Detect Enable. This is a 4-bit key to enable the ECC detection feature in the",
+               "values" : [
+                 {"value" : "5h", "desc" : "ECC detection is disabled."},
+                 {"value" : "All Others", "desc" : "ECC detection is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RAMTHRESHOLD",
+          "info" : "TCRAM Module Single-Bit Error Correction Threshold Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "THRESHOLD",
+               "info" : "Single-bit Error Threshold Count. This field contains the threshold value for the Single-bit Error"
+             }
+          ]
+        },
+{
+          "name" : "RAMOCCUR",
+          "info" : "TCRAM Module Single-Bit Error Occurrences Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "SINGLE ERROR",
+               "info" : "Single-bit Error Correction Occurrences. This 16-bit counter contains the number of"
+             },
+
+          ]
+        },
+         {
+          "name" : "RAMINTCTRL",
+          "info" : "TCRAM Module Interrupt Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SERR EN",
+               "info" : "Single-bit Error Correction Interrupt Enable. This bit, when set to 1, enables the generation of",
+               "values" : [
+                 {"value" : "0", "desc" : "Single-bit error generation is disabled."},
+                 {"value" : "1", "desc" : "Single-bit error generation is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RAMERRSTATUS",
+          "info" : "TCRAM Module Error Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "WADDR PAR FAIL",
+               "info" : "This bit indicates a Write Address Parity Failure. This bit must be cleared by writing 1"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RADDR PAR FAIL",
+               "info" : "This bit indicates a Read Address Parity Failure. This bit must be cleared by writing 1"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "DERR",
+               "info" : "This bit indicates a multi-bit error detected by the Cortex-R4F SECDED logic."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "ADDR COMP LOGIC FAIL",
+               "info" : "Address decode logic element failed. This bit indicates that the redundant address"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "ADDR DEC FAIL",
+               "info" : "Address decode failed. This bit indicates that an address error interrupt was generated"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SERR",
+               "info" : "Single Error Status. This bit indicates that the single-bit error threshold has been"
+             }
+          ]
+        },
+{
+          "name" : "RAMSERRADDR",
+          "info" : "TCRAM Module Single-Bit Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "17-3",
+               "bit_Field_Name" : "SINGLE ERROR ADDRESS",
+               "info" : "This register captures the bits 17-3 of the address for which the Cortex-R4F CPU"
+             }
+          ]
+        },
+{
+          "name" : "RAMUERRADDR",
+          "info" : "TCRAM Module Uncorrectable Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "22-3",
+               "bit_Field_Name" : "UNCORRECTABLE",
+               "info" : "address parity error."
+             }
+          ]
+        },
+{
+          "name" : "RAMTEST",
+          "info" : "TCRAM Module Test Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TRIGGER",
+               "info" : "Test Trigger. This is an auto reset test trigger used to test the redundant address decode"
+             },
+             {
+               "bit_number" : "7-6",
+               "bit_Field_Name" : "TEST MODE",
+               "info" : "Test Mode. This field selects either equality of inequality testing schemes."
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "TEST ENABLE",
+               "info" : "Test Enable. This is a 4-bit key to enable the redundant address decode and compare",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Test mode is enabled."},
+                 {"value" : "All Others", "desc" : "Test mode is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RAMADDRDECVECT",
+          "info" : "TCRAM Module Test Mode Vector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "ECC SELECT",
+               "info" : "ECC Select. This bit is used to store the ECC select value for the redundant address"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "RAM CHIP SELECT",
+               "info" : "RAM Chip Select. This field is used to store the RAM chip select value for the redundant"
+             }
+          ]
+        },
+{
+          "name" : "RAMPERADDR",
+          "info" : "TCRAM Module Parity Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "22-3",
+               "bit_Field_Name" : "ADDRESS PARITY",
+               "info" : "Parity Error Address. This register stores the double-word boundary (bits 22-3) of the"
+             }
+          ]
+        },

@@ -1,0 +1,255 @@
+{
+          "name" : "RAMT",
+          "info" : "RAM Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "160",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "RGS",
+               "info" : "Ram Group Select. Refer Table 2-5 for information on the RGS value for each memory."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "RDS",
+               "info" : "Return Data Select. Refer Table 2-5 for information on the RDS values for each memory."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "DWR",
+               "info" : "Data Width Register"
+             },
+             {
+               "bit_number" : "7-6",
+               "bit_Field_Name" : "SMS",
+               "info" : "Sense Margin Select Register"
+             },
+             {
+               "bit_number" : "5-2",
+               "bit_Field_Name" : "PLS",
+               "info" : "Pipeline Latency Select"
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "RLS",
+               "info" : "RAM Latency Select"
+             }
+          ]
+        },
+{
+          "name" : "DLR",
+          "info" : "Datalogger Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "164",
+          "fields" : [
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "DLR4",
+               "info" : "Config access: setting this bit allows the host processor to configure the PBIST controller registers"
+             },             
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "DLR2",
+               "info" : "ROM-based testing: setting this bit enables the PBIST controller to execute test algorithms that are"
+             }
+          ]
+        },
+{
+          "name" : "PACT",
+          "info" : "PBIST Activate/ROM Clock Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "180",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "PACT1",
+               "info" : "PBIST Activate",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock to on chip ROM is disabled"},
+                 {"value" : "1", "desc" : "Normal PBIST operation for ROM based testing"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PACT0",
+               "info" : "ROM Clock Enable Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable internal PBIST clocks"},
+                 {"value" : "1", "desc" : "Enable internal PBIST clocks"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "PBISTID",
+          "info" : "PBIST ID Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "184",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "PBIST ID",
+               "info" : "This is a unique ID assigned to each PBIST controller in a device with multiple PBIST controllers."
+             }
+          ]
+        },
+{
+          "name" : "OVER",
+          "info" : "Override Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "188",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "OVER0",
+               "info" : "RINFO Override Bit",
+               "values" : [
+                 {"value" : "0", "desc" : "The RAM info registers RINFOL and RINFOU are used to select the memories for test"},
+                 {"value" : "1", "desc" : "The memory information available from ROM will override the RAM selection from the RAM info"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FSRF0",
+          "info" : "Fail Status Fail Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "190",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FSRF0",
+               "info" : "Fail Status 0. This bit would be cleared by reset of the module using MSTGCR register in system",
+               "values" : [
+                 {"value" : "0", "desc" : "No Failure Occurred"},
+                 {"value" : "1", "desc" : "Indicates a failure on Port 0"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FSRC0",
+          "info" : "Fail Status Count Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "198",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "FSRC0",
+               "info" : "Fail Status Count 0. Indicates the number of failures on port 0."
+             }
+          ]
+        },
+         {
+          "name" : "FSRC1",
+          "info" : "Fail Status Count Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "19C",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "FSRC1",
+               "info" : "Fail Status Count 1. Indicates the number of failures on port 1."
+             }
+          ]
+        },
+{
+          "name" : "FSRA0",
+          "info" : "Fail Status Address 0 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1A0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "FSRA0",
+               "info" : "Fail Status Address 0. Contains the address of the first failure."
+             }
+          ]
+        },
+{
+          "name" : "FSRA1",
+          "info" : "Fail Status Address 1 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1A4",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "FSRA1",
+               "info" : "Fail Status Address 1. Contains the address of the first failure."
+             }
+          ]
+        },
+{
+          "name" : "FSRDL0",
+          "info" : "Fail Status Data Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1A8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FSRDL1",
+               "info" : "Failure data on port 1"
+             }
+          ]
+        },
+{
+          "name" : "FSRDL1",
+          "info" : "Fail Status Data Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1B0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FSRDL1",
+               "info" : "Failure data on port 1"
+             }
+          ]
+        },
+{
+          "name" : "ROM",
+          "info" : "ROM Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C0",
+          "fields" : [
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "ROM",
+               "info" : "ROM Mask",
+               "values" : [
+                 {"value" : "0", "desc" : "No information is used from ROM"},
+                 {"value" : "1h", "desc" : "Only RAM Group information from ROM"},
+                 {"value" : "2h", "desc" : "Only Algorithm information from ROM"},
+                 {"value" : "3h", "desc" : "Both Algorithm and RAM information from ROM. This option should be selected for application"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ALGO",
+          "info" : "ROM Algorithm Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C4",          
+        },
+{
+          "name" : "RINFOL",
+          "info" : "RAM Info Mask Lower Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C8",
+          "fields" : 
+          ]
+        },

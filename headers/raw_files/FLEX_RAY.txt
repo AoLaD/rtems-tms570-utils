@@ -1,0 +1,1476 @@
+{
+          "name" : "GSN0",
+          "info" : "Global Static Number 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "Data_A(15-0)",
+               "info" : "Data_A(15-0)"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "Data_B(15-0)",
+               "info" : "(complement of Data_A(15-0))"
+             }
+          ]
+        },
+{
+          "name" : "GSN1",
+          "info" : "Global Static Number 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "004",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "Data_C(15-0)",
+               "info" : "Data_C(15-0)"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "Data_D(15-0)",
+               "info" : "(complement of Data_C(15-0))"
+             }
+          ]
+        },
+{
+          "name" : "GCS",
+          "info" : "Global Control Set",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "010",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "ENDVBM",
+               "info" : "Endianness Correction on VBusp Master"
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "ENDVBS",
+               "info" : "Endianness correction on VBusp Slave"
+             },
+             {
+               "bit_number" : "29-28",
+               "bit_Field_Name" : "ENDRx",
+               "info" : "Endianness Correction for No (header or payload) Data Sink Access",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "Remapped to CDABh"},
+                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "27-26",
+               "bit_Field_Name" : "ENDHx",
+               "info" : "Endianness Correction for Header",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "Remapped to CDABh"},
+                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "25-24",
+               "bit_Field_Name" : "ENDPx",
+               "info" : "Endianness Correction for Payload",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "2h"},
+                 {"value" : "3h Remapped to DCBAh", "desc" : "3h Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "21",
+               "bit_Field_Name" : "PRIO",
+               "info" : "Transfer Priority",
+               "values" : [
+                 {"value" : "0", "desc" : "TTSM gets higher priority than TTCC"},
+                 {"value" : "1", "desc" : "TTCC gets higher priority than TTSM"}
+                ]
+             },
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "PEFT",
+               "info" : "Parity for Test"
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "PELx",
+               "info" : "Parity Lock",
+               "values" : [
+                 {"value" : "5h", "desc" : "Parity protection for TCR is switched off. Parity protection remains activated for message RAM,"},
+                 {"value" : "Others", "desc" : "Parity protection for TCR is switched on. Parity protection is activated for message RAM, transient"}
+                ]
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "CETESM",
+               "info" : "Clear ETESM Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
+                ]
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "CTTCC",
+               "info" : "Clear TTCC Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
+                ]
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "CTTSM",
+               "info" : "Clear TTSM Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ETSM",
+               "info" : "Enable Transfer Status Mirrored",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."},
+                 {"value" : "1", "desc" : "Enable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."}
+                ]
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SILE",
+               "info" : "Status Interrupt Line Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "TU_Int0 is disabled."},
+                 {"value" : "1", "desc" : "TU_Int0 is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "EILE",
+               "info" : "Error Interrupt Line Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "TU_Int1 is disabled."},
+                 {"value" : "1", "desc" : "TU_Int1 is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TUH",
+               "info" : "Transfer Unit Halted",
+               "values" : [
+                 {"value" : "0", "desc" : "Transfer Unit not halted"},
+                 {"value" : "1", "desc" : "Transfer Unit halted"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TUE",
+               "info" : "Transfer Unit Enabled",
+               "values" : [
+                 {"value" : "0", "desc" : "Transfer Unit disabled, reset Transfer Unit State Machine, completion of the current VBUS transfer"},
+                 {"value" : "1", "desc" : "Transfer Unit enabled"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "GCR",
+          "info" : "Global Control Reset",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "014",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "ENDVBM",
+               "info" : "Endianness Correction on VBusp Master"
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "ENDVBS",
+               "info" : "Endianness correction on VBusp Slave"
+             },
+             {
+               "bit_number" : "29-28",
+               "bit_Field_Name" : "ENDRx",
+               "info" : "Endianness Correction for No (header or payload) Data Sink Access",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "Remapped to CDABh"},
+                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "27-26",
+               "bit_Field_Name" : "ENDHx",
+               "info" : "Endianness Correction for Header",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "Remapped to CDABh"},
+                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "25-24",
+               "bit_Field_Name" : "ENDPx",
+               "info" : "Endianness Correction for Payload",
+               "values" : [
+                 {"value" : "0", "desc" : "Remapped to ABCDh"},
+                 {"value" : "1h", "desc" : "Remapped to BADCh"},
+                 {"value" : "2h", "desc" : "2h"},
+                 {"value" : "3h Remapped to DCBAh", "desc" : "3h Remapped to DCBAh"}
+                ]
+             },
+             {
+               "bit_number" : "21",
+               "bit_Field_Name" : "PRIO",
+               "info" : "Transfer Priority",
+               "values" : [
+                 {"value" : "0", "desc" : "TTSM gets higher priority than TTCC"},
+                 {"value" : "1", "desc" : "TTCC gets higher priority than TTSM"}
+                ]
+             },
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "PEFT",
+               "info" : "Parity for Test"
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "PELx",
+               "info" : "Parity Lock",
+               "values" : [
+                 {"value" : "5h", "desc" : "Parity protection for TCR is switched off. Parity protection remains activated for message RAM,"},
+                 {"value" : "Others", "desc" : "Parity protection for TCR is switched on. Parity protection is activated for message RAM, transient"}
+                ]
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "CETESM",
+               "info" : "Clear ETESM Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
+                ]
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "CTTCC",
+               "info" : "Clear TTCC Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
+                ]
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "CTTSM",
+               "info" : "Clear TTSM Register",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not clear the register."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ETSM",
+               "info" : "Enable Transfer Status Mirrored",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."},
+                 {"value" : "1", "desc" : "Enable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."}
+                ]
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SILE",
+               "info" : "Status Interrupt Line Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "TU_Int0 is disabled."},
+                 {"value" : "1", "desc" : "TU_Int0 is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "EILE",
+               "info" : "Error Interrupt Line Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "TU_Int1 is disabled."},
+                 {"value" : "1", "desc" : "TU_Int1 is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TUH",
+               "info" : "Transfer Unit Halted",
+               "values" : [
+                 {"value" : "0", "desc" : "Transfer Unit not halted"},
+                 {"value" : "1", "desc" : "Transfer Unit halted"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TUE",
+               "info" : "Transfer Unit Enabled",
+               "values" : [
+                 {"value" : "0", "desc" : "Transfer Unit disabled, reset Transfer Unit State Machine, completion of the current VBUS transfer"},
+                 {"value" : "1", "desc" : "Transfer Unit enabled"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "TSCB",
+          "info" : "Transfer Status Current Buffer",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "018",
+          "fields" : [
+             {
+               "bit_number" : "20-16",
+               "bit_Field_Name" : "TSMS[4:0]",
+               "info" : "Transfer State Machine Status",
+               "values" : [
+                 {"value" : "01h", "desc" : "IDLE state"},
+                 {"value" : "02h", "desc" : "Start state (TTSM_START)"},
+                 {"value" : "03h", "desc" : "Output Buffer Command Mask access state (TTSM_OBCM)"},
+                 {"value" : "04h", "desc" : "Request state (TTSM_REQ)"},
+                 {"value" : "05h", "desc" : "View state (TTSM_VIEW)"},
+                 {"value" : "06h", "desc" : "Check state (TTSM_CHECK)"},
+                 {"value" : "07h", "desc" : "Read Header Section access state (TTSM_RDHS)"},
+                 {"value" : "08h", "desc" : "Read Data Section access state (TTSM_RDDS)"},
+                 {"value" : "09h", "desc" : "Start state (TTCC_START)"},
+                 {"value" : "0Ah", "desc" : "Busy state (TTCC_IBUSY)"},
+                 {"value" : "0Bh", "desc" : "Check state (TTCC_CHECK)"},
+                 {"value" : "0Ch", "desc" : "Write Header Section access state (TTCC_WRHS)"},
+                 {"value" : "0Dh", "desc" : "Payload Read state (TTCC_PLC_READ)"},
+                 {"value" : "0Eh", "desc" : "0Eh"},
+                 {"value" : "0Fh", "desc" : "Write Data Section access state (TTCC_WRDS)"},
+                 {"value" : "10h", "desc" : "Input Buffer Command Mask access state (TTCC_IBCM)"},
+                 {"value" : "11h", "desc" : "Input Buffer Command Request access state (TTCC_IBCR)"},
+                 {"value" : "12h", "desc" : "Mirror state (TTCC_MIRROR)"},
+                 {"value" : "13h", "desc" : "End state (TTSM_END)"},
+                 {"value" : "1Fh", "desc" : "Undefined state"}
+                ]
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "STUH",
+               "info" : "Status of Transfer Unit State Machine for Halt Detection",
+               "values" : [
+                 {"value" : "0", "desc" : "Not in HALT status."},
+                 {"value" : "1", "desc" : "In HALT status."}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "IDLE",
+               "info" : "Detects Transfer State Machine State IDLE",
+               "values" : [
+                 {"value" : "0", "desc" : "IDLE state not reached since last clear."},
+                 {"value" : "1", "desc" : "IDLE state reached."}
+                ]
+             },
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "BN[6:0]",
+               "info" : "Buffer Number"
+             }
+          ]
+        },
+{
+          "name" : "LTBCC",
+          "info" : "Last Transferred Buffer to Communication Controller",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "01C",
+          "fields" : [
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "BN[6:0]",
+               "info" : "Buffer number."
+             }
+          ]
+        },
+{
+          "name" : "LTBSM",
+          "info" : "Last Transferred Buffer to System Memory",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "020",
+          "fields" : [
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "BN[6:0]",
+               "info" : "Buffer number."
+             }
+          ]
+        },
+{
+          "name" : "TBA",
+          "info" : "Transfer Base Address",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "024",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TBA(31-0)",
+               "info" : "Transfer Base Address. 32-bit base pointer, 2 LSB are not significant (32-bit accesses"
+             }
+          ]
+        },
+{
+          "name" : "NTBA",
+          "info" : "Next Transfer Base Address",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "028",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "nTBA(31-0)",
+               "info" : "nTBA(31-0)"
+             }
+          ]
+        },
+{
+          "name" : "BAMS",
+          "info" : "Base Address of Mirrored Status",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "02C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "BAMS(31-0)",
+               "info" : "Base Address of Mirrored Status32-bit base pointer, 2 LSB are not significant (32-bit"
+             }
+          ]
+        },
+{
+          "name" : "SAMP",
+          "info" : "Start Address of Memory Protection",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "030",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "SAMP(31-0)",
+               "info" : "Start Address Memory Protection."
+             }
+          ]
+        },
+{
+          "name" : "EAMP",
+          "info" : "End Address of Memory Protection",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "End Address of Memory Protectio",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "EAMP(31-0)",
+               "info" : "End Address Memory Protection."
+             }
+          ]
+        },
+{
+          "name" : "TSMO1",
+          "info" : "Transfer to System Memory Occurred 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "040",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TSMO1(31-0)",
+               "info" : "Transfer to System Memory Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TSMO2",
+          "info" : "Transfer to System Memory Occurred 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "044",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TSMO1(31-0)",
+               "info" : "Transfer to System Memory Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TSMO3",
+          "info" : "Transfer to System Memory Occurred 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "048",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TSMO1(31-0)",
+               "info" : "Transfer to System Memory Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TSMO4",
+          "info" : "Transfer to System Memory Occurred 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TSMO1(31-0)",
+               "info" : "Transfer to System Memory Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TCCO1",
+          "info" : "Transfer to Communication Controller Occurred 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "050",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCO1(31-0)",
+               "info" : "Transfer to Communication Controller Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TCCO2",
+          "info" : "Transfer to Communication Controller Occurred 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "054",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCO1(31-0)",
+               "info" : "Transfer to Communication Controller Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TCCO3",
+          "info" : "Transfer to Communication Controller Occurred 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "058",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCO1(31-0)",
+               "info" : "Transfer to Communication Controller Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TCCO4",
+          "info" : "Transfer to Communication Controller Occurred 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "05C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCO1(31-0)",
+               "info" : "Transfer to Communication Controller Occurred Register 1."
+             }
+          ]
+        },
+{
+          "name" : "TOOFF",
+          "info" : "Transfer Occurred Offset",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "060",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TDIR",
+               "info" : "Transfer Direction. In case the same interrupt occurs for communication controller and Transfer Unit"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "OFF(7-0)",
+               "info" : "Offset Vector"
+             }
+          ]
+        },
+{
+          "name" : "PEADR",
+          "info" : "Parity Error Address",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "070",
+          "fields" : [
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "ADR(8-0)",
+               "info" : "Address of failing TCR location."
+             }
+          ]
+        },
+{
+          "name" : "TEIF",
+          "info" : "Transfer Error Interrupt",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "074",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "MPV",
+               "info" : "Memory Protection Violation."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "PE",
+               "info" : "Parity Error. The flag signals a parity error to the host. The flag is set when a parity error in TCR is"
+             },
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "RSTAT(2-0)",
+               "info" : "Status of VBUS on read transfers."
+             },
+             {
+               "bit_number" : "6-4",
+               "bit_Field_Name" : "WSTAT(2-0)",
+               "info" : "Status of VBUS on write transfers.",
+               "values" : [
+                 {"value" : "0", "desc" : "Success."},
+                 {"value" : "1h", "desc" : "Addressing error."},
+                 {"value" : "2h", "desc" : "Protection error."},
+                 {"value" : "3h", "desc" : "Timeout error."},
+                 {"value" : "4h", "desc" : "Reserved."},
+                 {"value" : "5h", "desc" : "Unsupported addressing mode error."},
+                 {"value" : "6h", "desc" : "Reserved."},
+                 {"value" : "7h", "desc" : "Exclusive write failure."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TNR",
+               "info" : "Transfer Not Ready."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FAC",
+               "info" : "Forbidden Access."
+             }
+          ]
+        },
+{
+          "name" : "TEIRES",
+          "info" : "Transfer Error Interrupt Enable Set",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "078",
+          "fields" : [
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "RSTATE(2-0)",
+               "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
+             },
+             {
+               "bit_number" : "6-4",
+               "bit_Field_Name" : "WSTATE(2-0)",
+               "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TNRE",
+               "info" : "Transfer Not Ready Enable."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FACE",
+               "info" : "Forbidden Access Enable."
+             }
+          ]
+        },
+{
+          "name" : "TEIRER",
+          "info" : "Transfer Error Interrupt Enable Reset",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "07C",
+          "fields" : [
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "RSTATE(2-0)",
+               "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
+             },
+             {
+               "bit_number" : "6-4",
+               "bit_Field_Name" : "WSTATE(2-0)",
+               "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TNRE",
+               "info" : "Transfer Not Ready Enable."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FACE",
+               "info" : "Forbidden Access Enable."
+             }
+          ]
+        },
+{
+          "name" : "TTSMS1",
+          "info" : "Trigger Transfer to System Memory Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "080",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMR1",
+          "info" : "Trigger Transfer to System Memory Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "084",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMS2",
+          "info" : "Trigger Transfer to System Memory Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "088",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMR2",
+          "info" : "Trigger Transfer to System Memory Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMS3",
+          "info" : "Trigger Transfer to System Memory Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "090",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMR3",
+          "info" : "Trigger Transfer to System Memory Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "094",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMS4",
+          "info" : "Trigger Transfer to System Memory Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "098",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTSMR4",
+          "info" : "Trigger Transfer to System Memory Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "09C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMS1(31-0)",
+               "info" : "Trigger Transfer to System Memory Set 1. The register bits 0 to 31 correspond to message buffers"
+             }
+          ]
+        },
+{
+          "name" : "TTCCS1",
+          "info" : "Trigger Transfer to Communication Controller Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0A0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCR1",
+          "info" : "Trigger Transfer to Communication Controller Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0A4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCS2",
+          "info" : "Trigger Transfer to Communication Controller Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0A8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCR2",
+          "info" : "Trigger Transfer to Communication Controller Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0AC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCS3",
+          "info" : "Trigger Transfer to Communication Controller Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0B0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCR3",
+          "info" : "Trigger Transfer to Communication Controller Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0B4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCS4",
+          "info" : "Trigger Transfer to Communication Controller Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0B8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "TTCCR4",
+          "info" : "Trigger Transfer to Communication Controller Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0BC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTCCS1(31-0)",
+               "info" : "Trigger Transfer to Communication Controller Set 1."
+             }
+          ]
+        },
+{
+          "name" : "ETESMS1",
+          "info" : "Enable Transfer on Event to System Memory Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMR1",
+          "info" : "Enable Transfer on Event to System Memory Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMS2",
+          "info" : "Enable Transfer on Event to System Memory Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMR2",
+          "info" : "Enable Transfer on Event to System Memory Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0CC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "message buffers 0 to 31. Each bit of the register enables a message buffer transfer on event to the"
+             }
+          ]
+        },
+{
+          "name" : "ETESMS3",
+          "info" : "Enable Transfer on Event to System Memory Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0D0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMR3",
+          "info" : "Enable Transfer on Event to System Memory Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0D4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMS4",
+          "info" : "Enable Transfer on Event to System Memory Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0D8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "Enable Transfer on Event to System Memory Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "ETESMR4",
+          "info" : "Enable Transfer on Event to System Memory Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0DC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ETESMS1(31-0)",
+               "info" : "message buffers 0 to 31. Each bit of the register enables a message buffer transfer on event to the"
+             }
+          ]
+        },
+{
+          "name" : "CESMS1",
+          "info" : "Clear on Event to System Memory Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0E0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMR1",
+          "info" : "Clear on Event to System Memory Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0E4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMS2",
+          "info" : "Clear on Event to System Memory Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0E8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMR2",
+          "info" : "Clear on Event to System Memory Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0EC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMS3",
+          "info" : "Clear on Event to System Memory Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0F0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMR3",
+          "info" : "Clear on Event to System Memory Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0F4",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "CESMS1(31-0)"
+             }
+          ]
+        },
+{
+          "name" : "CESMS4",
+          "info" : "Clear on Event to System Memory Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0F8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "CESMR4",
+          "info" : "Clear on Event to System Memory Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0FC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "CESMS1(31-0)",
+               "info" : "Clear on Event to System Memory Set 1. The register bits 0 to 31 correspond to message buffers 0"
+             }
+          ]
+        },
+{
+          "name" : "TSMIES1",
+          "info" : "Transfer to System Memory Interrupt Enable Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "100",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIER1",
+          "info" : "Transfer to System Memory Interrupt Enable Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "104",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIES2",
+          "info" : "Transfer to System Memory Interrupt Enable Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "108",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIER2",
+          "info" : "Transfer to System Memory Interrupt Enable Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIES3",
+          "info" : "Transfer to System Memory Interrupt Enable Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "110",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIER3",
+          "info" : "Transfer to System Memory Interrupt Enable Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "114",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIES4",
+          "info" : "Transfer to System Memory Interrupt Enable Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "118",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TSMIER4",
+          "info" : "Transfer to System Memory Interrupt Enable Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "11C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TTSMIES1(31-0)",
+               "info" : "Transfer to System Memory Interrupt Enable Set 1. The register bits 0 to 31 correspond to"
+             }
+          ]
+        },
+{
+          "name" : "TCCIES1",
+          "info" : "Transfer to Communication Controller Interrupt Enable Set 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "120",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIER1",
+          "info" : "Transfer to Communication Controller Interrupt Enable Reset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "124",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIES2",
+          "info" : "Transfer to Communication Controller Interrupt Enable Set 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "128",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIER2",
+          "info" : "Transfer to Communication Controller Interrupt Enable Reset 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "12C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "to message buffers 0 to 31. Each bit of the register enables a potential interrupt, which occurs if the"
+             }
+          ]
+        },
+{
+          "name" : "TCCIES3",
+          "info" : "Transfer to Communication Controller Interrupt Enable Set 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "130",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIER3",
+          "info" : "Transfer to Communication Controller Interrupt Enable Reset 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "134",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIES4",
+          "info" : "Transfer to Communication Controller Interrupt Enable Set 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "138",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "TCCIER4",
+          "info" : "Transfer to Communication Controller Interrupt Enable Reset 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "13C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TCCIES1(31-0)",
+               "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
+             }
+          ]
+        },
+{
+          "name" : "1FCh TCR",
+          "info" : "Transfer Configuration RAM",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "STXR",
+               "info" : "Set Transmit Request."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "THTSM",
+               "info" : "Transfer Header to System Memory."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "TPTSM",
+               "info" : "Transfer Payload to System Memory."
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "THTCC",
+               "info" : "Transfer Header to Communication Controller."
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "TPTCC",
+               "info" : "Transfer Payload to Communication Controller."
+             },
+             {
+               "bit_number" : "13-0",
+               "bit_Field_Name" : "TSO(13-0)",
+               "info" : "Transfer Start Offset."
+             }
+          ]
+        },
+{
+          "name" : "3FCh TCR Parity",
+          "info" : "TCR Parity Test Mode",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "200h",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "PAB2",
+               "info" : "Parity Bit for TCRx Byte 2. Parity information for byte 2 of TCRx(18-16). Reserved TCR bits are"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "PAB1",
+               "info" : "Parity Bit for TCRx Byte 1. Parity information for byte 1 of TCRx(15:8)."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PAB0",
+               "info" : "Parity Bit for Byte 0."
+             }
+          ]
+        },

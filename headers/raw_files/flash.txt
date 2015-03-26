@@ -1,0 +1,1224 @@
+{
+          "name" : "FRDCNTL",
+          "info" : "Flash Option Control Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7000",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "RWAIT",
+               "info" : "Random/data Read Wait State"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "ASWSTEN",
+               "info" : "Address Setup Wait State Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Address Setup Wait State is disabled."},
+                 {"value" : "1", "desc" : "Address Setup Wait State is enabled. Address is latched one cycle before decoding to"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ENPIPE",
+               "info" : "Enable Pipeline Mode",
+               "values" : [
+                 {"value" : "0", "desc" : "Pipeline mode is disabled."},
+                 {"value" : "1", "desc" : "Pipeline mode is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FEDACTRL1",
+          "info" : "Flash Error Detection and Correction Control Register 1",
+          "lenght" : "32",
+          "adress" : "FFF8 7008",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "SUSP_IGNR",
+               "info" : "Suspend Ignore.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "CPU suspend has no effect on error bit setting and un-freezing."}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "EDACMODE",
+               "info" : "Error Correction Mode.",
+               "values" : [
+                 {"value" : "5h", "desc" : "Single bit errors during reads from OTP, ECC and the mirrored space (starting at"},
+                 {"value" : "All Other Values", "desc" : "Single bit errors during reads from OTP, ECC and the mirrored space (starting at"}
+                ]
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "EOFEN",
+               "info" : "Event on Ones Fail Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "An ESM error event is generated on a single bit error where a one reads as a zero when"}
+                ]
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "EZFEN",
+               "info" : "Event on Zeros Fail Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "No ESM error event is generated on a single bit error where a zero reads as a one when"},
+                 {"value" : "1", "desc" : "An ESM error event is generated on a single bit error where a zero reads as a one when"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "EPEN",
+               "info" : "Error Profiling Enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Error profiling is disabled."},
+                 {"value" : "1", "desc" : "Error profiling is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "EDACEN",
+               "info" : "Error Detection and Correction Enable",
+               "values" : [
+                 {"value" : "5h", "desc" : "CPU single and double error event signals are blocked."},
+                 {"value" : "All Other Values", "desc" : "Error Detection and Correction events are captured and sent to the ESM"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FEDACTRL2",
+          "info" : "Flash Error Detection and Correction Control Register 2",
+          "lenght" : "32",
+          "adress" : "FFF8 700C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "SEC_THRESHOLD",
+               "info" : "Single Error Correction Threshold"
+             }
+          ]
+        },
+{
+          "name" : "FCOR_ERR_CNT",
+          "info" : "Flash Correctable Error Count Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7010",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "FERRCNT",
+               "info" : "Single Error Correction Count"
+             }
+          ]
+        },
+{
+          "name" : "FCOR_ERR_ADD",
+          "info" : "Flash Correctable Error Address Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7014",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-3",
+               "bit_Field_Name" : "COR_ERR_ADD",
+               "info" : "Correctable Error Address"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "B_OFF",
+               "info" : "Byte Offset"
+             }
+          ]
+        },
+{
+          "name" : "FCOR_ERR_POS",
+          "info" : "Flash Correctable Error Position Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7018",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "BUS2",
+               "info" : "Bus 2 Error",
+               "values" : [
+                 {"value" : "0", "desc" : "The error was in the main flash"},
+                 {"value" : "1", "desc" : "The error was from an OTP read"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TYPE",
+               "info" : "ErrorType",
+               "values" : [
+                 {"value" : "0", "desc" : "The error was one of the 64 data bits"},
+                 {"value" : "1", "desc" : "The error was one of the 8 check bits"}
+                ]
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "ERR_POS",
+               "info" : "The bit address of the single bit error"
+             }
+          ]
+        },
+{
+          "name" : "FEDACSTATUS",
+          "info" : "Flash Error Detection and Correction Status Register",
+          "lenght" : "32",
+          "adress" : "FFF8 701C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-26",
+               "bit_Field_Name" : "Reserved",
+               "info" : "Read returns 0. Writes have no effect."
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "FSM_DONE",
+               "info" : "Flash State Machine Done"
+             },
+             {
+               "bit_number" : "19",
+               "bit_Field_Name" : "COMB2_MAL_G",
+               "info" : "Bus 2 Compare Malfunction Flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "Compare Malfunction detected on the Bus2 SECDED in diagnostic mode 4 or not in"},
+                 {"value" : "1", "desc" : "Compare Malfunction not detected on the Bus2 SECDED or entered diagnostic mode 4"}
+                ]
+             },
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ECC_B2_MAL_",
+               "info" : "Bus 2 ECC Malfunction Error Flag",
+               "values" : [
+                 {"value" : "ERR 0", "desc" : "SECDED malfunction not detected on Bus2"},
+                 {"value" : "1", "desc" : "SECDED malfunction detected on Bus2"}
+                ]
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "B2_UNC_ERR",
+               "info" : "Bus 2 uncorrectable error",
+               "values" : [
+                 {"value" : "0", "desc" : "No bus 2 uncorrectable errors were detected"},
+                 {"value" : "1", "desc" : "A bus 2 uncorrectable error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "B2_COR_ERR",
+               "info" : "Bus 2 Correctable Error",
+               "values" : [
+                 {"value" : "0", "desc" : "No bus2 correctable error was detected"},
+                 {"value" : "1", "desc" : "A bus 2 correctable error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "D_UNC_ERR",
+               "info" : "Diagnostic Uncorrectable Error"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "ADD_TAG_ERR",
+               "info" : "Address Tag Register Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "Address Tag Register Error not detected"},
+                 {"value" : "1", "desc" : "Address Tag Register Error detected."}
+                ]
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "ADD_PAR_ERR",
+               "info" : "Address Parity Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No address parity error was detected."},
+                 {"value" : "1", "desc" : "A parity error was detected on the incoming address bus."}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "B1_UNC_ERR",
+               "info" : "Bus 1 Uncorrectable Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No Bus 1 uncorrectable errors were detected"},
+                 {"value" : "1", "desc" : "A bus 1 uncorrectabe error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "D_CORR_ERR",
+               "info" : "Diagnostic Correctable Error Status Flag"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "ERR_ONE_FLG",
+               "info" : "Error on One Fail Status Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable error where a one read as a zero on bus 2"},
+                 {"value" : "1", "desc" : "A correctable error occurred on bus 2 where a one read as a zero"}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "ERR_ZERO_ FLG",
+               "info" : "Error on Zero Fail Status Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable errors on bus1 nor any correctable errors on bus 2 where a zero was read"},
+                 {"value" : "1", "desc" : "A correctable error occurred on bus 1, or a correctable error occurred on bus 2 where a"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ERR_PRF_FLG",
+               "info" : "Error Profiling Status Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "Error profiling is not enabled, or the number of correctable errors has not reached the"},
+                 {"value" : "1", "desc" : "Error profiling is enabled and the number of correctable errors has reached the threshold"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FUNC_ERR_ADD",
+          "info" : "Flash Un-Correctable Error Address Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7020",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-3",
+               "bit_Field_Name" : "UNC_ERR_ADD",
+               "info" : "Un-correctable Error Address"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "B_OFF",
+               "info" : "Byte offset"
+             }
+          ]
+        },
+{
+          "name" : "FEDACSDIS",
+          "info" : "Flash Error Detection and Correction Sector Disable Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7024",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-29",
+               "bit_Field_Name" : "BankID1_Inverse",
+               "info" : "The bank ID inverse bits are used with the bank ID bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "0", "desc" : "If BankID1 = 7h and BankID1_inverse = 0, then if a valid sector is selected by SectorID1"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 1"}
+                ]
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "SectorID1_inverse",
+               "info" : "The sector ID inverse bits are used with the sector ID bits to determine which sector is"
+             },
+             {
+               "bit_number" : "23-21",
+               "bit_Field_Name" : "BankID1",
+               "info" : "The bank ID bits are used with the bank ID inverse bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "7h", "desc" : "If BankID1 = 7h and BankID1_inverse = 0, then if a valid sector is selected by SectorID1"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 1"}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "SectorID1",
+               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is"
+             },
+             {
+               "bit_number" : "15-13",
+               "bit_Field_Name" : "BankID0_Inverse",
+               "info" : "The bank ID inverse bits are used with the bank ID bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "0", "desc" : "If BankID0 = 7h and BankID0_inverse = 0, then if a valid sector is selected by SectorID0"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 0"}
+                ]
+             },
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "SectorID0_inverse",
+               "info" : "The sector ID inverse bits are used with the sector ID bits to determine which sector is"
+             },
+             {
+               "bit_number" : "7-5",
+               "bit_Field_Name" : "BankID0",
+               "info" : "The bank ID bits are used with the bank ID inverse bits to select the bank for which a sector"
+             }
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "SectorID0",
+               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is",
+               "values" : [
+                 {"value" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is", "desc" : "The sector ID bits are used with the sector ID inverse bits to
+             }
+          ]
+        },
+{
+          "name" : "FPRIM_ADD_TAG",
+          "info" : "Flash Primary Address Tag Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7028",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-4",
+               "bit_Field_Name" : "PRIM_ADD_TAG",
+               "info" : "Primary Address Tag Register"
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "0",
+               "info" : "Always 0000"
+             }
+          ]
+        },
+{
+          "name" : "FDUP_ADD_TAG",
+          "info" : "Flash Duplicate Address Tag Register",
+          "lenght" : "32",
+          "adress" : "FFF8 702C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-4",
+               "bit_Field_Name" : "DUP_ADD_TAG",
+               "info" : "Primary Address Tag Register"
+             },
+
+          ]
+        },
+         {
+          "name" : "FBPROT",
+          "info" : "Flash Bank Protection Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7030",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PROTL1DIS",
+               "info" : "PROTL1DIS: Level 1 Protection Disabled",
+               "values" : [
+                 {"value" : "0", "desc" : "Level 1 protection is disabled."},
+                 {"value" : "1", "desc" : "Level 1 protection is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FBSE",
+          "info" : "Flash Bank Sector Enable Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7034",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "BSE",
+               "info" : "Bank Sector Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "The corresponding numbered sector is disabled for program or erase access."},
+                 {"value" : "1", "desc" : "The corresponding numbered sector is enabled for program or erase access."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FBBUSY",
+          "info" : "Flash Bank Busy Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7038",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "BUSY[7:0]",
+               "info" : "Bank Busy",
+               "values" : [
+                 {"value" : "0", "desc" : "The corresponding bank is not busy"},
+                 {"value" : "1", "desc" : "The corresponding bank is not busy with a state machine or bus 2 operation, or the bank is not"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FBAC",
+          "info" : "Flash Bank Access Control Register",
+          "lenght" : "32",
+          "adress" : "FFF8 703C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "OTPPROTDIS",
+               "info" : "OTP Sector Protection Disable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Programming of the OTP sector is disabled."},
+                 {"value" : "1", "desc" : "Programming of the OTP sector is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "15-8",
+               "info" : "BAGP 0-FFh Bank Active Grace Period."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "VREADST",
+               "info" : "VREAD Setup."
+             }
+          ]
+        },
+{
+          "name" : "FBFALLBACK",
+          "info" : "Flash Bank Fallback Power Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7040",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-14",
+               "bit_Field_Name" : "BANKPWR7",
+               "info" : "Bank 7 Fallback Power Mode",
+               "values" : [
+                 {"value" : "0", "desc" : "Bank sleep mode"},
+                 {"value" : "1h", "desc" : "Bank standby mode"},
+                 {"value" : "2h", "desc" : "Reserved"},
+                 {"value" : "3h", "desc" : "Bank active mode"}
+                ]
+             },
+             {
+               "bit_number" : "3-2",
+               "bit_Field_Name" : "BANKPWR1",
+               "info" : "Bank 1 Fallback Power Mode",
+               "values" : [
+                 {"value" : "0", "desc" : "Bank sleep mode"},
+                 {"value" : "1h", "desc" : "Bank standby mode"},
+                 {"value" : "2h", "desc" : "Reserved"},
+                 {"value" : "3h", "desc" : "Bank active mode"}
+                ]
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "BANKPWR0",
+               "info" : "Bank 0 Fallback Power Mode",
+               "values" : [
+                 {"value" : "0", "desc" : "Bank sleep mode"},
+                 {"value" : "1h", "desc" : "Bank standby mode"},
+                 {"value" : "2h", "desc" : "Reserved"},
+                 {"value" : "3h", "desc" : "Bank active mode"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FBPRDY",
+          "info" : "Flash Bank/Pump Ready Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7044",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "BANKBUSY[7:0]",
+               "info" : "Bank busy bits (one bit for each bank)",
+               "values" : [
+                 {"value" : "0", "desc" : "The bank is not busy."},
+                 {"value" : "1", "desc" : "The bank is busy, not ready or this bank is not implemented"}
+                ]
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "PUMPRDY",
+               "info" : "Flash pump ready flag",
+               "values" : [
+                 {"value" : "0", "desc" : "Pump is not ready (Code must be executing from somewhere other than internal flash)"},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "BANKRDY[7:0]",
+               "info" : "Bank ready bits (one bit for each bank)",
+               "values" : [
+                 {"value" : "0", "desc" : "Flash bank is in the sleep or standby state"},
+                 {"value" : "1", "desc" : "Flash bank is in the active state, or the bank is not implemented"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FPAC1",
+          "info" : "Flash Pump Access Control Register 1",
+          "lenght" : "32",
+          "adress" : "FFF8 7048",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "26-16",
+               "bit_Field_Name" : "PSLEEP",
+               "info" : "Pump Sleep."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PUMPPWR",
+               "info" : "Flash Charge Pump Fallback Power Mode",
+               "values" : [
+                 {"value" : "0", "desc" : "Sleep (all pump circuits disabled)"},
+                 {"value" : "1", "desc" : "Active (all pump circuits active)"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FPAC2",
+          "info" : "Flash Pump Access Control Register 2",
+          "lenght" : "32",
+          "adress" : "FFF8 704C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "PAGP",
+               "info" : "Pump Active Grace Period"
+             }
+          ]
+        },
+{
+          "name" : "FMAC",
+          "info" : "Flash Module Access Control Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7050",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "BANK",
+               "info" : "Bank Enable."
+             }
+          ]
+        },
+{
+          "name" : "FMSTAT",
+          "info" : "Flash Module Status Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7054",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "ILA",
+               "info" : "Illegal Address"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "PGV",
+               "info" : "Program Verify"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "EV",
+               "info" : "Erase Verify"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "BUSY",
+               "info" : "Busy"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "ERS",
+               "info" : "Erase Active"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "PGM",
+               "info" : "Program Active"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "INVDAT",
+               "info" : "Invalid Data"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CSTAT",
+               "info" : "Command Status"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "VOLTSTAT",
+               "info" : "Core Voltage Status"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "ESUSP",
+               "info" : "Erase Suspended"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "PSUSP",
+               "info" : "Program Suspended"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SLOCK",
+               "info" : "Sector Lock Status"
+             }
+          ]
+        },
+{
+          "name" : "FEMU_DMSW",
+          "info" : "EEPROM Emulation Data MSW Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7058",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "EMU_DMSW",
+               "info" : "EEPROM Emulation Most Significant Data Word"
+             }
+          ]
+        },
+{
+          "name" : "FEMU_DLSW",
+          "info" : "EEPROM Emulation Data LSW Register",
+          "lenght" : "32",
+          "adress" : "FFF8 705C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "EMU_DLSW",
+               "info" : "EEPROM Emulation Least Significant Data Word"
+             }
+          ]
+        },
+{
+          "name" : "FEMU_ECC",
+          "info" : "EEPROM Emulation ECC Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7060",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "EMU_ECC[7:0]",
+               "info" : "This register can be written by the CPU in any mode."
+             }
+          ]
+        },
+{
+          "name" : "FEMU_ADDR",
+          "info" : "EEPROM Emulation Address Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7068",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "21-3",
+               "bit_Field_Name" : "EMU_ADDR",
+               "info" : "EEPROM Emulation Address"
+             }
+          ]
+        },
+{
+          "name" : "FDIAGCTRL",
+          "info" : "Diagnostic Control Register",
+          "lenght" : "32",
+          "adress" : "FFF8 706C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "DIAG_TRIG",
+               "info" : "Diagnostic Trigger"
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "DIAG_EN_KEY",
+               "info" : "Diagnostic Enable Key",
+               "values" : [
+                 {"value" : "5h", "desc" : "Diagnostic mode enabled"},
+                 {"value" : "All other values", "desc" : "Diagnostic mode disabled"}
+                ]
+             },
+             {
+               "bit_number" : "14-12",
+               "bit_Field_Name" : "DIAG_ECC_SEL",
+               "info" : "Diagnostic SECDED Select",
+               "values" : [
+                 {"value" : "0", "desc" : "Select SECDED0 for diagnostic testing"},
+                 {"value" : "1h", "desc" : "Select SECDED1 for diagnostic testing"},
+                 {"value" : "2h", "desc" : "Select SECDED2 for diagnostic testing (256 bit wide words only)"},
+                 {"value" : "3h", "desc" : "Select SECDED3 for diagnostic testing (256 bit wide words only"},
+                 {"value" : "4h", "desc" : "Select BUS2 SECDED for diagnostic testing"},
+                 {"value" : "5h", "desc" : "Select FEE SECDED for diagnostic testing (Same ECC logic as BUS2 but sets FEE"},
+                 {"value" : "6h-7h", "desc" : "Reserved"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FRAW_DATAH",
+          "info" : "Uncorrected Raw Data High Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7070",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA [63:32]",
+               "info" : "Uncorrected Raw Data"
+             }
+          ]
+        },
+{
+          "name" : "FRAW_DATAL",
+          "info" : "Uncorrected Raw Data Low Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7074",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RAW_DATA [31:0]",
+               "info" : "Uncorrected Raw Data. Same as FRAW_DATAH but stores lower 32 bits."
+             }
+          ]
+        },
+{
+          "name" : "FRAW_ECC",
+          "info" : "Uncorrected Raw ECC Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7078",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "PIPE BUF",
+               "info" : "Error came from pipeline buffer hit"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "RAW_ECC[7:0]",
+               "info" : "Uncorrected Raw ECC"
+             }
+          ]
+        },
+{
+          "name" : "FPAR_OVR",
+          "info" : "Parity Override Register",
+          "lenght" : "32",
+          "adress" : "FFF8 707C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "BNK_INV_PAR",
+               "info" : "Buffer Invert Parity"
+             },
+             {
+               "bit_number" : "15-12",
+               "bit_Field_Name" : "BUS_PAR_DIS",
+               "info" : "Disable Bus Parity"
+             },
+             {
+               "bit_number" : "11-9",
+               "bit_Field_Name" : "PAR_OVR_KEY",
+               "info" : "When this value is “101”, the selected ADD_INV_PAR and DAT_INV_PAR fields will become"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ADD_INV_PAR",
+               "info" : "Address Odd Parity"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "DAT_INV_PAR",
+               "info" : "Data Odd Parity"
+             }
+          ]
+        },
+{
+          "name" : "FEDACSDIS2",
+          "info" : "Flash Error Detection and Correction Sector Disable Register 2",
+          "lenght" : "32",
+          "adress" : "FFF8 70C0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-29",
+               "bit_Field_Name" : "BankID3_Inverse",
+               "info" : "The bank ID inverse bits are used with the bank ID bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "0", "desc" : "If BankID3 = 7h and BankID3_inverse = 0, then if a valid sector is selected by SectorID3"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 3"}
+                ]
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "SectorID3_inverse",
+               "info" : "he sector ID inverse bits are used with the sector ID bits to determine which sector is"
+             },
+             {
+               "bit_number" : "23-21",
+               "bit_Field_Name" : "BankID3",
+               "info" : "The bank ID bits are used with the bank ID inverse bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "7h", "desc" : "If BankID3 = 7h and BankID3_inverse = 0, then if a valid sector is selected by SectorID3"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 3"}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "SectorID3",
+               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is"
+             },
+             {
+               "bit_number" : "15-13",
+               "bit_Field_Name" : "BankID2_Inverse",
+               "info" : "is disabled. The only bank that supports sector disable is bank 7."
+             },
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "SectorID2_inverse",
+               "info" : "The sector ID inverse bits are used with the sector ID bits to determine which sector is"
+             },
+             {
+               "bit_number" : "7-5",
+               "bit_Field_Name" : "BankID2",
+               "info" : "The bank ID bits are used with the bank ID inverse bits to select the bank for which a sector",
+               "values" : [
+                 {"value" : "7h", "desc" : "7h"},
+                 {"value" : "other", "desc" : "No sector is disabled by disable ID 2"}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "SectorID2",
+               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is"
+             }
+          ]
+        },
+{
+          "name" : "FSM_WR_ENA",
+          "info" : "FSM Register Write Enable",
+          "lenght" : "32",
+          "adress" : "FFF8 7288",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "WR_ENA",
+               "info" : "Flash State Machine Write Enable",
+               "values" : [
+                 {"value" : "5h", "desc" : "This register must contain “101” in order to write to any other register in the range"},
+                 {"value" : "All other values", "desc" : "For all other values, the FSM registers cannot be written."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FSM_SECTOR",
+          "info" : "FSM Sector Register",
+          "lenght" : "32",
+          "adress" : "FFF8 72A4",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-16",
+               "bit_Field_Name" : "SECT_ERASED[16:0]",
+               "info" : "Sectors Erased",
+               "values" : [
+                 {"value" : "0", "desc" : "During bank erase, each sector will be erased."},
+                 {"value" : "1", "desc" : "Each sector will not be erased."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "EEPROM_CONFIG",
+          "info" : "EEPROM Emulation Configuration Register",
+          "lenght" : "32",
+          "adress" : "FFF8 72B8",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "EWAIT",
+               "info" : "EEPROM Wait state Counter"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "AUTOSUSP_EN",
+               "info" : "Auto Suspend Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Auto Suspend Disabled"},
+                 {"value" : "1", "desc" : "Auto Suspend Enabled"}
+                ]
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "AUTOSTART_GRACE",
+               "info" : "Auto-suspend Startup Grace Period",
+               "values" : [
+                 {"value" : "1", "desc" : "The value in this register determines how many cycles the FMC will wait after the last CPU"},
+                 {"value" : "0", "desc" : "The FMC will wait 16 HCLK periods for each count in the AUTOSTART_GRACE field. A"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "EE_CTRL1",
+          "info" : "EEPROM Emulation Error Detection and Correction Control Register 1",
+          "lenght" : "32",
+          "adress" : "FFF8 7308",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "EDACMODE",
+               "info" : "Error Correction Mode.",
+               "values" : [
+                 {"value" : "EDACMODE 5h", "desc" : "Detection only mode"},
+                 {"value" : "All Other Values", "desc" : "Single bit errors are corrected and multi-bit or address errors are detected"}
+                ]
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "EE_EOFEN",
+               "info" : "EEPROM Emulation Event on a correctable One's Fail Enable bit",
+               "values" : [
+                 {"value" : "0", "desc" : "No ESM event will be generated on a single bit error when a one reads as a zero and is"}
+                ]
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "EE_EZFEN",
+               "info" : "EEPROM Emulation Event on a correctable Zero's Fail Enable bit",
+               "values" : [
+                 {"value" : "EEPROM Emulation Event on a correctable Zero's Fail Enable bit", "desc" : "EEPROM Emulation Event on a correctable Zero's Fail Enable bit"},
+                 {"value" : "0", "desc" : "No ESM event will be generated on a single bit error when a zero reads as a one and is"},
+                 {"value" : "1", "desc" : "An ESM group 1 channel 35 event will be generated on a single bit error when a zero"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "EE_EPEN",
+               "info" : "EEPROM Emulation Error Profiling Enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Error profiling is disabled."},
+                 {"value" : "1", "desc" : "Error profiling is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "EE_CTRL2",
+          "info" : "EEPROM Emulation Error Detection and Correction Control Register 2",
+          "lenght" : "32",
+          "adress" : "FFF8 730C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "EE_SEC_THRESHOLD",
+               "info" : "EEPROM Emulation Single Error Correction Threshold"
+             }
+          ]
+        },
+{
+          "name" : "EE_COR_ERR_CNT",
+          "info" : "EEPROM Emulation Correctable Error Count Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7310",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "EE_ERRCNT",
+               "info" : "Single Error Correction Count"
+             }
+          ]
+        },
+{
+          "name" : "EE_COR_ERR_ADD",
+          "info" : "EEPROM Emulation Correctable Error Address Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7314",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-3",
+               "bit_Field_Name" : "COR_ERR_ADD",
+               "info" : "Correctable Error Address"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "B_OFF",
+               "info" : "Byte offset"
+             }
+          ]
+        },
+{
+          "name" : "EE_COR_ERR_POS",
+          "info" : "EEPROM Emulation Correctable Error Bit Position Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7318",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TYPE",
+               "info" : "ErrorType",
+               "values" : [
+                 {"value" : "0", "desc" : "The error was one of the 64 data bits"},
+                 {"value" : "1", "desc" : "The error was one of the 8 check bits"}
+                ]
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "EE_ERR_POS",
+               "info" : "The bit address of the single bit error"
+             }
+          ]
+        },
+{
+          "name" : "EE_STATUS",
+          "info" : "EEPROM Emulation Error Status Register",
+          "lenght" : "32",
+          "adress" : "FFF8 731C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "EE_D_UNC_ERR",
+               "info" : "Diagnostic Mode Uncorrectable Error Status Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No uncorrectable error was detected in diagnostic mode 1"},
+                 {"value" : "1", "desc" : "An uncorrectable error was detected in diagnostic mode 1. This means two or more bits in"}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "EE_UNC_ERR",
+               "info" : "EEPROM Emulation Uncorrectable Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No uncorrectable errors detected in bank 7"},
+                 {"value" : "1", "desc" : "An uncorrectable error was detected in bank 7"}
+                ]
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "EE_CMG",
+               "info" : "EEPROM Emulation Compare Malfunction Good",
+               "values" : [
+                 {"value" : "0", "desc" : "No uncorrectable error was detected"},
+                 {"value" : "1", "desc" : "An uncorrectable error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "EE_CME",
+               "info" : "."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "EE_D_COR_ERR",
+               "info" : "Diagnostic Correctable Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable error was detected"},
+                 {"value" : "1", "desc" : "A correctable error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "EE_ERR_ONE_FLG",
+               "info" : "Error on One Fail Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable error was detected"},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "EE_ERR_ZERO_FLG",
+               "info" : "Error on Zero Fail Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable error was detected"},
+                 {"value" : "1", "desc" : "A correctable error was detected"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EE_ERR_PRF_FLG",
+               "info" : "Error Profiling Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No correctable error was detected"},
+                 {"value" : "1", "desc" : "A correctable error was detected"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "EE_UNC_ERR_ADD",
+          "info" : "EEPROM Emulation Un-Correctable Error Address Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7320",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-3",
+               "bit_Field_Name" : "UNC_ERR_ADD",
+               "info" : "Un-correctable Error Address"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "B_OFF",
+               "info" : "Byte offset"
+             }
+          ]
+        },
+{
+          "name" : "FCFG_BANK",
+          "info" : "Flash Bank Configuration Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7400",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-20",
+               "bit_Field_Name" : "EE_BANK_WIDTH",
+               "info" : "Bank 7 width (144 bits wide)"
+             },
+             {
+               "bit_number" : "15-4",
+               "bit_Field_Name" : "MAIN_BANK_WIDTH",
+               "info" : "Width of main flash banks (144 bits wide)"
+             }
+          ]
+        },

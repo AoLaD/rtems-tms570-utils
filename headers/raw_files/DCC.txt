@@ -1,0 +1,230 @@
+{
+          "name" : "DCCGCTRL",
+          "info" : "DCC Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-12",
+               "bit_Field_Name" : "DONE INT ENA",
+               "info" : "Done Interrupt Enable.",
+               "values" : [
+                 {"value" : "5h", "desc" : "No interrupt is generated when the DONE flag is set in the DCC Status (DCCSTAT)"},
+                 {"value" : "Others", "desc" : "DONE interrupt is generated when the DONE flag is set in the DCC Status (DCCSTAT)"}
+                ]
+             },
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "SINGLE SHOT",
+               "info" : "Single-Shot Mode Enable.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "DCC stops counting when counter0 and valid0 both reach zero."},
+                 {"value" : "Bh", "desc" : "DCC stops counting when counter1 reaches zero."},
+                 {"value" : "Others", "desc" : "DCC counts continuously and only stops when an error occurs."}
+                ]
+             },
+             {
+               "bit_number" : "7-4",
+               "bit_Field_Name" : "ERR ENA",
+               "info" : "Error Interrupt Enable.",
+               "values" : [
+                 {"value" : "5h", "desc" : "No interrupt is generated when the ERR flag is set in the DCC Status (DCCSTAT) register."},
+                 {"value" : "Others", "desc" : "ERROR interrupt is generated when the ERR flag is set in the DCC Status (DCCSTAT)"}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "DCC ENA",
+               "info" : "DCC Enable.",
+               "values" : [
+                 {"value" : "5h", "desc" : "All DCC counters are stopped and error-checking is disabled. When an error occurs, the"},
+                 {"value" : "Others", "desc" : "Read: Counters are enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "DCCREV",
+          "info" : "DCC Revision Id Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "31-30",
+               "bit_Field_Name" : "SCHEME",
+               "info" : "Reads return 01, writes have no effect."
+             },             
+             {
+               "bit_number" : "27-16",
+               "bit_Field_Name" : "FUNC",
+               "info" : "Functional release number. Reads return 0x000, writes have no effect."
+             },
+             {
+               "bit_number" : "15-11",
+               "bit_Field_Name" : "RTL",
+               "info" : "Design release number. Reads return 0x00, writes have no effect."
+             },
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "MAJOR",
+               "info" : "Major revision number. Reads return 0x2, writes have no effect."
+             },
+             {
+               "bit_number" : "7-6",
+               "bit_Field_Name" : "CUSTOM",
+               "info" : "Custom version number. Reads return 0x0, writes have no effect."
+             },
+             {
+               "bit_number" : "5-0",
+               "bit_Field_Name" : "MINOR",
+               "info" : "Minor revision number. Reads return 0x4, writes have no effect."
+             }
+          ]
+        },
+{
+          "name" : "DCCCNT0SEED",
+          "info" : "DCC Counter0 Seed Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "COUNT0 SEED",
+               "info" : "Seed value for DCC Counter0."
+             }
+          ]
+        },
+{
+          "name" : "DCCVALID0SEED",
+          "info" : "DCC Valid0 Seed Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "VALID0 SEED",
+               "info" : "XXX"
+             }
+          ]
+        },
+{
+          "name" : "DCCCNT1SEED",
+          "info" : "DCC Counter1 Seed Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "COUNT1 SEED",
+               "info" : "Seed value for DCC Counter1."
+             },
+
+          ]
+        },
+         {
+          "name" : "DCCSTAT",
+          "info" : "DCC Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DONE FLG",
+               "info" : "Single-Shot Sequence Done flag. Indicates that a single-shot DCC sequence is done without",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Single-shot sequence is not done."},
+                 {"value" : "1", "desc" : "Read: Single-shot sequence is done without any error."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ERR FLG",
+               "info" : "Error flag. Indicates that a DCC error has occurred.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: DCC error has not occurred."},
+                 {"value" : "1", "desc" : "Read: An error has occurred."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "DCCDCNT0",
+          "info" : "DCC Counter0 Value Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "COUNT0",
+               "info" : "Current value of DCC Counter0."
+             }
+          ]
+        },
+{
+          "name" : "DCCVALID0",
+          "info" : "DCC Valid0 Value Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "VALID0",
+               "info" : "Current value for DCC Valid0."
+             }
+          ]
+        },
+{
+          "name" : "DCCDCNT1",
+          "info" : "DCC Counter1 Value Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "19-0",
+               "bit_Field_Name" : "COUNT1",
+               "info" : "Current value for DCC Counter1."
+             }
+          ]
+        },
+{
+          "name" : "DCCCNT1CLKSRC",
+          "info" : "DCC Counter1 Clock Source Selection Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "15-12",
+               "bit_Field_Name" : "KEY",
+               "info" : "Key to enable clock source selection for Counter1."
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "CNT1 CLKSRC",
+               "info" : "Clock Source for Counter1 when KEY is programmed to be 0xA."
+             }
+          ]
+        },
+{
+          "name" : "DCCCNT0CLKSRC",
+          "info" : "DCC Counter0 Clock Source Selection Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "CNT0 CLKSRC",
+               "info" : "Clock Source for Counter0"
+             },
+          ]
+},

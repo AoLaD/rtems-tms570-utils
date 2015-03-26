@@ -1,0 +1,416 @@
+{
+          "name" : "ESMEEPAPR1",
+          "info" : "ESM Enable ERROR Pin Action/Response Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F500",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "IEPSET",
+               "info" : "Enable ERROR Pin Action/Response on Group 1.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Failure on channel x has no influence on ERROR pin."},
+                 {"value" : "1", "desc" : "Read: Failure on channel x has influence on ERROR pin."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMDEPAPR1",
+          "info" : "ESM Disable ERROR Pin Action/Response Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F504",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "IEPCLR",
+               "info" : "Disable ERROR Pin Action/Response on Group 1.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Failure on channel x has no influence on ERROR pin."},
+                 {"value" : "1", "desc" : "Read: Failure on channel x has influence on ERROR pin."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIESR1",
+          "info" : "ESM Interrupt Enable Set/Status Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F508",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTENSET",
+               "info" : "Set interrupt Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: Interrupt is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIECR1",
+          "info" : "ESM Interrupt Enable Clear/Status Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F50C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTENCLR",
+               "info" : "Clear Interrupt Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: Interrupt is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMILSR1",
+          "info" : "Interrupt Level Set/Status Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F510",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTLVLSET",
+               "info" : "Set Interrupt Priority",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt of channel x is mapped to low level interrupt line."},
+                 {"value" : "1", "desc" : "Read: Interrupt of channel x is mapped to high level interrupt line."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMILCR1",
+          "info" : "Interrupt Level Clear/Status Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F514",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTLVLCLR",
+               "info" : "Clear Interrupt Priority.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt of channel x is mapped to low level interrupt line."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMSR1",
+          "info" : "ESM Status Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF F518",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ESF",
+               "info" : "Error Status Flag. Provides status information on a pending error.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No error occurred; no interrupt is pending."},
+                 {"value" : "1", "desc" : "Read: Error occurred; interrupt is pending."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMSR2",
+          "info" : "ESM Status Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF F51C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ESF",
+               "info" : "Error Status Flag. Provides status information on a pending error.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No error occurred; no interrupt is pending."},
+                 {"value" : "1", "desc" : "Read: Error occurred; interrupt is pending."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMSR3",
+          "info" : "ESM Status Register 3",
+          "lenght" : "32",
+          "adress" : "FFFF F520",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ESF",
+               "info" : "Error Status Flag. Provides status information on a pending error.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No error occurred."},
+                 {"value" : "1", "desc" : "Read: Error occurred."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMEPSR",
+          "info" : "ESM ERROR Pin Status Register",
+          "lenght" : "32",
+          "adress" : "FFFF F524",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EPSF",
+               "info" : "ERROR Pin Status Flag. Provides status information for the ERROR Pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: ERROR Pin is low (active) if any error has occurred."},
+                 {"value" : "1", "desc" : "Read: ERROR Pin is high if no error has occurred."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIOFFHR",
+          "info" : "ESM Interrupt Offset High Register",
+          "lenght" : "32",
+          "adress" : "FFFF F528",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "INTOFFH",
+               "info" : "Offset High Level Interrupt. This vector gives the channel number of the highest pending",
+               "values" : [
+                 {"value" : "0", "desc" : "No pending interrupt."},
+                 {"value" : "1h", "desc" : "Interrupt pending for channel 0, error Group1."},
+                 {"value" : "20h", "desc" : "Interrupt pending for channel 31, error Group1."},
+                 {"value" : "21h", "desc" : "Interrupt pending for channel 0, error Group2."},
+                 {"value" : "40h", "desc" : "Interrupt pending for channel 31, error Group2."},
+                 {"value" : "41h", "desc" : "Interrupt pending for channel 32, error Group1."},
+                 {"value" : "60h", "desc" : "Interrupt pending for channel 63, error Group1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIOFFLR",
+          "info" : "ESM Interrupt Offset Low Register",
+          "lenght" : "32",
+          "adress" : "FFFF F52C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "INTOFFL",
+               "info" : "Offset Low Level Interrupt. This vector gives the channel number of the highest pending",
+               "values" : [
+                 {"value" : "0", "desc" : "No pending interrupt."},
+                 {"value" : "1h", "desc" : "Interrupt pending for channel 0, error Group1."},
+                 {"value" : "20h", "desc" : "Interrupt pending for channel 31, error Group1."},
+                 {"value" : "21h", "desc" : "Interrupt pending for channel 32, error Group1."},
+                 {"value" : "60h", "desc" : "Interrupt pending for channel 63, error Group1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMLTCR",
+          "info" : "ESM Low-Time Counter Register",
+          "lenght" : "32",
+          "adress" : "FFFF F530",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "LTC",
+               "info" : "ERROR Pin Low-Time Counter"
+             }
+          ]
+        },
+{
+          "name" : "ESMLTCPR",
+          "info" : "ESM Low-Time Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "FFFF F534",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "LTCP",
+               "info" : "ERROR Pin Low-Time Counter Pre-load Value"
+             }
+          ]
+        },
+{
+          "name" : "ESMEKR",
+          "info" : "ESM Error Key Register",
+          "lenght" : "32",
+          "adress" : "FFFF F538",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "EKEY",
+               "info" : "Error Key. The key to reset the ERROR pin or to force an error on the ERROR pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "Activates normal mode (recommended default mode)."},
+                 {"value" : "Ah", "desc" : "Forces error on ERROR pin."},
+                 {"value" : "5h", "desc" : "The ERROR pin set to high when the low time counter (LTC) has completed; then the EKEY"},
+                 {"value" : "All other values", "desc" : "Activates normal mode."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMSSR2",
+          "info" : "ESM Status Shadow Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF F53C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ESF",
+               "info" : "Error Status Flag. Shadow register for status information on pending error.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No error occurred."},
+                 {"value" : "1", "desc" : "Read: Error occurred."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIEPSR4",
+          "info" : "ESM Influence ERROR Pin Set/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F540",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "IEPSET",
+               "info" : "Set Influence on ERROR Pin",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Failure on channel x has no influence on ERROR pin."},
+                 {"value" : "1", "desc" : "Read: Failure on channel x has influence on ERROR pin."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIEPCR4",
+          "info" : "ESM Influence ERROR Pin Clear/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F544",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "IEPCLR",
+               "info" : "Clear Influence on ERROR Pin",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Failure on channel x has no influence on ERROR pin."},
+                 {"value" : "1", "desc" : "Read: Failure on channel x has influence on ERROR pin."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIESR4",
+          "info" : "ESM Interrupt Enable Set/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F548",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "INTENSET",
+               "info" : "Set Interrupt Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: Interrupt is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMIECR4",
+          "info" : "ESM Interrupt Enable Clear/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F54C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "INTENCLR",
+               "info" : "Clear Interrupt Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: Interrupt is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMILSR4",
+          "info" : "Interrupt Level Set/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F550",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "INTLVLSET",
+               "info" : "Set Interrupt Level",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Read: Interrupt of channel x is mapped to low level interrupt line."},
+                 {"value" : "1", "desc" : "Read: Interrupt of channel x is mapped to high level interrupt line."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMILCR4",
+          "info" : "Interrupt Level Clear/Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F554",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "INTLVLCLR",
+               "info" : "Clear Interrupt Level",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Interrupt of channel x is mapped to low level interrupt line."},
+                 {"value" : "1", "desc" : "Read: Interrupt of channel x is mapped to high level interrupt line."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ESMSR4",
+          "info" : "ESM Status Register 4",
+          "lenght" : "32",
+          "adress" : "FFFF F558",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "63-32",
+               "bit_Field_Name" : "ESF",
+               "info" : "Error Status Flag. Provides status information on a pending error.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No error occurred; no interrupt is pending."},
+                 {"value" : "1", "desc" : "Read: Error occurred; interrupt is pending."}
+                ]
+             }
+          ]
+        },

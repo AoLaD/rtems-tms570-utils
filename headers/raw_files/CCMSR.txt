@@ -1,0 +1,65 @@
+{
+          "name" : "CCMSR",
+          "info" : "CCM-R4F Status Register",
+          "lenght" : "32",
+          "adress" : "FFFF F600",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "CMPE",
+               "info" : "Compare Error",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: CPU signals are identical."},
+                 {"value" : "1", "desc" : "Read: CPU signal compare mismatch."}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "STC",
+               "info" : "Self-test Complete",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test on-going if self-test mode is entered."},
+                 {"value" : "1", "desc" : "Read: Self-test is complete."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "STET",
+               "info" : "Self-test Error Type",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test failed during Compare Match Test if STE = 1."},
+                 {"value" : "1", "desc" : "Read: Self-test failed during Compare Mismatch Test if STE = 1."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "STE",
+               "info" : "Self-test Error",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test passed."},
+                 {"value" : "1", "desc" : "Read: Self-test failed."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CCMKEYR",
+          "info" : "CCM-R4F Key Register",
+          "lenght" : "32",
+          "adress" : "FFFF F604",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "MKEY",
+               "info" : "Mode Key",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "6h", "desc" : "Read: Returns current value of the MKEY."},
+                 {"value" : "9h", "desc" : "Read: Returns current value of the MKEY."},
+                 {"value" : "Fh", "desc" : "Read: Returns current value of the MKEY."}
+                ]
+             }
+          ]
+        },
