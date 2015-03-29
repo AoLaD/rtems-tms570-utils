@@ -1,4 +1,12 @@
 {
+  "name" : "TMS570",
+  "peripherals" :
+  [
+    {
+      "name" : "CRC",
+      "registers" :
+      [
+{
           "name" : "CRC_CTRL0",
           "info" : "CRC Global Control Register",
           "lenght" : "32",
@@ -373,8 +381,7 @@
                "bit_number" : "15-0",
                "bit_Field_Name" : "CRC_CURSEC1",
                "info" : "Channel 1 Current Sector ID Register. In AUTO mode, this register contains the current"
-             },
-
+             }
           ]
         },
 {
@@ -444,8 +451,7 @@
                "bit_number" : "31-0",
                "bit_Field_Name" : "CRC1",
                "info" : "Channel 1 CRC Value Low Register. This register contains the current known good signature value"
-             },
-
+             }
           ]
         },
 {
@@ -687,6 +693,20 @@
           ]
         },
 {
+          "name" : "CRC_WDTOPLD1",
+          "info" : "CRC Channel 1 Watchdog Timeout Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "CRC_WDTOPLD1",
+               "info" : "CRC_WDTOPLD1"
+             }
+          ]
+        },
+{
           "name" : "CRC_BUS_SEL",
           "info" : "Data Bus Selection Register",
           "lenght" : "32",
@@ -721,4 +741,9 @@
                 ]
              }
           ]
-        },
+        }
+
+      ]    
+    }
+  ] 
+}
