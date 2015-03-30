@@ -19,26 +19,28 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t CRC_CTRL1;           /*CRC Global Control Register 1*/
+  ui32_t CRC_CTRL0;           /*CRC Global Control Register*/
   ui32_t reserved1 [4];
-  ui32_t CRC_CTRL2;           /*CRC Global Control Register 2*/
+  ui32_t CRC_CTRL1;           /*CRC Global Control Register 1*/
   ui32_t reserved2 [4];
-  ui32_t CRC_INTS;            /*CRC Interrupt Enable Set Register*/
+  ui32_t CRC_CTRL2;           /*CRC Global Control Register 2*/
   ui32_t reserved3 [4];
-  ui32_t CRC_INTR;            /*CRC Interrupt Enable Reset Register*/
+  ui32_t CRC_INTS;            /*CRC Interrupt Enable Set Register*/
   ui32_t reserved4 [4];
-  ui32_t CRC_STATUS;          /*CRC Interrupt Status Register*/
+  ui32_t CRC_INTR;            /*CRC Interrupt Enable Reset Register*/
   ui32_t reserved5 [4];
-  ui32_t CRC_INT_OFFS_ET_REG; /*CRC Interrupt Offset Register*/
+  ui32_t CRC_STATUS;          /*CRC Interrupt Status Register*/
   ui32_t reserved6 [4];
-  ui32_t CRC_BUSY;            /*CRC Busy Register*/
+  ui32_t CRC_INT_OFFS_ET_REG; /*CRC Interrupt Offset Register*/
   ui32_t reserved7 [4];
+  ui32_t CRC_BUSY;            /*CRC Busy Register*/
+  ui32_t reserved8 [4];
   ui32_t CRC_PCOUNT_REG1;     /*CRC Channel 1 Pattern Counter Preload Register*/
   ui32_t CRC_SCOUNT_REG1;     /*CRC Channel 1 Sector Counter Preload Register*/
   ui32_t CRC_CURSEC_REG1;     /*CRC Channel 1 Current Sector Register*/
   ui32_t CRC_WDTOPLD1;        /*CRC Channel 1 Watchdog Timeout Preload Register*/
   ui32_t CRC_BCTOPLD1;        /*CRC Channel 1 Block Complete Timeout Preload Register*/
-  ui32_t reserved8 [12];
+  ui32_t reserved9 [12];
   ui32_t PSA_SIGREGL1;        /*Channel 1 PSA Signature Low Register*/
   ui32_t PSA_SIGREGH1;        /*Channel 1 PSA Signature High Register*/
   ui32_t CRC_REGL1;           /*Channel 1 CRC Value Low Register*/
@@ -52,7 +54,7 @@ typedef struct{
   ui32_t CRC_CURSEC_REG2;     /*CRC Current Sector Register 2*/
   ui32_t CRC_WDTOPLD2;        /*CRC Channel 2 Watchdog Timeout Preload Register A*/
   ui32_t CRC_BCTOPLD2;        /*CRC Channel 2 Block Complete Timeout Preload Register B*/
-  ui32_t reserved9 [12];
+  ui32_t reserved10 [12];
   ui32_t PSA_SIGREGL2;        /*Channel 2 PSA Signature Low Register*/
   ui32_t PSA_SIGREGH2;        /*Channel 2 PSA Signature High Register*/
   ui32_t CRC_REGL2;           /*Channel 2 CRC Value Low Register*/
@@ -61,9 +63,15 @@ typedef struct{
   ui32_t PSA_SECSIGREGH2;     /*Channel 2 PSA Sector Signature High Register*/
   ui32_t RAW_DATAREGL2;       /*Channel 2 Raw Data Low Register*/
   ui32_t RAW_DATAREGH2;       /*Channel 2 Raw Data High Register*/
-  ui32_t reserved10 [128];
+  ui32_t reserved11 [128];
   ui32_t CRC_BUS_SEL;         /*Data Bus Selection Register*/
 } CRC_struct;
+
+/*--------------------TMS570_CRCCRC_CTRL0--------------------*/
+/* field: CH2_PSA_SWREST - Channel 2 PSA Software Reset. When set, the PSA Signature Register is reset to all zero. */
+#define TMS570_CRC_CRC_CTRL0_CH2_PSA_SWREST BSP_FLD32(8)
+/* field: CH1_PSA_SWREST - Channel 1 PSA Software Reset. When set, the PSA Signature Register is reset to all zero. */
+#define TMS570_CRC_CRC_CTRL0_CH1_PSA_SWREST BSP_FLD32(0)
 
 /*--------------------TMS570_CRCCRC_CTRL1--------------------*/
 /* field: PWDN - Power Down. */

@@ -143,8 +143,8 @@ def makeStruct(data):
         print ('} '+data.peripherals[0].name+"_struct;")
     else:
         #offset mode
-        adress = '0'
-        for i in range(0,len(data.peripherals[0].registers)-1) :
+        adress = 'FFFFFFFF'
+        for i in range(0,len(data.peripherals[0].registers)) :
             regId = findIdWithLowestOffsetFrom(data,adress)
             adress = data.peripherals[0].registers[regId].offset
             printIdOffset(data,regId)
@@ -190,8 +190,8 @@ def makeRegs(data):
             print(makeBlock(data.peripherals[0].registers[regId],prefix))            
     else:
         #offset mode
-        adress = '0'
-        for i in range(0,len(data.peripherals[0].registers)-1) :
+        adress = 'FFFFFFFF'
+        for i in range(0,len(data.peripherals[0].registers)) :
             regId = findIdWithLowestOffsetFrom(data,adress)
             adress = data.peripherals[0].registers[regId].offset
             print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
