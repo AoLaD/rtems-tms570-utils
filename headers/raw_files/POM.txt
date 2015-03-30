@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "POMGLBCTRL",
           "info" : "POM Global Control Register",
           "lenght" : "32",
@@ -450,4 +458,8 @@
                "info" : "Preamble"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

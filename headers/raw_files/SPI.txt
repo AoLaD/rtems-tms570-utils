@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "SPIGCR0",
           "info" : "SPI Global Control Register 0",
           "lenght" : "32",
@@ -8,7 +16,7 @@
              {
                "bit_number" : "0",
                "bit_Field_Name" : "nRESET",
-               "info" : "This is the local reset control for the module. This bit needs to be set to ‘1’ before any operation"
+               "info" : "This is the local reset control for the module. This bit needs to be set to '1' before any operation"
              }
           ]
         },
@@ -733,7 +741,7 @@
           "info" : "SPI Data Format Registers",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "50h",
+          "offset" : "50",
           "fields" : [
              {
                "bit_number" : "31-24",
@@ -1072,7 +1080,7 @@
           "info" : "TGx Control Registers",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "98h",
+          "offset" : "98",
           "fields" : [
              {
                "bit_number" : "31",
@@ -1105,7 +1113,7 @@
           "info" : "DMA Channel Control Register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "D8h",
+          "offset" : "D8",
           "fields" : [
              {
                "bit_number" : "31",
@@ -1164,7 +1172,7 @@
           "info" : "DMAxCOUNT Register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "F8h",
+          "offset" : "F8",
           "fields" : [
              {
                "bit_number" : "31-16",
@@ -1367,4 +1375,8 @@
                "info" : "EPRESCALE_FMT3. Extended Prescale value for SPIFMT1."
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}

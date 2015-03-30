@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "HETGCR",
           "info" : "Global Configuration Register",
           "lenght" : "32",
@@ -593,4 +601,8 @@
                "info" : "N2HET Pin Disable Bits"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

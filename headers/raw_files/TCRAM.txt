@@ -1,3 +1,11 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
          {
           "name" : "RAMCTRL",
           "info" : "TCRAM Module Control Register",
@@ -77,8 +85,7 @@
                "bit_number" : "15-0",
                "bit_Field_Name" : "SINGLE ERROR",
                "info" : "Single-bit Error Correction Occurrences. This 16-bit counter contains the number of"
-             },
-
+             }
           ]
         },
          {
@@ -226,4 +233,9 @@
                "info" : "Parity Error Address. This register stores the double-word boundary (bits 22-3) of the"
              }
           ]
-        },
+        }
+
+      ]    
+    }
+  ] 
+}    

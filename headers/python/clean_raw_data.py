@@ -66,7 +66,7 @@ for line in inFile:
         result+="               \"start_bit\" : \""+str(start)+"\",\n"
         result+="               \"bit_lenght\" : \""+str(lenght)+"\",\n"
         continue
-    if(line.find('info') != -1):
+    if(line.find('"info"') != -1):
         temp = re.match('.*[.]',line,flags=0)
         if(temp == None):
             result+=line
@@ -88,8 +88,8 @@ for line in inFile:
     if(line.find('desc') != -1):
         temp = re.match('.*[.]',line,flags=0)
         if(temp == None):
-            result+=line
-            continue
+            result+=line            
+            continue        
         outFile+='-'+line        
         outFile+='+'+temp.group(0)
         result+=temp.group(0)

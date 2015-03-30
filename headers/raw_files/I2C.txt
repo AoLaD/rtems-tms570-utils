@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "I2COAR",
           "info" : "I2C Own Address Manager",
           "lenght" : "32",
@@ -135,7 +143,7 @@
           "info" : "I2C Clock Divider Low Register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "I2C Clock Divider Low Registe",
+          "offset" : "0C",
           "fields" : [
              {
                "bit_number" : "15-0",
@@ -331,7 +339,7 @@
           "info" : "I2CPSC",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "I2C Prescale Register Sectio",
+          "offset" : "30",
           "fields" : [
              {
                "bit_number" : "7-0",
@@ -576,4 +584,8 @@
                "info" : "SCL Slew Rate select"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

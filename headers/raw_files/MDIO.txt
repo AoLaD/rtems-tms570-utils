@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "REVID",
           "info" : "MDIO Revision ID Register",
           "lenght" : "32",
@@ -326,4 +334,8 @@
                "info" : "PHY address whose link status is to be monitored."
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "SCIGCR0",
           "info" : "SCI Global Control Register 0",
           "lenght" : "32",
@@ -1075,3 +1083,7 @@
              }
           ]
         }
+      ]    
+    }
+  ] 
+}         

@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "REVISION_REG",
           "info" : "Revision Register",
           "lenght" : "32",
@@ -161,8 +169,7 @@
                  {"value" : "0", "desc" : "Read: Protection Error Signaling is disabled."},
                  {"value" : "1", "desc" : "Read: Protection Error Signaling is enabled."}
                 ]
-             },
-
+             }
           ]
         },
          {
@@ -189,8 +196,7 @@
                  {"value" : "0", "desc" : "Read: Protection Error signaling is disabled."},
                  {"value" : "1", "desc" : "Read: Protection Error signaling is enabled."}
                 ]
-             },
-
+             }
           ]
         },
          {
@@ -263,3 +269,8 @@
              }
           ]
         }
+
+      ]    
+    }
+  ] 
+}

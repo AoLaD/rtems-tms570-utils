@@ -60,13 +60,13 @@ def makeFile( loaded_jason ):
 
 def findIdWithLowestAdressFrom(data,adress):
     minimum = int('0xFFFFFFFF', 16)
-    adress = '0x'+adress
+    adress = '0x'+adress.replace(" ","")
     indexOfMin = 0
     for i, val in enumerate(data.peripherals[0].registers):
-        hodnota = '0x'+val.adress
+        hodnota = '0x'+val.adress.replace(" ","")
         #print('0x'+val.adress +' , '+ val.adress)
         if(int(hodnota, 16) > int(adress,16) and int(hodnota, 16) < minimum):
-            minimum = int('0x'+val.adress, 16)
+            minimum = int('0x'+val.adress.replace(" ",""), 16)
             indexOfMin = i    
     return indexOfMin
 
@@ -100,12 +100,12 @@ def printIdAdress(data,regId):
     global lastAdress
     reserved = ''
     if(lastAdress == 0):
-        lastAdress = int(data.peripherals[0].registers[regId].adress,16)
-    if(lastAdress != int(data.peripherals[0].registers[regId].adress,16)):
-        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].adress,16))    
+        lastAdress = int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)
+    if(lastAdress != int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)):
+        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].adress.replace(" ",""),16))    
     if(data.peripherals[0].registers[regId].lenght == '32'):
         regType = 'ui32_t '
-    lastAdress = int(data.peripherals[0].registers[regId].adress,16)+int(int(data.peripherals[0].registers[regId].lenght)/8)
+    lastAdress = int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)+int(int(data.peripherals[0].registers[regId].lenght)/8)
     regName = data.peripherals[0].registers[regId].name
     info = data.peripherals[0].registers[regId].info    
     prefix = '  '+regType+regName+';'

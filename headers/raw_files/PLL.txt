@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "CSDIS",
           "info" : "Clock Source Disable Register",
           "lenght" : "32",
@@ -82,10 +90,10 @@
              {
                "bit_number" : "1-0",
                "bit_Field_Name" : "CLKSR[1-0]V",
-               "info" : "Clock source[1–0] valid.",
+               "info" : "Clock source[1-0] valid.",
                "values" : [
-                 {"value" : "0", "desc" : "Clock source[1–0] is not valid."},
-                 {"value" : "1", "desc" : "Clock source[1–0] is valid."}
+                 {"value" : "0", "desc" : "Clock source[1-0] is not valid."},
+                 {"value" : "1", "desc" : "Clock source[1-0] is valid."}
                 ]
              }
           ]
@@ -330,4 +338,8 @@
                "info" : "Value of CLKout count register. This counter increments based upon the PLL output"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

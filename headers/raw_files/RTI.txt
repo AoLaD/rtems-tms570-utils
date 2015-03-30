@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "RTIGCTRL",
           "info" : "RTI Global Control Register",
           "lenght" : "32",
@@ -557,7 +565,7 @@
           "info" : "RTI Interrupt Flag Register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "RTI Interrupt Flag Registe",
+          "offset" : "88",
           "fields" : [
              {
                "bit_number" : "18",
@@ -798,4 +806,8 @@
                "info" : "Compare 3 clear. This registers holds a compare value, which is compared with the counter"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}   
