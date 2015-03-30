@@ -1,4 +1,4 @@
-set list=CRC GIO
+set list=CRC EFUSE
 
 for %%a in (%list%) do (
    python clean_raw_data.py -i %%a.txt -o %%a.json 

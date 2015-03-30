@@ -1,8 +1,16 @@
 {
+  "name" : "TMS570",
+  "peripherals" :
+  [
+    {
+      "name" : "EFUSE",
+      "registers" :
+      [
+{
           "name" : "EFCBOUND",
           "info" : "EFC Boundary Control Register",
           "lenght" : "32",
-          "adress" : "FFF8 C01C",
+          "adress" : "FFF8C01C",
           "offset" : "0",
           "fields" : [
              {
@@ -61,7 +69,7 @@
           "name" : "EFCPINS",
           "info" : "EFC Pins Register",
           "lenght" : "32",
-          "adress" : "FFF8 C02C",
+          "adress" : "FFF8C02C",
           "offset" : "0",
           "fields" : [
              {
@@ -95,7 +103,7 @@
           "name" : "EFC_ERR_STAT",
           "info" : "EFC Error Status Register",
           "lenght" : "32",
-          "adress" : "FFF8 C03C",
+          "adress" : "FFF8C03C",
           "offset" : "0",
           "fields" : [
              {
@@ -114,11 +122,11 @@
           "name" : "EFC_ST_CY",
           "info" : "EFC Self Test Cycles Register",
           "lenght" : "32",
-          "adress" : "FFF8 C048",
+          "adress" : "FFF8C048",
           "offset" : "0",
           "fields" : [
              {
-               "bit_number" : "31–0",
+               "bit_number" : "31-0",
                "bit_Field_Name" : "Cycles",
                "info" : "This register is used to determine the number of cycles to run the eFuse controller ECC logic self test. It is"
              }
@@ -128,13 +136,18 @@
           "name" : "EFC_ST_SIG",
           "info" : "EFC Self Test Signature Register",
           "lenght" : "32",
-          "adress" : "FFF8 C04C",
+          "adress" : "FFF8C04C",
           "offset" : "0",
           "fields" : [
              {
-               "bit_number" : "31–0",
+               "bit_number" : "31-0",
                "bit_Field_Name" : "Signature",
                "info" : "This register is used to hold the expected signature for the eFuse ECC logic self test. It is recommended to"
              }
           ]
-        },
+        }
+
+      ]    
+    }
+  ] 
+}

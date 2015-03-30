@@ -1,0 +1,172 @@
+{
+  "name" : "TMS570",
+  "peripherals" :
+  [
+    {
+      "name" : "EFUSE",
+      "registers" :
+      [
+{
+          "name" : "EFCBOUND",
+          "info" : "EFC Boundary Control Register",
+          "lenght" : "32",
+          "adress" : "FFF8C01C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "21",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Self Test Error",
+               "info" : "This bit drives the self test error signal when bit 17 (Self Test Error OE) is high."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Single Bit Error",
+               "info" : "This bit drives the single bit error signal when bit 16 (Single bit Error OE) is high."
+             },
+             {
+               "start_bit" : "19",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Instruction Error",
+               "info" : "This bit drives the instruction error signal when bit 15 (Instruction Error OE) is high."
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Autoload Error",
+               "info" : "This bit drives the Autoload Error signal when bit 14 (Autoload Error OE) is high."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "Self Test Error OE",
+               "info" : "The Self Test Error Output Enable bit determines if the EFC Self Test signal comes from the"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "Single Bit Error OE",
+               "info" : "The single bit error output enable signal determines if the EFC Single Bit Error signal comes"
+             },
+             {
+               "start_bit" : "15",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "Instruction Error OE",
+               "info" : "comes from the eFuse controller or from bit 19 of the boundary register."
+             },
+             {
+               "start_bit" : "14",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "Autoload Error OE",
+               "info" : "The autoload error output enable signal determines if the EFC Autoload Error signal comes"
+             },
+             {
+               "start_bit" : "13",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC ECC Selftest",
+               "info" : "The eFuse Controller ECC Selftest Enable bit starts the selftest of the ECC logic if the four"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "Input Enable",
+               "info" : "The eFuse Controller ECC Selftest Enable bit starts the selftest of the ECC logic if the four"
+             }
+          ]
+        },
+{
+          "name" : "EFCPINS",
+          "info" : "EFC Pins Register",
+          "lenght" : "32",
+          "adress" : "FFF8C02C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "15",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Selftest Done",
+               "info" : "This bit can be polled to determine when the EFC ECC selftest is complete"
+             },
+             {
+               "start_bit" : "14",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Selftest Error",
+               "info" : "This bit indicates the pass/fail status of the EFC ECC Selftest once the EFC Selftest Done"
+             },
+             {
+               "start_bit" : "12",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Single Bit Error",
+               "info" : "This bit indicates if a single bit error was corrected by the ECC logic during the autoload"
+             },
+             {
+               "start_bit" : "11",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Instruction Error",
+               "info" : "This bit indicates an error occured during a factory test or program operation."
+             },
+             {
+               "start_bit" : "10",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EFC Autoload Error",
+               "info" : "This bit indicates that some non-correctable error occurred during the autoload sequence"
+             }
+          ]
+        },
+{
+          "name" : "EFC_ERR_STAT",
+          "info" : "EFC Error Status Register",
+          "lenght" : "32",
+          "adress" : "FFF8C03C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "5",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "Instruc Done",
+               "info" : "Instruction done."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "Error Code",
+               "info" : "The error status of the last instruction executed by the eFuse Controller"
+             }
+          ]
+        },
+{
+          "name" : "EFC_ST_CY",
+          "info" : "EFC Self Test Cycles Register",
+          "lenght" : "32",
+          "adress" : "FFF8C048",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "31",
+               "bit_Field_Name" : "Cycles",
+               "info" : "This register is used to determine the number of cycles to run the eFuse controller ECC logic self test."
+             }
+          ]
+        },
+{
+          "name" : "EFC_ST_SIG",
+          "info" : "EFC Self Test Signature Register",
+          "lenght" : "32",
+          "adress" : "FFF8C04C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "31",
+               "bit_Field_Name" : "Signature",
+               "info" : "This register is used to hold the expected signature for the eFuse ECC logic self test."
+             }
+          ]
+        }
+
+      ]    
+    }
+  ] 
+}
