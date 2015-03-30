@@ -16,6 +16,8 @@
 #ifndef LIBBSP_ARM_TMS570_CRC.H
 #define LIBBSP_ARM_TMS570_CRC.H
 
+#include <bsp/utility.h>
+
 typedef struct{
   ui32_t CRC_CTRL1;           /*CRC Global Control Register 1*/
   ui32_t reserved1 [4];
@@ -63,11 +65,11 @@ typedef struct{
   ui32_t CRC_BUS_SEL;         /*Data Bus Selection Register*/
 } CRC_struct;
 
---------------------TMS570_CRCCRC_CTRL1--------------------
+/*--------------------TMS570_CRCCRC_CTRL1--------------------*/
 /* field: PWDN - Power Down. */
 #define TMS570_CRC_CRC_CTRL1_PWDN BSP_FLD32(0)
 
---------------------TMS570_CRCCRC_CTRL2--------------------
+/*--------------------TMS570_CRCCRC_CTRL2--------------------*/
 /* field: CH2_MODE - Channel 2 Mode Selection */
 #define TMS570_CRC_CRC_CTRL2_CH2_MODE(val) BSP_FLD32(val,8, 9)
 #define TMS570_CRC_CRC_CTRL2_CH2_MODE_GET(reg) BSP_FLD32GET(reg,8, 9)
@@ -81,7 +83,7 @@ typedef struct{
 #define TMS570_CRC_CRC_CTRL2_CH1_MODE_GET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
----------------------TMS570_CRCCRC_INTS---------------------
+/*---------------------TMS570_CRCCRC_INTS---------------------*/
 /* field: CH2_TIMEOUTENS - Channel 2 Timeout Interrupt Enable Bit. */
 #define TMS570_CRC_CRC_INTS_CH2_TIMEOUTENS BSP_FLD32(12)
 /* field: CH2_UNDERENS - Channel 2 Underrun Interrupt Enable Bit. */
@@ -103,7 +105,7 @@ typedef struct{
 /* field: CH1_CCITENS - Channel 1 Compression Complete Interrupt Enable Bit. */
 #define TMS570_CRC_CRC_INTS_CH1_CCITENS BSP_FLD32(0)
 
----------------------TMS570_CRCCRC_INTR---------------------
+/*---------------------TMS570_CRCCRC_INTR---------------------*/
 /* field: CH2_TIMEOUTENR - Channel 2 Timeout Interrupt Enable Bit. */
 #define TMS570_CRC_CRC_INTR_CH2_TIMEOUTENR BSP_FLD32(12)
 /* field: CH2_UNDERENR - Channel 2 Underrun Interrupt Enable Bit. */
@@ -125,7 +127,7 @@ typedef struct{
 /* field: CH1_CCITENR - Channel 1 Compression Complete Interrupt Enable Bit. */
 #define TMS570_CRC_CRC_INTR_CH1_CCITENR BSP_FLD32(0)
 
---------------------TMS570_CRCCRC_STATUS--------------------
+/*--------------------TMS570_CRCCRC_STATUS--------------------*/
 /* field: CH2_TIMEOUT - Channel 2 CRC Timeout Status Flag. This bit is cleared by writing a '1' to it only. */
 #define TMS570_CRC_CRC_STATUS_CH2_TIMEOUT BSP_FLD32(12)
 /* field: CH2_UNDER - Channel 2 CRC Underrun Status Flag. This bit is cleared by writing a '1' to it only. */
@@ -147,202 +149,202 @@ typedef struct{
 /* field: CH1_CCIT - Channel 1 CRC Pattern Compression Complete Status Flag. */
 #define TMS570_CRC_CRC_STATUS_CH1_CCIT BSP_FLD32(0)
 
----------------TMS570_CRCCRC_INT_OFFS_ET_REG---------------
+/*---------------TMS570_CRCCRC_INT_OFFS_ET_REG---------------*/
 /* field: OFSTREG - CRC Interrupt Offset. This register indicates the highest priority pending interrupt vector address. */
 #define TMS570_CRC_CRC_INT_OFFS_ET_REG_OFSTREG(val) BSP_FLD32(val,0, 7)
 #define TMS570_CRC_CRC_INT_OFFS_ET_REG_OFSTREG_GET(reg) BSP_FLD32GET(reg,0, 7)
 #define TMS570_CRC_CRC_INT_OFFS_ET_REG_OFSTREG_GET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
----------------------TMS570_CRCCRC_BUSY---------------------
+/*---------------------TMS570_CRCCRC_BUSY---------------------*/
 /* field: CH2_BUSY - CH2_BUSY. */
 #define TMS570_CRC_CRC_BUSY_CH2_BUSY BSP_FLD32(8)
 /* field: CH1_BUSY - CH1_BUSY. */
 #define TMS570_CRC_CRC_BUSY_CH1_BUSY BSP_FLD32(0)
 
------------------TMS570_CRCCRC_PCOUNT_REG1-----------------
+/*-----------------TMS570_CRCCRC_PCOUNT_REG1-----------------*/
 /* field: CRC_PAT_COUNT1 - Channel 1 Pattern Counter Preload Register. */
 #define TMS570_CRC_CRC_PCOUNT_REG1_CRC_PAT_COUNT1(val) BSP_FLD32(val,0, 19)
 #define TMS570_CRC_CRC_PCOUNT_REG1_CRC_PAT_COUNT1_GET(reg) BSP_FLD32GET(reg,0, 19)
 #define TMS570_CRC_CRC_PCOUNT_REG1_CRC_PAT_COUNT1_GET(reg,val) BSP_FLD32SET(reg, val,0, 19)
 
 
------------------TMS570_CRCCRC_SCOUNT_REG1-----------------
+/*-----------------TMS570_CRCCRC_SCOUNT_REG1-----------------*/
 /* field: CRC_SEC_COUNT1 - Channel 1 Sector Counter Preload Register. */
 #define TMS570_CRC_CRC_SCOUNT_REG1_CRC_SEC_COUNT1(val) BSP_FLD32(val,0, 15)
 #define TMS570_CRC_CRC_SCOUNT_REG1_CRC_SEC_COUNT1_GET(reg) BSP_FLD32GET(reg,0, 15)
 #define TMS570_CRC_CRC_SCOUNT_REG1_CRC_SEC_COUNT1_GET(reg,val) BSP_FLD32SET(reg, val,0, 15)
 
 
------------------TMS570_CRCCRC_CURSEC_REG1-----------------
+/*-----------------TMS570_CRCCRC_CURSEC_REG1-----------------*/
 /* field: CRC_CURSEC1 - Channel 1 Current Sector ID Register. */
 #define TMS570_CRC_CRC_CURSEC_REG1_CRC_CURSEC1(val) BSP_FLD32(val,0, 15)
 #define TMS570_CRC_CRC_CURSEC_REG1_CRC_CURSEC1_GET(reg) BSP_FLD32GET(reg,0, 15)
 #define TMS570_CRC_CRC_CURSEC_REG1_CRC_CURSEC1_GET(reg,val) BSP_FLD32SET(reg, val,0, 15)
 
 
--------------------TMS570_CRCCRC_WDTOPLD1-------------------
+/*-------------------TMS570_CRCCRC_WDTOPLD1-------------------*/
 /* field: CRC_WDTOPLD1 - CRC_WDTOPLD1 */
 #define TMS570_CRC_CRC_WDTOPLD1_CRC_WDTOPLD1(val) BSP_FLD32(val,0, 23)
 #define TMS570_CRC_CRC_WDTOPLD1_CRC_WDTOPLD1_GET(reg) BSP_FLD32GET(reg,0, 23)
 #define TMS570_CRC_CRC_WDTOPLD1_CRC_WDTOPLD1_GET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
--------------------TMS570_CRCCRC_BCTOPLD1-------------------
+/*-------------------TMS570_CRCCRC_BCTOPLD1-------------------*/
 /* field: CRC_BCTOPLD1 - Channel 1 Block Complete Timeout Counter Preload Register. */
 #define TMS570_CRC_CRC_BCTOPLD1_CRC_BCTOPLD1(val) BSP_FLD32(val,0, 23)
 #define TMS570_CRC_CRC_BCTOPLD1_CRC_BCTOPLD1_GET(reg) BSP_FLD32GET(reg,0, 23)
 #define TMS570_CRC_CRC_BCTOPLD1_CRC_BCTOPLD1_GET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
--------------------TMS570_CRCPSA_SIGREGL1-------------------
+/*-------------------TMS570_CRCPSA_SIGREGL1-------------------*/
 /* field: PSASIG1 - Channel 1 PSA Signature Low Register. */
 #define TMS570_CRC_PSA_SIGREGL1_PSASIG1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SIGREGL1_PSASIG1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SIGREGL1_PSASIG1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
--------------------TMS570_CRCPSA_SIGREGH1-------------------
+/*-------------------TMS570_CRCPSA_SIGREGH1-------------------*/
 /* field: PSASIG1 - register. */
 #define TMS570_CRC_PSA_SIGREGH1_PSASIG1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SIGREGH1_PSASIG1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SIGREGH1_PSASIG1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
---------------------TMS570_CRCCRC_REGL1--------------------
+/*--------------------TMS570_CRCCRC_REGL1--------------------*/
 /* field: CRC1 - Channel 1 CRC Value Low Register. */
 #define TMS570_CRC_CRC_REGL1_CRC1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_CRC_REGL1_CRC1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_CRC_REGL1_CRC1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
---------------------TMS570_CRCCRC_REGH1--------------------
+/*--------------------TMS570_CRCCRC_REGH1--------------------*/
 /* field: CRC1 - Channel 1 CRC Value Low Register. */
 #define TMS570_CRC_CRC_REGH1_CRC1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_CRC_REGH1_CRC1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_CRC_REGH1_CRC1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
------------------TMS570_CRCPSA_SECSIGREGL1-----------------
+/*-----------------TMS570_CRCPSA_SECSIGREGL1-----------------*/
 /* field: PSASECSIG1 - Channel 1 PSA Sector Signature Low Register. */
 #define TMS570_CRC_PSA_SECSIGREGL1_PSASECSIG1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGL1_PSASECSIG1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGL1_PSASECSIG1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
------------------TMS570_CRCPSA_SECSIGREGH1-----------------
+/*-----------------TMS570_CRCPSA_SECSIGREGH1-----------------*/
 /* field: PSASECSIG1 - Channel 1 PSA Sector Signature High Register. */
 #define TMS570_CRC_PSA_SECSIGREGH1_PSASECSIG1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGH1_PSASECSIG1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGH1_PSASECSIG1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-------------------TMS570_CRCRAW_DATAREGL1------------------
+/*------------------TMS570_CRCRAW_DATAREGL1------------------*/
 /* field: RAW_DATA1 - hannel 1 Raw Data Low Register.This register contains bits 31:0 of the uncompressed raw data. */
 #define TMS570_CRC_RAW_DATAREGL1_RAW_DATA1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_RAW_DATAREGL1_RAW_DATA1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_RAW_DATAREGL1_RAW_DATA1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-------------------TMS570_CRCRAW_DATAREGH1------------------
+/*------------------TMS570_CRCRAW_DATAREGH1------------------*/
 /* field: RAW_DATA1 - Channel 1 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data. */
 #define TMS570_CRC_RAW_DATAREGH1_RAW_DATA1(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_RAW_DATAREGH1_RAW_DATA1_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_RAW_DATAREGH1_RAW_DATA1_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
------------------TMS570_CRCCRC_PCOUNT_REG2-----------------
+/*-----------------TMS570_CRCCRC_PCOUNT_REG2-----------------*/
 /* field: CRC_PAT_COUNT2 - Channel 2 Pattern Counter Preload Register. */
 #define TMS570_CRC_CRC_PCOUNT_REG2_CRC_PAT_COUNT2(val) BSP_FLD32(val,0, 19)
 #define TMS570_CRC_CRC_PCOUNT_REG2_CRC_PAT_COUNT2_GET(reg) BSP_FLD32GET(reg,0, 19)
 #define TMS570_CRC_CRC_PCOUNT_REG2_CRC_PAT_COUNT2_GET(reg,val) BSP_FLD32SET(reg, val,0, 19)
 
 
------------------TMS570_CRCCRC_SCOUNT_REG2-----------------
+/*-----------------TMS570_CRCCRC_SCOUNT_REG2-----------------*/
 /* field: CRC_SEC_COUNT2 - Channel 2 Sector Counter Preload Register. */
 #define TMS570_CRC_CRC_SCOUNT_REG2_CRC_SEC_COUNT2(val) BSP_FLD32(val,0, 15)
 #define TMS570_CRC_CRC_SCOUNT_REG2_CRC_SEC_COUNT2_GET(reg) BSP_FLD32GET(reg,0, 15)
 #define TMS570_CRC_CRC_SCOUNT_REG2_CRC_SEC_COUNT2_GET(reg,val) BSP_FLD32SET(reg, val,0, 15)
 
 
------------------TMS570_CRCCRC_CURSEC_REG2-----------------
+/*-----------------TMS570_CRCCRC_CURSEC_REG2-----------------*/
 /* field: CRC_CURSEC2 - Channel 2 Current Sector ID Register. */
 #define TMS570_CRC_CRC_CURSEC_REG2_CRC_CURSEC2(val) BSP_FLD32(val,0, 15)
 #define TMS570_CRC_CRC_CURSEC_REG2_CRC_CURSEC2_GET(reg) BSP_FLD32GET(reg,0, 15)
 #define TMS570_CRC_CRC_CURSEC_REG2_CRC_CURSEC2_GET(reg,val) BSP_FLD32SET(reg, val,0, 15)
 
 
--------------------TMS570_CRCCRC_WDTOPLD2-------------------
+/*-------------------TMS570_CRCCRC_WDTOPLD2-------------------*/
 /* field: CRC_WDTOPLD2 - Channel 2 Watchdog Timeout Counter Preload Register. */
 #define TMS570_CRC_CRC_WDTOPLD2_CRC_WDTOPLD2(val) BSP_FLD32(val,0, 23)
 #define TMS570_CRC_CRC_WDTOPLD2_CRC_WDTOPLD2_GET(reg) BSP_FLD32GET(reg,0, 23)
 #define TMS570_CRC_CRC_WDTOPLD2_CRC_WDTOPLD2_GET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
--------------------TMS570_CRCCRC_BCTOPLD2-------------------
+/*-------------------TMS570_CRCCRC_BCTOPLD2-------------------*/
 /* field: CRC_BCTOPLD2 - Channel 2 Block Complete Timeout Counter Preload Register. */
 #define TMS570_CRC_CRC_BCTOPLD2_CRC_BCTOPLD2(val) BSP_FLD32(val,0, 23)
 #define TMS570_CRC_CRC_BCTOPLD2_CRC_BCTOPLD2_GET(reg) BSP_FLD32GET(reg,0, 23)
 #define TMS570_CRC_CRC_BCTOPLD2_CRC_BCTOPLD2_GET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
--------------------TMS570_CRCPSA_SIGREGL2-------------------
+/*-------------------TMS570_CRCPSA_SIGREGL2-------------------*/
 /* field: PSASIG2 - Channel 2 PSA Signature Low Register. */
 #define TMS570_CRC_PSA_SIGREGL2_PSASIG2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SIGREGL2_PSASIG2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SIGREGL2_PSASIG2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
--------------------TMS570_CRCPSA_SIGREGH2-------------------
+/*-------------------TMS570_CRCPSA_SIGREGH2-------------------*/
 /* field: PSASIG2 - Channel 2 PSA Signature High Register. */
 #define TMS570_CRC_PSA_SIGREGH2_PSASIG2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SIGREGH2_PSASIG2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SIGREGH2_PSASIG2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
---------------------TMS570_CRCCRC_REGL2--------------------
+/*--------------------TMS570_CRCCRC_REGL2--------------------*/
 /* field: CRC2 - stored at CRC2[31:0] register. */
 #define TMS570_CRC_CRC_REGL2_CRC2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_CRC_REGL2_CRC2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_CRC_REGL2_CRC2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
---------------------TMS570_CRCCRC_REGH2--------------------
+/*--------------------TMS570_CRCCRC_REGH2--------------------*/
 /* field: CRC2 - Channel 2 CRC Value High Register. */
 #define TMS570_CRC_CRC_REGH2_CRC2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_CRC_REGH2_CRC2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_CRC_REGH2_CRC2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
------------------TMS570_CRCPSA_SECSIGREGL2-----------------
+/*-----------------TMS570_CRCPSA_SECSIGREGL2-----------------*/
 /* field: PSASECSIG2 - Channel 2 PSA Sector Signature Low Register. */
 #define TMS570_CRC_PSA_SECSIGREGL2_PSASECSIG2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGL2_PSASECSIG2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGL2_PSASECSIG2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
------------------TMS570_CRCPSA_SECSIGREGH2-----------------
+/*-----------------TMS570_CRCPSA_SECSIGREGH2-----------------*/
 /* field: PSASECSIG2 - Channel 2 PSA Sector Signature High Register. */
 #define TMS570_CRC_PSA_SECSIGREGH2_PSASECSIG2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGH2_PSASECSIG2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_PSA_SECSIGREGH2_PSASECSIG2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-------------------TMS570_CRCRAW_DATAREGL2------------------
+/*------------------TMS570_CRCRAW_DATAREGL2------------------*/
 /* field: RAW_DATA2 - Channel 2 Raw Data Low Register. This register contains bits 31:0 of the uncompressed raw data.. */
 #define TMS570_CRC_RAW_DATAREGL2_RAW_DATA2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_RAW_DATAREGL2_RAW_DATA2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_RAW_DATAREGL2_RAW_DATA2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-------------------TMS570_CRCRAW_DATAREGH2------------------
+/*------------------TMS570_CRCRAW_DATAREGH2------------------*/
 /* field: RAW_DATA2 - Channel 2 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data.. */
 #define TMS570_CRC_RAW_DATAREGH2_RAW_DATA2(val) BSP_FLD32(val,0, 31)
 #define TMS570_CRC_RAW_DATAREGH2_RAW_DATA2_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_CRC_RAW_DATAREGH2_RAW_DATA2_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
--------------------TMS570_CRCCRC_BUS_SEL-------------------
+/*-------------------TMS570_CRCCRC_BUS_SEL-------------------*/
 /* field: MEn - Enable/disables the tracing of Peripheral Bus Master */
 #define TMS570_CRC_CRC_BUS_SEL_MEn BSP_FLD32(2)
 /* field: DTCMEn - Enable/disables the tracing of data TCM */

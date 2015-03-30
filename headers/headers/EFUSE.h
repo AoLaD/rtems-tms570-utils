@@ -16,6 +16,8 @@
 #ifndef LIBBSP_ARM_TMS570_EFUSE.H
 #define LIBBSP_ARM_TMS570_EFUSE.H
 
+#include <bsp/utility.h>
+
 typedef struct{
   ui32_t EFCBOUND;            /*EFC Boundary Control Register*/
   ui32_t reserved1 [12];
@@ -27,7 +29,7 @@ typedef struct{
   ui32_t EFC_ST_SIG;          /*EFC Self Test Signature Register*/
 } EFUSE_struct;
 
---------------------TMS570_EFUSEEFCBOUND--------------------
+/*--------------------TMS570_EFUSEEFCBOUND--------------------*/
 /* field: EFC_Self_Test_Error - This bit drives the self test error signal when bit 17 (Self Test Error OE) is high. */
 #define TMS570_EFUSE_EFCBOUND_EFC_Self_Test_Error BSP_FLD32(21)
 /* field: EFC_Single_Bit_Error - This bit drives the single bit error signal when bit 16 (Single bit Error OE) is high. */
@@ -52,7 +54,7 @@ typedef struct{
 #define TMS570_EFUSE_EFCBOUND_Input_Enable_GET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
---------------------TMS570_EFUSEEFCPINS--------------------
+/*--------------------TMS570_EFUSEEFCPINS--------------------*/
 /* field: EFC_Selftest_Done - This bit can be polled to determine when the EFC ECC selftest is complete */
 #define TMS570_EFUSE_EFCPINS_EFC_Selftest_Done BSP_FLD32(15)
 /* field: EFC_Selftest_Error - This bit indicates the pass/fail status of the EFC ECC Selftest once the EFC Selftest Done */
@@ -64,7 +66,7 @@ typedef struct{
 /* field: EFC_Autoload_Error - This bit indicates that some non-correctable error occurred during the autoload sequence */
 #define TMS570_EFUSE_EFCPINS_EFC_Autoload_Error BSP_FLD32(10)
 
-------------------TMS570_EFUSEEFC_ERR_STAT------------------
+/*------------------TMS570_EFUSEEFC_ERR_STAT------------------*/
 /* field: Instruc_Done - Instruction done. */
 #define TMS570_EFUSE_EFC_ERR_STAT_Instruc_Done BSP_FLD32(5)
 /* field: Error_Code - The error status of the last instruction executed by the eFuse Controller */
@@ -73,14 +75,14 @@ typedef struct{
 #define TMS570_EFUSE_EFC_ERR_STAT_Error_Code_GET(reg,val) BSP_FLD32SET(reg, val,0, 4)
 
 
--------------------TMS570_EFUSEEFC_ST_CY-------------------
+/*-------------------TMS570_EFUSEEFC_ST_CY-------------------*/
 /* field: Cycles - This register is used to determine the number of cycles to run the eFuse controller ECC logic self test. */
 #define TMS570_EFUSE_EFC_ST_CY_Cycles(val) BSP_FLD32(val,0, 31)
 #define TMS570_EFUSE_EFC_ST_CY_Cycles_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_EFUSE_EFC_ST_CY_Cycles_GET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
--------------------TMS570_EFUSEEFC_ST_SIG-------------------
+/*-------------------TMS570_EFUSEEFC_ST_SIG-------------------*/
 /* field: Signature - This register is used to hold the expected signature for the eFuse ECC logic self test. */
 #define TMS570_EFUSE_EFC_ST_SIG_Signature(val) BSP_FLD32(val,0, 31)
 #define TMS570_EFUSE_EFC_ST_SIG_Signature_GET(reg) BSP_FLD32GET(reg,0, 31)

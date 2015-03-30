@@ -55,6 +55,8 @@ def makeFile( loaded_jason ):
         print(line.replace("\r\n", ""))
     print ("#ifndef LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name+'.H')
     print ("#define LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name+'.H')
+    print ("")
+    print ("#include <bsp/utility.h>")
 
 def findIdWithLowestAdressFrom(data,adress):
     minimum = int('0xFFFFFFFF', 16)
@@ -157,7 +159,7 @@ def makeFirstLine(reg,prefix):
     block += prefix+reg.name
     for i in range(0,spaceCount):
         block += '-'
-    return block
+    return "/*"+block+"*/"
 
 def makeBlock(reg,prefix):
     block = ''
