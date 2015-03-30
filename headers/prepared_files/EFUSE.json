@@ -69,7 +69,7 @@
              },
              {
                "start_bit" : "0",
-               "bit_lenght" : "3",
+               "bit_lenght" : "4",
                "bit_Field_Name" : "Input Enable",
                "info" : "The eFuse Controller ECC Selftest Enable bit starts the selftest of the ECC logic if the four"
              }
@@ -129,7 +129,7 @@
              },
              {
                "start_bit" : "0",
-               "bit_lenght" : "4",
+               "bit_lenght" : "5",
                "bit_Field_Name" : "Error Code",
                "info" : "The error status of the last instruction executed by the eFuse Controller"
              }
@@ -144,7 +144,7 @@
           "fields" : [
              {
                "start_bit" : "0",
-               "bit_lenght" : "31",
+               "bit_lenght" : "32",
                "bit_Field_Name" : "Cycles",
                "info" : "This register is used to determine the number of cycles to run the eFuse controller ECC logic self test."
              }
@@ -159,7 +159,7 @@
           "fields" : [
              {
                "start_bit" : "0",
-               "bit_lenght" : "31",
+               "bit_lenght" : "32",
                "bit_Field_Name" : "Signature",
                "info" : "This register is used to hold the expected signature for the eFuse ECC logic self test."
              }

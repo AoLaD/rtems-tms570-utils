@@ -164,32 +164,36 @@ def makeBlock(reg,prefix):
     
     for i in range(0,len(reg.fields)):
         fieldName = reg.fields[i].bit_Field_Name.replace(" ", "_")
+        lenght = int(reg.fields[i].lenght)
         block += '/* field: '+fieldName + ' - '+reg.fields[i].info+' */\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
-        block += '\n'
+        if (lenght != 1):
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += '\n'
+        else:
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'            
     return block
 
 def makeRegs(data):
     prefix = data.name + '_' + data.peripherals[0].name
-    for i in range(0,len(data.peripherals[0].registers)) :
-        if(data.peripherals[0].registers[0].adress != '0'):
-            #adress mode
-            adress = '0'
-            for i in range(0,len(data.peripherals[0].registers)) :
-                regId = findIdWithLowestAdressFrom(data,adress)
-                adress = data.peripherals[0].registers[regId].adress
-                print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
-                print(makeBlock(data.peripherals[0].registers[regId],prefix))            
-        else:
-            #offset mode
-            adress = '0'
-            for i in range(0,len(data.peripherals[0].registers)-1) :
-                regId = findIdWithLowestOffsetFrom(data,adress)
-                adress = data.peripherals[0].registers[regId].offset
-                print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
-                print(makeBlock(data.peripherals[0].registers[regId],prefix))
+    #for i in range(0,len(data.peripherals[0].registers)) :
+    if(data.peripherals[0].registers[0].adress != '0'):
+        #adress mode
+        adress = '0'
+        for i in range(0,len(data.peripherals[0].registers)) :
+            regId = findIdWithLowestAdressFrom(data,adress)
+            adress = data.peripherals[0].registers[regId].adress
+            print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
+            print(makeBlock(data.peripherals[0].registers[regId],prefix))            
+    else:
+        #offset mode
+        adress = '0'
+        for i in range(0,len(data.peripherals[0].registers)-1) :
+            regId = findIdWithLowestOffsetFrom(data,adress)
+            adress = data.peripherals[0].registers[regId].offset
+            print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
+            print(makeBlock(data.peripherals[0].registers[regId],prefix))
         
         
 

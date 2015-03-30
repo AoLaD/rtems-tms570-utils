@@ -51,7 +51,7 @@ for line in inFile:
         outFile+='-'+line        
         numbers = re.search('[0-9\-]+',line,flags=0).group(0).split('-')
         start = min(int(numbers[0]),int(numbers[1]))
-        lenght = abs(int(numbers[0])-int(numbers[1]))
+        lenght = abs(int(numbers[0])-int(numbers[1]))+1
         outFile+='+' + "               \"start_bit\" : \""+str(start)+"\",\n"
         outFile+='+' + "               \"bit_lenght\" : \""+str(lenght)+"\",\n"
         result+="               \"start_bit\" : \""+str(start)+"\",\n"
