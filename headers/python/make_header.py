@@ -163,10 +163,11 @@ def makeBlock(reg,prefix):
     block = ''
     
     for i in range(0,len(reg.fields)):
-        block += '/* field: '+reg.fields[i].bit_Field_Name + ' - '+reg.fields[i].info+' */\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+reg.fields[i].bit_Field_Name+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+reg.fields[i].bit_Field_Name+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
-        block += "#define "+prefix+'_'+reg.name+'_'+reg.fields[i].bit_Field_Name+'_GET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
+        fieldName = reg.fields[i].bit_Field_Name.replace(" ", "_")
+        block += '/* field: '+fieldName + ' - '+reg.fields[i].info+' */\n'
+        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
+        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
+        block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+int(reg.fields[i].lenght))+')\n'
         block += '\n'
     return block
 
