@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "FRDCNTL",
           "info" : "Flash Option Control Register",
           "lenght" : "32",
@@ -363,15 +371,11 @@
                "bit_number" : "7-5",
                "bit_Field_Name" : "BankID0",
                "info" : "The bank ID bits are used with the bank ID inverse bits to select the bank for which a sector"
-             }
-                ]
              },
              {
                "bit_number" : "3-0",
                "bit_Field_Name" : "SectorID0",
-               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is",
-               "values" : [
-                 {"value" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is", "desc" : "The sector ID bits are used with the sector ID inverse bits to
+               "info" : "The sector ID bits are used with the sector ID inverse bits to determine which sector is"               
              }
           ]
         },
@@ -405,8 +409,7 @@
                "bit_number" : "31-4",
                "bit_Field_Name" : "DUP_ADD_TAG",
                "info" : "Primary Address Tag Register"
-             },
-
+             }
           ]
         },
          {
@@ -849,7 +852,7 @@
              {
                "bit_number" : "11-9",
                "bit_Field_Name" : "PAR_OVR_KEY",
-               "info" : "When this value is “101”, the selected ADD_INV_PAR and DAT_INV_PAR fields will become"
+               "info" : "When this value is 101, the selected ADD_INV_PAR and DAT_INV_PAR fields will become active."
              },
              {
                "bit_number" : "8",
@@ -882,7 +885,7 @@
              {
                "bit_number" : "27-24",
                "bit_Field_Name" : "SectorID3_inverse",
-               "info" : "he sector ID inverse bits are used with the sector ID bits to determine which sector is"
+               "info" : "The sector ID inverse bits are used with the sector ID bits to determine which sector is disabled."
              },
              {
                "bit_number" : "23-21",
@@ -936,7 +939,7 @@
                "bit_Field_Name" : "WR_ENA",
                "info" : "Flash State Machine Write Enable",
                "values" : [
-                 {"value" : "5h", "desc" : "This register must contain “101” in order to write to any other register in the range"},
+                 {"value" : "5h", "desc" : "This register must contain 101 in order to write to any other register in the range"},
                  {"value" : "All other values", "desc" : "For all other values, the FSM registers cannot be written."}
                 ]
              }
@@ -1202,23 +1205,8 @@
                "info" : "Byte offset"
              }
           ]
-        },
-{
-          "name" : "FCFG_BANK",
-          "info" : "Flash Bank Configuration Register",
-          "lenght" : "32",
-          "adress" : "FFF8 7400",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "31-20",
-               "bit_Field_Name" : "EE_BANK_WIDTH",
-               "info" : "Bank 7 width (144 bits wide)"
-             },
-             {
-               "bit_number" : "15-4",
-               "bit_Field_Name" : "MAIN_BANK_WIDTH",
-               "info" : "Width of main flash banks (144 bits wide)"
-             }
-          ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

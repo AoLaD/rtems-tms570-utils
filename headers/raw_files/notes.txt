@@ -6,3 +6,13 @@ SPI F8-114 DUPL
 LIN check
 LIN 5c?
 I2C 16bit reg
+FLEX_RAY TCR ?
+
+missing
+DMM
+RAM trace
+DCAN
+ADC
+VIM
+
+

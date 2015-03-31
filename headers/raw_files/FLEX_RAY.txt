@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "GSN0",
           "info" : "Global Static Number 0",
           "lenght" : "32",
@@ -478,7 +486,7 @@
           "info" : "End Address of Memory Protection",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "End Address of Memory Protectio",
+          "offset" : "34",
           "fields" : [
              {
                "bit_number" : "31-0",
@@ -1410,67 +1418,8 @@
                "info" : "Transfer to Communication Controller Interrupt Enable Set 1. The register bits 0 to 31 correspond"
              }
           ]
-        },
-{
-          "name" : "1FCh TCR",
-          "info" : "Transfer Configuration RAM",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "STXR",
-               "info" : "Set Transmit Request."
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "THTSM",
-               "info" : "Transfer Header to System Memory."
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "TPTSM",
-               "info" : "Transfer Payload to System Memory."
-             },
-             {
-               "bit_number" : "15",
-               "bit_Field_Name" : "THTCC",
-               "info" : "Transfer Header to Communication Controller."
-             },
-             {
-               "bit_number" : "14",
-               "bit_Field_Name" : "TPTCC",
-               "info" : "Transfer Payload to Communication Controller."
-             },
-             {
-               "bit_number" : "13-0",
-               "bit_Field_Name" : "TSO(13-0)",
-               "info" : "Transfer Start Offset."
-             }
-          ]
-        },
-{
-          "name" : "3FCh TCR Parity",
-          "info" : "TCR Parity Test Mode",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "200h",
-          "fields" : [
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "PAB2",
-               "info" : "Parity Bit for TCRx Byte 2. Parity information for byte 2 of TCRx(18-16). Reserved TCR bits are"
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "PAB1",
-               "info" : "Parity Bit for TCRx Byte 1. Parity information for byte 1 of TCRx(15:8)."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "PAB0",
-               "info" : "Parity Bit for Byte 0."
-             }
-          ]
-        },
+        }
+      ]    
+    }
+  ] 
+}

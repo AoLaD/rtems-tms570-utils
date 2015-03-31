@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "CCMSR",
           "info" : "CCM-R4F Status Register",
           "lenght" : "32",
@@ -62,4 +70,9 @@
                 ]
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 
+

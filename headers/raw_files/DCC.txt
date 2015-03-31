@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "DCCGCTRL",
           "info" : "DCC Global Control Register",
           "lenght" : "32",
@@ -122,8 +130,7 @@
                "bit_number" : "19-0",
                "bit_Field_Name" : "COUNT1 SEED",
                "info" : "Seed value for DCC Counter1."
-             },
-
+             }
           ]
         },
          {
@@ -225,6 +232,10 @@
                "bit_number" : "3-0",
                "bit_Field_Name" : "CNT0 CLKSRC",
                "info" : "Clock Source for Counter0"
-             },
+             }
           ]
-},
+}
+      ]    
+    }
+  ] 
+}  

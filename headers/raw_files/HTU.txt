@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "HTU GC",
           "info" : "Global Control Register",
           "lenght" : "32",
@@ -629,4 +637,8 @@
                "info" : "The end address defines at which address the region ends. A memory protection error will"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}

@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "GCTRL",
           "info" : "Global Control Register",
           "lenght" : "32",
@@ -247,7 +255,9 @@
                "bit_number" : "5-0",
                "bit_Field_Name" : "CH3ASI",
                "info" : "Channel 3 assignment. This bit field chooses the DMA request assignment for channel 3."
-             },
+             }
+          ]
+        },
 {
           "name" : "DREQASI1",
           "info" : "DMA Request Assignment Register 1",
@@ -1326,4 +1336,8 @@
                "info" : "End Address defines the address at which the region ends. The end address usually is"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+} 

@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "MIDR",
           "info" : "Module ID Register",
           "lenght" : "32",
@@ -52,7 +60,7 @@
              {
                "bit_number" : "7-0",
                "bit_Field_Name" : "MAX_EXT_WAIT",
-               "info" : "Maximum extended wait cycles. The EMIF will wait for a maximum of (MAX_EXT_WAIT + 1) ×"
+               "info" : "Maximum extended wait cycles. The EMIF will wait for a maximum of (MAX_EXT_WAIT + 1)"
              }
           ]
         },
@@ -577,4 +585,8 @@
                "info" : "Page Mode enable for NOR Flash connected on CS2."
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}

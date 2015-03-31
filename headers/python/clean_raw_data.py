@@ -32,8 +32,8 @@ for opt, arg in opts:
       elif opt in ("-o", "--ofile"):
          outputfile = directory+'\\prepared_files\\'+arg
          #outputfile = arg
-print ('Input file is ', inputfile)
-print ('Output file is ', outputfile)
+#print ('Input file is ', inputfile)
+#print ('Output file is ', outputfile)
 inFile = codecs.open(inputfile, "r", "utf-8").readlines()
 f = open(outputfile, 'w')
 

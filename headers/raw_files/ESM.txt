@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
           "name" : "ESMEEPAPR1",
           "info" : "ESM Enable ERROR Pin Action/Response Register 1",
           "lenght" : "32",
@@ -413,4 +421,10 @@
                 ]
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}         
+
+
