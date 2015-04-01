@@ -171,7 +171,7 @@ def makeBlock(reg,prefix):
         if (lenght != 1):
             block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_SET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += '\n'
         else:
             block += "#define "+prefix+'_'+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'            
