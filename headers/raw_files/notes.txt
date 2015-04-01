@@ -7,12 +7,14 @@ LIN check
 LIN 5c?
 I2C 16bit reg
 FLEX_RAY TCR ?
+DCAN 84
+ADC multi regs
+
 
 missing
 DMM
 RAM trace
 DCAN
-ADC
 VIM
 
 

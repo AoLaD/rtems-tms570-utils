@@ -1,0 +1,1198 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "ADC",
+      "registers" :
+      [
+{
+          "name" : "ADRSTCR",
+          "info" : "ADC Reset Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RESET",
+               "info" : "This bit is used to reset the ADC internal state machines and control/status registers. This reset"
+             }
+          ]
+        },
+{
+          "name" : "ADOPMODECR",
+          "info" : "ADC Operating Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "10/12 BIT",
+               "info" : "This bit controls the resolution of the ADC core. It also affects the size of the conversion"
+             }
+          ]
+        },
+{
+          "name" : "ADCLOCKCR",
+          "info" : "ADC Clock Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "PS",
+               "info" : "ADC Clock Prescaler. These bits define the prescaler value for the ADC core clock (ADCLK). The"
+             }
+          ]
+        },
+{
+          "name" : "ADCALCR",
+          "info" : "ADC Calibration Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "SELF TEST",
+               "info" : "ADC Self Test Enable. When this bit is Set, either ADREFHI or ADREFLO is connected through a"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "CAL ST",
+               "info" : "ADC Calibration Conversion Start. Setting the CAL ST bit while the CAL EN bit is set starts"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "BRIDGE EN",
+               "info" : "Bridge Enable. When set with the HILO bit, BRIDGE EN allows a reference voltage to be"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "HILO",
+               "info" : "ADC Self Test mode and Calibration Mode Reference Source Selection."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CAL EN",
+               "info" : "ADC Calibration Enable. When this bit is Set, the input channel multiplexor is disconnected and the"
+             }
+          ]
+        },
+{
+          "name" : "ADEVMODECR",
+          "info" : "ADC Event Group Operating Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "No Reset on ChnSel",
+               "info" : "No Event Group Results Memory Reset on New Channel Select."
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "EV DATA FMT",
+               "info" : "Event Group Read Data Format."
+             }
+          ]
+        },
+{
+          "name" : "ADG1MODECR",
+          "info" : "ADC Group1 Operating Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "No Reset on ChnSel",
+               "info" : "No Group1 Results Memory Reset on New Channel Select."
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "G1 DATA FMT",
+               "info" : "Group1 Read Data Format."
+             }
+          ]
+        },
+{
+          "name" : "ADG2MODECR",
+          "info" : "ADC Group2 Operating Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "No Reset on ChnSel",
+               "info" : "No Group2 Results Memory Reset on New Channel Select."
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "G2 DATA FMT",
+               "info" : "Group2 Read Data Format."
+             }
+          ]
+        },
+{
+          "name" : "ADEVSRC",
+          "info" : "ADC Trigger Source Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "EV EDG BOTH",
+               "info" : "rising and falling edge detected on the selected trigger source."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "EV EDG SEL",
+               "info" : "Event Group Trigger Edge Polarity Select. This bit determines the polarity of the transition on the"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "EV SRC",
+               "info" : "Event Group Trigger Source."
+             }
+          ]
+        },
+{
+          "name" : "ADG1SRC",
+          "info" : "ADC Group1 Trigger Source Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "GI EDG BOTH",
+               "info" : "Group1 Trigger Edge Polarity Select. This bit configures the group1 to be triggered on both rising"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G1 EDG SEL",
+               "info" : "Group1 Trigger Edge Polarity Select. This bit determines the polarity of the transition on the"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "G1 SRC",
+               "info" : "Group1 Trigger Source."
+             }
+          ]
+        },
+{
+          "name" : "ADG2SRC",
+          "info" : "ADC Group2 Trigger Source Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "G2 EDG BOTH",
+               "info" : "Group2 Trigger Edge Polarity Select. This bit configures the group2 to be triggered on both rising"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G2 EDG SEL",
+               "info" : "Group2 Trigger Edge Polarity Select. This bit determines the polarity of the transition on the"
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "G2 SRC",
+               "info" : "Group2 Trigger Source."
+             }
+          ]
+        },
+{
+          "name" : "ADEVINTENA",
+          "info" : "ADC Event Interrupt Enable Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "EV END INT EN",
+               "info" : "Event Group Conversion End Interrupt Enable. Please refer to Section 19.5.1 for more details on"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "EV OVR INT EN",
+               "info" : "write a new conversion result to the Event Group results memory which is already full. For more"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EV THR INT EN",
+               "info" : "Event Group Threshold Interrupt Enable. An Event Group threshold interrupt occurs when the"
+             }
+          ]
+        },
+{
+          "name" : "ADG1INTENA",
+          "info" : "ADC Group1 Interrupt Enable Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G1 END INT EN",
+               "info" : "Group1 Conversion End Interrupt Enable. Please refer to Section 19.5.1 for more details on the"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G1 OVR INT EN",
+               "info" : "Group1 Memory Overrun Interrupt Enable. A memory overrun occurs when the ADC tries to write a"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 THR INT EN",
+               "info" : "Group1 Threshold Interrupt Enable. A Group1 threshold interrupt occurs when the programmed"
+             }
+          ]
+        },
+{
+          "name" : "ADG2INTENA",
+          "info" : "ADC Group2 Interrupt Enable Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G2 END INT EN",
+               "info" : "Group2 Conversion End Interrupt Enable. Please refer to Section 19.5.1 for more details on the"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G2 OVR INT EN",
+               "info" : "Group2 Memory Overrun Interrupt Enable. A memory overrun occurs when the ADC tries to write a"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 THR INT EN",
+               "info" : "Group2 Threshold Interrupt Enable. A Group2 threshold interrupt occurs when the programmed"
+             }
+          ]
+        },
+{
+          "name" : "ADEVINTFLG",
+
+          "info" : "ADC Event Group Interrupt Flag Register",
+
+          "lenght" : "32",
+
+          "adress" : "0",
+
+          "offset" : "34",
+
+          "fields" : [
+
+             {
+
+               "bit_number" : "3",
+
+               "bit_Field_Name" : "EV END",
+
+               "info" : "Event Group Conversion End. This bit will be set only if the Event Group conversions are"
+
+             },
+
+             {
+
+               "bit_number" : "2",
+
+               "bit_Field_Name" : "EV MEM EMPTY",
+
+               "info" : "Event Group Results Memory Empty. This is a read-only bit; writes have no effect. It is not asource of an interrupt from the ADC module."
+
+             },
+
+             {
+
+               "bit_number" : "1",
+
+               "bit_Field_Name" : "EV MEM OVERRUN",
+
+               "info" : "Event Group Memory Overrun. This is a read-only bit; writes have no effect."
+
+             },
+
+             {
+
+               "bit_number" : "0",
+
+               "bit_Field_Name" : "EV THR INT FLG",
+
+               "info" : "Event Group Threshold Interrupt Flag."
+
+             }
+
+          ]
+
+        },
+
+{
+          "name" : "ADG1INTFLG",
+          "info" : "ADC Group1 Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G1 END",
+               "info" : "Group1 Conversion End. This bit will be set only if the Group1 conversions are configured to be"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G1 MEM EMPTY",
+               "info" : "Group1 Results Memory Empty. This is a read-only bit; writes have no effect. It is not a source"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G1 MEM OVERRUN",
+               "info" : "Group1 Memory Overrun. This is a read-only bit; writes have no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 THR INT FLG",
+               "info" : "Group1 Threshold Interrupt Flag."
+             }
+          ]
+        },
+{
+          "name" : "ADG2INTFLG",
+          "info" : "ADC Group2 Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G2 END",
+               "info" : "Group2 Conversion End. This bit will be set only if the Group2 conversions are configured to be"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G2 MEM EMPTY",
+               "info" : "Group2 Results Memory Empty. This is a read-only bit; writes have no effect. It is not a source"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G2 MEM OVERRUN",
+               "info" : "Group2 Memory Overrun. This is a read-only bit; writes have no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 THR INT FLG",
+               "info" : "Group2 Threshold Interrupt Flag."
+             }
+          ]
+        },
+{
+          "name" : "ADEVTHRINTCR",
+          "info" : "ADC Event Group Threshold Interrupt Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "bit_number" : "15-9",
+               "bit_Field_Name" : "Sign Extension",
+               "info" : "These bits always read the same as the bit 8 of this register."
+             },
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "EV THR",
+               "info" : "Event Group Threshold Counter."
+             }
+          ]
+        },
+{
+          "name" : "ADG1THRINTCR",
+          "info" : "ADC Group1 Threshold Interrupt Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "bit_number" : "15-9",
+               "bit_Field_Name" : "Sign Extension",
+               "info" : "These bits always read the same as the bit 8 of this register."
+             },
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "G1 THR",
+               "info" : "Group1 Threshold Counter."
+             }
+          ]
+        },
+{
+          "name" : "ADG2THRINTCR",
+          "info" : "ADC Group2 Threshold Interrupt Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "15-9",
+               "bit_Field_Name" : "Sign Extension",
+               "info" : "These bits always read the same as the bit 8 of this register."
+             },
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "G2 THR",
+               "info" : "Group2 Threshold Counter."
+             }
+          ]
+        },
+{
+          "name" : "ADEVDMACR",
+          "info" : "ADC Event Group DMA Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "24-16",
+               "bit_Field_Name" : "EV BLOCKS",
+               "info" : "Number of Event Group Result buffers to be transferred using DMA if the ADC module is"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DMA EV END",
+               "info" : "Event Group Conversion End DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "EV BLK XFER",
+               "info" : "Event Group Block DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EV DMA EN",
+               "info" : "Event Group DMA Transfer Enable."
+             }
+          ]
+        },
+{
+          "name" : "ADG1DMACR",
+          "info" : "ADC Group1 DMA Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "bit_number" : "24-16",
+               "bit_Field_Name" : "G1 BLOCKS",
+               "info" : "Number of Group1 Result buffers to be transferred using DMA if the ADC module is configured"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DMA G1 END",
+               "info" : "Group1 Conversion End DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G1 BLK XFER",
+               "info" : "Group1 Block DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 DMA EN",
+               "info" : "Group1 DMA Transfer Enable."
+             }
+          ]
+        },
+{
+          "name" : "ADG2DMACR",
+          "info" : "ADC Group2 DMA Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "bit_number" : "24-16",
+               "bit_Field_Name" : "G2 BLOCKS",
+               "info" : "Number of Group2 Result buffers to be transferred using DMA if the ADC module is configured"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DMA G2 END",
+               "info" : "Group2 Conversion End DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G2 BLK XFER",
+               "info" : "Group2 Block DMA Transfer Enable."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 DMA EN",
+               "info" : "Group2 DMA Transfer Enable."
+             }
+          ]
+        },
+{
+          "name" : "ADBNDCR",
+          "info" : "ADC Results Memory Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "bit_number" : "24-16",
+               "bit_Field_Name" : "BNDA",
+               "info" : "Buffer Boundary A. These bits determine the memory available for the Event Group conversion"
+             },
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "BNDB",
+               "info" : "Buffer Boundary B. These bits specify the number of buffers allocated for the Event Group plus the"
+             }
+          ]
+        },
+{
+          "name" : "ADBNDEND",
+          "info" : "ADC Results Memory Size Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "BUF INIT ACTIVE",
+               "info" : "ADC Results Memory Auto-initialization Status."
+             },
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "BNDEND",
+               "info" : "Buffer Boundary End. These bits specify the total number of memory buffers available for"
+             }
+          ]
+        },
+{
+          "name" : "ADEVSAMP",
+          "info" : "ADC Event Group Sampling Time Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "bit_number" : "11-0",
+               "bit_Field_Name" : "EV ACQ",
+               "info" : "Event Group Acquisition Time. These bits define the sampling window (SW) for the Event Group"
+             }
+          ]
+        },
+{
+          "name" : "ADG1SAMP",
+          "info" : "ADC Group1 Sampling Time Configuration Register()",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "bit_number" : "11-0",
+               "bit_Field_Name" : "G1 ACQ",
+               "info" : "Group1 Acquisition Time. These bits define the sampling window (SW) for the Group1 conversions."
+             }
+          ]
+        },
+{
+          "name" : "ADG2SAMP",
+          "info" : "ADC Group2 Sampling Time Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "bit_number" : "11-0",
+               "bit_Field_Name" : "G2 ACQ",
+               "info" : "Group2 Acquisition Time. These bits define the sampling window (SW) for the Group2 conversions."
+             }
+          ]
+        },
+{
+          "name" : "ADEVSR",
+          "info" : "ADC Event Group Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "EV MEM EMPTY",
+               "info" : "Event Group Results Memory Empty. This bit can be effectively used only when the conversion"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "EV BUSY",
+               "info" : "Event Group Conversion Busy."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "EV STOP",
+               "info" : "Event Group Conversion Stopped."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EV END",
+               "info" : "Event Group Conversions Ended."
+             }
+          ]
+        },
+{
+          "name" : "ADG1SR",
+          "info" : "ADC Group1 Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G1 MEM EMPTY",
+               "info" : "Group1 Results Memory Empty. This bit can be effectively used only when the conversion results"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G1 BUSY",
+               "info" : "Group1 Conversion Busy."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G1 STOP",
+               "info" : "Group1 Conversion Stopped."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 END",
+               "info" : "Group1 Conversions Ended."
+             }
+          ]
+        },
+{
+          "name" : "ADG2SR",
+          "info" : "ADC Group2 Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "G2 MEM EMPTY",
+               "info" : "Group2 Results Memory Empty. This bit can be effectively used only when the conversion results"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "G2 BUSY",
+               "info" : "Group2 Conversion Busy."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "G2 STOP",
+               "info" : "Group2 Conversion Stopped."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 END",
+               "info" : "Group2 Conversions Ended."
+             }
+          ]
+        },
+{
+          "name" : "ADEVSEL",
+          "info" : "ADC Event Group Channel Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "EV SEL",
+               "info" : "Event Group channels selected."
+             }
+          ]
+        },
+{
+          "name" : "ADG1SEL",
+          "info" : "ADC Group1 Channel Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "G1 SEL",
+               "info" : "Group1 channels selected."
+             }
+          ]
+        },
+{
+          "name" : "ADG2SEL",
+          "info" : "ADC Group2 Channel Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "G2 SEL",
+               "info" : "Group2 channels selected."
+             }
+          ]
+        },
+{
+          "name" : "ADCALR",
+          "info" : "ADC Calibration and Error Offset Correction Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "11-0",
+               "bit_Field_Name" : "ADCALR",
+               "info" : "ADC Calibration Result and Offset Error Correction Value."
+             }
+          ]
+        },
+{
+          "name" : "ADSMSTATE",
+          "info" : "ADC State Machine Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "LAST CONV",
+               "info" : "ADC Input Channel's Last Converted Value."
+             }
+          ]
+        },
+{
+          "name" : "ADLASTCONV",
+          "info" : "ADC Channel Last Conversion Value Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "LAST CONV",
+               "info" : "ADC Input Channel's Last Converted Value."
+             }
+          ]
+        },
+{
+          "name" : "ADEVEMUBUFFER",
+          "info" : "ADC Event Group Results Emulation FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT DIR",
+               "info" : "ADEVT Pin Direction."
+             }
+          ]
+        },
+{
+          "name" : "ADG1EMUBUFFER",
+          "info" : "ADC Group1 Results Emulation FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F4",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT DIR",
+               "info" : "ADEVT Pin Direction."
+             }
+          ]
+        },
+{
+          "name" : "ADG2EMUBUFFER",
+          "info" : "ADC Group2 Results Emulation FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F8",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT DIR",
+               "info" : "ADEVT Pin Direction."
+             }
+          ]
+        },
+{
+          "name" : "ADEVTDIR",
+          "info" : "ADC ADEVT Pin Direction Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "FC",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT DIR",
+               "info" : "ADEVT Pin Direction."
+             }
+          ]
+        },
+{
+          "name" : "ADEVTOUT",
+          "info" : "ADC ADEVT Pin Output Value Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "100",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT OUT",
+               "info" : "ADEVT Pin Output Value. This bit determines the logic level to be output to the ADEVT pin when"
+             }
+          ]
+        },
+{
+          "name" : "ADEVTIN",
+          "info" : "ADC ADEVT Pin Input Value Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "104",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT IN",
+               "info" : "ADEVT Pin Input Value. This is a read-only bit which reflects the logic level on the ADEVT pin."
+             }
+          ]
+        },
+{
+          "name" : "ADEVTSET",
+          "info" : "ADC ADEVT Pin Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "108",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT SET",
+               "info" : "ADEVT Pin Set. This bit drives the output of the ADEVT pin high. A read from this bit always"
+             }
+          ]
+        },
+{
+          "name" : "ADEVTCLR",
+          "info" : "ADC ADEVT Pin Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10C",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT CLR",
+               "info" : "ADEVT Pin Clear. A read from this bit always returns the current state of the ADEVT pin."
+             }
+          ]
+        },
+{
+          "name" : "ADEVTPDR",
+          "info" : "ADC ADEVT Pin Open Drain Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "110",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT PDR",
+               "info" : "ADEVT Pin Open Drain Enable. This bit enables the open-drain capability for the ADEVT pin if it is"
+             }
+          ]
+        },
+{
+          "name" : "ADEVTPDIS",
+          "info" : "ADC ADEVT Pin Pull Control Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "114",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT PDIS",
+               "info" : "ADEVT Pin Pull Control Disable. This bit enables or disables the pull control on the ADEVT pin if it"
+             }
+          ]
+        },
+{
+          "name" : "ADEVTPSEL",
+          "info" : "ADC ADEVT Pin Pull Control Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "118",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT PSEL",
+               "info" : "ADEVT Pin Pull Control Select. This bit selects a pull-down or pull-up on the ADEVT pin if it is"
+             }
+          ]
+        },
+{
+          "name" : "ADEVSAMPDISEN",
+          "info" : "ADC Event Group Sample Cap Discharge Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "11C",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "EV SAMP DIS CYC",
+               "info" : "Event Group sample cap discharge cycles. These bits specify the duration in terms of ADCLK"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EV SAMP DIS EN",
+               "info" : "Event Group sample cap discharge enable."
+             }
+          ]
+        },
+{
+          "name" : "ADG1SAMPDISEN",
+          "info" : "ADC Group1 Sample Cap Discharge Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "120",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "G1 SAMP DIS CYC",
+               "info" : "Group1 sample cap discharge cycles. These bits specify the duration in terms of ADCLK cycles"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 SAMP DIS EN",
+               "info" : "Group1 sample cap discharge enable."
+             }
+          ]
+        },
+{
+          "name" : "ADG2SAMPDISEN",
+          "info" : "ADC Group2 Sample Cap Discharge Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "124",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "G2 SAMP DIS CYC",
+               "info" : "for which the ADC internal sampling capacitor is allowed to discharge before sampling the input"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 SAMP DIS EN",
+               "info" : "Group2 sample cap discharge enable."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINTENASET",
+          "info" : "ADC Magnitude Compare Interrupt Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "158",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "MAG INT ENA SET",
+               "info" : "Each of these three bits, when set, enable the corresponding magnitude compare interrupt."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINTENACLR",
+          "info" : "ADC Magnitude Compare Interrupt Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "15C",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "MAG INT ENA CLR",
+               "info" : "Each of these three bits, when set, enable the corresponding magnitude compare interrupt."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINTFLG",
+          "info" : "ADC Magnitude Compare Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "160",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "MAG INT FLG",
+               "info" : "Magnitude Compare Interrupt Flags. These bits can be polled by the application to determine if the"
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINTOFF",
+          "info" : "ADC Magnitude Compare Interrupt Offset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "164",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "MAG INT OFF",
+               "info" : "Magnitude Compare Interrupt Offset. This field indexes the currently highest-priority magnitude"
+             }
+          ]
+        },
+{
+          "name" : "ADEVFIFORESETCR",
+          "info" : "ADC Event Group FIFO Reset Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "168",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "EV FIFO RESET",
+               "info" : "allows the ADC module to overwrite the contents of the Event Group results memory starting from"
+             }
+          ]
+        },
+{
+          "name" : "ADG1FIFORESETCR",
+          "info" : "ADC Group1 FIFO Reset Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "16C",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G1 FIFO RESET",
+               "info" : "ADC Group1 FIFO Reset. The application can set this bit in case of an overrun condition. This"
+             }
+          ]
+        },
+{
+          "name" : "ADG2FIFORESETCR",
+          "info" : "ADC Group2 FIFO Reset Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "170",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "G2 FIFO RESET",
+               "info" : "ADC Group2 FIFO Reset. The application can set this bit in case of an overrun condition. This"
+             }
+          ]
+        },
+{
+          "name" : "ADEVRAMWRADDR",
+          "info" : "ADC Event Group RAM Write Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "174",
+          "fields" : [
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "G1 RAM ADDR",
+               "info" : "Group1 results memory write pointer. This field shows the address of the location where the next"
+             }
+          ]
+        },
+{
+          "name" : "ADG1RAMWRADDR",
+          "info" : "ADC Group1 RAM Write Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "178",
+          "fields" : [
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "G1 RAM ADDR",
+               "info" : "Group1 results memory write pointer. This field shows the address of the location where the next"
+             }
+          ]
+        },
+{
+          "name" : "ADG2RAMWRADDR",
+          "info" : "ADC Group2 RAM Write Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "17C",
+          "fields" : [
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "G2 RAM ADDR",
+               "info" : "Group2 results memory write pointer. This field shows the address of the location where the next"
+             }
+          ]
+        },
+{
+          "name" : "ADPARCR",
+          "info" : "ADC Parity Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "180",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TEST",
+               "info" : "This bit maps the parity bits into the ADC results' RAM frame so that the application can access"
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "PARITY ENA",
+               "info" : "PARITY ENA"
+             }
+          ]
+        },
+{
+          "name" : "ADPARADDR",
+          "info" : "ADC Parity Error Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "184",
+          "fields" : [
+             {
+               "bit_number" : "11-2",
+               "bit_Field_Name" : "ERROR ADDRESS",
+               "info" : "These bits hold the address of the first parity error generated in the ADC results' RAM. This"
+             }
+          ]
+        },
+{
+          "name" : "ADPWRUPDLYCTRL",
+          "info" : "ADC Power-Up Delay Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "188",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "PWRUP DLY",
+               "info" : "This register defines the number of VCLK cycles that the ADC state machine has to wait after"
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+} 
+
