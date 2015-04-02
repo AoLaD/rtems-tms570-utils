@@ -12,9 +12,10 @@ ADC multi regs
 DMM multi regs
 
 
-missing
-VIM
+DCAN, VIM multi regs (more than 64bits) ?
+VIM array ?
 
 
-DCAN multi regs - check
+struct checked
+VIM DCAN
 

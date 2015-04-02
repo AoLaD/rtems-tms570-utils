@@ -1,0 +1,443 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SCI",
+      "registers" :
+      [
+{
+          "name" : "PARFLG",
+          "info" : "Interrupt Vector Table Parity Flag Register",
+          "lenght" : "32",
+          "adress" : "FFFF FDEC",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PARFLG",
+               "info" : "The PARFLG indicates that a parity error has been found and that theInterrupt Vector Table is"
+             }
+          ]
+        },
+{
+          "name" : "PARCTL",
+          "info" : "Interrupt Vector Table Parity Control Register",
+          "lenght" : "32",
+          "adress" : "FFFF FDF0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TEST",
+               "info" : "This bit maps the parity bits into the Interrupt Vector Table frame to make them accessible by the"
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "PARENA",
+               "info" : "VIM parity enable."
+             }
+          ]
+        },
+{
+          "name" : "ADDERR",
+          "info" : "Address Parity Error Register",
+          "lenght" : "32",
+          "adress" : "FFFF FDF4",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-9",
+               "bit_Field_Name" : "Interrupt Vector Table",
+               "info" : "Interrupt Vector Table offset.Reads are always FF F820h; writes have no effect"
+             },
+             {
+               "bit_number" : "8-2",
+               "bit_Field_Name" : "ADDERR",
+               "info" : "Address parity error register. This register gives the address of the first encountered parity"
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "Word offset",
+               "info" : "Word offset. Reads are always 0; writes have no effect."
+             }
+          ]
+        },
+{
+          "name" : "FBPARERR",
+          "info" : "Fall-Back Address Parity Error Register",
+          "lenght" : "32",
+          "adress" : "FFFF FDF8",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FBPARERR",
+               "info" : "Fall back address parity error. This register is used by the VIM if the Interrupt Vector Table"
+             }
+          ]
+        },
+{
+          "name" : "IRQINDEX",
+          "info" : "IRQ Index Offset Vector Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE00",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "IRQINDEX",
+               "info" : "IRQ index vector.The least significant bits represent the index of the IRQ pending interrupt with"
+             }
+          ]
+        },
+{
+          "name" : "FIQINDEX",
+          "info" : "FIQ Index Offset Vector Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE04",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "FIQINDEX",
+               "info" : "FIQ index offset vector. The least significant bits represent the index of the FIQ pending"
+             }
+          ]
+        },
+{
+          "name" : "FIRQPR0",
+          "info" : "FIQ/IRQ Program Control Register 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE10",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-2",
+               "bit_Field_Name" : "FIRQPR2To31",
+               "info" : "FIQ/IRQ program control bits. These bits determine whether an interrupt request from a",
+               "values" : [
+                 {"value" : "0", "desc" : "Interrupt request is of IRQ type."},
+                 {"value" : "1", "desc" : "Interrupt request is of FIQ type."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FIRQPR1",
+          "info" : "FIQ/IRQ Program Control Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE14",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FIRQPR32To63",
+               "info" : "FIQ/IRQ program control bits. These bits determine whether an interrupt request from a",
+               "values" : [
+                 {"value" : "0", "desc" : "Interrupt request is of IRQ type."},
+                 {"value" : "1", "desc" : "Interrupt request is of FIQ type."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FIRQPR2",
+          "info" : "FIQ/IRQ Program Control Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE18",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FIRQPR64To95",
+               "info" : "FIQ/IRQ program control bits. These bits determine whether an interrupt request from a",
+               "values" : [
+                 {"value" : "0", "desc" : "Interrupt request is of IRQ type."},
+                 {"value" : "1", "desc" : "Interrupt request is of FIQ type."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "INTREQ0",
+          "info" : "Pending Interrupt Read Location Register 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE20",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTREQ0To31",
+               "info" : "Pending interrupt bits. These bits determine whether an interrupt request is pending for the"
+             }
+          ]
+        },
+{
+          "name" : "INTREQ1",
+          "info" : "Pending Interrupt Read Location Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE24",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTREQ32To63",
+               "info" : "Pending interrupt bits. These bits determine whether an interrupt request is pending for the"
+             }
+          ]
+        },
+{
+          "name" : "INTREQ2",
+          "info" : "Pending Interrupt Read Location Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE28",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "INTREQ64To95",
+               "info" : "Pending interrupt bits. These bits determine whether an interrupt request is pending for the"
+             }
+          ]
+        },
+{
+          "name" : "REQENASET0",
+          "info" : "Interrupt Enable Set Register 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE30",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-2",
+               "bit_Field_Name" : "REQENASET2To31",
+               "info" : "Request enable set bits.This vector determines whether the interrupt request channel is"
+             }
+          ]
+        },
+{
+          "name" : "REQENASET1",
+          "info" : "Interrupt Enable Set Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE34",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "REQENASET32To63",
+               "info" : "Request enable set bits.This vector determines whether the interrupt request channel is"
+             }
+          ]
+        },
+{
+          "name" : "REQENASET2",
+          "info" : "Interrupt Enable Set Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE38",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "REQENASET64To95",
+               "info" : "Request enable set bits.This vector determines whether the interrupt request channel is"
+             }
+          ]
+        },
+{
+          "name" : "REQENACLR0",
+          "info" : "Interrupt Enable Clear Register 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE40",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-2",
+               "bit_Field_Name" : "REQENACLR2To31",
+               "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
+             }
+          ]
+        },
+{
+          "name" : "REQENACLR1",
+          "info" : "Interrupt Enable Clear Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE44",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "REQENACLR32To63",
+               "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
+             }
+          ]
+        },
+{
+          "name" : "REQENACLR2",
+          "info" : "Interrupt Enable Clear Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE48",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "REQENACLR64To95",
+               "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENASET0",
+          "info" : "Wake-Up Enable Set Register 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE50",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENASET0To31",
+               "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENASET1",
+          "info" : "Wake-Up Enable Set Register 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE54",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENASET32To63",
+               "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENASET2",
+          "info" : "Wake-Up Enable Set Register 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE58",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENASET64To95",
+               "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENACLR0",
+          "info" : "Wake-Up Enable Clear Registers 0",
+          "lenght" : "32",
+          "adress" : "FFFF FE60",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENACLR0To31",
+               "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENACLR1",
+          "info" : "Wake-Up Enable Clear Registers 1",
+          "lenght" : "32",
+          "adress" : "FFFF FE64",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENACLR32To63",
+               "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+{
+          "name" : "WAKEENACLR2",
+          "info" : "Wake-Up Enable Clear Registers 2",
+          "lenght" : "32",
+          "adress" : "FFFF FE68",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "WAKEENACLR64To95",
+               "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
+             }
+          ]
+        },
+
+
+{
+          "name" : "IRQVECREG",
+          "info" : "IRQ Interrupt Vector Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE70",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "IRQVECREG",
+               "info" : "IRQ interrupt vector register. This vector gives the address of the ISR with the highest"
+             }
+          ]
+        },
+{
+          "name" : "FIQVECREG",
+          "info" : "FIQ Interrupt Vector Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE74",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "FIQVECREG",
+               "info" : "FIQ interrupt vector register. This vector gives the address of the ISR with the highest"
+             }
+          ]
+        },
+{
+          "name" : "CAPEVT",
+          "info" : "Capture Event Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE78",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "22-16",
+               "bit_Field_Name" : "CAPEVTSRC1",
+               "info" : "Capture event source 1 mapping control. These bits determine which interrupt request maps to"
+             },
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "CAPEVTSRC0",
+               "info" : "the capture event source 0 of the RTI:"
+             }
+          ]
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ]    
+    }
+  ] 
+}   
+
