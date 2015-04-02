@@ -1,0 +1,756 @@
+{
+          "name" : "DMMGLBCTRL",
+          "info" : "DMM Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "BUSY",
+               "info" : "Busy indicator."
+             },
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "CONTCLK",
+               "info" : "Continuous DMMCLK input."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "COS",
+               "info" : "Continue on suspend. Influences behavior of module while in debug mode. In all cases"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "RESET",
+               "info" : "Reset. This bit resets the state machine and the registers to its reset value, except the"
+             },
+             {
+               "bit_number" : "10-9",
+               "bit_Field_Name" : "DDM_WIDTH",
+               "info" : "Packet Width in direct data mode."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "TM_DMM",
+               "info" : "Packet Format."
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "ON/OFF",
+               "info" : "Switch module on or off"
+             }
+          ]
+        },
+{
+          "name" : "DMMINTSET",
+          "info" : "DMM Interrupt Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "PROG_BUFF",
+               "info" : "Programmable Buffer Interrupt Set. This enables the interrupt generation in case the"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "EO_BUFF",
+               "info" : "EO_BUFF"
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "DEST3REG2",
+               "info" : "Destination 3 Region 2 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "DEST3REG1",
+               "info" : "Destination 3 Region 1 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "DEST2REG2",
+               "info" : "Destination 2 Region 2 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "DEST2REG1",
+               "info" : "Destination 2 Region 1 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "DEST1REG2",
+               "info" : "Destination 1 Region 2 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "DEST1REG1",
+               "info" : "DEST1REG1"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "DEST0REG2",
+               "info" : "Destination 0 Region 2 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "DEST0REG1",
+               "info" : "Destination 0 Region 1 Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "BUSERROR",
+               "info" : "Bus Error Response for errors generated when doing internal bus transfers."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "BUFF_OVF",
+               "info" : "Buffer Overflow. This enables the interrupt generation in case new data is received, while"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SRC_OVF",
+               "info" : "Source Overflow. This enables an interrupt if the external system experienced and"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "DEST3_ERR",
+               "info" : "Destination 3 Error. This enables the interrupt generation in case data should be written"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DEST2_ERR",
+               "info" : "Destination 2 Error Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "DEST1_ERR",
+               "info" : "Destination 1 Error Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DEST0_ERR",
+               "info" : "Destination 0 Error Interrupt Set. This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PACKET_ERR_INT",
+               "info" : "Packet Error. This enables the interrupt generation in case of an error condition in the"
+             }
+          ]
+        },
+{
+          "name" : "DMMINTCLR",
+          "info" : "DMM Interrupt Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "PROG_BUFF",
+               "info" : "Programmable Buffer Interrupt Set.This disables the interrupt generation in case the"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "EO_BUFF",
+               "info" : "End of Buffer Interrupt Set.This disables the interrupt generation in case data was written"
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "DEST3REG2",
+               "info" : "was accessed at the startaddress of Destination 3 Region 2. This bit is only relevant in"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "DEST3REG1",
+               "info" : "Destination 3 Region 1 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "DEST2REG2",
+               "info" : "Destination 2 Region 2 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "DEST2REG1",
+               "info" : "Destination 2 Region 1 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "DEST1REG2",
+               "info" : "Destination 1 Region 2 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "DEST1REG1",
+               "info" : "Destination 1 Region 1 Interrupt Set.This enables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "DEST0REG2",
+               "info" : "Destination 0 Region 2 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "DEST0REG1",
+               "info" : "Destination 0 Region 1 Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "BUSERROR",
+               "info" : "Bus Error Response for errors generated when doing internal bus transfers."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "BUFF_OVF",
+               "info" : "Buffer Overflow.This disables the interrupt generation in case new data is received, while"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SRC_OVF",
+               "info" : "Source Overflow. This disables an interrupt if the external system experienced and"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "DEST3_ERR",
+               "info" : "Destination 3 Error.This disables the interrupt generation in case data should be written"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DEST2_ERR",
+               "info" : "Destination 2 Error Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "DEST1_ERR",
+               "info" : "Destination 1 Error Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DEST0_ERR",
+               "info" : "Destination 0 Error Interrupt Set.This disables the interrupt generation in case data"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PACKET_ERR_INT",
+               "info" : "Packet Error.This disables the interrupt generation in case of an error condition in the"
+             }
+          ]
+        },
+{
+          "name" : "DMMINTLVL",
+          "info" : "DMM Interrupt Level Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "PROG_BUFF",
+               "info" : "Programmable Buffer Interrupt Level"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "EO_BUFF",
+               "info" : "End of Buffer Interrupt Level"
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "DEST3REG2",
+               "info" : "Destination 3 Region 2 Interrupt Level"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "DEST3REG1",
+               "info" : "Destination 3 Region 1 Interrupt Level"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "DEST2REG2",
+               "info" : "Destination 2 Region 2 Interrupt Level"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "DEST2REG1",
+               "info" : "Destination 2 Region 1 Interrupt Level"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "DEST1REG2",
+               "info" : "Destination 1 Region 2 Interrupt Level"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "DEST1REG1",
+               "info" : "Destination 1 Region 1 Interrupt Level"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "DEST0REG2",
+               "info" : "Destination 0 Region 2 Interrupt Level"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "DEST0REG1",
+               "info" : "Destination 0 Region 1 Interrupt Level"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "BUSERROR",
+               "info" : "BMM Bus Error Response"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "BUFF_OVF",
+               "info" : "Write Buffer Overflow Interrupt Level"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SRC_OVF",
+               "info" : "Source Overflow Interrupt Level"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "DEST3_ERR",
+               "info" : "Destination 3 Error Interrupt Level"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DEST2_ERR",
+               "info" : "Destination 2 Error Interrupt Level"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "DEST1_ERR",
+               "info" : "Destination 1 Error Interrupt Level"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DEST0_ERR",
+               "info" : "Destination 0 Error Interrupt Level"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PACKET_ERR_INT",
+               "info" : "Packet Error Interrupt Level"
+             }
+          ]
+        },
+{
+          "name" : "DMMINTFLG",
+          "info" : "DMM Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "PROG_BUFF",
+               "info" : "Programmable Buffer Interrupt Flag"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "EO_BUFF",
+               "info" : "End of Buffer Interrupt Flag"
+             },
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "DEST3REG2",
+               "info" : "Destination 3 Region 2 Interrupt Flag"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "DEST3REG1",
+               "info" : "Destination 3 Region 1 Interrupt Flag"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "DEST2REG2",
+               "info" : "Destination 2 Region 2 Interrupt Flag"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "DEST2REG1",
+               "info" : "Destination 2 Region 1 Interrupt Flag"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "DEST1REG2",
+               "info" : "Destination 1 Region 2 Interrupt Flag"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "DEST1REG1",
+               "info" : "Destination 1 Region 1 Interrupt Flag"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "DEST0REG2",
+               "info" : "Destination 0 Region 2 Interrupt Flag"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "DEST0REG1",
+               "info" : "Destination 0 Region 1 Interrupt Flag"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "BUSERROR",
+               "info" : "BMM Bus Error Response."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "BUFF_OVF",
+               "info" : "Write Buffer Overflow Interrupt Flag"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SRC_OVF",
+               "info" : "Source Overflow Interrupt Flag"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "DEST3_ERR",
+               "info" : "Destination 3 Error Interrupt Flag"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "DEST2_ERR",
+               "info" : "Destination 2 Error Interrupt Flag"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "DEST1_ERR",
+               "info" : "Destination 1 Error Interrupt Flag"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "DEST0_ERR",
+               "info" : "Destination 0 Error Interrupt Flag"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "PACKET_ERR_INT",
+               "info" : "Packet Error Interrupt Flag"
+             }
+          ]
+        },
+{
+          "name" : "DMMOFF1",
+          "info" : "DMM Interrupt Offset 1 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "OFFSET",
+               "info" : "User and privilege mode (read):"
+             }
+          ]
+        },
+{
+          "name" : "DMMOFF2",
+          "info" : "DMM Interrupt Offset 2 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "OFFSET",
+               "info" : "User and privilege mode (read):"
+             }
+          ]
+        },
+{
+          "name" : "DMMDDMDEST",
+          "info" : "DMM Direct Data Mode Destination Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the buffer. The starting address has to be a multiple of the"
+             }
+          ]
+        },
+{
+          "name" : "DMMDDMBL",
+          "info" : "DMM Direct Data Mode Blocksize Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the size of the buffer region"
+             }
+          ]
+        },
+{
+          "name" : "DMMDDMPT",
+          "info" : "DMM Direct Data Mode Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "14-0",
+               "bit_Field_Name" : "POINTER",
+               "info" : "These bits hold the pointer to the next entry to be written in the buffer. The pointer points to the"
+             }
+          ]
+        },
+{
+          "name" : "DMMINTPT",
+          "info" : "DMM Direct Data Mode Interrupt Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "14-0",
+               "bit_Field_Name" : "INTPT",
+               "info" : "Interrupt Pointer. When the buffer pointer (Section 30.3.10) matches the programmed value in"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC0",
+          "info" : "DMM Pin Control 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAFUNC",
+               "info" : "Functional mode of DMMENA pin. This bit defines whether the pin is used in functional mode or"
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxFUNC",
+               "info" : "Functional mode of DMMDATA[x] pin. This bit defines whether the pin is used in functional"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKFUNC",
+               "info" : "Functional mode of DMMCLK pin. This bit defines whether the pin is used in functional mode or"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCFUNC",
+               "info" : "Functional mode of DMMSYNC pin. This bit defines whether the pin is used in functional mode"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC1",
+          "info" : "DMM Pin Control 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENADIR",
+               "info" : "Direction of DMMENA pin."
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxDIR",
+               "info" : "Direction of DMMDATA[x] pin. This bit defines whether the pin is used as input or output in GIO"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKDIR",
+               "info" : "Direction of DMMCLK pin. This bit defines whether the pin is used as input or output in GIO"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCDIR",
+               "info" : "Direction of DMMSYNC pin. This bit defines whether the pin is used as input or output in GIO"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC2",
+          "info" : "DMM Pin Control 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAIN",
+               "info" : "DMMENA input. This bit reflects the state of the pin in all modes."
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxIN",
+               "info" : "DMMDATA[x] input. This bit reflects the state of the pin in all modes."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKIN",
+               "info" : "DMMCLK input. This bit reflects the state of the pin in all modes."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCIN",
+               "info" : "DMMSYNC input. This bit reflects the state of the pin in all modes"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC3",
+          "info" : "DMM Pin Control 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAOUT",
+               "info" : "Output state of DMMENA pin. This bit sets the pin to logic low or high level"
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxOUT",
+               "info" : "Output state of DMMDATA[x] pin. This bit sets the pin to logic low or high level."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKOUT",
+               "info" : "Output state of DMMCLK pin. This bit sets the pin to logic low or high level"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCOUT",
+               "info" : "Output state of DMMSYNC pin. This bit sets the pin to logic low or high level."
+             }
+          ]
+        },
+{
+          "name" : "DMMPC4",
+          "info" : "DMM Pin Control 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENASET",
+               "info" : "control register bit to 1 regardless of the current value in the ENAOUT bit."
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxSET",
+               "info" : "Sets output state of DMMDATA[x] pin to logic high. Value in the DATAxSET bit sets the data"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKSET",
+               "info" : "Sets output state of DMMCLK pin to logic high. Value in the CLKSET bit sets the data output"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCSET",
+               "info" : "Sets output state of DMMSYNC pin logic high. Value in the SYNCSET bit sets the data output"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC5",
+          "info" : "DMM Pin Control 5",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENACLR",
+               "info" : "Sets output state of DMMENA pin to logic low. Value in the ENACLR bit clears the data output"
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxCLR",
+               "info" : "Sets output state of DMMDATA[x] pin to logic low. Value in the DATAxCLR bit clears the data"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKCLR",
+               "info" : "Sets output state of DMMCLK pin to logic low. Value in the CLKCLR bit clears the data output"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCCLR",
+               "info" : "Sets output state of DMMSYNC pin to logic low. Value in the SYNCCLR bit clears the data"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC6",
+          "info" : "DMM Pin Control 6",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAPDR",
+               "info" : "Open Drain enable. Enables open drain functionality if the pin is configured as GIO output"
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxPDR",
+               "info" : "Open Drain enable. Enables open drain functionality on pin if pin is configured as GIO output"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKPDR",
+               "info" : "Open Drain enable. Enables open drain functionality on pin if pin is configured as GIO output"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCPDR",
+               "info" : "Open Drain enable. Enables open drain functionality on pin if pin is configured as GIO output"
+             }
+          ]
+        },
+{
+          "name" : "DMMPC7",
+          "info" : "DMM Pin Control 7",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAPDIS",
+               "info" : "Pull disable. Removes internal pullup/pulldown functionality from pin when configured as input pin"
+             },
+             {
+               "bit_number" : "17-2",
+               "bit_Field_Name" : "DATAxPDIS",
+               "info" : "Pull disable. Removes internal pullup/pulldown functionality from pin when configured as input pin"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLKPDIS",
+               "info" : "Pull disable. Removes internal pullup/pulldown functionality from pin when configured as input pin"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SYNCPDIS",
+               "info" : "Pull disable. Removes internal pullup/pulldown functionality from pin when configured as input pin"
+             }
+          ]
+        },

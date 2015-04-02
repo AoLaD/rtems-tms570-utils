@@ -3,18 +3,18 @@ SPI 50-5C MAGIC
 SPI 98-D4 DUPL
 SPI D8-F4 DUPL
 SPI F8-114 DUPL
+RTP RTPRAM1REG
 LIN check
 LIN 5c?
 I2C 16bit reg
 FLEX_RAY TCR ?
-DCAN 84
 ADC multi regs
+DMM multi regs
 
 
 missing
-DMM
-RAM trace
-DCAN
 VIM
 
+
+DCAN multi regs - check
 

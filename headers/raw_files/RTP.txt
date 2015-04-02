@@ -1,0 +1,593 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "RTP",
+      "registers" :
+      [
+{
+          "name" : "RTPGLBCTRL",
+          "info" : "RTP Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "TEST",
+               "info" : "By setting the bit, the FIFO RAM will be mapped into the SYSTEM Peripheral frame starting at"
+             },
+             {
+               "bit_number" : "18-16",
+               "bit_Field_Name" : "PRESCALER",
+               "info" : "The prescaler divides HCLK down to the desired RTPCLK frequency. The maximum RTPCLK"
+             },
+             {
+               "bit_number" : "13-12",
+               "bit_Field_Name" : "DDM_WIDTH",
+               "info" : "Direct data mode word size width. This bit field configures the number of bits that will be"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "DDM_RW",
+               "info" : ""
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "TM_DDM",
+               "info" : "Trace Mode or Direct Data Mode"
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "PW",
+               "info" : "Port width. This bit field configures the RTP to the desired port width. Pins that are not used for"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RESET",
+               "info" : "This bit resets the state machine and the registers to their reset value. This reset ensures that"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "CONTCLK",
+               "info" : "Continuous RTPCLK enable."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "HOVF",
+               "info" : "Halt on overflow. This bit indicates whether the CPU or DMA is halted while only one location in"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "INV_RGN",
+               "info" : "Trace inside or outside of defined trace regions."
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "ON/OFF",
+               "info" : "ON/Off switch."
+             }
+          ]
+        },
+{
+          "name" : "RTPTRENA",
+          "info" : "RTP Trace Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "ENA4",
+               "info" : "Enable tracing for peripherals. This bit enables tracing into FIFO4 in trace mode (read/write) or"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "ENA2",
+               "info" : "Enable tracing for RAM block 2. This bit enables tracing into FIFO2 in Trace Mode (read/write) or"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ENA1",
+               "info" : ""
+             }
+          ]
+        },
+{
+          "name" : "RTPGSR",
+          "info" : "RTP Global Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "EMPTYSER",
+               "info" : "Serializer empty. This bit determines if there is data left in the serializer."
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "EMPTYPER",
+               "info" : "Peripheral FIFO empty. This bit determines if there are entries left in the FIFO."
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "EMPTY2",
+               "info" : "RAM block 2 FIFO empty. This bit determines if there are entries left in the FIFO."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "EMPTY1",
+               "info" : "RAM block 1 FIFO empty. This bit determines if there are entries left in the FIFO."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "OVFPER",
+               "info" : "Overflow peripheral FIFO. This flag indicates that FIFO4 had all locations full and another"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "OVF2",
+               "info" : "Overflow RAM block 2 FIFO. This flag indicates that FIFO2 had all locations full and another"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "OVF1",
+               "info" : "Overflow RAM block 1 FIFO. This flag indicates that FIFO1 had all locations full and another"
+             }
+          ]
+        },
+{
+          "name" : "RTPDDMW",
+          "info" : "RTP Direct Data Mode Write Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "DATA",
+               "info" : "This register must be written to in a Direct Data Mode write operation to store the data into"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC0",
+          "info" : "RTP Pin Control 0 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAFUNC",
+               "info" : "Functional mode of RTPENA pin."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKFUNC",
+               "info" : "Functional mode of RTPCLK pin."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCFUNC",
+               "info" : "Functional mode of RTPSYNC pin."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATAFUNC",
+               "info" : "Functional mode of RTPDATA[15:0] pins. These bits define whether the pins are used in"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC1",
+          "info" : "RTP Pin Control 1 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENADIR",
+               "info" : "Direction of RTPENA pin. This bit defines whether the pin is used as input or output in GIO"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKDIR",
+               "info" : "Direction of RTPCLK pin. This bit defines whether the pin is used as input or output in GIO"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCDIR",
+               "info" : "Direction of RTPSYNC pin. This bit defines whether the pin is used as input or output in GIO"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATADIR",
+               "info" : "Direction of RTPDATA[15:0] pins. These bits define whether the pins are used as input or output"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC2",
+          "info" : "RTP Pin Control 2 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAIN",
+               "info" : "RTPENA input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKIN",
+               "info" : "RTPCLK input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCIN",
+               "info" : "RTPSYNC input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATAIN",
+               "info" : "RTPDATA[15:0] input. These bits reflect the state of the pins in all modes. Each bit represents a"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC3",
+          "info" : "RTP Pin Control 3 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAOUT",
+               "info" : "RTPENA output. This pin sets the output state of the RTPENA pin."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKOUT",
+               "info" : "RTPCLK output. This pin sets the output state of the RTPCLK pin."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCOUT",
+               "info" : "RTPSYNC output. This pin sets the output state of the RTPSYNC pin."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATAOUT",
+               "info" : "RTPDATA[15:0] output. These bits set the output state of the RTPDATA[15:0] pins. Each bit"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC4",
+          "info" : "RTP Pin Control 4 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENASET",
+               "info" : "Sets the output state of RTPENA pin to logic high. Value in the ENASET bit sets the data"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKSET",
+               "info" : "Sets the output state of RTPCLK pin to logic high. Value in the CLKSET bit sets the data"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCSET",
+               "info" : "Sets output state of RTPSYNC pin logic high. Value in the SYNCSET bit sets the data output"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATASET",
+               "info" : "Sets output state of RTPDATA[15:0] pins to logic high. Value in the DATAxSET bit sets the"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC5",
+          "info" : "RTP Pin Control 5 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENACLR",
+               "info" : "Sets the output state of RTPENA pin to logic high. Value in the ENASET bit sets the data"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKCLR",
+               "info" : "Sets output state of RTPCLK pin to logic low. Value in the CLKCLR bit sets the data output"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCCLR",
+               "info" : "Sets output state of RTPSYNC pin logic low. Value in the SYNCCLR bit clears the data output"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATACLR",
+               "info" : "Sets output state of RTPDATA[15:0] pins to logic low. Value in the DATAxCLR bit clears the"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC6",
+          "info" : "RTP Pin Control 6 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAPDR",
+               "info" : "RTPENA Open drain enable. This bit enables open drain functionality on the pin if it is configured"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKPDR",
+               "info" : "CLKPDR RTPCLK Open drain enable. This bit enables open drain functionality on the pin if it is configured"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCPDR",
+               "info" : "RTPSYNC Open drain enable. This bit enables open drain functionality on the pin if it is"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATAPDR",
+               "info" : "RTPDATA[15:0] Open drain enable. These bits enable open drain functionality on the pins if they"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC7",
+          "info" : "RTP Pin Control 7 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENADIS",
+               "info" : "RTPENA Pull disable. This bit removes internal pullup/pulldown functionality from the pin when it"
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKDIS",
+               "info" : "RTPCLK Pull disable. This bit removes the internal pullup/pulldown functionality from the pin"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCDIS",
+               "info" : "RTPSYNC Pull disable. Removes internal pullup/pulldown functionality from the pin when"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATADIS",
+               "info" : "RTPDATA[15:0] Pull disable. Removes internal pullup/pulldown functionality from the pins when"
+             }
+          ]
+        },
+{
+          "name" : "RTPPC8",
+          "info" : "RTP Pin Control 8 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "ENAPSEL",
+               "info" : "RTPENA Pull select. This bit configures pullup or pulldown functionality if RTPPC7[18]=0."
+             },
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CLKPSEL",
+               "info" : "RTPCLK Pull select. This bit configures pullup or pulldown functionality if RTPPC7[17]=0."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SYNCPSEL",
+               "info" : "RTPSYNC Pull select. This bit configures pullup or pulldown functionality if RTPPC7[16]=0."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATAPSEL",
+               "info" : "RTPDATA[15:0] Pull select. These bits configure pullup or pulldown functionality if"
+             }
+          ]
+        },
+{
+          "name" : "RTPRAM1REG1",
+          "info" : "RTP RAM 1 Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "17-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        },
+{
+          "name" : "RTPRAM1REG2",
+          "info" : "RTP RAM 1 Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "17-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        },
+{
+          "name" : "RTPRAM2REG1",
+          "info" : "RTP RAM 2 Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        },
+{
+          "name" : "RTPRAM2REG2",
+          "info" : "RTP RAM 2 Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        },
+{
+          "name" : "RTPPERREG1",
+          "info" : "RTP Peripheral Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        },
+{
+          "name" : "RTPPERREG2",
+          "info" : "RTP Peripheral Trace Region Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "CPU_DMA",
+               "info" : "CPU and/or other master access. This bit field indicates if read or write operations are traced"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RW",
+               "info" : "Read/Write. This bit indicates if read or write operations are traced in Trace Mode or Direct"
+             },
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "BLOCKSIZE",
+               "info" : "These bits define the length of the trace region. Depending on the setting of INV_RGN"
+             },
+             {
+               "bit_number" : "23-0",
+               "bit_Field_Name" : "STARTADDR",
+               "info" : "These bits define the starting address of the address region that should be traced. The start"
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}
