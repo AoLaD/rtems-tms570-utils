@@ -3,8 +3,6 @@ SPI D8-F4 DUPL
 SPI F8-114 DUPL
 
 
-I2C 16bit reg
-FLEX_RAY TCR ?
 ADC multi regs
 DMM multi regs
 
@@ -16,7 +14,9 @@ VIM - array
 SPI 50-5C  - array
 RTP RTPRAM1REG - suggest to remake as array
 LIN 5C? -> 6C
+I2C 16bit reg
+FLEX_RAY TCR - move into single peripheral
 
 struct checked
-VIM DCAN RTP LIN SCI
+VIM DCAN RTP LIN SCI FLEX_RAY TCR
 
