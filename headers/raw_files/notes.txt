@@ -1,9 +1,8 @@
 SPI 98-D4 DUPL
 SPI D8-F4 DUPL
 SPI F8-114 DUPL
-RTP RTPRAM1REG
-LIN check
-LIN 5c?
+
+
 I2C 16bit reg
 FLEX_RAY TCR ?
 ADC multi regs
@@ -13,9 +12,11 @@ DMM multi regs
 DCAN, VIM multi regs (more than 64bits) ?
 
 others need see
-VIM array ?
-SPI 50-5C array
+VIM - array
+SPI 50-5C  - array
+RTP RTPRAM1REG - suggest to remake as array
+LIN 5C? -> 6C
 
 struct checked
-VIM DCAN
+VIM DCAN RTP LIN SCI
 

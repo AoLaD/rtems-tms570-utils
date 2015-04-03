@@ -155,8 +155,35 @@
              }
           ]
         },
-
-
+{
+          "name" : "SCIGCR2",
+          "info" : "SCI Global Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "bit_number" : "17",
+               "bit_Field_Name" : "CC",
+               "info" : "Compare checksum. LIN mode only. This bit is used by the receiver for extended frames to trigger"
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "SC",
+               "info" : "Send checksum byte. This bit is effective in LIN mode only. This bit is used by the transmitter with"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "GEN WU",
+               "info" : "Generate wakeup signal. This bit is effective in LIN mode only. This bit controls the generation of a"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "POWERDOWN",
+               "info" : "Power down. This bit is effective in LIN or SCI mode. When this bit is set, the SCI/LIN module"
+             }
+          ]
+        },
          {
           "name" : "SCISETINT",
           "info" : "SCI Set Interrupt Register",
