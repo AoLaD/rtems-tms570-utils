@@ -3,7 +3,7 @@
   "peripherals" :
   [
     {
-      "name" : "SCI",
+      "name" : "POM",
       "registers" :
       [
 {

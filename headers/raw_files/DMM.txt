@@ -1,4 +1,12 @@
 {
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "DMM",
+      "registers" :
+      [
+{
           "name" : "DMMGLBCTRL",
           "info" : "DMM Global Control Register",
           "lenght" : "32",
@@ -753,4 +761,8 @@
                "info" : "Pull disable. Removes internal pullup/pulldown functionality from pin when configured as input pin"
              }
           ]
-        },
+        }
+      ]    
+    }
+  ] 
+}
