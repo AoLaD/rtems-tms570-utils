@@ -1190,6 +1190,270 @@
                "info" : "This register defines the number of VCLK cycles that the ADC state machine has to wait after"
              }
           ]
+        },
+{
+          "name" : "ADEVBUFFER",
+          "info" : "ADC Event Group Results FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "array" : "8",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "EV EMPTY 10bit mode",
+               "info" : "Event Group FIFO Empty."
+             },
+             {
+               "bit_number" : "10-14",
+               "bit_Field_Name" : "EV CHID 10bit mode",
+               "info" : "Event Group Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-9",
+               "bit_Field_Name" : "EV DR 10bit mode",
+               "info" : "Event Group Digital Conversion Result."
+             },
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "EV EMPTY 12bit mode",
+               "info" : "Event Group FIFO Empty."
+             },
+             {
+               "bit_number" : "20-16",
+               "bit_Field_Name" : "EV CHID 12bit mode",
+               "info" : "Event Group Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-11",
+               "bit_Field_Name" : "EV DR 12bit mode",
+               "info" : "Event Group Digital Conversion Result."
+             }
+          ]
+        },
+{
+          "name" : "ADG1BUFFER",
+          "info" : "ADC Group1 Results FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B0",
+          "array" : "8",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "G1 EMPTY 10bit mode",
+               "info" : "Group1 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+             },
+             {
+               "bit_number" : "10-14",
+               "bit_Field_Name" : "G1 CHID 10bit mode",
+               "info" : "Group1 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-9",
+               "bit_Field_Name" : "G1 DR 10bit mode",
+               "info" : "Group1 Digital Conversion Result."
+             },
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "G1 EMPTY 12bit mode",
+               "info" : "Group1 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+             },
+             {
+               "bit_number" : "16-20",
+               "bit_Field_Name" : "G1 CHID 12bit mode",
+               "info" : "Group1 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-11",
+               "bit_Field_Name" : "G1 DR 12bit mode",
+               "info" : "Group1 Digital Conversion Result."
+             }
+          ]
+        },
+{
+          "name" : "ADG2BUFFER",
+          "info" : "ADC Group2 Results FIFO Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "D0",
+          "array" : "8",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "G2 EMPTY 10bit mode",
+               "info" : "Group2 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+             },
+             {
+               "bit_number" : "10-14",
+               "bit_Field_Name" : "G2 CHID 10bit mode",
+               "info" : "Group2 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-9",
+               "bit_Field_Name" : "G2 DR 10bit mode",
+               "info" : "Group2 Digital Conversion Result."
+             },
+{
+               "bit_number" : "31",
+               "bit_Field_Name" : "G2 EMPTY 12bit mode",
+               "info" : "Group2 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+             },
+             {
+               "bit_number" : "16-20",
+               "bit_Field_Name" : "G2 CHID 12bit mode",
+               "info" : "Group2 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+             },
+             {
+               "bit_number" : "0-11",
+               "bit_Field_Name" : "G2 DR 12bit mode",
+               "info" : "Group2 Digital Conversion Result."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINT0CR",
+          "info" : "ADC Magnitude Compare Interrupt Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "128",
+          "fields" : [
+             {
+               "bit_number" : "30-26",
+               "bit_Field_Name" : "MAG CHID0",
+               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
+             },
+             {
+               "bit_number" : "25-16",
+               "bit_Field_Name" : "MAG THR0",
+               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "COMP CHID0",
+               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CHN/THR COMP0",
+               "info" : "Channel OR Threshold comparison."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CMP GE/LT0",
+               "info" : "Greater than or equal to OR Less than comparison operator."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINT1CR",
+          "info" : "ADC Magnitude Compare Interrupt Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "130",
+          "fields" : [
+             {
+               "bit_number" : "30-26",
+               "bit_Field_Name" : "MAG CHID1",
+               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
+             },
+             {
+               "bit_number" : "25-16",
+               "bit_Field_Name" : "MAG THR1",
+               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "COMP CHID1",
+               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CHN/THR COMP1",
+               "info" : "Channel OR Threshold comparison."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CMP GE/LT1",
+               "info" : "Greater than or equal to OR Less than comparison operator."
+             }
+          ]
+        },
+{
+          "name" : "ADMAGINT2CR",
+          "info" : "ADC Magnitude Compare Interrupt Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "138",
+          "fields" : [
+             {
+               "bit_number" : "30-26",
+               "bit_Field_Name" : "MAG CHID2",
+               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
+             },
+             {
+               "bit_number" : "25-16",
+               "bit_Field_Name" : "MAG THR2",
+               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "COMP CHID2",
+               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CHN/THR COMP2",
+               "info" : "Channel OR Threshold comparison."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CMP GE/LT2",
+               "info" : "Greater than or equal to OR Less than comparison operator."
+             }
+          ]
+        },
+{
+          "name" : "ADMAG0MASK",
+          "info" : "ADC Magnitude Compare Mask Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "12C",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "MAG INT0 MASK",
+               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
+             }
+          ]
+        },
+{
+          "name" : "ADMAG1MASK",
+          "info" : "ADC Magnitude Compare Mask Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "134",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "MAG INT1 MASK",
+               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
+             }
+          ]
+        },
+{
+          "name" : "ADMAG2MASK",
+          "info" : "ADC Magnitude Compare Mask Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "13C",
+          "fields" : [
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "MAG INT2 MASK",
+               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
+             }
+          ]
         }
       ]    
     }
