@@ -2,10 +2,6 @@ SPI 98-D4 DUPL
 SPI D8-F4 DUPL
 SPI F8-114 DUPL
 
-
-DMM multi regs
-
-
 DCAN, VIM multi regs (more than 64bits) ?
 
 others need see
@@ -17,5 +13,5 @@ I2C 16bit reg
 FLEX_RAY TCR - move into single peripheral
 
 struct checked
-VIM DCAN RTP LIN SCI FLEX_RAY TCR ADC
+VIM DCAN RTP LIN SCI FLEX_RAY TCR ADC DMM
 
