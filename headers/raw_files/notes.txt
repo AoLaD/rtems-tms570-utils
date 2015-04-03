@@ -1,7 +1,9 @@
+known errors
 SPI 98-D4 DUPL
 SPI D8-F4 DUPL
 SPI F8-114 DUPL
 
+need to solve
 DCAN, VIM multi regs (more than 64bits) ?
 
 others need see
