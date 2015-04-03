@@ -100,7 +100,7 @@ def makeReserved(prevAdress, nextAdress):
     rozdil = nextAdress - prevAdress
     string = ''
     reservedID += 1
-    return '  ui32_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
+    return '  uint32_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
     
 lastAdress = 0
 def printIdAdress(reg):
@@ -187,17 +187,17 @@ def makeBlock(reg,prefix):
         lenght = int(reg.fields[i].lenght)
         block += '/* field: '+fieldName + ' - '+reg.fields[i].info+' */\n'
         if (lenght != 1):
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_SET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+reg.name+'_'+fieldName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+reg.name+'_'+fieldName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
+            block += "#define "+prefix+reg.name+'_'+fieldName+'_SET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += '\n'
         else:
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'
+            block += "#define "+prefix+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'
             block += '\n'
     return block
 
 def makeRegs(data):
-    prefix = data.name + '_' + data.peripherals[0].name
+    prefix = data.name + '_' + data.peripherals[0].name+'_'
     #for i in range(0,len(data.peripherals[0].registers)) :
     if(data.peripherals[0].registers[0].adress != '0'):
         #adress mode
