@@ -100,7 +100,7 @@ def makeReserved(prevAdress, nextAdress):
     rozdil = nextAdress - prevAdress
     string = ''
     reservedID += 1
-    return '  uint32_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
+    return '  uint8_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
     
 lastAdress = 0
 def printIdAdress(reg):
@@ -123,7 +123,7 @@ def printIdAdress(reg):
     prefix = '  '+regType+regName+';'
     if(reserved != ''):
         print(reserved)        
-    print(fillBlanks(prefix)+'/*'+info+hex(lastAdress)+'*/')
+    print(fillBlanks(prefix)+'/*'+info+'*/')
     
 def printIdOffset(reg):
     global lastAdress

@@ -4,7 +4,7 @@ SPI D8-F4 DUPL
 SPI F8-114 DUPL
 
 need to solve
-DCAN, VIM multi regs (more than 64bits) ?
+STC,DCAN, VIM multi regs (more than 64bits) ?
 
 others need see
 VIM - array
@@ -13,7 +13,11 @@ RTP RTPRAM1REG - suggest to remake as array
 LIN 5C? -> 6C
 I2C 16bit reg
 FLEX_RAY TCR - move into single peripheral
+DMA control packet memory map - move into single peripheral
 
-struct checked
-VIM DCAN RTP LIN SCI FLEX_RAY TCR ADC DMM
+struct not checked
+POM SPI STC
+
+missing 
+EMAC control, EMAC module
 

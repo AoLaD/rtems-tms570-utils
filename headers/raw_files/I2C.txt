@@ -336,7 +336,7 @@
         },
 {
           "name" : "I2CPSC",
-          "info" : "I2CPSC",
+          "info" : "I2C Prescale Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "30",

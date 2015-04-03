@@ -338,6 +338,59 @@
                "info" : "Value of CLKout count register. This counter increments based upon the PLL output"
              }
           ]
+        },
+{
+          "name" : "LPOMONCTL",
+          "info" : "LPO/Clock Monitor Control Register",
+          "lenght" : "32",
+          "adress" : "FFFF FF88",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "BIAS ENABLE",
+               "info" : "Bias enable."
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "OSCFRQCONFIGCNT",
+               "info" : "Configures the counter based on OSC frequency."
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "HFTRIM",
+               "info" : "High frequency oscillator trim value. This five-bit value is used to center the HF oscillator's"
+             }
+          ]
+        },
+{
+          "name" : "CLKTEST",
+          "info" : "Clock Test Register",
+          "lenght" : "32",
+          "adress" : "FFFF FF8C",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "ALTLIMPCLOCKENABLE",
+               "info" : "This bit selects a clock driven by the GIOB[0] pin as an alternate limp clock to the clock"
+             },
+             {
+               "bit_number" : "25",
+               "bit_Field_Name" : "RANGEDETCTRL",
+               "info" : "Range detection control. This bit's functionality is dependant on the state of the"
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "RANGEDETENASSEL",
+               "info" : "Selects range detection enable. This bit resets asynchronously on power on reset."
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "CLK_TEST_EN",
+               "info" : "Clock test enable. This bit enables the clock going to the ECLK pin."
+             }
+          ]
         }
       ]    
     }

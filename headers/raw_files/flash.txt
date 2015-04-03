@@ -1205,6 +1205,25 @@
                "info" : "Byte offset"
              }
           ]
+        },
+{
+          "name" : "FCFG_BANK",
+          "info" : "Flash Bank Configuration Register",
+          "lenght" : "32",
+          "adress" : "FFF8 7400",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-20",
+               "bit_Field_Name" : "EE_BANK_WIDTH",
+               "info" : "Bank 7 width (144 bits wide)"
+             },
+             {
+               "bit_number" : "15-4",
+               "bit_Field_Name" : "MAIN_BANK_WIDTH",
+               "info" : "Width of main flash banks (144 bits wide)"
+             }
+          ]
         }
       ]    
     }

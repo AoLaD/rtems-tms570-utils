@@ -268,8 +268,37 @@
                 ]
              }
           ]
+        },
+{
+          "name" : "PINMMR",
+          "info" : "Pin Multiplexing Control Registers",
+          "lenght" : "32",
+          "adress" : "FFFFEB10",
+          "offset" : "0",
+          "array" : "32",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "PINMMRx24To31",
+               "info" : "Each of these byte-fields control the functionality on a given ball/pin."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "PINMMRx16To23",
+               "info" : "Each of these byte-fields control the functionality on a given ball/pin."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "PINMMRx8To16",
+               "info" : "Each of these byte-fields control the functionality on a given ball/pin."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "PINMMRx0To7",
+               "info" : "Each of these byte-fields control the functionality on a given ball/pin."
+             }
+          ]
         }
-
       ]    
     }
   ] 

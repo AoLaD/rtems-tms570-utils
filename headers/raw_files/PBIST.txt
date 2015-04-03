@@ -7,6 +7,21 @@
       "registers" :
       [
 {
+          "name" : "DNW",
+          "info" : "Reserved DO NOT WRITE",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "array" : "88",
+          "fields" : [
+             {
+               "bit_number" : "0-31",
+               "bit_Field_Name" : "Reserved",
+               "info" : "Do not write"
+             }
+          ]
+        },
+{
           "name" : "RAMT",
           "info" : "RAM Configuration Register",
           "lenght" : "32",
