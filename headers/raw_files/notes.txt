@@ -11,6 +11,8 @@ DMM multi regs
 
 
 DCAN, VIM multi regs (more than 64bits) ?
+
+others need see
 VIM array ?
 SPI 50-5C array
 

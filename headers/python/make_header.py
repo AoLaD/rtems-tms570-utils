@@ -103,41 +103,46 @@ def makeReserved(prevAdress, nextAdress):
     return '  ui32_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
     
 lastAdress = 0
-def printIdAdress(data,regId):
+def printIdAdress(reg):
     global lastAdress
     reserved = ''
     if(lastAdress == 0):
-        lastAdress = int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)
-    if(lastAdress != int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)):
-        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].adress.replace(" ",""),16))    
-    if(data.peripherals[0].registers[regId].lenght == '32'):
+        lastAdress = int(reg.adress.replace(" ",""),16)
+    if(lastAdress != int(reg.adress.replace(" ",""),16)):
+        reserved = makeReserved(lastAdress,int(reg.adress.replace(" ",""),16))    
+    lastAdress = int(reg.adress.replace(" ",""),16)+int(int(reg.lenght)/8)*int(reg.array)
+    
+    if(reg.lenght == '32'):
         regType = 'ui32_t '
-    lastAdress = int(data.peripherals[0].registers[regId].adress.replace(" ",""),16)+int(int(data.peripherals[0].registers[regId].lenght)/8)
-    regName = data.peripherals[0].registers[regId].name
-    info = data.peripherals[0].registers[regId].info    
+        
+    regName = reg.name
+    if(int(reg.array) > 1):
+        regName += '['+reg.array+']'
+    
+    info = reg.info    
     prefix = '  '+regType+regName+';'
     if(reserved != ''):
         print(reserved)        
-    print(fillBlanks(prefix)+'/*'+info+'*/')
+    print(fillBlanks(prefix)+'/*'+info+hex(lastAdress)+'*/')
     
-def printIdOffset(data,regId):
+def printIdOffset(reg):
     global lastAdress
     reserved = ''
     if(lastAdress == 0):
-        lastAdress = int(data.peripherals[0].registers[regId].offset,16)
-    if(lastAdress != int(data.peripherals[0].registers[regId].offset,16)):
-        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].offset,16))
-    lastAdress = int(data.peripherals[0].registers[regId].offset,16)+int(int(data.peripherals[0].registers[regId].lenght)/8)*int(data.peripherals[0].registers[regId].array)
+        lastAdress = int(reg.offset,16)
+    if(lastAdress != int(reg.offset,16)):
+        reserved = makeReserved(lastAdress,int(reg.offset,16))
+    lastAdress = int(reg.offset,16)+int(int(reg.lenght)/8)*int(reg.array)
         
-    if(data.peripherals[0].registers[regId].lenght == '32'):
+    if(reg.lenght == '32'):
         regType = 'uint32_t '
 
-    regName = data.peripherals[0].registers[regId].name
-    if(int(data.peripherals[0].registers[regId].array) > 1):
-        regName += '['+data.peripherals[0].registers[regId].array+']'
+    regName = reg.name
+    if(int(reg.array) > 1):
+        regName += '['+reg.array+']'
         
     
-    info = data.peripherals[0].registers[regId].info    
+    info = reg.info    
     prefix = '  '+regType+regName+';'
     if(reserved != ''):
         print(reserved)        
@@ -152,15 +157,15 @@ def makeStruct(data):
         for i in range(0,len(data.peripherals[0].registers)) :
             regId = findIdWithLowestAdressFrom(data,adress)
             adress = data.peripherals[0].registers[regId].adress
-            printIdAdress(data,regId)
+            printIdAdress(data.peripherals[0].registers[regId])
         print ('} '+data.peripherals[0].name+"_struct;")
     else:
         #offset mode
-        adress = 'FFFFFFFF'
+        offset = 'FFFFFFFF'
         for i in range(0,len(data.peripherals[0].registers)) :
-            regId = findIdWithLowestOffsetFrom(data,adress)
-            adress = data.peripherals[0].registers[regId].offset
-            printIdOffset(data,regId)
+            regId = findIdWithLowestOffsetFrom(data,offset)
+            offset = data.peripherals[0].registers[regId].offset
+            printIdOffset(data.peripherals[0].registers[regId])
         print ('} '+data.peripherals[0].name+"_struct;")
         
 

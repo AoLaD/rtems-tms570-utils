@@ -417,6 +417,36 @@
                "info" : "the capture event source 0 of the RTI:"
              }
           ]
+        },
+{
+          "name" : "CHANCTRL",
+          "info" : "VIM Interrupt Control Register",
+          "lenght" : "32",
+          "adress" : "FFFF FE80",
+          "offset" : "0",
+          "array" : "24",          
+          "fields" : [
+             {
+               "bit_number" : "30-24",
+               "bit_Field_Name" : "CHANMAPx0",
+               "info" : "CHANMAPx 0(6-0). Interrupt CHANx 0 mapping control."
+             },
+             {
+               "bit_number" : "22-16",
+               "bit_Field_Name" : "CHANMAPx1",
+               "info" : "CHANMAPx 1(6-0). Interrupt CHANx 1 mapping control. These bits determine which interrupt"
+             },
+             {
+               "bit_number" : "14-8",
+               "bit_Field_Name" : "CHANMAPx2",
+               "info" : "CHANMAPx 2(6-0). Interrupt CHANx 2 mapping control. These bits determine which interrupt"
+             },
+             {
+               "bit_number" : "6-0",
+               "bit_Field_Name" : "CHANMAPx3",
+               "info" : "CHANMAPx 3(6-0). Interrupt CHANx 3 mapping control. These bits determine which interrupt"
+             }
+          ]
         }
 
 
