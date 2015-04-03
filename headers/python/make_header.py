@@ -16,13 +16,17 @@ class Peripheral(object):
         self.registers = registers
 
 class Register(object):
-    def __init__(self, name, info,lenght, adress,offset,fields):
+    def __init__(self, name, info,lenght, adress,offset,fields,array):
         self.name = name
         self.info = info
         self.lenght = lenght
         self.adress = adress
         self.offset = offset
         self.fields = fields
+        if(array != None):
+            self.array = array
+        else:
+            self.array = 1                
 
 class Fields(object):
     def __init__(self, start_bit, bit_lenght, bit_Field_Name, info,values):
@@ -35,12 +39,15 @@ class Fields(object):
 import json
 def object_decoder(obj):
     if 'adress' in obj:
-        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], obj['fields'])
+        temporal_array = None
+        if('array' in obj):
+            temporal_array = obj['array']        
+        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], obj['fields'],temporal_array)
     elif 'bit_Field_Name' in obj:
+        temporal_values = None        
         if('values' in obj):
-            return Fields(obj['start_bit'], obj['bit_lenght'], obj['bit_Field_Name'], obj['info'], obj['values'])
-        else:
-            return Fields(obj['start_bit'], obj['bit_lenght'], obj['bit_Field_Name'], obj['info'],None)            
+            temporal_values = obj['values']        
+        return Fields(obj['start_bit'], obj['bit_lenght'], obj['bit_Field_Name'], obj['info'],temporal_values)            
         #return Fields(obj['bit_position'], obj['lenght'], obj['bit_Field_Name'], obj['info'], obj['values'])
     elif 'registers' in obj:
         return Peripheral(obj['name'], obj['registers'])
@@ -119,11 +126,17 @@ def printIdOffset(data,regId):
     if(lastAdress == 0):
         lastAdress = int(data.peripherals[0].registers[regId].offset,16)
     if(lastAdress != int(data.peripherals[0].registers[regId].offset,16)):
-        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].offset,16))    
+        reserved = makeReserved(lastAdress,int(data.peripherals[0].registers[regId].offset,16))
+    lastAdress = int(data.peripherals[0].registers[regId].offset,16)+int(int(data.peripherals[0].registers[regId].lenght)/8)*int(data.peripherals[0].registers[regId].array)
+        
     if(data.peripherals[0].registers[regId].lenght == '32'):
-        regType = 'ui32_t '
-    lastAdress = int(data.peripherals[0].registers[regId].offset,16)+int(int(data.peripherals[0].registers[regId].lenght)/8)
+        regType = 'uint32_t '
+
     regName = data.peripherals[0].registers[regId].name
+    if(int(data.peripherals[0].registers[regId].array) > 1):
+        regName += '['+data.peripherals[0].registers[regId].array+']'
+        
+    
     info = data.peripherals[0].registers[regId].info    
     prefix = '  '+regType+regName+';'
     if(reserved != ''):
@@ -174,7 +187,8 @@ def makeBlock(reg,prefix):
             block += "#define "+prefix+'_'+reg.name+'_'+fieldName+'_SET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += '\n'
         else:
-            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'            
+            block += "#define "+prefix+'_'+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'
+            block += '\n'
     return block
 
 def makeRegs(data):

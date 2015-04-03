@@ -3,7 +3,7 @@
   "peripherals" :
   [
     {
-      "name" : "SCI",
+      "name" : "SPI",
       "registers" :
       [
 {
@@ -737,11 +737,12 @@
           ]
         },
 {
-          "name" : "5Ch SPIFMT",
+          "name" : "SPIFMT",
           "info" : "SPI Data Format Registers",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "50",
+	  "array" : "4",
           "fields" : [
              {
                "bit_number" : "31-24",
