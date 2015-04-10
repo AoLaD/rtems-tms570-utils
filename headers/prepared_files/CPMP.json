@@ -1,0 +1,207 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "CPMP",
+      "registers" :
+      [
+{
+          "name" : "ISADDR",
+          "info" : "Initial Source Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "ISADDR",
+               "info" : "Initial source address. These bits give the absolute 32-bit source address (physical)."
+             }
+          ]
+        },
+{
+          "name" : "IDADDR",
+          "info" : "Initial Destination Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "IDADDR",
+               "info" : "Initial destination address. These bits give the absolute 32-bit destination address (physical)."
+             }
+          ]
+        },
+{
+          "name" : "ITCOUNT",
+          "info" : "Initial Transfer Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "IFTCOUNT",
+               "info" : "Initial frame transfer count. These bits define the number of frame transfers."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "IETCOUNT",
+               "info" : "Initial element transfer count. These bits define the number of element transfers."
+             }
+          ]
+        },
+{
+          "name" : "CHCTRL",
+          "info" : "Channel Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "CHAIN",
+               "info" : "Next channel to be triggered."
+             },
+             {
+               "start_bit" : "14",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "RES",
+               "info" : "Read element size."
+             },
+             {
+               "start_bit" : "12",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "WES",
+               "info" : "Write element size."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TTYPE",
+               "info" : "Transfer type."
+             },
+             {
+               "start_bit" : "3",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ADDMR",
+               "info" : "Addressing mode read."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ADDMW",
+               "info" : "Addressing mode write."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "AIM",
+               "info" : "Auto-initiation mode."
+             }
+          ]
+        },
+{
+          "name" : "EIOFF",
+          "info" : "Element Index Offset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "EIDXD",
+               "info" : "Destination address element index."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "EIDXS",
+               "info" : "Source address element index."
+             }
+          ]
+        },
+{
+          "name" : "FIOFF",
+          "info" : "Frame Index Offset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "FIDXD",
+               "info" : "Destination address frame index."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "FIDXS",
+               "info" : "Source address frame index."
+             }
+          ]
+        },
+{
+          "name" : "CSADDR",
+          "info" : "Current Source Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "800",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "CSADDR",
+               "info" : "Current source address."
+             }
+          ]
+        },
+{
+          "name" : "CDADDR",
+          "info" : "Current Destination Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "804",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "CDADDR",
+               "info" : "Current destination address."
+             }
+          ]
+        },
+{
+          "name" : "CTCOUNT",
+          "info" : "Current Transfer Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "808",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "CFTCOUNT",
+               "info" : "Current frame transfer count. Returned the current remaining frame counts."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "CETCOUNT",
+               "info" : "Current element transfer count. These bits return the current remaining element counts."
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}  

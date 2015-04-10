@@ -1,0 +1,659 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "N2HET",
+      "registers" :
+      [
+{
+          "name" : "HETGCR",
+          "info" : "Global Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "HET PIN ENA",
+               "info" : "Enables the output buffers of the pin structures depending on the value of nDIS and DIR."
+             },
+             {
+               "start_bit" : "21",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "MP",
+               "info" : "Master Priority"
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PPF",
+               "info" : "Protect Program Fields"
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "IS",
+               "info" : "Ignore Suspend"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CMS",
+               "info" : "Clk_master/slave"
+             }
+          ]
+        },
+{
+          "name" : "HETPFR",
+          "info" : "Prescale Factor Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "LRPFC",
+               "info" : "oop Resolution Pre-scale Factor Code"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "HRPFC",
+               "info" : "High Resolution Pre-scale Factor Code"
+             }
+          ]
+        },
+{
+          "name" : "HETADDR",
+          "info" : "NHET Current Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "9",
+               "bit_Field_Name" : "HETADDR",
+               "info" : "N2HET Current Address"
+             }
+          ]
+        },
+{
+          "name" : "HETOFF1",
+          "info" : "Offset Index Priority Level 1 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "OFFSET1",
+               "info" : "HETOFF1[5:0] indexes the currently pending high-priority interrupt."
+             }
+          ]
+        },
+{
+          "name" : "HETOFF2",
+          "info" : "Offset Index Priority Level 2 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "OFFSET2",
+               "info" : "HETOFF2[5:0] indexes the currently pending low-priority interrupt."
+             }
+          ]
+        },
+{
+          "name" : "HETINTENAS",
+          "info" : "Interrupt Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETINTENAS",
+               "info" : "Interrupt Enable Set bits. HETINTENAS is readable and writable in any operation mode."
+             }
+          ]
+        },
+{
+          "name" : "HETINTENAC",
+          "info" : "Interrupt Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETINTENAC",
+               "info" : "Interrupt Enable Clear bits. HETINTENAC is readable and writable in any operation mode."
+             }
+          ]
+        },
+{
+          "name" : "HETEXC1",
+          "info" : "Exception Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT OVRFL ENA",
+               "info" : "APCNT Overflow Enable"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT UNRFL ENA",
+               "info" : "APCNT Underflow Enable"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PRGM OVRFL ENA",
+               "info" : "Program Overflow Enable"
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT OVRFL PRY",
+               "info" : "APCNT Overflow Exception Interrupt Priority"
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT UNRFL PRY",
+               "info" : "APCNT Underflow Exception Interrupt Priority"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PRGM OVRFL PRY",
+               "info" : "ProgramOverflow Exception Interrupt Priority"
+             }
+          ]
+        },
+{
+          "name" : "HETEXC2",
+          "info" : "Exception Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "DEBUG STATUS FLAG",
+               "info" : "Debug Status Flag."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT OVRFL FLAG",
+               "info" : "APCNT Overflow Flag"
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "APCNT UNDFL FLAG",
+               "info" : "APCNT Underflow Flag"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PRGM OVERFL FLAG",
+               "info" : "Program Overflow Flag"
+             }
+          ]
+        },
+{
+          "name" : "HETPRY",
+          "info" : "Interrupt Priority Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPRY",
+               "info" : "HET Interrupt Priority Level bits",
+               "values" : [
+                 {"value" : "0", "desc" : "Interrupt priority level 2."},
+                 {"value" : "1", "desc" : "Interrupt priority level 1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETFLG",
+          "info" : "Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETFLAG",
+               "info" : "Interrupt Flag Register Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETAND",
+          "info" : "AND Share Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "AND SHARE",
+               "info" : "AND Share Enable"
+             }
+          ]
+        },
+{
+          "name" : "HETHRSH",
+          "info" : "HR Share Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "HR SHARE",
+               "info" : "HR Share Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETXOR",
+          "info" : "HR XOR-Share Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "XOR SHARE",
+               "info" : "XOR Share Enable"
+             }
+          ]
+        },
+{
+          "name" : "HETREQENS",
+          "info" : "Request Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "REQ ENA n",
+               "info" : "Request Enable Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETREQENC",
+          "info" : "Request Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "REQ DIS n",
+               "info" : "Request Disable Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETREQDS",
+          "info" : "Request Destination Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TDBS n",
+               "info" : "HTU, DMA or Both Select Bits",
+               "values" : [
+                 {"value" : "0", "desc" : "N2HET request line n is assigned to the module specified by TDS bit n."},
+                 {"value" : "1", "desc" : "N2HET request line n is assigned to both DMA and HTU. TDS bit n is ignored in this case."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TDS n",
+               "info" : "HTU or DMA Select Bits",
+               "values" : [
+                 {"value" : "0", "desc" : "N2HET request line n is assigned to HTU (TDBS bit n is zero)."},
+                 {"value" : "1", "desc" : "N2HET request line n is assigned to DMA (TDBS bit n is zero)."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETDIR",
+          "info" : "NHET Direction Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETDIR n",
+               "info" : "Data direction of NHET pins",
+               "values" : [
+                 {"value" : "0", "desc" : "Pin HET[n] is an input (and its output buffer is tristated)"},
+                 {"value" : "1", "desc" : "Pin HET[n] is an output"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETDIN",
+          "info" : "NHET Data Input Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETDIN n",
+               "info" : "Data input. This bit displays the logic state of the pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "Pin HET[n] is at logic low (0)"},
+                 {"value" : "1", "desc" : "Pin HET[n] is at logic high (1)"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETDOUT",
+          "info" : "NHET Data Output Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETDOUT n",
+               "info" : "Data out write. Writes to this bit will only take effect when the pin is configured as an output.",
+               "values" : [
+                 {"value" : "0", "desc" : "Pin HET[n] is at logic low (0)."},
+                 {"value" : "1", "desc" : "Pin HET[n] is at logic high (1) if the HETPDR[n] bit = 0 or the output is in high impedance state"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETDSET",
+          "info" : "NHET Data Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETDSET n",
+               "info" : "This register allows bits of HETDOUT to be set while avoiding the pitfalls of a readmodify- write",
+               "values" : [
+                 {"value" : "0", "desc" : "Write: HETDOUT[n] is unchanged."},
+                 {"value" : "1", "desc" : "Write: HETDOUT[n] is set."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETDCLR",
+          "info" : "NHET Data Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETDCLR n",
+               "info" : "This register allows bits of HETDOUT to be cleared while avoiding the pitfalls of a read-modifywrite",
+               "values" : [
+                 {"value" : "0", "desc" : "Write: HETDOUT[n] is unchanged."},
+                 {"value" : "1", "desc" : "Write: HETDOUT[n] is cleared."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETPDR",
+          "info" : "NHET Open Drain Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPDR n",
+               "info" : "Open drain control for HET[n] pins",
+               "values" : [
+                 {"value" : "0", "desc" : "The pin is configured in push/pull mode."},
+                 {"value" : "1", "desc" : "The pin is configured in open drain mode."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETPULDIS",
+          "info" : "NHET Pull Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPULDIS n",
+               "info" : "Pull disable for N2HET pins",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "The pull functionality is disabled on pin HET[n]."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETPSL",
+          "info" : "NHET Pull Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPSL n",
+               "info" : "Pull select for NHET pins",
+               "values" : [
+                 {"value" : "0", "desc" : "The pull down functionality is enabled if corresponding bit in HETPULDIS is 0."},
+                 {"value" : "1", "desc" : "The pull up functionality is enabled if corresponding bit in HETPULDIS is 0."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HETPCR",
+          "info" : "Parity Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TEST",
+               "info" : "Test Bit."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "PARITY_ENA",
+               "info" : "Enable/disable parity checking."
+             }
+          ]
+        },
+{
+          "name" : "HETPAR",
+          "info" : "Parity Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "11",
+               "bit_Field_Name" : "PAOFF",
+               "info" : "Parity Error Address Offset."
+             }
+          ]
+        },
+{
+          "name" : "HETPPR",
+          "info" : "Parity Pin Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPPR n",
+               "info" : "NHET Parity Pin Select Bits - Allows HET[n] pins to be configured to drive to a known state when"
+             }
+          ]
+        },
+{
+          "name" : "HETSFPRLD",
+          "info" : "Suppression Filter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "CCDIV",
+               "info" : "Counter Clock Divider"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "10",
+               "bit_Field_Name" : "CPRLD",
+               "info" : "Counter Preload Value"
+             }
+          ]
+        },
+{
+          "name" : "HETSFENA",
+          "info" : "Suppression Filter Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETSFENA n",
+               "info" : "Suppression Filter Enable Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETLBPSEL",
+          "info" : "Loop Back Pair Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "LBPTYPE",
+               "info" : "Loop Back Pair Type Select Bits"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "LBPSEL",
+               "info" : "Loop Back Pair Select Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETLBPDIR",
+          "info" : "Loop Back Pair Direction Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "LBPTSTENA",
+               "info" : "Loopback Test Enable Key"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "LBPDIR",
+               "info" : "Loop Back Pair Direction Bits"
+             }
+          ]
+        },
+{
+          "name" : "HETPINDIS",
+          "info" : "NHET Pin Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "94",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "HETPINDIS n",
+               "info" : "N2HET Pin Disable Bits"
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+} 

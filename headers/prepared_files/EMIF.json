@@ -1,0 +1,681 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "EMIF",
+      "registers" :
+      [
+{
+          "name" : "MIDR",
+          "info" : "Module ID Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "00",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "REV",
+               "info" : "Module ID of EMIF. See the device-specific data manual."
+             }
+          ]
+        },
+{
+          "name" : "AWCC",
+          "info" : "Asynchronous Wait Cycle Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "29",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WP1",
+               "info" : "EMIF_nWAIT[1] polarity bit. This bit defines the polarity of the EMIF_nWAIT[1] pin."
+             },
+             {
+               "start_bit" : "28",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WP0",
+               "info" : "EMIF_nWAIT[0] polarity bit. This bit defines the polarity of the EMIF_nWAIT[0] pin."
+             },
+             {
+               "start_bit" : "22",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "CS5_WAIT",
+               "info" : "Chip Select 5 WAIT signal selection."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "CS4_WAIT",
+               "info" : "Chip Select 4 WAIT signal selection."
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "CS3_WAIT",
+               "info" : "be used for memory accesses to chip select 3 memory space."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "CS2_WAIT",
+               "info" : "Chip Select 2 WAIT signal selection."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "MAX_EXT_WAIT",
+               "info" : "Maximum extended wait cycles."
+             }
+          ]
+        },
+{
+          "name" : "SDCR",
+          "info" : "SDRAM Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SR",
+               "info" : "Self-Refresh mode bit."
+             },
+             {
+               "start_bit" : "30",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PD",
+               "info" : "Power Down bit. This bit controls entering and exiting of the power-down mode."
+             },
+             {
+               "start_bit" : "29",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PDWR",
+               "info" : "Perform refreshes during power down."
+             },
+             {
+               "start_bit" : "14",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "NM",
+               "info" : "Narrow mode bit. This bit defines whether a 16- or 32-bit-wide SDRAM is connected to the EMIF."
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "CL",
+               "info" : "CAS Latency."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BIT11_9LOCK",
+               "info" : "Bits 11 to 9 lock. CL can only be written if BIT11_9LOCK is simultaneously written with a 1."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "IBANK",
+               "info" : "Internal SDRAM Bank size."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "PAGESIZE",
+               "info" : "Page Size. This field defines the internal page size of connected SDRAM devices."
+             }
+          ]
+        },
+{
+          "name" : "SDRCR",
+          "info" : "SDRAM Refresh Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "RR",
+               "info" : "Refresh Rate. This field is used to define the SDRAM refresh period in terms of EMIF_CLK cycles."
+             }
+          ]
+        },
+{
+          "name" : "CE2CFG",
+          "info" : "Asynchronous 1 Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SS",
+               "info" : "Select Strobe bit."
+             },
+             {
+               "start_bit" : "30",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EW",
+               "info" : "Extend Wait bit. This bit defines whether extended wait cycles will be enabled. See Section 17.2.6."
+             },
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "W_SETUP",
+               "info" : "Write setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "W_STROBE",
+               "info" : "Write strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "W_HOLD",
+               "info" : "Write hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "13",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "R_SETUP",
+               "info" : "Read setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "7",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "R_STROBE",
+               "info" : "Read strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "R_HOLD",
+               "info" : "Read hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "TA",
+               "info" : "Minimum Turn-Around time."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ASIZE",
+               "info" : "Asynchronous Data Bus Width. This field defines the width of the asynchronous device's data bus."
+             }
+          ]
+        },
+{
+          "name" : "CE3CFG",
+          "info" : "Asynchronous 2 Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SS",
+               "info" : "Select Strobe bit."
+             },
+             {
+               "start_bit" : "30",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EW",
+               "info" : "Extend Wait bit. This bit defines whether extended wait cycles will be enabled. See Section 17.2.6."
+             },
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "W_SETUP",
+               "info" : "Write setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "W_STROBE",
+               "info" : "Write strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "W_HOLD",
+               "info" : "Write hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "13",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "R_SETUP",
+               "info" : "Read setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "7",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "R_STROBE",
+               "info" : "Read strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "R_HOLD",
+               "info" : "Read hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "TA",
+               "info" : "Minimum Turn-Around time."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ASIZE",
+               "info" : "Asynchronous Data Bus Width. This field defines the width of the asynchronous device's data bus."
+             }
+          ]
+        },
+{
+          "name" : "CE4CFG",
+          "info" : "Asynchronous 3 Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SS",
+               "info" : "Select Strobe bit."
+             },
+             {
+               "start_bit" : "30",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EW",
+               "info" : "Extend Wait bit. This bit defines whether extended wait cycles will be enabled. See Section 17.2.6."
+             },
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "W_SETUP",
+               "info" : "Write setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "W_STROBE",
+               "info" : "Write strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "W_HOLD",
+               "info" : "Write hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "13",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "R_SETUP",
+               "info" : "Read setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "7",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "R_STROBE",
+               "info" : "Read strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "R_HOLD",
+               "info" : "Read hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "TA",
+               "info" : "Minimum Turn-Around time."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ASIZE",
+               "info" : "Asynchronous Data Bus Width. This field defines the width of the asynchronous device's data bus."
+             }
+          ]
+        },
+{
+          "name" : "CE5CFG",
+          "info" : "Asynchronous 4 Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SS",
+               "info" : "Select Strobe bit."
+             },
+             {
+               "start_bit" : "30",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "EW",
+               "info" : "Extend Wait bit. This bit defines whether extended wait cycles will be enabled. See Section 17.2.6."
+             },
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "W_SETUP",
+               "info" : "Write setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "W_STROBE",
+               "info" : "Write strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "W_HOLD",
+               "info" : "Write hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "13",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "R_SETUP",
+               "info" : "Read setup width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "7",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "R_STROBE",
+               "info" : "Read strobe width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "R_HOLD",
+               "info" : "Read hold width in EMIF_CLK cycles, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "TA",
+               "info" : "and writes, minus one cycle. See Section 17.2.6.3 for details."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "ASIZE",
+               "info" : "Asynchronous Data Bus Width. This field defines the width of the asynchronous device's data bus."
+             }
+          ]
+        },
+{
+          "name" : "SDTIMR",
+          "info" : "SDRAM Timing Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "start_bit" : "27",
+               "bit_lenght" : "5",
+               "bit_Field_Name" : "T_RFC",
+               "info" : "Specifies the Trfc value of the SDRAM."
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "T_RP",
+               "info" : "Precharge (PRE) to Activate (ACTV) or Refresh (REFR) command, minus 1:"
+             },
+             {
+               "start_bit" : "20",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "T_RCD",
+               "info" : "Specifies the Trcd value of the SDRAM."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "T_WR",
+               "info" : "Specifies the Twr value of the SDRAM."
+             },
+             {
+               "start_bit" : "12",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "T_RAS",
+               "info" : "Specifies the Tras value of the SDRAM."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "T_RC",
+               "info" : "Specifies the Trc value of the SDRAM."
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "T_RRD",
+               "info" : "Specifies the Trrd value of the SDRAM."
+             }
+          ]
+        },
+{
+          "name" : "SDSRETR",
+          "info" : "SDRAM Self Refresh Exit Timing Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "5",
+               "bit_Field_Name" : "T_XS",
+               "info" : "This field specifies the minimum number of ECLKOUT cycles from Self-Refresh exit to any command,"
+             }
+          ]
+        },
+{
+          "name" : "INTRAW",
+          "info" : "EMIF Interrupt Raw Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WR",
+               "info" : "Wait Rise."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LT",
+               "info" : "Line Trap. Set to 1 by hardware to indicate illegal memory access type or invalid cache line size."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "AT",
+               "info" : "Asynchronous Timeout."
+             }
+          ]
+        },
+{
+          "name" : "INTMSK",
+          "info" : "EMIF Interrupt Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WR_MASKED",
+               "info" : "Wait Rise Masked."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LT_MASKED",
+               "info" : "Masked Line Trap."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "AT_MASKED",
+               "info" : "Asynchronous Timeout Masked."
+             }
+          ]
+        },
+{
+          "name" : "INTMSKSET",
+          "info" : "EMIF Interrupt Mask Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WR_MASK_SET",
+               "info" : "Wait Rise Mask Set. This bit determines whether or not the wait rise Interrupt is enabled."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LT_MASK_SET",
+               "info" : "LT_MASK_SET Mask set for LT_MASKED bit in the EMIF interrupt mask register (INTMSK)."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "AT_MASK_SET",
+               "info" : "Asynchronous Timeout Mask Set."
+             }
+          ]
+        },
+{
+          "name" : "INTMSKCLR",
+          "info" : "EMIF Interrupt Mask Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WR_MASK_CLR",
+               "info" : "Wait Rise Mask Clear. This bit determines whether or not the wait rise interrupt is enabled."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LT_MASK_CLR",
+               "info" : "1 to this bit clears this bit, clears the LT_MASK_SET bit in the EMIF interrupt mask set register"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "AT_MASK_CLR",
+               "info" : "Asynchronous Timeout Mask Clear."
+             }
+          ]
+        },
+{
+          "name" : "PMCR",
+          "info" : "Page Mode Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "CS5_PG_DEL",
+               "info" : "Page access delay for NOR Flash connected on CS5. CS5 is not available on this device."
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS5_PG_SIZE",
+               "info" : "Page Size for NOR Flash connected on CS5. CS5 is not available on this device."
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS5_PG_MD_EN",
+               "info" : "Page Mode enable for NOR Flash connected on CS5. CS5 is not available on this device."
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "CS4_PG_DEL",
+               "info" : "Page access delay for NOR Flash connected on CS4."
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS4_PG_SIZE",
+               "info" : "Page Size for NOR Flash connected on CS4."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS4_PG_MD_EN",
+               "info" : "Page Mode enable for NOR Flash connected on CS4."
+             },
+             {
+               "start_bit" : "10",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "CS3_PG_DEL",
+               "info" : "the page read data to be valid, minus one cycle. This value must not be cleared to 0."
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS3_PG_SIZE",
+               "info" : "Page Size for NOR Flash connected on CS3."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS3_PG_MD_EN",
+               "info" : "Page Mode enable for NOR Flash connected on CS3."
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "6",
+               "bit_Field_Name" : "CS2_PG_DEL",
+               "info" : "Page access delay for NOR Flash connected on CS2."
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS2_PG_SIZE",
+               "info" : "Page Size for NOR Flash connected on CS2."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CS2_PG_MD_EN",
+               "info" : "Page Mode enable for NOR Flash connected on CS2."
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}

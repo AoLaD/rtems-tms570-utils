@@ -1,0 +1,700 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "HTU",
+      "registers" :
+      [
+{
+          "name" : "HTU GC",
+          "info" : "Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "VBUSHOLD",
+               "info" : "Hold the VBUS bus",
+               "values" : [
+                 {"value" : "0", "desc" : "The VBUS is not held"},
+                 {"value" : "1", "desc" : "The VBUSHOLD bit holds the bus used to transfer data between the HTU and the NHET module."}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "HTUEN",
+               "info" : "Transfer Unit Enable Bit",
+               "values" : [
+                 {"value" : "0", "desc" : "The Transfer Unit is disabled"},
+                 {"value" : "1", "desc" : "The Transfer Unit is enabled"}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "DEBM",
+               "info" : "Debug Mode"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "HTURES",
+               "info" : "HTU Software Reset Request",
+               "values" : [
+                 {"value" : "0", "desc" : "Reset request is not issued to the HTU module. Writing a zero has no effect."},
+                 {"value" : "1", "desc" : "Reset request is issued to the HTU module."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU CPENA",
+          "info" : "Control Packet Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "CPENA",
+               "info" : "CP Enable Bits"
+             }
+          ]
+        },
+{
+          "name" : "HTU BUSY0",
+          "info" : "Control Packet Busy Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY0A",
+               "info" : "Busy Flag for CP A of DCP 0"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY0B",
+               "info" : "Busy Flag for CP B of DCP 0"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY1A",
+               "info" : "Busy Flag for CP A of DCP 1"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY1B",
+               "info" : "Busy Flag for CP B of DCP 1"
+             }
+          ]
+        },
+{
+          "name" : "HTU BUSY1",
+          "info" : "Control Packet Busy Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY2A",
+               "info" : "Busy Flag for CP A of DCP 2"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY2B",
+               "info" : "Busy Flag for CP B of DCP 2"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY3A",
+               "info" : "Busy Flag for CP A of DCP 3"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY3B",
+               "info" : "Busy Flag for CP B of DCP 3"
+             }
+          ]
+        },
+{
+          "name" : "HTU BUSY2",
+          "info" : "Control Packet Busy Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY4A",
+               "info" : "Busy Flag for CP A of DCP 4"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY4B",
+               "info" : "Busy Flag for CP B of DCP 4"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY5A",
+               "info" : "Busy Flag for CP A of DCP 5"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY5B",
+               "info" : "Busy Flag for CP B of DCP 5"
+             }
+          ]
+        },
+{
+          "name" : "HTU BUSY3",
+          "info" : "Control Packet Busy Register 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY6A",
+               "info" : "Busy Flag for CP A of DCP 6"
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY6B",
+               "info" : "Busy Flag for CP B of DCP 6"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY7A",
+               "info" : "Busy Flag for CP A of DCP 7"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY7B",
+               "info" : "Busy Flag for CP B of DCP 7"
+             }
+          ]
+        },
+{
+          "name" : "HTU ACPE",
+          "info" : "Active Control Packet and Error Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "31",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "ERRF",
+               "info" : "Error Flag",
+               "values" : [
+                 {"value" : "0", "desc" : "No error occurred"},
+                 {"value" : "1", "desc" : "This bit is set when one of the conditions listed at ERRETC is fulfilled and ERRETC and ERRCPN are"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU RLBECTRL",
+          "info" : "Request Lost and Bus Error Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BERINTENA",
+               "info" : "Bus Error Interrupt Enable Bit",
+               "values" : [
+                 {"value" : "0", "desc" : "The bus error interrupt is disabled for all DCPs"},
+                 {"value" : "1", "desc" : "The bus error interrupt is enabled for all DCPs"}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CORL",
+               "info" : "Continue On Request Lost Error",
+               "values" : [
+                 {"value" : "0", "desc" : "Stop current frame on request lost detection."},
+                 {"value" : "1", "desc" : "If CORL is one and DCP x is enabled, then DCP x will stay enabled after a request lost condition"}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RLINTENA",
+               "info" : "Request Lost Interrupt Enable Bit",
+               "values" : [
+                 {"value" : "0", "desc" : "The request lost interrupt is disabled for all DCPs."},
+                 {"value" : "1", "desc" : "The request lost interrupt is enabled for all DCPs."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU BFINTS",
+          "info" : "Buffer Full Interrupt Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "BFINTENA",
+               "info" : "Bus Full Interrupt Enable Bits."
+             }
+          ]
+        },
+{
+          "name" : "HTU BFINTC",
+          "info" : "Buffer Full Interrupt Enable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "BFINTDIS",
+               "info" : ""
+             }
+          ]
+        },
+{
+          "name" : "HTU INTOFF0",
+          "info" : "Interrupt Offset Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "INTTYPE0",
+               "info" : "Interrupt Type of Interrupt Line 0.",
+               "values" : [
+                 {"value" : "0", "desc" : "No interrupt"},
+                 {"value" : "1h", "desc" : "Interrupt caused by full buffer on CP/DCP specified by CPOFF0"},
+                 {"value" : "2h", "desc" : "RLOST interrupt generated by CP/DCP specified by CPOFF0"},
+                 {"value" : "3h", "desc" : "BER interrupt generated by CP/DCP specified by bits CPOFF0"}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "5",
+               "bit_Field_Name" : "CPOFF0",
+               "info" : "CP Offset.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1h", "desc" : "DCP 0, CP B"},
+                 {"value" : "2h", "desc" : "DCP 1, CP A"},
+                 {"value" : "3h", "desc" : "DCP 1, CP B"},
+                 {"value" : "4h", "desc" : "DCP 2, CP A"},
+                 {"value" : "5h", "desc" : "DCP 2, CP B"},
+                 {"value" : "6h", "desc" : "DCP 3, CP A"},
+                 {"value" : "7h", "desc" : "DCP 3, CP B"},
+                 {"value" : "8h", "desc" : "DCP 4, CP A"},
+                 {"value" : "9h", "desc" : "DCP 4, CP B"},
+                 {"value" : "Ah", "desc" : "DCP 5, CP A"},
+                 {"value" : "Bh", "desc" : "DCP 5, CP B"},
+                 {"value" : "Ch", "desc" : "DCP 6, CP A"},
+                 {"value" : "Dh", "desc" : "DCP 6, CP B"},
+                 {"value" : "Eh", "desc" : "DCP 7, CP A"},
+                 {"value" : "Fh", "desc" : "DCP 7, CP B"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU INTOFF1",
+          "info" : "Interrupt Offset Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "INTTYPE1",
+               "info" : "INTTYPE1 Interrupt Type of Interrupt Line 1.",
+               "values" : [
+                 {"value" : "0", "desc" : "No interrupt"},
+                 {"value" : "1h", "desc" : "Interrupt caused by full buffer on CP/DCP specified by CPOFF1"},
+                 {"value" : "2h", "desc" : "RLOST interrupt generated by CP/DCP specified by CPOFF1"},
+                 {"value" : "3h", "desc" : "BER interrupt generated by CP/DCP specified by bits CPOFF1"}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "5",
+               "bit_Field_Name" : "CPOFF1",
+               "info" : "CP Offset.",
+               "values" : [
+                 {"value" : "0", "desc" : "DCP 0, CP A"},
+                 {"value" : "1h", "desc" : "DCP 0, CP B"},
+                 {"value" : "2h", "desc" : "DCP 1, CP A"},
+                 {"value" : "3h", "desc" : "DCP 1, CP B"},
+                 {"value" : "4h", "desc" : "DCP 2, CP A"},
+                 {"value" : "5h", "desc" : "DCP 2, CP B"},
+                 {"value" : "6h", "desc" : "DCP 3, CP A"},
+                 {"value" : "7h", "desc" : "DCP 3, CP B"},
+                 {"value" : "8h", "desc" : "DCP 4, CP A"},
+                 {"value" : "9h", "desc" : "DCP 4, CP B"},
+                 {"value" : "Ah", "desc" : "DCP 5, CP A"},
+                 {"value" : "Bh", "desc" : "DCP 5, CP B"},
+                 {"value" : "Ch", "desc" : "DCP 6, CP A"},
+                 {"value" : "Dh", "desc" : "DCP 6, CP B"},
+                 {"value" : "Eh", "desc" : "Eh"},
+                 {"value" : "Fh", "desc" : "DCP 7, CP B"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU BIM",
+          "info" : "Buffer Initialization Mode Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "BIM",
+               "info" : "Buffer Initialization Mode"
+             }
+          ]
+        },
+{
+          "name" : "HTU RLOSTFL",
+          "info" : "Request Lost Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "CPRLFL",
+               "info" : "CP Request Lost Flags"
+             }
+          ]
+        },
+{
+          "name" : "HTU BFINTFL",
+          "info" : "Buffer Full Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "BFINTFL",
+               "info" : "Buffer Full Interrupt Flags"
+             }
+          ]
+        },
+{
+          "name" : "HTU BERINTFL",
+          "info" : "BER Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "BERINTFL",
+               "info" : "Bus Error Interrupt Flags",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "If bit (2*x) is set, then a BER interrupt is pending on CP A of DCP x."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU MP1S",
+          "info" : "Memory Protection 1 Start Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "STARTADDRESS1",
+               "info" : "he start address defines at which main memory address the region begins."
+             }
+          ]
+        },
+{
+          "name" : "HTU MP1E",
+          "info" : "Memory Protection 1 End Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "ENDADDRESS1",
+               "info" : "The end address defines at which address the region ends."
+             }
+          ]
+        },
+{
+          "name" : "HTU DCTRL",
+          "info" : "Debug Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "CPNUM",
+               "info" : "CP Number. These bit fields indicate the CP which should cause the watch point to match.",
+               "values" : [
+                 {"value" : "0", "desc" : "CP A of DCP0"},
+                 {"value" : "1h", "desc" : "CP B of DCP0"},
+                 {"value" : "2h", "desc" : "CP A of DCP1"},
+                 {"value" : "Eh", "desc" : "CP A of DCP7"},
+                 {"value" : "Fh", "desc" : "CP B of DCP7"}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "HTUDBGS",
+               "info" : "HTU Debug Status."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "DBREN",
+               "info" : "Debug Request Enable"
+             }
+          ]
+        },
+{
+          "name" : "HTU WPR",
+          "info" : "Watch Point Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "WP",
+               "info" : "Watch Point Register"
+             }
+          ]
+        },
+{
+          "name" : "HTU WMR",
+          "info" : "Watch Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "WM",
+               "info" : "Watch Mask Register"
+             }
+          ]
+        },
+{
+          "name" : "HTU ID",
+          "info" : "Module Identification Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "CLASS",
+               "info" : "Module Class"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TYPE",
+               "info" : "Subtype within a Class"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "REV",
+               "info" : "Module Revision Number"
+             }
+          ]
+        },
+{
+          "name" : "HTU PCR",
+          "info" : "Parity Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "COPE",
+               "info" : "Continue on Parity Error"
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TEST",
+               "info" : "Test."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "PARITY_ENA",
+               "info" : "Enable/Disable Parity Checking."
+             }
+          ]
+        },
+{
+          "name" : "HTU PAR",
+          "info" : "Parity Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PEFT",
+               "info" : "Parity Error Fault Flag."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "9",
+               "bit_Field_Name" : "PAOFF",
+               "info" : "PAOFF"
+             }
+          ]
+        },
+{
+          "name" : "HTU MPCS",
+          "info" : "Memory Protection Control and Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "CPNUM0",
+               "info" : "Control Packet Number for single memory protection region configuration.",
+               "values" : [
+                 {"value" : "0", "desc" : "CP A of DCP0"},
+                 {"value" : "1h", "desc" : "CP B of DCP0"},
+                 {"value" : "2h", "desc" : "CP A of DCP1"},
+                 {"value" : "Eh", "desc" : "CP A of DCP7"},
+                 {"value" : "Fh", "desc" : "CP B of DCP7"}
+                ]
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "MPEFT1",
+               "info" : "MPEFT1",
+               "values" : [
+                 {"value" : "0", "desc" : "No fault detected. Writing a zero has no effect."},
+                 {"value" : "1", "desc" : "Fault detected. Writing a one will clear the bit."}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "MPEFT0",
+               "info" : "Memory Protection Error Fault Flag 0.",
+               "values" : [
+                 {"value" : "0", "desc" : "No fault detected. Writing a zero has no effect."},
+                 {"value" : "1", "desc" : "Fault detected. Writing a one will clear the bit."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "CPNUM1",
+               "info" : "Control Packet Number for single memory protection region configuration.",
+               "values" : [
+                 {"value" : "0", "desc" : "CP A of DCP0"},
+                 {"value" : "1h", "desc" : "CP B of DCP0"},
+                 {"value" : "2h", "desc" : "CP A of DCP1"},
+                 {"value" : "Eh", "desc" : "CP A of DCP7"},
+                 {"value" : "Fh", "desc" : "CP B of DCP7"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "HTU MP0S",
+          "info" : "Memory Protection 0 Start Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "ISTARTADDRESS0",
+               "info" : "The start address defines at which main memory address the region begins."
+             }
+          ]
+        },
+{
+          "name" : "HTU MP0E",
+          "info" : "Memory Protection 0 End Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "ENDADDRESS0",
+               "info" : "The end address defines at which address the region ends."
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}

@@ -1,0 +1,83 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "CCMSR",
+      "registers" :
+      [
+{
+          "name" : "CCMSR",
+          "info" : "CCM-R4F Status Register",
+          "lenght" : "32",
+          "adress" : "FFFF F600",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CMPE",
+               "info" : "Compare Error",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: CPU signals are identical."},
+                 {"value" : "1", "desc" : "Read: CPU signal compare mismatch."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "STC",
+               "info" : "Self-test Complete",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test on-going if self-test mode is entered."},
+                 {"value" : "1", "desc" : "Read: Self-test is complete."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "STET",
+               "info" : "Self-test Error Type",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test failed during Compare Match Test if STE = 1."},
+                 {"value" : "1", "desc" : "Read: Self-test failed during Compare Mismatch Test if STE = 1."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "STE",
+               "info" : "Self-test Error",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Self-test passed."},
+                 {"value" : "1", "desc" : "Read: Self-test failed."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CCMKEYR",
+          "info" : "CCM-R4F Key Register",
+          "lenght" : "32",
+          "adress" : "FFFF F604",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "MKEY",
+               "info" : "Mode Key",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "6h", "desc" : "Read: Returns current value of the MKEY."},
+                 {"value" : "9h", "desc" : "Read: Returns current value of the MKEY."},
+                 {"value" : "Fh", "desc" : "Read: Returns current value of the MKEY."}
+                ]
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+} 
+

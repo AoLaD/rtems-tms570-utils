@@ -1,0 +1,1441 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "LIN",
+      "registers" :
+      [
+{
+          "name" : "SCIGCR0",
+          "info" : "SCI Global Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "31",
+               "bit_Field_Name" : "Reserved",
+               "info" : "Read returns 0. Writes have no effect."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RESET",
+               "info" : "This bit resets the SCI module.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCI module is in reset."},
+                 {"value" : "1", "desc" : "SCI module is out of reset."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIGCR1",
+          "info" : "SCI Global Control Register 1",
+          "lenght" : "32",
+          "adress" : "00",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TXENA",
+               "info" : "Transmit enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable transfers from SCITD to SCITXSHF."},
+                 {"value" : "1", "desc" : "Enable SCI to transfer data from SCITD to SCITXSHF."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RXENA",
+               "info" : "Receive enable. RXENA allows or prevents the transfer of data from SCIRXSHF to SCIRD.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "The receiver will transfer data from the shift buffer to the receive buffer."}
+                ]
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CONT",
+               "info" : "Continue on suspend.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LOOP BACK",
+               "info" : "Loopback bit. The self-checking option for the SCI can be selected with this bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "Loop back mode is disabled."},
+                 {"value" : "1", "desc" : "Loop back mode is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "POWERDOWN",
+               "info" : "If the POWERDOWN bit is set while the receiver is actively receiving data and the wake-up",
+               "values" : [
+                 {"value" : "0", "desc" : "Normal operation."},
+                 {"value" : "1", "desc" : "Low-power mode is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SLEEP",
+               "info" : "SCI sleep. In a multiprocessor configuration, this bit controls the receive sleep function.",
+               "values" : [
+                 {"value" : "0", "desc" : "Sleep mode is disabled."},
+                 {"value" : "1", "desc" : "Sleep mode is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "7",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SWnRST",
+               "info" : "Software reset (active low). This bit is effective in LIN and SCI modes.",
+               "values" : [
+                 {"value" : "0", "desc" : "The SCI is in its reset state; no data will be transmitted or received."},
+                 {"value" : "1", "desc" : "The SCI is in its ready state; transmission and reception can be done."}
+                ]
+             },
+             {
+               "start_bit" : "5",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLOCK",
+               "info" : "CLOCK",
+               "values" : [
+                 {"value" : "0", "desc" : "The external SCICLK is the clock source."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "STOP",
+               "info" : "SCI number of stop bits per frame.",
+               "values" : [
+                 {"value" : "0", "desc" : "One stop bit is used."},
+                 {"value" : "1", "desc" : "Two stop bits are used."}
+                ]
+             },
+             {
+               "start_bit" : "3",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PARITY",
+               "info" : "SCI parity odd/even selection. If the PARITY ENA bit is set, PARITY designates odd or even parity.",
+               "values" : [
+                 {"value" : "0", "desc" : "Odd parity is used."},
+                 {"value" : "1", "desc" : "Even parity is used."}
+                ]
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PARITY ENA",
+               "info" : "Parity enable. This bit enables or disables the parity function.",
+               "values" : [
+                 {"value" : "0", "desc" : "Parity is disabled; no parity bit is generated during transmission or is expected during reception."},
+                 {"value" : "1", "desc" : "Parity is enabled. A parity bit is generated during transmission and is expected during reception."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TIMING MODE",
+               "info" : "SCI timing mode bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "Synchronous timing is used."},
+                 {"value" : "1", "desc" : "Asynchronous timing is used."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "COMM MODE",
+               "info" : "SCI communication mode bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "Idle-line mode is used."},
+                 {"value" : "1", "desc" : "Address-bit mode is used."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SCIGCR2",
+          "info" : "SCI Global Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CC",
+               "info" : "Compare checksum. LIN mode only."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SC",
+               "info" : "Send checksum byte. This bit is effective in LIN mode only."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "GEN WU",
+               "info" : "Generate wakeup signal. This bit is effective in LIN mode only."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "POWERDOWN",
+               "info" : "Power down. This bit is effective in LIN or SCI mode."
+             }
+          ]
+        },
+         {
+          "name" : "SCISETINT",
+          "info" : "SCI Set Interrupt Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET FE INT",
+               "info" : "",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET OE INT",
+               "info" : "SET OE INT",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET PE INT",
+               "info" : "Set parity interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET RX DMA ALL",
+               "info" : "SET RX DMA ALL",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The DMA request is disabled for address frames (the receive interrupt request is enabled"},
+                 {"value" : "1", "desc" : "Read and write: The DMA request is enabled for address and data frames"}
+                ]
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET RX DMA",
+               "info" : "SET RX DMA",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The DMA request is disabled."},
+                 {"value" : "1", "desc" : "Read and write: The DMA request is enabled for address and data frames"}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET TX DMA",
+               "info" : "Set transmit DMA. To enable DMA requests for the transmitter, this bit must be set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Transmit DMA request is disabled."},
+                 {"value" : "1", "desc" : "Read and write: Transmit DMA request is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET RX INT",
+               "info" : "SET RX INT",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET TX INT",
+               "info" : "Set transmitter interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET WAKEUP INT",
+               "info" : "Set wakeup interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET BRKDT INT",
+               "info" : "Set breakdetect interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCICLEARINT",
+          "info" : "SCI Clear Interrupt Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR FE INT",
+               "info" : "Clear framing-error interrupt. This bit disables the framing-error interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR CE INT",
+               "info" : "Clear overrun-error interrupt. This bit disables the SCI overrun error interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR PE INT",
+               "info" : "Clear parity interrupt. This bit disables the parity error interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+{
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR RX DMA ALL",
+               "info" : "Clear receive DMA all. This bit clears the receive DMA request for address frames when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Receive DMA request for address frames is disabled; Instead, RX interrupt requests are"},
+                 {"value" : "1", "desc" : "Read: The receive DMA request for address and data frames is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "17",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR RX DMA",
+               "info" : "Clear receive DMA request. This bit disables the receive DMA request when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The DMA request is disabled."},
+                 {"value" : "1", "desc" : "Read: The receive DMA request is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR TX DMA",
+               "info" : "CLR TX DMA",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Transmit DMA request is disabled."},
+                 {"value" : "1", "desc" : "Read: The transmit DMA request is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR RX INT",
+               "info" : "Clear receiver interrupt. This bit disables the receiver interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR TX INT",
+               "info" : "Clear transmitter interrupt. This bit disables the transmitter interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR WAKEUP INT",
+               "info" : "Clear wakeup interrupt. This bit disables the wakeup interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR BRKDT INT",
+               "info" : "Clear breakdetect interrupt. This bit disables the break-detect interrupt when set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt is disabled."},
+                 {"value" : "1", "desc" : "Read: The interrupt is enabled."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCISETINTLVL",
+          "info" : "SCI Set Interrupt Level Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET FE INT LVL",
+               "info" : "Set framing-error interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET CE INT LVL",
+               "info" : "Set overrun-error interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET PE INT LVL",
+               "info" : "Set parity error interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET RX DMA ALL LVL",
+               "info" : "Set receive DMA all interrupt levels.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read:The receive interrupt request for address frames is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The receive interrupt request for address frames is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET RX INT LVL",
+               "info" : "Set receiver interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET TX INT LVL",
+               "info" : "Set transmitter interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET WAKEUP INT LVL",
+               "info" : "Set wakeup interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "SET BRKDT INT LVL",
+               "info" : "SET BRKDT INT LVL",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read or write: The interrupt level is mapped to the INT1 line."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCICLEARINTLVL",
+          "info" : "SCI Clear Interrupt Level Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR FE INT LVL",
+               "info" : "Clear framing-error interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR CE INT LVL",
+               "info" : "CLR CE INT LVL",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR CE INT LVL",
+               "info" : "CLR CE INT LVL",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR PE INT LVL",
+               "info" : "",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "18",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR RX DMA ALL LVL",
+               "info" : "Clear receive DMA interrupt level.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The receive interrupt request for address frames is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The receive interrupt request for address frames is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR RX INT LVL",
+               "info" : "Clear receiver interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "8",
+               "info" : "CLR TX INT LVL Clear transmitter interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR WAKEUP INT LVL",
+               "info" : "Clear wakeup interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CLR BRKDT INT LVL",
+               "info" : "Clear breakdetect interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The interrupt level is mapped to the INT0 line."},
+                 {"value" : "1", "desc" : "Read: The interrupt level is mapped to the INT1 line."}
+                ]
+             }
+          ]
+        },        
+         {
+          "name" : "SCIFLR",
+          "info" : "SCI Flags Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "FE",
+               "info" : "Framing error flag. This bit is effective in LIN or SCI-compatible mode.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No framing error has been detected since the last clear."},
+                 {"value" : "1", "desc" : "Read: A framing error has been detected since the last clear."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "OE",
+               "info" : "Overrun error flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No overrun error has been detected since the last clear."},
+                 {"value" : "1", "desc" : "Read: An overrun error has been detected since the last clear."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PE",
+               "info" : "Parity error flag. This bit is set when a parity error is detected in the received data.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No parity error has been detected since the last clear."},
+                 {"value" : "1", "desc" : "Read: A parity error has been detected since the last clear."}
+                ]
+             },
+             {
+               "start_bit" : "12",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RXWAKE",
+               "info" : "Receiver wakeup detect flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "The data in SCIRD is not an address."},
+                 {"value" : "1", "desc" : "The data in SCIRD is an address."}
+                ]
+             },
+             {
+               "start_bit" : "11",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX EMPTY",
+               "info" : "Transmitter empty flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmitter buffer or shift register (or both) are loaded with data."},
+                 {"value" : "1", "desc" : "Transmitter buffer and shift registers are both empty."}
+                ]
+             },
+             {
+               "start_bit" : "10",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TXWAKE",
+               "info" : "Transmitter wakeup method select.",
+               "values" : [
+                 {"value" : "0", "desc" : "Frame to be transmitted will be data (address bit = 0)."},
+                 {"value" : "1", "desc" : "Frame to be transmitted will be an address (address bit = 1)."}
+                ]
+             },
+             {
+               "start_bit" : "9",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RXRDY",
+               "info" : "Receiver ready flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No new data is in SCIRD."},
+                 {"value" : "1", "desc" : "Read: New data is ready to be read from SCIRD."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TXRDY",
+               "info" : "Transmitter buffer register ready flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCITD is full."},
+                 {"value" : "1", "desc" : "SCITD is ready to receive the next character."}
+                ]
+             },
+             {
+               "start_bit" : "3",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BUSY",
+               "info" : "Bus busy flag. TThis bit indicates whether the receiver is in the process of receiving a frame.",
+               "values" : [
+                 {"value" : "0", "desc" : "The receiver is not currently receiving a frame."},
+                 {"value" : "1", "desc" : "The receiver is currently receiving a frame."}
+                ]
+             },
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "IDLE",
+               "info" : "SCI receiver in idle state.",
+               "values" : [
+                 {"value" : "0", "desc" : "The idle period has been detected; the SCI is ready to receive."},
+                 {"value" : "1", "desc" : "The idle period has not been detected; the SCI will not receive any data."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "WAKEUP",
+               "info" : "Wakeup flag.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The module will not wake up from power-down mode."},
+                 {"value" : "1", "desc" : "Read: Wake up from power-down mode."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BRKDT",
+               "info" : "SCI break-detect flag. This bit is set when the SCI detects a break condition on the LINRX pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: No break condition has been detected since the last clear."},
+                 {"value" : "1", "desc" : "Read: A break condition has been detected."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SCIINTVECT0",
+          "info" : "SCI Interrupt Vector Offset 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "INVECT0",
+               "info" : "Interrupt vector offset for INT0. This register indicates the offset for interrupt line INT0."
+             }
+          ]
+        },
+         {
+          "name" : "SCIINTVECT1",
+          "info" : "SCI Interrupt Vector Offset 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "INVECT1",
+               "info" : "Interrupt vector offset for INT1. This register indicates the offset for interrupt line INT1."
+             }
+          ]
+        },
+         {
+          "name" : "SCIFORMAT",
+          "info" : "SCI Format Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "CHAR",
+               "info" : "Character length control bits. These bits set the SCI character length from 1 to 8 bits.",
+               "values" : [
+                 {"value" : "0", "desc" : "The character is 1 bit long."},
+                 {"value" : "1h", "desc" : "The character is 2 bits long."},
+                 {"value" : "2h", "desc" : "The character is 3 bits long."},
+                 {"value" : "3h", "desc" : "The character is 4 bits long."},
+                 {"value" : "4h", "desc" : "The character is 5 bits long."},
+                 {"value" : "5h", "desc" : "The character is 6 bits long."},
+                 {"value" : "6h", "desc" : "The character is 7 bits long."},
+                 {"value" : "7h", "desc" : "The character is 8 bits long."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "BRS",
+          "info" : "Baud Rate Selection Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "24",
+               "bit_Field_Name" : "BAUD",
+               "info" : "SCI 24-bit baud selection."
+             }
+          ]
+        },
+         {
+          "name" : "SCIED",
+          "info" : "Receiver Emulation Data Buffer",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "ED",
+               "info" : "Emulator data. Reading SCIED[7:0] does not clear the RXRDY flag, unlike reading SCIRD."
+             }
+          ]
+        },
+         {
+          "name" : "SCIRD",
+          "info" : "Receiver Data Buffer",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD",
+               "info" : "Receiver data."
+             }
+          ]
+        },
+         {
+          "name" : "SCITD",
+          "info" : "Transmit Data Buffer",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD",
+               "info" : "Transmit data. Data to be transmitted is written to the SCITD register."
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO0",
+          "info" : "SCI Pin I/O Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX FUNC",
+               "info" : "Transfer function. This bit defines the function of pin SCITX.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCITX is a general-purpose digital I/O pin."},
+                 {"value" : "1", "desc" : "SCITX is the SCI transmit pin."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX FUNC",
+               "info" : "Receive function.This bit defines the function of pin SCIRX.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCIRX is a general-purpose digital I/O pin."},
+                 {"value" : "1", "desc" : "SCIRX is the SCI receive pin."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO1",
+          "info" : "SCI Pin I/O Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX DIR",
+               "info" : "Transmit pin direction.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCITX is a general-purpose input pin."},
+                 {"value" : "1", "desc" : "SCITX is a general-purpose output pin."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX DIR",
+               "info" : "Receive pin direction.",
+               "values" : [
+                 {"value" : "0", "desc" : "SCIRX is a general-purpose input pin."},
+                 {"value" : "1", "desc" : "SCIRX is a general-purpose output pin."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO2",
+          "info" : "SCI Pin I/O Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX IN",
+               "info" : "Transmit pin in. This bit contains the current value on the SCITX pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "The SCITX pin is at logic low (0)."},
+                 {"value" : "1", "desc" : "The SCITX pin is at logic high (1)."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX IN",
+               "info" : "Receive pin in. This bit contains the current value on the SCIRX pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "The SCIRX pin is at logic low (0)."},
+                 {"value" : "1", "desc" : "The SCIRX pin is at logic high (1)."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO3",
+          "info" : "SCI Pin I/O Control Register 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX OUT",
+               "info" : "Transmit pin out.",
+               "values" : [
+                 {"value" : "0", "desc" : "The output on the SCITX is at logic low (0)."},
+                 {"value" : "1", "desc" : "The output on the SCITX pin is at logic high (1)."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX OUT",
+               "info" : "Receive pin out.",
+               "values" : [
+                 {"value" : "0", "desc" : "The output on the SCIRX pin is at logic low (0)."},
+                 {"value" : "1", "desc" : "The output on the SCIRX pin is at logic high (1)."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO4",
+          "info" : "SCI Pin I/O Control Register 4",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX SET",
+               "info" : "Transmit pin set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The output on SCITX is at logic low (0)."},
+                 {"value" : "1", "desc" : "Read and write: The output on SCITX is at logic high (1)."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX SET",
+               "info" : "Receive pin set.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The output on SCIRX is at logic low (0)."},
+                 {"value" : "1", "desc" : "Read and write: The output on SCIRX is at logic high (1)."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO5",
+          "info" : "SCI Pin I/O Control Register 5",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX CLR",
+               "info" : "Transmit pin clear.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The output on SCITX is at logic low (0)."},
+                 {"value" : "1", "desc" : "Read: The output on SCITX is at logic high (1)."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX CLR",
+               "info" : "Receive pin clear.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The output on SCIRX is at logic low (0)."},
+                 {"value" : "1", "desc" : "Read: The output on SCIRX is at logic high (1)."}
+                ]
+             }
+          ]
+        },
+         {
+          "name" : "SCIPIO6",
+          "info" : "SCI Pin I/O Control Register 6",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX PDR",
+               "info" : "Transmit pin open drain enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Open drain functionality is disabled; the output voltage is VOL or lower if TXOUT = 0 and VOH or"},
+                 {"value" : "1", "desc" : "Open drain functionality is enabled; the output voltage is VOL or lower if TXOUT = 0 and high"}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX PDR",
+               "info" : "Receive pin open drain enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Open drain functionality is disabled; the output voltage is VOL or lower if RXOUT = 0 and VOH or"},
+                 {"value" : "1", "desc" : "Open drain functionality is enabled; the output voltage is VOL or lower if RXOUT = 0 and high"}
+                ]
+             }
+          ]
+        },      
+        {
+          "name" : "SCIPIO7",
+          "info" : "SCI Pin I/O Control Register 7",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX PD",
+               "info" : "Transmit pin pull control disable. This bit disables pull control capability on the input pin SCITX.",
+               "values" : [
+                 {"value" : "0", "desc" : "The pull control on the SCITX pin is enabled."},
+                 {"value" : "1", "desc" : "The pull control on the SCITX pin is disabled."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX PD",
+               "info" : "Receive pin pull control disable. This bit disables pull control capability on the input pin SCIRX.",
+               "values" : [
+                 {"value" : "0", "desc" : "Pull control on the SCIRX pin is enabled."},
+                 {"value" : "1", "desc" : "Pull control on the SCIRX pin is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SCIPIO8",
+          "info" : "SCI Pin I/O Control Register 8",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TX PSL",
+               "info" : "TX pin pull select. This bit selects pull type in the input pin SCITX.",
+               "values" : [
+                 {"value" : "0", "desc" : "The SCITX pin is a pull down."},
+                 {"value" : "1", "desc" : "The SCITX pin is a pull up."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RX PSL",
+               "info" : "RX pin pull select. This bit selects pull type in the input pin SCIRX.",
+               "values" : [
+                 {"value" : "0", "desc" : "The SCIRX pin is a pull down."},
+                 {"value" : "1", "desc" : "The SCIRX pin is a pull up."}
+                ]
+             }
+          ]
+        },   
+{
+          "name" : "LINCOMPARE",
+          "info" : "LIN Compare Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "SDEL",
+               "info" : "2-bit synch delimiter compare. These bits are effective in LIN mode only.",
+               "values" : [
+                 {"value" : "0", "desc" : "The synch delimiter has 1 Tbit."},
+                 {"value" : "1h", "desc" : "The synch delimiter has 2 Tbit."},
+                 {"value" : "2h", "desc" : "The synch delimiter has 3 Tbit."},
+                 {"value" : "3h", "desc" : "The synch delimiter has 4 Tbit."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "SBREAK",
+               "info" : "Synch break extend. These bits are effective in LIN mode only."
+             }
+          ]
+        },
+{
+          "name" : "LINRD0",
+          "info" : "LIN Receive Buffer 0 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "64",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD0",
+               "info" : "Receive buffer 0. Byte 0 of the response data byte."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD1",
+               "info" : "Receive buffer 1. Byte 1 of the response data byte."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD2",
+               "info" : "Receive buffer 2. Byte 2 of the response data byte."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD3",
+               "info" : "Receive buffer 3. Byte 3 of the response data byte."
+             }
+          ]
+        },
+{
+          "name" : "LINRD1",
+          "info" : "LIN Receive Buffer 1 Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD4",
+               "info" : "Receive buffer 4. Byte 4 of the response data byte."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD5",
+               "info" : "Receive buffer 5. Byte 5 of the response data byte."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD6",
+               "info" : "Receive buffer 6. Byte 6 of the response data byte."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RD7",
+               "info" : "Receive buffer 7. Byte 7 of the response data byte."
+             }
+          ]
+        },
+{
+          "name" : "LINMASK",
+          "info" : "LIN Mask Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RX ID MASK",
+               "info" : "Receive ID mask. These bits are effective in LIN mode only."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TX ID MASK",
+               "info" : "Transmit ID mask. These bits are effective in LIN mode only."
+             }
+          ]
+        },
+{
+          "name" : "LINID",
+          "info" : "LIN Identification Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "RECEIVED ID",
+               "info" : "Received identification. These bits are effective in LIN mode only."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "ID-SLAVETASK BYTE",
+               "info" : "ID-SlaveTask Byte. These bits are effective in LIN mode only."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "ID BYTE",
+               "info" : "ID byte. This field is effective in LIN mode only. This byte is the LIN mode message ID."
+             }
+          ]
+        },
+{
+          "name" : "LINTD0",
+          "info" : "LIN Transmit Buffer 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD0",
+               "info" : "8-Bit transmit buffer 0."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD1",
+               "info" : "8-Bit transmit buffer 1."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD2",
+               "info" : "8-Bit transmit buffer 2."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD3",
+               "info" : "8-Bit transmit buffer 3."
+             }
+          ]
+        },
+{
+          "name" : "LINTD1",
+          "info" : "LIN Transmit Buffer 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD4",
+               "info" : "8-Bit transmit buffer 4."
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD5",
+               "info" : "8-Bit transmit buffer 5."
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD6",
+               "info" : "8-Bit transmit buffer 6."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "8",
+               "bit_Field_Name" : "TD7",
+               "info" : "8-Bit transmit buffer 7."
+             }
+          ]
+        },
+{
+          "name" : "MBRS",
+          "info" : "Maximum Baud Rate Selection Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "13",
+               "bit_Field_Name" : "MBR",
+               "info" : "Maximum baud rate prescaler. This bit is effective in LIN mode only."
+             }
+          ]
+        },
+
+
+        {
+          "name" : "IODFTCTRL",
+          "info" : "Input/Output Error Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "start_bit" : "26",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "FEN",
+               "info" : "Frame error enable. This bit is used to create a frame error.",
+               "values" : [
+                 {"value" : "0", "desc" : "No error is created."},
+                 {"value" : "1", "desc" : "The stop bit received is ANDed with 0 and passed to the stop bit check circuitry."}
+                ]
+             },
+             {
+               "start_bit" : "25",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "PEN",
+               "info" : "Parity error enable. This bit is used to create a parity error.",
+               "values" : [
+                 {"value" : "0", "desc" : "No parity error occurs."},
+                 {"value" : "1", "desc" : "The parity bit received is toggled so that a parity error occurs."}
+                ]
+             },
+             {
+               "start_bit" : "24",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "BRKD TENA",
+               "info" : "Break detect error enable. This bit is used to create a BRKDT error.",
+               "values" : [
+                 {"value" : "0", "desc" : "No error is created."},
+                 {"value" : "1", "desc" : "The stop bit of the frame is ANDed with 0 and passed to the RSM so that a frame error"}
+                ]
+             },
+             {
+               "start_bit" : "19",
+               "bit_lenght" : "2",
+               "bit_Field_Name" : "PIN SAMPLE MASK",
+               "info" : "Pin sample mask.",
+               "values" : [
+                 {"value" : "0", "desc" : "No mask is used."},
+                 {"value" : "1h", "desc" : "Invert the TX Pin value at 7th.SCLK."},
+                 {"value" : "2h", "desc" : "Invert the TX Pin value at 8th.SCLK."},
+                 {"value" : "3h", "desc" : "Invert the TX Pin value at 9th.SCLK."}
+                ]
+             },
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "3",
+               "bit_Field_Name" : "TX SHIFT",
+               "info" : "Transmit shift.",
+               "values" : [
+                 {"value" : "0", "desc" : "No delay occurs."},
+                 {"value" : "1h", "desc" : "The value is delayed by 1 SCLK."},
+                 {"value" : "2h", "desc" : "The value is delayed by 2 SCLK."},
+                 {"value" : "3h", "desc" : "The value is delayed by 3 SCLK."},
+                 {"value" : "4h", "desc" : "The value is delayed by 4 SCLK."},
+                 {"value" : "5h", "desc" : "The value is delayed by 5 SCLK."},
+                 {"value" : "6h", "desc" : "The value is delayed by 6 SCLK."},
+                 {"value" : "7h", "desc" : "No delay occurs."}
+                ]
+             },
+             {
+               "start_bit" : "8",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "IODFTENA",
+               "info" : "IODFT enable key. Write access permitted in Privilege mode only.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "IODFT is enabled."},
+                 {"value" : "All Others", "desc" : "IODFT is disabled."}
+                ]
+             },
+	     {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "LPBENA",
+               "info" : "Module loopback enable. Write access permitted in Privilege mode only.",
+               "values" : [
+                 {"value" : "0", "desc" : "Digital loopback is enabled."},
+                 {"value" : "1", "desc" : "Analog loopback is enabled in module I/O DFT mode when IODFTENA = 1010."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RXPENA",
+               "info" : "Module analog loopback through receive pin enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Analog loopback through the transmit pin is enabled."},
+                 {"value" : "1", "desc" : "Analog loopback through the receive pin is enabled."}
+                ]
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}
