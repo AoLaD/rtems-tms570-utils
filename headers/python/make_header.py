@@ -16,17 +16,20 @@ class Peripheral(object):
         self.registers = registers
 
 class Register(object):
-    def __init__(self, name, info,lenght, adress,offset,fields,array):
+    def __init__(self, name, info,lenght, adress,offset,fields,array,temporal_group_pos,temporal_group_name):
         self.name = name
         self.info = info
         self.lenght = lenght
         self.adress = adress
         self.offset = offset
         self.fields = fields
+        self.group_pos = temporal_group_pos
+        self.group_name = temporal_group_name
+        self.group_name_actual = None
         if(array != None):
             self.array = array
         else:
-            self.array = 1                
+            self.array = 1         
 
 class Fields(object):
     def __init__(self, start_bit, bit_lenght, bit_Field_Name, info,values):
@@ -40,9 +43,15 @@ import json
 def object_decoder(obj):
     if 'adress' in obj:
         temporal_array = None
+        temporal_group_pos = None
+        temporal_group_name = None
         if('array' in obj):
-            temporal_array = obj['array']        
-        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], obj['fields'],temporal_array)
+            temporal_array = obj['array']
+        if('group_position' in obj):
+            temporal_group_pos = obj['group_position']
+        if('group_names' in obj):
+            temporal_group_name = obj['group_names']
+        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], obj['fields'],temporal_array,temporal_group_pos,temporal_group_name)
     elif 'bit_Field_Name' in obj:
         temporal_values = None        
         if('values' in obj):
@@ -65,29 +74,31 @@ def makeFile( loaded_jason ):
     print ("")
     print ("#include <bsp/utility.h>")
 
-def findIdWithLowestAdressFrom(data,adress):
-    minimum = int('0xFFFFFFFF', 16)
-    adress = '0x'+adress.replace(" ","")
-    indexOfMin = 0
-    for i, val in enumerate(data.peripherals[0].registers):
-        hodnota = '0x'+val.adress.replace(" ","")
-        #print('0x'+val.adress +' , '+ val.adress)
-        if(int(hodnota, 16) > int(adress,16) and int(hodnota, 16) < minimum):
-            minimum = int('0x'+val.adress.replace(" ",""), 16)
-            indexOfMin = i    
-    return indexOfMin
+def findClosestRegister(data, register):
+    last = 0
+    minimum = register
+    local_min = int("0xFFFFFFFF", 16)
+    if(register.adress != '0'):
+        #adress mode        
+        last = register.adress.replace(" ","")    
+    else:
+        #offset mode
+        last = register.offset.replace(" ","")
 
-def findIdWithLowestOffsetFrom(data,adress):
-    minimum = int('0xFFFFFFFF', 16)
-    adress = '0x'+adress
-    indexOfMin = 0
     for i, val in enumerate(data.peripherals[0].registers):
-        hodnota = '0x'+val.offset
-        #print('0x'+val.adress +' , '+ val.adress)
-        if(int(hodnota, 16) > int(adress,16) and int(hodnota, 16) < minimum):
-            minimum = int('0x'+val.offset, 16)
-            indexOfMin = i    
-    return indexOfMin
+        prepareReg(val)
+        if(register.adress != '0'):
+            hodnota = '0x'+val.adress.replace(" ","")            
+        else:
+            hodnota = '0x'+val.offset.replace(" ","")            
+        if(int(hodnota, 16) > int(last,16) and
+           int(hodnota, 16) < local_min):
+            minimum = val            
+            if(register.adress != '0'):
+                local_min = int('0x'+minimum.adress.replace(" ",""), 16)
+            else:
+                local_min = int('0x'+minimum.offset.replace(" ",""), 16)
+    return minimum
 
 def fillBlanks(string):
     for i in range(0,30-len(string)) :
@@ -103,80 +114,82 @@ def makeReserved(prevAdress, nextAdress):
     return '  uint8_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
     
 lastAdress = 0
-def printIdAdress(reg):
+def printRegInfo(reg):
     global lastAdress
     reserved = ''
-    if(lastAdress == 0):
+    
+    if(lastAdress == 0 and reg.adress != '0'):
         lastAdress = int(reg.adress.replace(" ",""),16)
-    if(lastAdress != int(reg.adress.replace(" ",""),16)):
-        reserved = makeReserved(lastAdress,int(reg.adress.replace(" ",""),16))    
-    lastAdress = int(reg.adress.replace(" ",""),16)+int(int(reg.lenght)/8)*int(reg.array)
-    
-    if(reg.lenght == '32'):
-        regType = 'ui32_t '
-        
-    regName = reg.name
-    if(int(reg.array) > 1):
-        regName += '['+reg.array+']'
-    
-    info = reg.info    
-    prefix = '  '+regType+regName+';'
-    if(reserved != ''):
-        print(reserved)        
-    print(fillBlanks(prefix)+'/*'+info+'*/')
-    
-def printIdOffset(reg):
-    global lastAdress
-    reserved = ''
-    if(lastAdress == 0):
-        lastAdress = int(reg.offset,16)
-    if(lastAdress != int(reg.offset,16)):
-        reserved = makeReserved(lastAdress,int(reg.offset,16))
-    lastAdress = int(reg.offset,16)+int(int(reg.lenght)/8)*int(reg.array)
+    if(lastAdress == 0 and reg.adress == '0'):
+        lastAdress = int(reg.offset.replace(" ",""),16)
+
+    if(reg.adress != '0'):
+        if(lastAdress != int(reg.adress.replace(" ",""),16)):
+            reserved = makeReserved(lastAdress,int(reg.adress.replace(" ",""),16))    
+        lastAdress = int(reg.adress.replace(" ",""),16)+int(int(reg.lenght)/8)*int(reg.array)
+    else:
+        if(lastAdress != int(reg.offset.replace(" ",""),16)):
+            reserved = makeReserved(lastAdress,int(reg.offset.replace(" ",""),16))    
+        lastAdress = int(reg.offset.replace(" ",""),16)+int(int(reg.lenght)/8)*int(reg.array)
         
     if(reg.lenght == '32'):
         regType = 'uint32_t '
-
+        
     regName = reg.name
     if(int(reg.array) > 1):
         regName += '['+reg.array+']'
-        
     
-    info = reg.info    
+    info = '/*'+reg.info+'*/'    
     prefix = '  '+regType+regName+';'
+
+    if(reg.group_name_actual != None):
+        info = info.replace('{}',reg.group_name_actual)
+        prefix = prefix.replace('{}',reg.group_name_actual) 
+    
     if(reserved != ''):
         print(reserved)        
-    print(fillBlanks(prefix)+'/*'+info+'*/')
+    print(fillBlanks(prefix)+info)
+
+def countRegs(data):
+    count = 0
+    for reg in data.peripherals[0].registers:
+        if(reg.group_pos != None):
+            count += len(reg.group_pos)
+        else:
+            count += 1
+    return count
+
+def makeEmptyReg(data):
+    
+    if(data.peripherals[0].registers[0].adress != '0'):
+        sys.stderr.write("pleeee\n")            
+        return Register("blaa", "bla","32", "-1", "-1", None,None,None,None)
+    else:
+        return Register("blaa", "bla","32", "-1", '0', None,None,None,None)
     
 
 def makeStruct(data):
+    for r in data.peripherals[0].registers:
+        prepareReg(r)
+    numberOfRegs = countRegs(data)    
     print ('typedef struct{')
-    if(data.peripherals[0].registers[0].adress != '0'):
-        #adress mode
-        adress = '0'
-        for i in range(0,len(data.peripherals[0].registers)) :
-            regId = findIdWithLowestAdressFrom(data,adress)
-            adress = data.peripherals[0].registers[regId].adress
-            printIdAdress(data.peripherals[0].registers[regId])
-        print ('} '+data.peripherals[0].name+"_struct;")
-    else:
-        #offset mode
-        offset = 'FFFFFFFF'
-        for i in range(0,len(data.peripherals[0].registers)) :
-            regId = findIdWithLowestOffsetFrom(data,offset)
-            offset = data.peripherals[0].registers[regId].offset
-            printIdOffset(data.peripherals[0].registers[regId])
-        print ('} '+data.peripherals[0].name+"_struct;")
+    reg = makeEmptyReg(data)    
+    for i in range(0,numberOfRegs):
+        reg = findClosestRegister(data,reg)
+        printRegInfo(reg)
+        makeRegUsed(reg)
         
+    print ('} '+data.peripherals[0].name+"_struct;")    
 
 def makeFirstLine(reg,prefix):
-    block = ''
-    spaceCount = int((60-len(reg.name)-len(prefix))/2)
+    block = prefix+reg.name
+    if(reg.group_name_actual != None):
+        block = block.replace('{}',reg.group_name_actual)
+        
+    spaceCount = int((60-len(block))/2)
     for i in range(0,spaceCount):
-        block += '-'
-    block += prefix+reg.name
-    for i in range(0,spaceCount):
-        block += '-'
+        block = '-'+block            
+        block += '-'     
     return "/*"+block+"*/"
 
 def makeBlock(reg,prefix):
@@ -194,29 +207,47 @@ def makeBlock(reg,prefix):
         else:
             block += "#define "+prefix+reg.name+'_'+fieldName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'
             block += '\n'
+
+    if(reg.group_name_actual != None):
+        block = block.replace('{}',reg.group_name_actual)    
     return block
+
+def makeRegUsed(reg):
+    if(reg.group_pos != None):
+        if(len(reg.group_pos)>1):
+            index = reg.group_name.index(reg.group_name_actual)
+            reg.group_name.remove(reg.group_name_actual)
+            reg.group_pos.remove(reg.group_pos[index])            
+
+def prepareReg(reg):
+    if(reg.group_pos != None):
+        if(len(reg.group_name) > 0):
+            indexOfMin = 0
+            minimum = sys.maxsize
+            for i in range(0,len(reg.group_pos)):                
+                if(int(reg.group_pos[i], 16) < minimum):
+                    minimum = int(reg.group_pos[i], 16)
+                    indexOfMin = i
+            reg.group_name_actual = reg.group_name[indexOfMin]        
+            if(reg.adress != '0'):
+                reg.adress = reg.group_pos[indexOfMin]
+            else:
+                reg.offset = reg.group_pos[indexOfMin]
+        else:
+            if(reg.adress != '0'):
+                reg.adress = sys.maxsize                
+            else:
+                reg.offset = sys.maxsize
 
 def makeRegs(data):
     prefix = data.name + '_' + data.peripherals[0].name+'_'
-    #for i in range(0,len(data.peripherals[0].registers)) :
-    if(data.peripherals[0].registers[0].adress != '0'):
-        #adress mode
-        adress = '0'
-        for i in range(0,len(data.peripherals[0].registers)) :
-            regId = findIdWithLowestAdressFrom(data,adress)
-            adress = data.peripherals[0].registers[regId].adress
-            print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
-            print(makeBlock(data.peripherals[0].registers[regId],prefix))            
-    else:
-        #offset mode
-        adress = 'FFFFFFFF'
-        for i in range(0,len(data.peripherals[0].registers)) :
-            regId = findIdWithLowestOffsetFrom(data,adress)
-            adress = data.peripherals[0].registers[regId].offset
-            print(makeFirstLine(data.peripherals[0].registers[regId],prefix))
-            print(makeBlock(data.peripherals[0].registers[regId],prefix))
-        
-        
+    numberOfRegs = countRegs(data)        
+    reg = makeEmptyReg(data)    
+    for i in range(0,numberOfRegs):
+        reg = findClosestRegister(data,reg)
+        print(makeFirstLine(reg,prefix))
+        print(makeBlock(reg,prefix))
+        makeRegUsed(reg)
 
 import getopt,os
 inputfile = ''
@@ -258,11 +289,11 @@ exit
 jason = codecs.open(inputfile, "r", "utf-8").read()
 
 nacetlo = json.loads(jason, object_hook=object_decoder)
-#print(nacetlo.peripherals[0].registers[0].fields[0].start_bit)
 makeFile(nacetlo)
 print("")
 makeStruct(nacetlo)
 print("")
+nacetlo = json.loads(jason, object_hook=object_decoder)
 makeRegs(nacetlo)
 print("")
 print ("#endif /* LIBBSP_ARM_"+nacetlo.name+'_'+nacetlo.peripherals[0].name+'.H */')
