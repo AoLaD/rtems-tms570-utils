@@ -19,14 +19,14 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t EFCBOUND;            /*EFC Boundary Control Register*/
+  uint32_t EFCBOUND;          /*EFC Boundary Control Register*/
   uint8_t reserved1 [12];
-  ui32_t EFCPINS;             /*EFC Pins Register*/
+  uint32_t EFCPINS;           /*EFC Pins Register*/
   uint8_t reserved2 [12];
-  ui32_t EFC_ERR_STAT;        /*EFC Error Status Register*/
+  uint32_t EFC_ERR_STAT;      /*EFC Error Status Register*/
   uint8_t reserved3 [8];
-  ui32_t EFC_ST_CY;           /*EFC Self Test Cycles Register*/
-  ui32_t EFC_ST_SIG;          /*EFC Self Test Signature Register*/
+  uint32_t EFC_ST_CY;         /*EFC Self Test Cycles Register*/
+  uint32_t EFC_ST_SIG;        /*EFC Self Test Signature Register*/
 } EFUSE_struct;
 
 /*-------------------TMS570_EFUSE_EFCBOUND-------------------*/

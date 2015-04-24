@@ -19,43 +19,43 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t PARFLG;              /*Interrupt Vector Table Parity Flag Register*/
-  ui32_t PARCTL;              /*Interrupt Vector Table Parity Control Register*/
-  ui32_t ADDERR;              /*Address Parity Error Register*/
-  ui32_t FBPARERR;            /*Fall-Back Address Parity Error Register*/
+  uint32_t PARFLG;            /*Interrupt Vector Table Parity Flag Register*/
+  uint32_t PARCTL;            /*Interrupt Vector Table Parity Control Register*/
+  uint32_t ADDERR;            /*Address Parity Error Register*/
+  uint32_t FBPARERR;          /*Fall-Back Address Parity Error Register*/
   uint8_t reserved1 [4];
-  ui32_t IRQINDEX;            /*IRQ Index Offset Vector Register*/
-  ui32_t FIQINDEX;            /*FIQ Index Offset Vector Register*/
+  uint32_t IRQINDEX;          /*IRQ Index Offset Vector Register*/
+  uint32_t FIQINDEX;          /*FIQ Index Offset Vector Register*/
   uint8_t reserved2 [8];
-  ui32_t FIRQPR0;             /*FIQ/IRQ Program Control Register 0*/
-  ui32_t FIRQPR1;             /*FIQ/IRQ Program Control Register 1*/
-  ui32_t FIRQPR2;             /*FIQ/IRQ Program Control Register 2*/
+  uint32_t FIRQPR0;           /*FIQ/IRQ Program Control Register 0*/
+  uint32_t FIRQPR1;           /*FIQ/IRQ Program Control Register 1*/
+  uint32_t FIRQPR2;           /*FIQ/IRQ Program Control Register 2*/
   uint8_t reserved3 [4];
-  ui32_t INTREQ0;             /*Pending Interrupt Read Location Register 0*/
-  ui32_t INTREQ1;             /*Pending Interrupt Read Location Register 1*/
-  ui32_t INTREQ2;             /*Pending Interrupt Read Location Register 2*/
+  uint32_t INTREQ0;           /*Pending Interrupt Read Location Register 0*/
+  uint32_t INTREQ1;           /*Pending Interrupt Read Location Register 1*/
+  uint32_t INTREQ2;           /*Pending Interrupt Read Location Register 2*/
   uint8_t reserved4 [4];
-  ui32_t REQENASET0;          /*Interrupt Enable Set Register 0*/
-  ui32_t REQENASET1;          /*Interrupt Enable Set Register 1*/
-  ui32_t REQENASET2;          /*Interrupt Enable Set Register 2*/
+  uint32_t REQENASET0;        /*Interrupt Enable Set Register 0*/
+  uint32_t REQENASET1;        /*Interrupt Enable Set Register 1*/
+  uint32_t REQENASET2;        /*Interrupt Enable Set Register 2*/
   uint8_t reserved5 [4];
-  ui32_t REQENACLR0;          /*Interrupt Enable Clear Register 0*/
-  ui32_t REQENACLR1;          /*Interrupt Enable Clear Register 1*/
-  ui32_t REQENACLR2;          /*Interrupt Enable Clear Register 2*/
+  uint32_t REQENACLR0;        /*Interrupt Enable Clear Register 0*/
+  uint32_t REQENACLR1;        /*Interrupt Enable Clear Register 1*/
+  uint32_t REQENACLR2;        /*Interrupt Enable Clear Register 2*/
   uint8_t reserved6 [4];
-  ui32_t WAKEENASET0;         /*Wake-Up Enable Set Register 0*/
-  ui32_t WAKEENASET1;         /*Wake-Up Enable Set Register 1*/
-  ui32_t WAKEENASET2;         /*Wake-Up Enable Set Register 2*/
+  uint32_t WAKEENASET0;       /*Wake-Up Enable Set Register 0*/
+  uint32_t WAKEENASET1;       /*Wake-Up Enable Set Register 1*/
+  uint32_t WAKEENASET2;       /*Wake-Up Enable Set Register 2*/
   uint8_t reserved7 [4];
-  ui32_t WAKEENACLR0;         /*Wake-Up Enable Clear Registers 0*/
-  ui32_t WAKEENACLR1;         /*Wake-Up Enable Clear Registers 1*/
-  ui32_t WAKEENACLR2;         /*Wake-Up Enable Clear Registers 2*/
+  uint32_t WAKEENACLR0;       /*Wake-Up Enable Clear Registers 0*/
+  uint32_t WAKEENACLR1;       /*Wake-Up Enable Clear Registers 1*/
+  uint32_t WAKEENACLR2;       /*Wake-Up Enable Clear Registers 2*/
   uint8_t reserved8 [4];
-  ui32_t IRQVECREG;           /*IRQ Interrupt Vector Register*/
-  ui32_t FIQVECREG;           /*FIQ Interrupt Vector Register*/
-  ui32_t CAPEVT;              /*Capture Event Register*/
+  uint32_t IRQVECREG;         /*IRQ Interrupt Vector Register*/
+  uint32_t FIQVECREG;         /*FIQ Interrupt Vector Register*/
+  uint32_t CAPEVT;            /*Capture Event Register*/
   uint8_t reserved9 [4];
-  ui32_t CHANCTRL[24];        /*VIM Interrupt Control Register*/
+  uint32_t CHANCTRL[24];      /*VIM Interrupt Control Register*/
 } VIM_struct;
 
 /*---------------------tms570_VIM_PARFLG---------------------*/

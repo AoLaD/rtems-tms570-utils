@@ -913,17 +913,19 @@
           ]
         },
 {
-          "name" : "DMMDEST0REG1",
-          "info" : "DMM Destination 0 Region 1",
+          "name" : "DMMDEST{}REG1",
+          "info" : "DMM Destination {} Region 1",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "2C",
+          "group_position" : ["2C","3C","4C","5C"],
+          "group_names" : ["0","1","2","3"],
           "fields" : [
              {
                "start_bit" : "18",
                "bit_lenght" : "14",
-               "bit_Field_Name" : "31-18",
-               "info" : "BASEADDR These bits define the base address of the 256kB region where the buffer is located."
+               "bit_Field_Name" : "BASEADDR",
+               "info" : "These bits define the base address of the 256kB region where the buffer is located."
              },
              {
                "start_bit" : "0",
@@ -934,134 +936,41 @@
           ]
         },
 {
-          "name" : "DMMDEST1REG1",
-          "info" : "DMM Destination 1 Region 1",
-          "lenght" : "32",
+          "name" : "DMMDEST{}BL1",
+          "info" : "DMM Destination {} Blocksize 1",
+          "lenght" : "32",
+
           "adress" : "0",
-          "offset" : "3C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "31-18",
-               "info" : "BASEADDR These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST2REG1",
-          "info" : "DMM Destination 2 Region 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "31-18",
-               "info" : "BASEADDR These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST3REG1",
-          "info" : "DMM Destination 3 Region 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "5C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "31-18",
-               "info" : "BASEADDR These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST0BL1",
-          "info" : "DMM Destination 0 Blocksize 1",
-          "lenght" : "32",
-          "adress" : "0",
+
           "offset" : "30",
-          "fields" : [
+
+          "group_position" : ["30","40", "50", "60"],
+          "group_names" : ["0","1","2","3"],
+          "fields" : [
+
              {
+
                "start_bit" : "0",
                "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
+
+               "bit_Field_Name" : "BLOCKSIZE",
+
                "info" : "These bits define the length of the buffer region."
+
              }
-          ]
+
+          ]
+
         },
+
 {
-          "name" : "DMMDEST1BL1",
-          "info" : "DMM Destination 1 Blocksize 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "40",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST2BL1",
-          "info" : "DMM Destination 2 Blocksize 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "50",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST3BL1",
-          "info" : "DMM Destination 3 Blocksize 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "60",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST0REG2",
-          "info" : "DMM Destination 0 Region 2",
+          "name" : "DMMDEST{}REG2",
+          "info" : "DMM Destination {} Region 2",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "34",
+          "group_position" : ["34","44", "54", "64"],
+          "group_names" : ["0","1","2","3"],
           "fields" : [
              {
                "start_bit" : "18",
@@ -1078,119 +987,13 @@
           ]
         },
 {
-          "name" : "DMMDEST1REG2",
-          "info" : "DMM Destination 1 Region 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "BASEADDR",
-               "info" : "These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST2REG2",
-          "info" : "DMM Destination 2 Region 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "54",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "BASEADDR",
-               "info" : "These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST3REG2",
-          "info" : "DMM Destination 3 Region 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "64",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "BASEADDR",
-               "info" : "These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST0BL2",
-          "info" : "DMM Destination 0 Blocksize 2",
+          "name" : "DMMDEST{}BL2",
+          "info" : "DMM Destination {} Blocksize 2",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "38",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST1BL2",
-          "info" : "DMM Destination 1 Blocksize 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "48",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST2BL2",
-          "info" : "DMM Destination 2 Blocksize 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "58",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST3BL2",
-          "info" : "DMM Destination 3 Blocksize 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "68",
+          "group_position" : ["38","48", "58", "68"],
+          "group_names" : ["0","1","2","3"],
           "fields" : [
              {
                "start_bit" : "0",

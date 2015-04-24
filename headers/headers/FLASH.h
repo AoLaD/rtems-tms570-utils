@@ -19,56 +19,56 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t FRDCNTL;             /*Flash Option Control Register*/
+  uint32_t FRDCNTL;           /*Flash Option Control Register*/
   uint8_t reserved1 [4];
-  ui32_t FEDACTRL1;           /*Flash Error Detection and Correction Control Register 1*/
-  ui32_t FEDACTRL2;           /*Flash Error Detection and Correction Control Register 2*/
-  ui32_t FCOR_ERR_CNT;        /*Flash Correctable Error Count Register*/
-  ui32_t FCOR_ERR_ADD;        /*Flash Correctable Error Address Register*/
-  ui32_t FCOR_ERR_POS;        /*Flash Correctable Error Position Register*/
-  ui32_t FEDACSTATUS;         /*Flash Error Detection and Correction Status Register*/
-  ui32_t FUNC_ERR_ADD;        /*Flash Un-Correctable Error Address Register*/
-  ui32_t FEDACSDIS;           /*Flash Error Detection and Correction Sector Disable Register*/
-  ui32_t FPRIM_ADD_TAG;       /*Flash Primary Address Tag Register*/
-  ui32_t FDUP_ADD_TAG;        /*Flash Duplicate Address Tag Register*/
-  ui32_t FBPROT;              /*Flash Bank Protection Register*/
-  ui32_t FBSE;                /*Flash Bank Sector Enable Register*/
-  ui32_t FBBUSY;              /*Flash Bank Busy Register*/
-  ui32_t FBAC;                /*Flash Bank Access Control Register*/
-  ui32_t FBFALLBACK;          /*Flash Bank Fallback Power Register*/
-  ui32_t FBPRDY;              /*Flash Bank/Pump Ready Register*/
-  ui32_t FPAC1;               /*Flash Pump Access Control Register 1*/
-  ui32_t FPAC2;               /*Flash Pump Access Control Register 2*/
-  ui32_t FMAC;                /*Flash Module Access Control Register*/
-  ui32_t FMSTAT;              /*Flash Module Status Register*/
-  ui32_t FEMU_DMSW;           /*EEPROM Emulation Data MSW Register*/
-  ui32_t FEMU_DLSW;           /*EEPROM Emulation Data LSW Register*/
-  ui32_t FEMU_ECC;            /*EEPROM Emulation ECC Register*/
+  uint32_t FEDACTRL1;         /*Flash Error Detection and Correction Control Register 1*/
+  uint32_t FEDACTRL2;         /*Flash Error Detection and Correction Control Register 2*/
+  uint32_t FCOR_ERR_CNT;      /*Flash Correctable Error Count Register*/
+  uint32_t FCOR_ERR_ADD;      /*Flash Correctable Error Address Register*/
+  uint32_t FCOR_ERR_POS;      /*Flash Correctable Error Position Register*/
+  uint32_t FEDACSTATUS;       /*Flash Error Detection and Correction Status Register*/
+  uint32_t FUNC_ERR_ADD;      /*Flash Un-Correctable Error Address Register*/
+  uint32_t FEDACSDIS;         /*Flash Error Detection and Correction Sector Disable Register*/
+  uint32_t FPRIM_ADD_TAG;     /*Flash Primary Address Tag Register*/
+  uint32_t FDUP_ADD_TAG;      /*Flash Duplicate Address Tag Register*/
+  uint32_t FBPROT;            /*Flash Bank Protection Register*/
+  uint32_t FBSE;              /*Flash Bank Sector Enable Register*/
+  uint32_t FBBUSY;            /*Flash Bank Busy Register*/
+  uint32_t FBAC;              /*Flash Bank Access Control Register*/
+  uint32_t FBFALLBACK;        /*Flash Bank Fallback Power Register*/
+  uint32_t FBPRDY;            /*Flash Bank/Pump Ready Register*/
+  uint32_t FPAC1;             /*Flash Pump Access Control Register 1*/
+  uint32_t FPAC2;             /*Flash Pump Access Control Register 2*/
+  uint32_t FMAC;              /*Flash Module Access Control Register*/
+  uint32_t FMSTAT;            /*Flash Module Status Register*/
+  uint32_t FEMU_DMSW;         /*EEPROM Emulation Data MSW Register*/
+  uint32_t FEMU_DLSW;         /*EEPROM Emulation Data LSW Register*/
+  uint32_t FEMU_ECC;          /*EEPROM Emulation ECC Register*/
   uint8_t reserved2 [4];
-  ui32_t FEMU_ADDR;           /*EEPROM Emulation Address Register*/
-  ui32_t FDIAGCTRL;           /*Diagnostic Control Register*/
-  ui32_t FRAW_DATAH;          /*Uncorrected Raw Data High Register*/
-  ui32_t FRAW_DATAL;          /*Uncorrected Raw Data Low Register*/
-  ui32_t FRAW_ECC;            /*Uncorrected Raw ECC Register*/
-  ui32_t FPAR_OVR;            /*Parity Override Register*/
+  uint32_t FEMU_ADDR;         /*EEPROM Emulation Address Register*/
+  uint32_t FDIAGCTRL;         /*Diagnostic Control Register*/
+  uint32_t FRAW_DATAH;        /*Uncorrected Raw Data High Register*/
+  uint32_t FRAW_DATAL;        /*Uncorrected Raw Data Low Register*/
+  uint32_t FRAW_ECC;          /*Uncorrected Raw ECC Register*/
+  uint32_t FPAR_OVR;          /*Parity Override Register*/
   uint8_t reserved3 [64];
-  ui32_t FEDACSDIS2;          /*Flash Error Detection and Correction Sector Disable Register 2*/
+  uint32_t FEDACSDIS2;        /*Flash Error Detection and Correction Sector Disable Register 2*/
   uint8_t reserved4 [452];
-  ui32_t FSM_WR_ENA;          /*FSM Register Write Enable*/
+  uint32_t FSM_WR_ENA;        /*FSM Register Write Enable*/
   uint8_t reserved5 [24];
-  ui32_t FSM_SECTOR;          /*FSM Sector Register*/
+  uint32_t FSM_SECTOR;        /*FSM Sector Register*/
   uint8_t reserved6 [16];
-  ui32_t EEPROM_CONFIG;       /*EEPROM Emulation Configuration Register*/
+  uint32_t EEPROM_CONFIG;     /*EEPROM Emulation Configuration Register*/
   uint8_t reserved7 [76];
-  ui32_t EE_CTRL1;            /*EEPROM Emulation Error Detection and Correction Control Register 1*/
-  ui32_t EE_CTRL2;            /*EEPROM Emulation Error Detection and Correction Control Register 2*/
-  ui32_t EE_COR_ERR_CNT;      /*EEPROM Emulation Correctable Error Count Register*/
-  ui32_t EE_COR_ERR_ADD;      /*EEPROM Emulation Correctable Error Address Register*/
-  ui32_t EE_COR_ERR_POS;      /*EEPROM Emulation Correctable Error Bit Position Register*/
-  ui32_t EE_STATUS;           /*EEPROM Emulation Error Status Register*/
-  ui32_t EE_UNC_ERR_ADD;      /*EEPROM Emulation Un-Correctable Error Address Register*/
+  uint32_t EE_CTRL1;          /*EEPROM Emulation Error Detection and Correction Control Register 1*/
+  uint32_t EE_CTRL2;          /*EEPROM Emulation Error Detection and Correction Control Register 2*/
+  uint32_t EE_COR_ERR_CNT;    /*EEPROM Emulation Correctable Error Count Register*/
+  uint32_t EE_COR_ERR_ADD;    /*EEPROM Emulation Correctable Error Address Register*/
+  uint32_t EE_COR_ERR_POS;    /*EEPROM Emulation Correctable Error Bit Position Register*/
+  uint32_t EE_STATUS;         /*EEPROM Emulation Error Status Register*/
+  uint32_t EE_UNC_ERR_ADD;    /*EEPROM Emulation Un-Correctable Error Address Register*/
   uint8_t reserved8 [220];
-  ui32_t FCFG_BANK;           /*Flash Bank Configuration Register*/
+  uint32_t FCFG_BANK;         /*Flash Bank Configuration Register*/
 } FLASH_struct;
 
 /*--------------------tms570_FLASH_FRDCNTL--------------------*/

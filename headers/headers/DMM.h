@@ -351,10 +351,10 @@ typedef struct{
 
 
 /*------------------tms570_DMM_DMMDEST0REG1------------------*/
-/* field: 31-18 - BASEADDR These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST0REG1_31-18(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST0REG1_31-18_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST0REG1_31-18_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
+/* field: BASEADDR - These bits define the base address of the 256kB region where the buffer is located. */
+#define tms570_DMM_DMMDEST0REG1_BASEADDR(val) BSP_FLD32(val,18, 31)
+#define tms570_DMM_DMMDEST0REG1_BASEADDR_GET(reg) BSP_FLD32GET(reg,18, 31)
+#define tms570_DMM_DMMDEST0REG1_BASEADDR_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
 
 /* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
 #define tms570_DMM_DMMDEST0REG1_BLOCKADDR(val) BSP_FLD32(val,0, 17)
@@ -386,120 +386,6 @@ typedef struct{
 #define tms570_DMM_DMMDEST0BL2_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
 #define tms570_DMM_DMMDEST0BL2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
 #define tms570_DMM_DMMDEST0BL2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST1REG1------------------*/
-/* field: 31-18 - BASEADDR These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST1REG1_31-18(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST1REG1_31-18_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST1REG1_31-18_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST1REG1_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST1REG1_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST1REG1_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST1BL1-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST1BL1_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST1BL1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST1BL1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST1REG2------------------*/
-/* field: BASEADDR - These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST1REG2_BASEADDR(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST1REG2_BASEADDR_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST1REG2_BASEADDR_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST1REG2_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST1REG2_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST1REG2_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST1BL2-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST1BL2_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST1BL2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST1BL2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST2REG1------------------*/
-/* field: 31-18 - BASEADDR These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST2REG1_31-18(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST2REG1_31-18_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST2REG1_31-18_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST2REG1_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST2REG1_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST2REG1_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST2BL1-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST2BL1_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST2BL1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST2BL1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST2REG2------------------*/
-/* field: BASEADDR - These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST2REG2_BASEADDR(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST2REG2_BASEADDR_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST2REG2_BASEADDR_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST2REG2_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST2REG2_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST2REG2_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST2BL2-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST2BL2_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST2BL2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST2BL2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST3REG1------------------*/
-/* field: 31-18 - BASEADDR These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST3REG1_31-18(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST3REG1_31-18_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST3REG1_31-18_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST3REG1_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST3REG1_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST3REG1_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST3BL1-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST3BL1_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST3BL1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST3BL1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
-
-
-/*------------------tms570_DMM_DMMDEST3REG2------------------*/
-/* field: BASEADDR - These bits define the base address of the 256kB region where the buffer is located. */
-#define tms570_DMM_DMMDEST3REG2_BASEADDR(val) BSP_FLD32(val,18, 31)
-#define tms570_DMM_DMMDEST3REG2_BASEADDR_GET(reg) BSP_FLD32GET(reg,18, 31)
-#define tms570_DMM_DMMDEST3REG2_BASEADDR_SET(reg,val) BSP_FLD32SET(reg, val,18, 31)
-
-/* field: BLOCKADDR - These bits define the starting address of the buffer in the 256kB page. */
-#define tms570_DMM_DMMDEST3REG2_BLOCKADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_DMM_DMMDEST3REG2_BLOCKADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_DMM_DMMDEST3REG2_BLOCKADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
-
-
-/*-------------------tms570_DMM_DMMDEST3BL2-------------------*/
-/* field: BLOCKSIZE - These bits define the length of the buffer region. */
-#define tms570_DMM_DMMDEST3BL2_BLOCKSIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_DMM_DMMDEST3BL2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_DMM_DMMDEST3BL2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
 /*---------------------tms570_DMM_DMMPC0---------------------*/
@@ -628,6 +514,198 @@ typedef struct{
 
 /* field: SYNCPDIS - Pull disable. */
 #define tms570_DMM_DMMPC7_SYNCPDIS BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
+
+
+/*---------------------tms570_DMM_DMMPC8---------------------*/
+/* field: ENAPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_ENAPSEL BSP_FLD32(18)
+
+/* field: DATAxPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_DATAxPSEL(val) BSP_FLD32(val,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_GET(reg) BSP_FLD32GET(reg,2, 17)
+#define tms570_DMM_DMMPC8_DATAxPSEL_SET(reg,val) BSP_FLD32SET(reg, val,2, 17)
+
+/* field: CLKPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_CLKPSEL BSP_FLD32(1)
+
+/* field: SYNCPSEL - Pull disable. */
+#define tms570_DMM_DMMPC8_SYNCPSEL BSP_FLD32(0)
 
 
 /*---------------------tms570_DMM_DMMPC8---------------------*/

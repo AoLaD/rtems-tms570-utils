@@ -472,11 +472,12 @@
           ]
         },
 {
-          "name" : "RTPRAM1REG1",
+          "name" : "RTPRAM1REG",
           "info" : "RTP RAM 1 Trace Region Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "0C",
+          "array" : "2",
           "fields" : [
              {
                "start_bit" : "29",
@@ -505,44 +506,12 @@
           ]
         },
 {
-          "name" : "RTPRAM1REG2",
-          "info" : "RTP RAM 1 Trace Region Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10",
-          "fields" : [
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CPU_DMA",
-               "info" : "CPU and/or other master access."
-             },
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RW",
-               "info" : "Read/Write."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the trace region."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "STARTADDR",
-               "info" : "These bits define the starting address of the address region that should be traced."
-             }
-          ]
-        },
-{
-          "name" : "RTPRAM2REG1",
+          "name" : "RTPRAM2REG",
           "info" : "RTP RAM 2 Trace Region Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "14",
+          "array" : "2",
           "fields" : [
              {
                "start_bit" : "29",
@@ -571,77 +540,12 @@
           ]
         },
 {
-          "name" : "RTPRAM2REG2",
-          "info" : "RTP RAM 2 Trace Region Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "18",
-          "fields" : [
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CPU_DMA",
-               "info" : "CPU and/or other master access."
-             },
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RW",
-               "info" : "Read/Write."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the trace region."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "24",
-               "bit_Field_Name" : "STARTADDR",
-               "info" : "These bits define the starting address of the address region that should be traced."
-             }
-          ]
-        },
-{
-          "name" : "RTPPERREG1",
+          "name" : "RTPPERREG",
           "info" : "RTP Peripheral Trace Region Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "24",
-          "fields" : [
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CPU_DMA",
-               "info" : "CPU and/or other master access."
-             },
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RW",
-               "info" : "Read/Write."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the trace region."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "24",
-               "bit_Field_Name" : "STARTADDR",
-               "info" : "These bits define the starting address of the address region that should be traced."
-             }
-          ]
-        },
-{
-          "name" : "RTPPERREG2",
-          "info" : "RTP Peripheral Trace Region Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "28",
+          "array" : "2",
           "fields" : [
              {
                "start_bit" : "29",
@@ -669,6 +573,7 @@
              }
           ]
         }
+
       ]    
     }
   ] 

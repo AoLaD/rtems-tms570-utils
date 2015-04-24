@@ -1077,11 +1077,13 @@
           ]
         },
 {
-          "name" : "D4h TGxCTRL",
-          "info" : "TGx Control Registers",
+          "name" : "TG{}CTRL",
+          "info" : "TG{} Control Registers",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "98",
+          "group_position" : ["98"],
+          "group_names" : ["0"],
           "fields" : [
              {
                "bit_number" : "31",
@@ -1110,11 +1112,13 @@
           ]
         },
 {
-          "name" : "F4h DMAxCTRL",
+          "name" : "DMA{}CTRL",
           "info" : "DMA Channel Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "D8",
+          "group_position" : ["D8"],
+          "group_names" : ["0"],
           "fields" : [
              {
                "bit_number" : "31",
@@ -1169,11 +1173,13 @@
           ]
         },
 {
-          "name" : "114h ICOUNT",
-          "info" : "DMAxCOUNT Register",
+          "name" : "ICOUNT{}",
+          "info" : "DMA{}COUNT Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "F8",
+          "group_position" : ["F8"],
+          "group_names" : ["0"],
           "fields" : [
              {
                "bit_number" : "31-16",

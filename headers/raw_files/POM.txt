@@ -10,7 +10,7 @@
           "name" : "POMGLBCTRL",
           "info" : "POM Global Control Register",
           "lenght" : "32",
-          "adress" : "FFA0400",
+          "adress" : "FFA04000",
           "offset" : "0",
           "fields" : [
              {
@@ -98,11 +98,13 @@
           ]
         },
 {
-          "name" : "POMPROGSTARTx",
-          "info" : "POM Program Region Start Address Register x",
+          "name" : "POMPROGSTART{}",
+          "info" : "POM Program Region Start Address Register {}",
           "lenght" : "32",
           "adress" : "FFA04200h",
           "offset" : "0",
+          "group_position" : ["FFA04200","FFA04210", "FFA04220", "FFA04230","FFA04240","FFA04250", "FFA04260", "FFA04270","FFA04280","FFA04290", "FFA042A0", "FFA042B0","FFA042C0","FFA042D0", "FFA042E0", "FFA042F0","FFA04300","FFA04310", "FFA04320", "FFA04330","FFA04340","FFA04350", "FFA04360", "FFA04370","FFA04380","FFA04390", "FFA043A0", "FFA043B0","FFA043C0","FFA043D0", "FFA043E0", "FFA043F0"],
+          "group_names" : ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
           "fields" : [
              {
                "bit_number" : "22-0",
@@ -112,11 +114,13 @@
           ]
         },
 {
-          "name" : "POMOVLSTARTx",
-          "info" : "POM Overlay Region Start Address Register x",
+          "name" : "POMOVLSTART{}",
+          "info" : "POM Overlay Region Start Address Register {}",
           "lenght" : "32",
           "adress" : "FFA04204h",
           "offset" : "0",
+          "group_position" : ["FFA04204","FFA04214", "FFA04224", "FFA04234","FFA04244","FFA04254", "FFA04264", "FFA04274","FFA04284","FFA04294", "FFA042A4", "FFA042B4","FFA042C4","FFA042D4", "FFA042E4", "FFA042F4","FFA04304","FFA04314", "FFA04324", "FFA04334","FFA04344","FFA04354", "FFA04364", "FFA04374","FFA04384","FFA04394", "FFA043A4", "FFA043B4","FFA043C4","FFA043D4", "FFA043E4", "FFA043F4"],
+          "group_names" : ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
           "fields" : [
              {
                "bit_number" : "22-0",
@@ -126,11 +130,13 @@
           ]
         },
 {
-          "name" : "POMREGSIZEx",
-          "info" : "POM Region Size Register x",
+          "name" : "POMREGSIZE{}",
+          "info" : "POM Region Size Register {}",
           "lenght" : "32",
           "adress" : "FFA04208h",
           "offset" : "0",
+          "group_position" : ["FFA04208","FFA04218", "FFA04228", "FFA04238","FFA04248","FFA04258", "FFA04268", "FFA04278","FFA04288","FFA04298", "FFA042A8", "FFA042B8","FFA042C8","FFA042D8", "FFA042E8", "FFA042F8","FFA04308","FFA04318", "FFA04328", "FFA04338","FFA04348","FFA04358", "FFA04368", "FFA04378","FFA04388","FFA04398", "FFA043A8", "FFA043B8","FFA043C8","FFA043D8", "FFA043E8", "FFA043F8"],
+          "group_names" : ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
           "fields" : [
              {
                "bit_number" : "3-0",

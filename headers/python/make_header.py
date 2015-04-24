@@ -25,7 +25,7 @@ class Register(object):
         self.fields = fields
         self.group_pos = temporal_group_pos
         self.group_name = temporal_group_name
-        self.group_name_actual = None
+        self.group_name_actual = None        
         if(array != None):
             self.array = array
         else:
@@ -162,7 +162,6 @@ def countRegs(data):
 def makeEmptyReg(data):
     
     if(data.peripherals[0].registers[0].adress != '0'):
-        sys.stderr.write("pleeee\n")            
         return Register("blaa", "bla","32", "-1", "-1", None,None,None,None)
     else:
         return Register("blaa", "bla","32", "-1", '0', None,None,None,None)
@@ -247,7 +246,7 @@ def makeRegs(data):
         reg = findClosestRegister(data,reg)
         print(makeFirstLine(reg,prefix))
         print(makeBlock(reg,prefix))
-        makeRegUsed(reg)
+        #makeRegUsed(reg)
 
 import getopt,os
 inputfile = ''

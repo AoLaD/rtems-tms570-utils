@@ -19,28 +19,28 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t PLLCTL3;             /*PLL Control 3 Register*/
+  uint32_t PLLCTL3;           /*PLL Control 3 Register*/
   uint8_t reserved1 [108];
-  ui32_t CLKSLIP;             /*PLL Clock Slip Control Register*/
+  uint32_t CLKSLIP;           /*PLL Clock Slip Control Register*/
   uint8_t reserved2 [7600];
-  ui32_t SSWPLL1;             /*PLL Modulation Depth Measurement Control Register*/
-  ui32_t SSWPLL2;             /*SSW PLL BIST Control Register 2*/
-  ui32_t SSWPLL3;             /*SSW PLL BIST Control Register 3*/
-  ui32_t CSDIS;               /*Clock Source Disable Register*/
-  ui32_t CSDISSET;            /*Clock Source Disable Set Register*/
-  ui32_t CSDISCLR;            /*Clock Source Disable Clear Register*/
+  uint32_t SSWPLL1;           /*PLL Modulation Depth Measurement Control Register*/
+  uint32_t SSWPLL2;           /*SSW PLL BIST Control Register 2*/
+  uint32_t SSWPLL3;           /*SSW PLL BIST Control Register 3*/
+  uint32_t CSDIS;             /*Clock Source Disable Register*/
+  uint32_t CSDISSET;          /*Clock Source Disable Set Register*/
+  uint32_t CSDISCLR;          /*Clock Source Disable Clear Register*/
   uint8_t reserved3 [24];
-  ui32_t CSVSTAT;             /*Clock Source Valid Status Register*/
+  uint32_t CSVSTAT;           /*Clock Source Valid Status Register*/
   uint8_t reserved4 [24];
-  ui32_t PLLCTL1;             /*PLL Control 1 Register*/
-  ui32_t PLLCTL2;             /*PLL Control 2 Register*/
+  uint32_t PLLCTL1;           /*PLL Control 1 Register*/
+  uint32_t PLLCTL2;           /*PLL Control 2 Register*/
   uint8_t reserved5 [16];
-  ui32_t LPOMONCTL;           /*LPO/Clock Monitor Control Register*/
-  ui32_t CLKTEST;             /*Clock Test Register*/
+  uint32_t LPOMONCTL;         /*LPO/Clock Monitor Control Register*/
+  uint32_t CLKTEST;           /*Clock Test Register*/
   uint8_t reserved6 [16];
-  ui32_t GPREG1;              /*General Purpose Register*/
+  uint32_t GPREG1;            /*General Purpose Register*/
   uint8_t reserved7 [72];
-  ui32_t GLBSTAT;             /*Global Status Register*/
+  uint32_t GLBSTAT;           /*Global Status Register*/
 } PLL_struct;
 
 /*---------------------tms570_PLL_PLLCTL3---------------------*/

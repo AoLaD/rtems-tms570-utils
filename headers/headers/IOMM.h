@@ -19,23 +19,23 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t REVISION_REG;        /*Revision Register*/
+  uint32_t REVISION_REG;      /*Revision Register*/
   uint8_t reserved1 [28];
-  ui32_t ENDIAN_REG;          /*Device Endianness Register*/
+  uint32_t ENDIAN_REG;        /*Device Endianness Register*/
   uint8_t reserved2 [20];
-  ui32_t KICK_REG0;           /*Kicker Register 0*/
-  ui32_t KICK_REG1;           /*Kicker Register 1*/
+  uint32_t KICK_REG0;         /*Kicker Register 0*/
+  uint32_t KICK_REG1;         /*Kicker Register 1*/
   uint8_t reserved3 [160];
-  ui32_t ERR_RAW_STATUS_REG;  /*Error Raw Status / Set Register*/
-  ui32_t ERR_ENABLED_STATUS_REG;/*Error Enabled Status / Clear Register*/
-  ui32_t ERR_ENABLE_REG;      /*Error Signaling Enable Register*/
-  ui32_t ERR_ENABLE_CLR_REG;  /*Error Signaling Enable Clear Register*/
+  uint32_t ERR_RAW_STATUS_REG;/*Error Raw Status / Set Register*/
+  uint32_t ERR_ENABLED_STATUS_REG;/*Error Enabled Status / Clear Register*/
+  uint32_t ERR_ENABLE_REG;    /*Error Signaling Enable Register*/
+  uint32_t ERR_ENABLE_CLR_REG;/*Error Signaling Enable Clear Register*/
   uint8_t reserved4 [4];
-  ui32_t FAULT_ADDRESS_REG;   /*Fault Address Register*/
-  ui32_t FAULT_STATUS_REG;    /*Fault Status Register*/
-  ui32_t FAULT_CLEAR_REG;     /*Fault Clear Register*/
+  uint32_t FAULT_ADDRESS_REG; /*Fault Address Register*/
+  uint32_t FAULT_STATUS_REG;  /*Fault Status Register*/
+  uint32_t FAULT_CLEAR_REG;   /*Fault Clear Register*/
   uint8_t reserved5 [16];
-  ui32_t PINMMR[32];          /*Pin Multiplexing Control Registers*/
+  uint32_t PINMMR[32];        /*Pin Multiplexing Control Registers*/
 } IOMM_struct;
 
 /*------------------tms570_IOMM_REVISION_REG------------------*/

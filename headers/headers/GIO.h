@@ -19,83 +19,83 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t GIOGCR0;             /*GIO Global Control Register*/
+  uint32_t GIOGCR0;           /*GIO Global Control Register*/
   uint8_t reserved1 [4];
-  ui32_t GIOINTDET;           /*GIO Interrupt Detect Register*/
-  ui32_t GIOPOL;              /*GIO Interrupt Polarity Register*/
-  ui32_t GIOENASET;           /*GIO Interrupt Enable Set Register*/
-  ui32_t GIOENACLR;           /*GIO Interrupt Enable Clear Register*/
-  ui32_t GIOLVLSET;           /*GIO Interrupt Priority Set Register*/
-  ui32_t GIOLVLCLR;           /*GIO Interrupt Priority Clear Register*/
-  ui32_t GIOFLG;              /*GIO Interrupt Flag Register*/
-  ui32_t GIOOFF1;             /*GIO Offset 1 Register*/
-  ui32_t GIOOFF2;             /*GIO Offset 2 Register*/
-  ui32_t GIOEMU1;             /*GIO Emulation 1 Register*/
-  ui32_t GIOEMU2;             /*GIO Emulation 2 Register*/
-  ui32_t GIODIRA;             /*GIO Data Direction Register A*/
-  ui32_t GIODINA;             /*GIO Data Input Register A*/
-  ui32_t GIODOUTA;            /*GIO Data Output Register A*/
-  ui32_t GIODSETA;            /*GIO Data Set Register A*/
-  ui32_t GIODCLRA;            /*GIO Data Clear Register A*/
-  ui32_t GIOPDRA;             /*GIO Open Drain Register A*/
-  ui32_t GIOPULDISA;          /*GIO Pull Disable Register A*/
-  ui32_t GIOPSLA;             /*GIO Pull Select Register A*/
-  ui32_t GIODIRB;             /*GIO Data Direction Register B*/
-  ui32_t GIODINB;             /*GIO Data Input Register B*/
-  ui32_t GIODOUTB;            /*GIO Data Output Register B*/
-  ui32_t GIODSETB;            /*GIO Data Set Register B*/
-  ui32_t GIODCLRB;            /*GIO Data Clear Register B*/
-  ui32_t GIOPDRB;             /*GIO Open Drain Register B*/
-  ui32_t GIOPULDISB;          /*GIO Pull Disable Register B*/
-  ui32_t GIOPSLB;             /*GIO Pull Select Register B*/
-  ui32_t GIODIRC;             /*GIO Data Direction Register C*/
-  ui32_t GIODINC;             /*GIO Data Input Register C*/
-  ui32_t GIODOUTC;            /*GIO Data Output Register C*/
-  ui32_t GIODSETC;            /*GIO Data Set Register C*/
-  ui32_t GIODCLRC;            /*GIO Data Clear Register C*/
-  ui32_t GIOPDRC;             /*GIO Open Drain Register C*/
-  ui32_t GIOPULDISC;          /*GIO Pull Disable Register C*/
-  ui32_t GIOPSLC;             /*GIO Pull Select Register C*/
-  ui32_t GIODIRD;             /*GIO Data Direction Register D*/
-  ui32_t GIODIND;             /*GIO Data Input Register D*/
-  ui32_t GIODOUTD;            /*GIO Data Output Register D*/
-  ui32_t GIODSETD;            /*GIO Data Set Register D*/
-  ui32_t GIODCLRD;            /*GIO Data Clear Register D*/
-  ui32_t GIOPDRD;             /*GIO Open Drain Register D*/
-  ui32_t GIOPULDISD;          /*GIO Pull Disable Register D*/
-  ui32_t GIOPSLD;             /*GIO Pull Select Register D*/
-  ui32_t GIODIRE;             /*GIO Data Direction Register E*/
-  ui32_t GIODINE;             /*GIO Data Input Register E*/
-  ui32_t GIODOUTE;            /*GIO Data Output Register E*/
-  ui32_t GIODSETE;            /*GIO Data Set Register E*/
-  ui32_t GIODCLRE;            /*GIO Data Clear Register E*/
-  ui32_t GIOPDRE;             /*GIO Open Drain Register E*/
-  ui32_t GIOPULDISE;          /*GIO Pull Disable Register E*/
-  ui32_t GIOPSLE;             /*GIO Pull Select Register E*/
-  ui32_t GIODIRF;             /*GIO Data Direction Register F*/
-  ui32_t GIODINF;             /*GIO Data Input Register F*/
-  ui32_t GIODOUTF;            /*GIO Data Output Register F*/
-  ui32_t GIODSETF;            /*GIO Data Set Register F*/
-  ui32_t GIODCLRF;            /*GIO Data Clear Register F*/
-  ui32_t GIOPDRF;             /*GIO Open Drain Register F*/
-  ui32_t GIOPULDISF;          /*GIO Pull Disable Register F*/
-  ui32_t GIOPSLF;             /*GIO Pull Select Register F*/
-  ui32_t GIODIRG;             /*GIO Data Direction Register G*/
-  ui32_t GIODING;             /*GIO Data Input Register G*/
-  ui32_t GIODOUTG;            /*GIO Data Output Register G*/
-  ui32_t GIODSETG;            /*GIO Data Set Register G*/
-  ui32_t GIODCLRG;            /*GIO Data Clear Register G*/
-  ui32_t GIOPDRG;             /*GIO Open Drain Register G*/
-  ui32_t GIOPULDISG;          /*GIO Pull Disable Register G*/
-  ui32_t GIOPSLG;             /*GIO Pull Select Register G*/
-  ui32_t GIODIRH;             /*GIO Data Direction Register H*/
-  ui32_t GIODINH;             /*GIO Data Input Register H*/
-  ui32_t GIODOUTH;            /*GIO Data Output Register H*/
-  ui32_t GIODSETH;            /*GIO Data Set Register H*/
-  ui32_t GIODCLRH;            /*GIO Data Clear Register H*/
-  ui32_t GIOPDRH;             /*GIO Open Drain Register H*/
-  ui32_t GIOPULDISH;          /*GIO Pull Disable Register H*/
-  ui32_t GIOPSLH;             /*GIO Pull Select Register H*/
+  uint32_t GIOINTDET;         /*GIO Interrupt Detect Register*/
+  uint32_t GIOPOL;            /*GIO Interrupt Polarity Register*/
+  uint32_t GIOENASET;         /*GIO Interrupt Enable Set Register*/
+  uint32_t GIOENACLR;         /*GIO Interrupt Enable Clear Register*/
+  uint32_t GIOLVLSET;         /*GIO Interrupt Priority Set Register*/
+  uint32_t GIOLVLCLR;         /*GIO Interrupt Priority Clear Register*/
+  uint32_t GIOFLG;            /*GIO Interrupt Flag Register*/
+  uint32_t GIOOFF1;           /*GIO Offset 1 Register*/
+  uint32_t GIOOFF2;           /*GIO Offset 2 Register*/
+  uint32_t GIOEMU1;           /*GIO Emulation 1 Register*/
+  uint32_t GIOEMU2;           /*GIO Emulation 2 Register*/
+  uint32_t GIODIRA;           /*GIO Data Direction Register A*/
+  uint32_t GIODINA;           /*GIO Data Input Register A*/
+  uint32_t GIODOUTA;          /*GIO Data Output Register A*/
+  uint32_t GIODSETA;          /*GIO Data Set Register A*/
+  uint32_t GIODCLRA;          /*GIO Data Clear Register A*/
+  uint32_t GIOPDRA;           /*GIO Open Drain Register A*/
+  uint32_t GIOPULDISA;        /*GIO Pull Disable Register A*/
+  uint32_t GIOPSLA;           /*GIO Pull Select Register A*/
+  uint32_t GIODIRB;           /*GIO Data Direction Register B*/
+  uint32_t GIODINB;           /*GIO Data Input Register B*/
+  uint32_t GIODOUTB;          /*GIO Data Output Register B*/
+  uint32_t GIODSETB;          /*GIO Data Set Register B*/
+  uint32_t GIODCLRB;          /*GIO Data Clear Register B*/
+  uint32_t GIOPDRB;           /*GIO Open Drain Register B*/
+  uint32_t GIOPULDISB;        /*GIO Pull Disable Register B*/
+  uint32_t GIOPSLB;           /*GIO Pull Select Register B*/
+  uint32_t GIODIRC;           /*GIO Data Direction Register C*/
+  uint32_t GIODINC;           /*GIO Data Input Register C*/
+  uint32_t GIODOUTC;          /*GIO Data Output Register C*/
+  uint32_t GIODSETC;          /*GIO Data Set Register C*/
+  uint32_t GIODCLRC;          /*GIO Data Clear Register C*/
+  uint32_t GIOPDRC;           /*GIO Open Drain Register C*/
+  uint32_t GIOPULDISC;        /*GIO Pull Disable Register C*/
+  uint32_t GIOPSLC;           /*GIO Pull Select Register C*/
+  uint32_t GIODIRD;           /*GIO Data Direction Register D*/
+  uint32_t GIODIND;           /*GIO Data Input Register D*/
+  uint32_t GIODOUTD;          /*GIO Data Output Register D*/
+  uint32_t GIODSETD;          /*GIO Data Set Register D*/
+  uint32_t GIODCLRD;          /*GIO Data Clear Register D*/
+  uint32_t GIOPDRD;           /*GIO Open Drain Register D*/
+  uint32_t GIOPULDISD;        /*GIO Pull Disable Register D*/
+  uint32_t GIOPSLD;           /*GIO Pull Select Register D*/
+  uint32_t GIODIRE;           /*GIO Data Direction Register E*/
+  uint32_t GIODINE;           /*GIO Data Input Register E*/
+  uint32_t GIODOUTE;          /*GIO Data Output Register E*/
+  uint32_t GIODSETE;          /*GIO Data Set Register E*/
+  uint32_t GIODCLRE;          /*GIO Data Clear Register E*/
+  uint32_t GIOPDRE;           /*GIO Open Drain Register E*/
+  uint32_t GIOPULDISE;        /*GIO Pull Disable Register E*/
+  uint32_t GIOPSLE;           /*GIO Pull Select Register E*/
+  uint32_t GIODIRF;           /*GIO Data Direction Register F*/
+  uint32_t GIODINF;           /*GIO Data Input Register F*/
+  uint32_t GIODOUTF;          /*GIO Data Output Register F*/
+  uint32_t GIODSETF;          /*GIO Data Set Register F*/
+  uint32_t GIODCLRF;          /*GIO Data Clear Register F*/
+  uint32_t GIOPDRF;           /*GIO Open Drain Register F*/
+  uint32_t GIOPULDISF;        /*GIO Pull Disable Register F*/
+  uint32_t GIOPSLF;           /*GIO Pull Select Register F*/
+  uint32_t GIODIRG;           /*GIO Data Direction Register G*/
+  uint32_t GIODING;           /*GIO Data Input Register G*/
+  uint32_t GIODOUTG;          /*GIO Data Output Register G*/
+  uint32_t GIODSETG;          /*GIO Data Set Register G*/
+  uint32_t GIODCLRG;          /*GIO Data Clear Register G*/
+  uint32_t GIOPDRG;           /*GIO Open Drain Register G*/
+  uint32_t GIOPULDISG;        /*GIO Pull Disable Register G*/
+  uint32_t GIOPSLG;           /*GIO Pull Select Register G*/
+  uint32_t GIODIRH;           /*GIO Data Direction Register H*/
+  uint32_t GIODINH;           /*GIO Data Input Register H*/
+  uint32_t GIODOUTH;          /*GIO Data Output Register H*/
+  uint32_t GIODSETH;          /*GIO Data Set Register H*/
+  uint32_t GIODCLRH;          /*GIO Data Clear Register H*/
+  uint32_t GIOPDRH;           /*GIO Open Drain Register H*/
+  uint32_t GIOPULDISH;        /*GIO Pull Disable Register H*/
+  uint32_t GIOPSLH;           /*GIO Pull Select Register H*/
 } GIO_struct;
 
 /*---------------------TMS570_GIO_GIOGCR0---------------------*/

@@ -19,8 +19,8 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t CCMSR;               /*CCM-R4F Status Register*/
-  ui32_t CCMKEYR;             /*CCM-R4F Key Register*/
+  uint32_t CCMSR;             /*CCM-R4F Status Register*/
+  uint32_t CCMKEYR;           /*CCM-R4F Key Register*/
 } CCMSR_struct;
 
 /*---------------------tms570_CCMSR_CCMSR---------------------*/

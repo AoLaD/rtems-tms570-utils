@@ -19,29 +19,29 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  ui32_t ESMEEPAPR1;          /*ESM Enable ERROR Pin Action/Response Register 1*/
-  ui32_t ESMDEPAPR1;          /*ESM Disable ERROR Pin Action/Response Register 1*/
-  ui32_t ESMIESR1;            /*ESM Interrupt Enable Set/Status Register 1*/
-  ui32_t ESMIECR1;            /*ESM Interrupt Enable Clear/Status Register 1*/
-  ui32_t ESMILSR1;            /*Interrupt Level Set/Status Register 1*/
-  ui32_t ESMILCR1;            /*Interrupt Level Clear/Status Register 1*/
-  ui32_t ESMSR1;              /*ESM Status Register 1*/
-  ui32_t ESMSR2;              /*ESM Status Register 2*/
-  ui32_t ESMSR3;              /*ESM Status Register 3*/
-  ui32_t ESMEPSR;             /*ESM ERROR Pin Status Register*/
-  ui32_t ESMIOFFHR;           /*ESM Interrupt Offset High Register*/
-  ui32_t ESMIOFFLR;           /*ESM Interrupt Offset Low Register*/
-  ui32_t ESMLTCR;             /*ESM Low-Time Counter Register*/
-  ui32_t ESMLTCPR;            /*ESM Low-Time Counter Preload Register*/
-  ui32_t ESMEKR;              /*ESM Error Key Register*/
-  ui32_t ESMSSR2;             /*ESM Status Shadow Register 2*/
-  ui32_t ESMIEPSR4;           /*ESM Influence ERROR Pin Set/Status Register 4*/
-  ui32_t ESMIEPCR4;           /*ESM Influence ERROR Pin Clear/Status Register 4*/
-  ui32_t ESMIESR4;            /*ESM Interrupt Enable Set/Status Register 4*/
-  ui32_t ESMIECR4;            /*ESM Interrupt Enable Clear/Status Register 4*/
-  ui32_t ESMILSR4;            /*Interrupt Level Set/Status Register 4*/
-  ui32_t ESMILCR4;            /*Interrupt Level Clear/Status Register 4*/
-  ui32_t ESMSR4;              /*ESM Status Register 4*/
+  uint32_t ESMEEPAPR1;        /*ESM Enable ERROR Pin Action/Response Register 1*/
+  uint32_t ESMDEPAPR1;        /*ESM Disable ERROR Pin Action/Response Register 1*/
+  uint32_t ESMIESR1;          /*ESM Interrupt Enable Set/Status Register 1*/
+  uint32_t ESMIECR1;          /*ESM Interrupt Enable Clear/Status Register 1*/
+  uint32_t ESMILSR1;          /*Interrupt Level Set/Status Register 1*/
+  uint32_t ESMILCR1;          /*Interrupt Level Clear/Status Register 1*/
+  uint32_t ESMSR1;            /*ESM Status Register 1*/
+  uint32_t ESMSR2;            /*ESM Status Register 2*/
+  uint32_t ESMSR3;            /*ESM Status Register 3*/
+  uint32_t ESMEPSR;           /*ESM ERROR Pin Status Register*/
+  uint32_t ESMIOFFHR;         /*ESM Interrupt Offset High Register*/
+  uint32_t ESMIOFFLR;         /*ESM Interrupt Offset Low Register*/
+  uint32_t ESMLTCR;           /*ESM Low-Time Counter Register*/
+  uint32_t ESMLTCPR;          /*ESM Low-Time Counter Preload Register*/
+  uint32_t ESMEKR;            /*ESM Error Key Register*/
+  uint32_t ESMSSR2;           /*ESM Status Shadow Register 2*/
+  uint32_t ESMIEPSR4;         /*ESM Influence ERROR Pin Set/Status Register 4*/
+  uint32_t ESMIEPCR4;         /*ESM Influence ERROR Pin Clear/Status Register 4*/
+  uint32_t ESMIESR4;          /*ESM Interrupt Enable Set/Status Register 4*/
+  uint32_t ESMIECR4;          /*ESM Interrupt Enable Clear/Status Register 4*/
+  uint32_t ESMILSR4;          /*Interrupt Level Set/Status Register 4*/
+  uint32_t ESMILCR4;          /*Interrupt Level Clear/Status Register 4*/
+  uint32_t ESMSR4;            /*ESM Status Register 4*/
 } ESM_struct;
 
 /*-------------------tms570_ESM_ESMEEPAPR1-------------------*/

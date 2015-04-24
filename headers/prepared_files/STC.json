@@ -1,0 +1,311 @@
+{
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "STC",
+      "registers" :
+      [
+{
+          "name" : "STCGCR0",
+          "info" : "STC Global Control Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "start_bit" : "16",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "INTCOUNT",
+               "info" : "Number of intervals of self-test run"
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "RS_CNT",
+               "info" : "Restart or Continue",
+               "values" : [
+                 {"value" : "0", "desc" : "Continue STC run from the previous interval."},
+                 {"value" : "1", "desc" : "Restart STC run from interval 0."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCGCR1",
+          "info" : "STCGlobal Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "04",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "STC_ENA",
+               "info" : "Self-test run enable key",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Self-test run enabled."},
+                 {"value" : "All Others", "desc" : "Self-test run disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCTPR",
+          "info" : "Self-Test Run Timeout Counter Preload Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "08",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "RTOD",
+               "info" : "Self-test timeout count preload"
+             }
+          ]
+        },
+{
+          "name" : "STC_CADDR",
+          "info" : "STC Current ROM Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "ADDR",
+               "info" : "Current ROM Address"
+             }
+          ]
+        },
+{
+          "name" : "STCCICR",
+          "info" : "STC Current Interval Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "16",
+               "bit_Field_Name" : "N",
+               "info" : "Interval Number"
+             }
+          ]
+        },
+{
+          "name" : "STCGSTAT",
+          "info" : "Self-Test Global Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TEST_FAIL",
+               "info" : "Test Fail",
+               "values" : [
+                 {"value" : "0", "desc" : "Self-test run has not failed."},
+                 {"value" : "1", "desc" : "Self-test run has failed."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TEST_DONE",
+               "info" : "Test Done",
+               "values" : [
+                 {"value" : "0", "desc" : "Not completed."},
+                 {"value" : "1", "desc" : "Self-test run completed."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "STCFSTAT",
+          "info" : "Self-Test Fail Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "start_bit" : "2",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "TO_ERR",
+               "info" : "Timeout Error",
+               "values" : [
+                 {"value" : "0", "desc" : "No time out error occurred."},
+                 {"value" : "1", "desc" : "Self-test run failed due to a timeout error."}
+                ]
+             },
+             {
+               "start_bit" : "1",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CPU2_FAIL",
+               "info" : "CPU2 failure info",
+               "values" : [
+                 {"value" : "0", "desc" : "No MISR mismatch for CPU2."},
+                 {"value" : "1", "desc" : "Self-test run failed due to MISR mismatch for CPU2."}
+                ]
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "CPU1_FAIL",
+               "info" : "CPU1 failure info",
+               "values" : [
+                 {"value" : "0", "desc" : "No MISR mismatch for CPU1."},
+                 {"value" : "1", "desc" : "Self-test run failed due to MISR mismatch for CPU1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CPU1_CURMISR0",
+          "info" : "CPU1 Current MISR Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU1"               
+             }
+          ]
+        },
+{
+          "name" : "CPU1_CURMISR1",
+          "info" : "CPU1 Current MISR Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU1"               
+             }
+          ]
+        },
+{
+          "name" : "CPU1_CURMISR2",
+          "info" : "CPU1 Current MISR Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU1"               
+             }
+          ]
+        },
+{
+          "name" : "CPU1_CURMISR3",
+          "info" : "CPU1 Current MISR Register 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU1"               
+             }
+          ]
+        },
+{
+          "name" : "CPU2_CURMISR0",
+          "info" : "CPU2 Current MISR Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU2"               
+             }
+          ]
+        },
+{
+          "name" : "CPU2_CURMISR1",
+          "info" : "CPU2 Current MISR Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU2"               
+             }
+          ]
+        },
+{
+          "name" : "CPU2_CURMISR2",
+          "info" : "CPU2 Current MISR Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU2"               
+             }
+          ]
+        },
+{
+          "name" : "CPU2_CURMISR3",
+          "info" : "CPU2 Current MISR Register 3",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "32",
+               "bit_Field_Name" : "MISR",
+               "info" : "MISR data from CPU2"               
+             }
+          ]
+        },
+{
+          "name" : "STCSCSCR",
+          "info" : "Signature Compare Self-Check Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "start_bit" : "4",
+               "bit_lenght" : "1",
+               "bit_Field_Name" : "FAULT_INS",
+               "info" : "Enable / Disable fault insertion."
+             },
+             {
+               "start_bit" : "0",
+               "bit_lenght" : "4",
+               "bit_Field_Name" : "SELF_CHECK_KEY",
+               "info" : "Signature compare logic self-check enable key"               
+             }             
+          ]
+        }
+
+      ]    
+    }
+  ] 
+}         

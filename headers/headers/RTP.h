@@ -22,13 +22,10 @@ typedef struct{
   uint32_t RTPGLBCTRL;        /*RTP Global Control Register*/
   uint32_t RTPTRENA;          /*RTP Trace Enable Register*/
   uint32_t RTPGSR;            /*RTP Global Status Register*/
-  uint32_t RTPRAM1REG1;       /*RTP RAM 1 Trace Region Register*/
-  uint32_t RTPRAM1REG2;       /*RTP RAM 1 Trace Region Register*/
-  uint32_t RTPRAM2REG1;       /*RTP RAM 2 Trace Region Register*/
-  uint32_t RTPRAM2REG2;       /*RTP RAM 2 Trace Region Register*/
+  uint32_t RTPRAM1REG[2];     /*RTP RAM 1 Trace Region Register*/
+  uint32_t RTPRAM2REG[2];     /*RTP RAM 2 Trace Region Register*/
   uint8_t reserved1 [8];
-  uint32_t RTPPERREG1;        /*RTP Peripheral Trace Region Register*/
-  uint32_t RTPPERREG2;        /*RTP Peripheral Trace Region Register*/
+  uint32_t RTPPERREG[2];      /*RTP Peripheral Trace Region Register*/
   uint32_t RTPDDMW;           /*RTP Direct Data Mode Write Register*/
   uint8_t reserved2 [4];
   uint32_t RTPPC0;            /*RTP Pin Control 0 Register*/
@@ -119,124 +116,64 @@ typedef struct{
 #define tms570_RTP_RTPGSR_OVF1 BSP_FLD32(0)
 
 
-/*-------------------tms570_RTP_RTPRAM1REG1-------------------*/
+/*-------------------tms570_RTP_RTPRAM1REG-------------------*/
 /* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPRAM1REG1_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPRAM1REG1_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPRAM1REG1_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
+#define tms570_RTP_RTPRAM1REG_CPU_DMA(val) BSP_FLD32(val,29, 30)
+#define tms570_RTP_RTPRAM1REG_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
+#define tms570_RTP_RTPRAM1REG_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
 
 /* field: RW - Read/Write. */
-#define tms570_RTP_RTPRAM1REG1_RW BSP_FLD32(28)
+#define tms570_RTP_RTPRAM1REG_RW BSP_FLD32(28)
 
 /* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPRAM1REG1_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPRAM1REG1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPRAM1REG1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
+#define tms570_RTP_RTPRAM1REG_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
+#define tms570_RTP_RTPRAM1REG_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
+#define tms570_RTP_RTPRAM1REG_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
 
 /* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPRAM1REG1_STARTADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_RTP_RTPRAM1REG1_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_RTP_RTPRAM1REG1_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
+#define tms570_RTP_RTPRAM1REG_STARTADDR(val) BSP_FLD32(val,0, 17)
+#define tms570_RTP_RTPRAM1REG_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
+#define tms570_RTP_RTPRAM1REG_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
 
 
-/*-------------------tms570_RTP_RTPRAM1REG2-------------------*/
+/*-------------------tms570_RTP_RTPRAM2REG-------------------*/
 /* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPRAM1REG2_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPRAM1REG2_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPRAM1REG2_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
+#define tms570_RTP_RTPRAM2REG_CPU_DMA(val) BSP_FLD32(val,29, 30)
+#define tms570_RTP_RTPRAM2REG_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
+#define tms570_RTP_RTPRAM2REG_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
 
 /* field: RW - Read/Write. */
-#define tms570_RTP_RTPRAM1REG2_RW BSP_FLD32(28)
+#define tms570_RTP_RTPRAM2REG_RW BSP_FLD32(28)
 
 /* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPRAM1REG2_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPRAM1REG2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPRAM1REG2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
+#define tms570_RTP_RTPRAM2REG_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
+#define tms570_RTP_RTPRAM2REG_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
+#define tms570_RTP_RTPRAM2REG_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
 
 /* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPRAM1REG2_STARTADDR(val) BSP_FLD32(val,0, 17)
-#define tms570_RTP_RTPRAM1REG2_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 17)
-#define tms570_RTP_RTPRAM1REG2_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 17)
+#define tms570_RTP_RTPRAM2REG_STARTADDR(val) BSP_FLD32(val,0, 23)
+#define tms570_RTP_RTPRAM2REG_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
+#define tms570_RTP_RTPRAM2REG_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
-/*-------------------tms570_RTP_RTPRAM2REG1-------------------*/
+/*--------------------tms570_RTP_RTPPERREG--------------------*/
 /* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPRAM2REG1_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPRAM2REG1_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPRAM2REG1_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
+#define tms570_RTP_RTPPERREG_CPU_DMA(val) BSP_FLD32(val,29, 30)
+#define tms570_RTP_RTPPERREG_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
+#define tms570_RTP_RTPPERREG_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
 
 /* field: RW - Read/Write. */
-#define tms570_RTP_RTPRAM2REG1_RW BSP_FLD32(28)
+#define tms570_RTP_RTPPERREG_RW BSP_FLD32(28)
 
 /* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPRAM2REG1_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPRAM2REG1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPRAM2REG1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
+#define tms570_RTP_RTPPERREG_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
+#define tms570_RTP_RTPPERREG_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
+#define tms570_RTP_RTPPERREG_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
 
 /* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPRAM2REG1_STARTADDR(val) BSP_FLD32(val,0, 23)
-#define tms570_RTP_RTPRAM2REG1_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
-#define tms570_RTP_RTPRAM2REG1_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
-
-
-/*-------------------tms570_RTP_RTPRAM2REG2-------------------*/
-/* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPRAM2REG2_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPRAM2REG2_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPRAM2REG2_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
-
-/* field: RW - Read/Write. */
-#define tms570_RTP_RTPRAM2REG2_RW BSP_FLD32(28)
-
-/* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPRAM2REG2_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPRAM2REG2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPRAM2REG2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
-
-/* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPRAM2REG2_STARTADDR(val) BSP_FLD32(val,0, 23)
-#define tms570_RTP_RTPRAM2REG2_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
-#define tms570_RTP_RTPRAM2REG2_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
-
-
-/*-------------------tms570_RTP_RTPPERREG1-------------------*/
-/* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPPERREG1_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPPERREG1_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPPERREG1_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
-
-/* field: RW - Read/Write. */
-#define tms570_RTP_RTPPERREG1_RW BSP_FLD32(28)
-
-/* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPPERREG1_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPPERREG1_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPPERREG1_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
-
-/* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPPERREG1_STARTADDR(val) BSP_FLD32(val,0, 23)
-#define tms570_RTP_RTPPERREG1_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
-#define tms570_RTP_RTPPERREG1_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
-
-
-/*-------------------tms570_RTP_RTPPERREG2-------------------*/
-/* field: CPU_DMA - CPU and/or other master access. */
-#define tms570_RTP_RTPPERREG2_CPU_DMA(val) BSP_FLD32(val,29, 30)
-#define tms570_RTP_RTPPERREG2_CPU_DMA_GET(reg) BSP_FLD32GET(reg,29, 30)
-#define tms570_RTP_RTPPERREG2_CPU_DMA_SET(reg,val) BSP_FLD32SET(reg, val,29, 30)
-
-/* field: RW - Read/Write. */
-#define tms570_RTP_RTPPERREG2_RW BSP_FLD32(28)
-
-/* field: BLOCKSIZE - These bits define the length of the trace region. */
-#define tms570_RTP_RTPPERREG2_BLOCKSIZE(val) BSP_FLD32(val,24, 27)
-#define tms570_RTP_RTPPERREG2_BLOCKSIZE_GET(reg) BSP_FLD32GET(reg,24, 27)
-#define tms570_RTP_RTPPERREG2_BLOCKSIZE_SET(reg,val) BSP_FLD32SET(reg, val,24, 27)
-
-/* field: STARTADDR - These bits define the starting address of the address region that should be traced. */
-#define tms570_RTP_RTPPERREG2_STARTADDR(val) BSP_FLD32(val,0, 23)
-#define tms570_RTP_RTPPERREG2_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
-#define tms570_RTP_RTPPERREG2_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
+#define tms570_RTP_RTPPERREG_STARTADDR(val) BSP_FLD32(val,0, 23)
+#define tms570_RTP_RTPPERREG_STARTADDR_GET(reg) BSP_FLD32GET(reg,0, 23)
+#define tms570_RTP_RTPPERREG_STARTADDR_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
 
 
 /*---------------------tms570_RTP_RTPDDMW---------------------*/
