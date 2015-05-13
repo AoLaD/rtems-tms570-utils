@@ -48,7 +48,7 @@
                "info" : "Interrupt line 1 Enable"
              },
              {
-               "bit_number" : "Interrupt line 1 Enable",
+               "bit_number" : "16",
                "bit_Field_Name" : "InitDbg",
                "info" : "Internal Init state while debug access"
              },

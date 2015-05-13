@@ -19,7 +19,7 @@
           "fields" : [
              {
                "bit_number" : "7-3",
-               "bit_Field_Name" : "CLKSR[7-3]OFF",
+               "bit_Field_Name" : "CLKSR_7_3_OFF",
                "info" : "Clock source[7-3] off.",
                "values" : [
                  {"value" : "0", "desc" : "Clock source[7-3] is enabled."},
@@ -28,7 +28,7 @@
              },
              {
                "bit_number" : "1-0",
-               "bit_Field_Name" : "CLKSR[1-0]OFF",
+               "bit_Field_Name" : "CLKSR_1_0_OFF",
                "info" : "Clock source[1-0] off.",
                "values" : [
                  {"value" : "0", "desc" : "Clock source[1-0] is enabled."},
@@ -46,12 +46,12 @@
           "fields" : [
              {
                "bit_number" : "7-3",
-               "bit_Field_Name" : "SETCLKSR[7-3] OFF",
+               "bit_Field_Name" : "SETCLKSR_7_3 OFF",
                "info" : "Set clock source[7-3] to the disabled state."
              },
              {
                "bit_number" : "1-0",
-               "bit_Field_Name" : "SETCLKSR[1-0] OFF",
+               "bit_Field_Name" : "SETCLKSR 1 0 OFF",
                "info" : "Set clock source[1-0] to the disabled state."
              }
           ]
@@ -65,12 +65,12 @@
           "fields" : [
              {
                "bit_number" : "7-3",
-               "bit_Field_Name" : "CLRCLKSR[7-3] OFF",
+               "bit_Field_Name" : "CLRCLKSR 7 3 OFF",
                "info" : "Enables clock source[7-3]."
              },
              {
                "bit_number" : "1-0",
-               "bit_Field_Name" : "CLRCLKSR[1-0] OFF",
+               "bit_Field_Name" : "CLRCLKSR 1 0 OFF",
                "info" : "Enables clock source[1-0]."
              }
           ]
@@ -84,7 +84,7 @@
           "fields" : [
              {
                "bit_number" : "7-3",
-               "bit_Field_Name" : "CLKSR[7-3]V",
+               "bit_Field_Name" : "CLKSR 7 3V",
                "info" : "Clock source[7-0] valid.",
                "values" : [
                  {"value" : "0", "desc" : "Clock source[7-0] is not valid."},
@@ -93,7 +93,7 @@
              },
              {
                "bit_number" : "1-0",
-               "bit_Field_Name" : "CLKSR[1-0]V",
+               "bit_Field_Name" : "CLKSR 1 0V",
                "info" : "Clock source[1-0] valid.",
                "values" : [
                  {"value" : "0", "desc" : "Clock source[1-0] is not valid."},

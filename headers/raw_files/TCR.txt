@@ -11,7 +11,7 @@
       "registers" :
       [
 {
-          "name" : "1FCh TCR",
+          "name" : "TCR",
           "info" : "Transfer Configuration RAM",
           "lenght" : "32",
           "adress" : "0",
@@ -51,7 +51,7 @@
           ]
         },
 {
-          "name" : "3FCh TCR Parity",
+          "name" : "TCR Parity",
           "info" : "TCR Parity Test Mode",
           "lenght" : "32",
           "adress" : "0",

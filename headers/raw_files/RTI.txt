@@ -539,7 +539,7 @@
              },
              {
                "bit_number" : "8",
-               "bit_Field_Name" : "CLEARDMA1",
+               "bit_Field_Name" : "CLEARDMA0",
                "info" : "Clear compare DMA request 0."
              },
              {
