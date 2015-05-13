@@ -1,9 +1,13 @@
 {
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
   "name" : "tms570",
   "peripherals" :
   [
     {
-      "name" : "MDIO",
+      "name" : "EMAC",
+      "full name" : "EMAC Control Module Registers",
+      "offset" : ["FCF78900"],
       "registers" :
       [
 {

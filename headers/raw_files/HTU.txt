@@ -1,9 +1,13 @@
 {
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
   "name" : "tms570",
   "peripherals" :
   [
     {
       "name" : "HTU",
+      "full name" : "High-End Timer Transfer Unit",
+      "offset" : ["0xFFF7A400","0xFFF7A500"],
       "registers" :
       [
 {

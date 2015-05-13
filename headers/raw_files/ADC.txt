@@ -1,9 +1,13 @@
 {
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
   "name" : "tms570",
   "peripherals" :
   [
     {
       "name" : "ADC",
+      "full name" : "Analog To Digital Converter",
+      "offset" : ["0xFFF7C000","0xFFF7C200"],
       "registers" :
       [
 {
@@ -1207,7 +1211,7 @@
              {
                "bit_number" : "10-14",
                "bit_Field_Name" : "EV CHID 10bit mode",
-               "info" : "Event Group Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Event Group Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-9",
@@ -1222,7 +1226,7 @@
              {
                "bit_number" : "20-16",
                "bit_Field_Name" : "EV CHID 12bit mode",
-               "info" : "Event Group Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Event Group Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-11",
@@ -1242,12 +1246,12 @@
              {
                "bit_number" : "15",
                "bit_Field_Name" : "G1 EMPTY 10bit mode",
-               "info" : "Group1 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+               "info" : "Group1 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
              },
              {
                "bit_number" : "10-14",
                "bit_Field_Name" : "G1 CHID 10bit mode",
-               "info" : "Group1 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Group1 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-9",
@@ -1257,12 +1261,12 @@
              {
                "bit_number" : "31",
                "bit_Field_Name" : "G1 EMPTY 12bit mode",
-               "info" : "Group1 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+               "info" : "Group1 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
              },
              {
                "bit_number" : "16-20",
                "bit_Field_Name" : "G1 CHID 12bit mode",
-               "info" : "Group1 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Group1 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-11",
@@ -1282,12 +1286,12 @@
              {
                "bit_number" : "15",
                "bit_Field_Name" : "G2 EMPTY 10bit mode",
-               "info" : "Group2 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+               "info" : "Group2 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
              },
              {
                "bit_number" : "10-14",
                "bit_Field_Name" : "G2 CHID 10bit mode",
-               "info" : "Group2 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Group2 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-9",
@@ -1297,12 +1301,12 @@
 {
                "bit_number" : "31",
                "bit_Field_Name" : "G2 EMPTY 12bit mode",
-               "info" : "Group2 FIFO Empty. This bit is applicable only when the "read from FIFO" mode is used for reading the"
+               "info" : "Group2 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
              },
              {
                "bit_number" : "16-20",
                "bit_Field_Name" : "G2 CHID 12bit mode",
-               "info" : "Group2 Channel Id. These bits are also applicable only when the "read from FIFO" mode is used for"
+               "info" : "Group2 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
              },
              {
                "bit_number" : "0-11",

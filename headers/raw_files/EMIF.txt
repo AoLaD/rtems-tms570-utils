@@ -1,9 +1,13 @@
 {
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
   "name" : "tms570",
   "peripherals" :
   [
     {
       "name" : "EMIF",
+      "full name" : "External Memory Interface",
+      "offset" : ["0xFCFFE800"],
       "registers" :
       [
 {
