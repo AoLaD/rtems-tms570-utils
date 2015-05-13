@@ -1,1466 +1,1280 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "DMA",
-      "registers" :
-      [
-{
-          "name" : "GCTRL",
-          "info" : "Global Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DMA_EN",
-               "info" : "DMA enable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "The DMA is disabled."},
-                 {"value" : "1", "desc" : "The DMA is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUS BUSY",
-               "info" : "This bit indicates status of DMA external AHB bus status.",
-               "values" : [
-                 {"value" : "0", "desc" : "0"},
-                 {"value" : "1", "desc" : "DMA's external bus is busy in data transfers."}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "DEBUG MODE",
-               "info" : "Debug Mode.",
-               "values" : [
-                 {"value" : "0", "desc" : "Ignore suspend."},
-                 {"value" : "1h", "desc" : "Finish current block transfer."},
-                 {"value" : "2h", "desc" : "Finish current frame transfer."},
-                 {"value" : "3h", "desc" : "Immediately stop at an DMA arbitration boundary and continue after suspend."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DMA RES",
-               "info" : "DMA software reset",
-               "values" : [
-                 {"value" : "0", "desc" : "Software reset is disabled."},
-                 {"value" : "1", "desc" : "The DMA state machine and all control registers are in software reset."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PEND",
-          "info" : "Channel Pending Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "04",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "PEND",
-               "info" : "Channel pending register."
-             }
-          ]
-        },
-{
-          "name" : "DMASTAT",
-          "info" : "DMA Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "STCH",
-               "info" : "Status of DMA channels.",
-               "values" : [
-                 {"value" : "0", "desc" : "The channel is inactive."},
-                 {"value" : "1", "desc" : "The channel is active; that is, the channel is currently in the DMA's execution queue."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "HWCHENAS",
-          "info" : "HW Channel Enable Set and Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HWCHENA",
-               "info" : "Hardware channel enable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "The corresponding channel is disabled for hardware triggering."},
-                 {"value" : "1", "desc" : "The corresponding channel is enabled for hardware triggering."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "HWCHENAR",
-          "info" : "HW Channel Enable Reset and Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HWCHDIS",
-               "info" : "HW channel disable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel is disabled for HW triggering."},
-                 {"value" : "1", "desc" : "Read: The corresponding channel is enabled for HW triggering."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "SWCHENAS",
-          "info" : "SW Channel Enable Set and Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "24",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "SWCHENA",
-               "info" : "SW channel enable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "The corresponding channel is not triggered by SW request."},
-                 {"value" : "1", "desc" : "The corresponding channel is triggered by SW request."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "SWCHENAR",
-          "info" : "SW Channel Enable Reset and Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "2C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "SWCHDIS",
-               "info" : "SW channel disable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel was not triggered by SW."},
-                 {"value" : "1", "desc" : "Read: The corresponding channel was triggered by SW."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "CHPRIOS",
-          "info" : "Channel Priority Set Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "34",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "CPS",
-               "info" : "Channel priority set bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel is assigned to the low priority queue."},
-                 {"value" : "1", "desc" : "Read and write: The corresponding channel is assigned to high priority queue."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "CHPRIOR",
-          "info" : "Channel Priority Reset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "3C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "CPR",
-               "info" : "Channel priority reset bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel is assigned to the low priority queue."},
-                 {"value" : "1", "desc" : "Read: The corresponding channel is assigned to the high priority queue."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GCHIENAS",
-          "info" : "Global Channel Interrupt Enable Set Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "GCHIE",
-               "info" : "Global channel interrupt enable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel is disabled for interrupt."},
-                 {"value" : "1", "desc" : "Read and write: The corresponding channel is enabled for interrupt."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GCHIENAR",
-          "info" : "Global Channel Interrupt Enable Reset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "GCHID",
-               "info" : "Global channel interrupt disable bit.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: The corresponding channel is disabled for interrupt."},
-                 {"value" : "1", "desc" : "Read: The corresponding channel is enabled for interrupt."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "DREQASI0",
-          "info" : "DMA Request Assignment Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "54",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH0ASI",
-               "info" : "Channel 0 assignment. This bit field chooses the DMA request assignment for channel 0."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH1ASI",
-               "info" : "Channel 1 assignment. This bit field chooses the DMA request assignment for channel 1."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH2ASI",
-               "info" : "Channel 2 assignment. This bit field chooses the DMA request assignment for channel 2."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH3ASI",
-               "info" : "Channel 3 assignment. This bit field chooses the DMA request assignment for channel 3."
-             }
-          ]
-        },
-{
-          "name" : "DREQASI1",
-          "info" : "DMA Request Assignment Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "58",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH4ASI",
-               "info" : "Channel 4 assignment. This bit field chooses the DMA request assignment for channel 4."
-             },
-             {
-               "start_bit" : "21",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH5ASI",
-               "info" : "Channel 5 assignment. This bit field chooses the DMA request assignment for channel 5."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH6ASI",
-               "info" : "Channel 6 assignment. This bit field chooses the DMA request assignment for channel 6."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH7ASI",
-               "info" : "Channel 7 assignment. This bit field chooses the DMA request assignment for channel 7."
-             }
-          ]
-        },
-{
-          "name" : "DREQASI2",
-          "info" : "DMA Request Assignment Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "5C",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH8ASI",
-               "info" : "Channel 8 assignment. This bit field chooses the DMA request assignment for channel 8."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH9ASI",
-               "info" : "Channel 9 assignment. This bit field chooses the DMA request assignment for channel 9."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH10ASI",
-               "info" : "Channel 10 assignment. This bit field chooses the DMA request assignment for channel 10."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH11ASI",
-               "info" : "Channel 11 assignment. This bit field chooses the DMA request assignment for channel 11."
-             }
-          ]
-        },
-{
-          "name" : "DREQASI3",
-          "info" : "DMA Request Assignment Register 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "60",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH12ASI",
-               "info" : "Channel 12 assignment. This bit field chooses the DMA request assignment for channel 12."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH13ASI",
-               "info" : "Channel 13 assignment. This bit field chooses the DMA request assignment for channel 13."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH14ASI",
-               "info" : "Channel 14 assignment. This bit field chooses the DMA request assignment for channel 14."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "CH15ASI",
-               "info" : "Channel 15 assignment. This bit field chooses the DMA request assignment for channel 15."
-             }
-          ]
-        },
-{
-          "name" : "PAR0",
-          "info" : "Port Assignment Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "94",
-          "fields" : [
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH0PA",
-               "info" : "These bit fields determine to which port channel 0 is assigned."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH1PA",
-               "info" : "These bit fields determine to which port channel 1 is assigned."
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH2PA",
-               "info" : "These bit fields determine to which port channel 2 is assigned."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH3PA",
-               "info" : "These bit fields determine to which port channel 3 is assigned."
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH4PA",
-               "info" : "These bit fields determine to which port channel 4 is assigned."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH5PA",
-               "info" : "These bit fields determine to which port channel 5 is assigned."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH6PA",
-               "info" : "These bit fields determine to which port channel 6 is assigned."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH7PA",
-               "info" : "These bit fields determine to which port channel 7 is assigned."
-             }
-          ]
-        },
-{
-          "name" : "PAR1",
-          "info" : "Port Assignment Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "98",
-          "fields" : [
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH8PA",
-               "info" : "These bit fields determine to which port channel 8 is assigned."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH9PA",
-               "info" : "These bit fields determine to which port channel 9 is assigned."
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH10PA",
-               "info" : "These bit fields determine to which port channel 10 is assigned."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH11PA",
-               "info" : "These bit fields determine to which port channel 11 is assigned."
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH12PA",
-               "info" : "These bit fields determine to which port channel 12 is assigned."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH13PA",
-               "info" : "These bit fields determine to which port channel 13 is assigned."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH14PA",
-               "info" : "These bit fields determine to which port channel 14 is assigned."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "CH15PA",
-               "info" : "These bit fields determine to which port channel 15 is assigned."
-             }
-          ]
-        },
-{
-          "name" : "FTCMAP",
-          "info" : "FTC Interrupt Mapping Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FTCAB",
-               "info" : "Frame transfer complete (FTC) interrupt to Group A or Group B."
-             }
-          ]
-        },
-{
-          "name" : "LFSMAP",
-          "info" : "LFS Interrupt Mapping Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "BC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "LFSAB",
-               "info" : "Last frame started (LFS) interrupt to Group A or Group B."
-             }
-          ]
-        },
-{
-          "name" : "HBCMAP",
-          "info" : "HBC Interrupt Mapping Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "C4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HBCAB",
-               "info" : "Half block complete (HBC) interrupt to Group A or Group B."
-             }
-          ]
-        },
-{
-          "name" : "BTCMAP",
-          "info" : "BTC Interrupt Mapping Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "CC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BTCAB",
-               "info" : "Block transfer complete (BTC) interrupt to Group A or Group B"
-             }
-          ]
-        },
-{
-          "name" : "BERMAP",
-          "info" : "BER Interrupt Mapping Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "D4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BERAB",
-               "info" : "Bus error (BER) interrupt to Group A or Group B."
-             }
-          ]
-        },
-{
-          "name" : "FTCINTENAS",
-          "info" : "FTC Interrupt Enable Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "DC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FTCINTENA",
-               "info" : "Frame transfer complete (FTC) interrupt enable."
-             }
-          ]
-        },
-{
-          "name" : "FTCINTENAR",
-          "info" : "FTC Interrupt Enable Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "E4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FTCINTDIS",
-               "info" : "Frame transfer complete (FTC) interrupt disable."
-             }
-          ]
-        },
-{
-          "name" : "LFSINTENAS",
-          "info" : "LFS Interrupt Enable Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "EC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "LFSINTENA",
-               "info" : "Last frame started (LFS) interrupt enable."
-             }
-          ]
-        },
-{
-          "name" : "LFSINTENAR",
-          "info" : "LFS Interrupt Enable Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "F4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "LFSINTDIS",
-               "info" : "Last frame started (LFS) interrupt disable."
-             }
-          ]
-        },
-{
-          "name" : "HBCINTENAS",
-          "info" : "HBC Interrupt Enable Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "FC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HBCINTENA",
-               "info" : "Half block complete (HBC) interrupt enable."
-             }
-          ]
-        },
-{
-          "name" : "HBCINTENAR",
-          "info" : "HBC Interrupt Enable Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "104",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HBCINTDIS",
-               "info" : "Half block complete (HBC) interrupt disable."
-             }
-          ]
-        },
-{
-          "name" : "BTCINTENAS",
-          "info" : "BTC Interrupt Enable Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BTCINTENA",
-               "info" : "Block transfer complete (BTC) interrupt enable."
-             }
-          ]
-        },
-{
-          "name" : "BTCINTENAR",
-          "info" : "BTC Interrupt Enable Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "114",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BTCINTDIS",
-               "info" : "Block transfer complete (BTC) interurpt disable."
-             }
-          ]
-        },
-{
-          "name" : "GINTFLAG",
-          "info" : "Global Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "11C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "GINT",
-               "info" : "Global interrupt flags."
-             }
-          ]
-        },
-{
-          "name" : "FTCFLAG",
-          "info" : "FTC Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "124",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FTCI",
-               "info" : "Frame transfer complete (FTC) flags."
-             }
-          ]
-        },
-{
-          "name" : "LFSFLAG",
-          "info" : "LFS Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "12C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "LFSI",
-               "info" : "Last frame started (LFS) flags."
-             }
-          ]
-        },
-{
-          "name" : "HBCFLAG",
-          "info" : "HBC Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "134",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "HBCI",
-               "info" : "Half block transfer (HBC) complete flags."
-             }
-          ]
-        },
-{
-          "name" : "BTCFLAG",
-          "info" : "BTC Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "13C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BTCI",
-               "info" : "Block transfer complete (BTC) flags."
-             }
-          ]
-        },
-{
-          "name" : "BERFLAG",
-          "info" : "BER Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "144",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "BERI",
-               "info" : "Bus error (BER) flags."
-             }
-          ]
-        },
-{
-          "name" : "FTCAOFFSET",
-          "info" : "FTCA Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14C",
-          "fields" : [
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "sbz",
-               "info" : "These bits should always be programmed as zero."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "FTCA",
-               "info" : "Channel causing FTC interrupt Group A."
-             }
-          ]
-        },
-{
-          "name" : "LFSAOFFSET",
-          "info" : "LFSA Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "150",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "LFSA",
-               "info" : "Channel causing LFS interrupt Group A."
-             }
-          ]
-        },
-{
-          "name" : "HBCAOFFSET",
-          "info" : "HBCA Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "154",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "HBCA",
-               "info" : "Channel causing HBC interrupt Group A."
-             }
-          ]
-        },
-{
-          "name" : "BTCAOFFSET",
-          "info" : "BTCA Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "158",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "BTCA",
-               "info" : "Channel causing BTC interrupt Group A."
-             }
-          ]
-        },
-{
-          "name" : "BERAOFFSET",
-          "info" : "BERA Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "15C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "BERA",
-               "info" : "Channel causing BER interrupt Group A."
-             }
-          ]
-        },
-{
-          "name" : "FTCBOFFSET",
-          "info" : "FTCB Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "160",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "FTCB",
-               "info" : "Channel causing FTC interrupt Group B."
-             }
-          ]
-        },
-{
-          "name" : "LFSBOFFSET",
-          "info" : "LFSB Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "164",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "LFSB",
-               "info" : "Channel causing LFS interrupt Group B."
-             }
-          ]
-        },
-{
-          "name" : "HBCBOFFSET",
-          "info" : "HBCB Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "168",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "HBCB",
-               "info" : "Channel causing HBC interrupt Group B."
-             }
-          ]
-        },
-{
-          "name" : "BTCBOFFSET",
-          "info" : "BTCB Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "16C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "BTCB",
-               "info" : "interrupt for Group B if the corresponding interrupt enable is set."
-             }
-          ]
-        },
-{
-          "name" : "BERBOFFSET",
-          "info" : "BERB Interrupt Channel Offset Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "170",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "BERB",
-               "info" : "Channel causing BER interrupt Group B."
-             }
-          ]
-        },
-{
-          "name" : "PTCRL",
-          "info" : "Port Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "178",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PENDB",
-               "info" : "Transfers pending for Port B. This flag determines if transfers are ongoing on port B."
-             },
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BYB",
-               "info" : "Bypass FIFO B."
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PSFRHQPB",
-               "info" : "Priority scheme fix or rotate for high priority queue of Port B."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PSFRLQPB",
-               "info" : "Priority scheme fix or rotate for low priority queue of Port B."
-             }
-          ]
-        },
-{
-          "name" : "RTCTRL",
-          "info" : "RAM Test Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "17C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RTC",
-               "info" : "RAM Test Control."
-             }
-          ]
-        },
-{
-          "name" : "DCTRL",
-          "info" : "Debug Control",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "180",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "CHNUM",
-               "info" : "Channel Number."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DMADBGS",
-               "info" : "DMA debug status."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DBGEN",
-               "info" : "Debug Enable."
-             }
-          ]
-        },
-{
-          "name" : "WPR",
-          "info" : "Watch Point Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "184",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "WP",
-               "info" : "Watch point."
-             }
-          ]
-        },
-{
-          "name" : "WMR",
-          "info" : "Watch Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "188",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "WM",
-               "info" : "Watch mask."
-             }
-          ]
-        },
-{
-          "name" : "PBACSADDR",
-          "info" : "Port B Active Channel Source Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "198",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "PBACSA",
-               "info" : "Port B Active Channel Source Address."
-             }
-          ]
-        },
-{
-          "name" : "PBACDADDR",
-          "info" : "Port B Active Channel Destination Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "19C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "PBACDA",
-               "info" : "address of the active channel as broadcasted in Section 16.3.1.3 for Port B."
-             }
-          ]
-        },
-{
-          "name" : "PBACTC",
-          "info" : "Port B Active Channel Transfer Count Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1A0",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "13",
-               "bit_Field_Name" : "PBFTCOUNT",
-               "info" : "Port B active channel frame count."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "13",
-               "bit_Field_Name" : "PBETCOUNT",
-               "info" : "Port B active channel element count."
-             }
-          ]
-        },
-{
-          "name" : "DMAPCR",
-          "info" : "Parity Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1A8",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ERRA",
-               "info" : "Error action."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TEST",
-               "info" : "When this bit is set, the parity bits are memory mapped to make them accessible by the CPU."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PARITY_ENA",
-               "info" : "Parity error detection enable."
-             }
-          ]
-        },
-{
-          "name" : "DMAPAR",
-          "info" : "DMA Parity Error Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1AC",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EDFLAG",
-               "info" : "Parity Error Detection Flag."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "12",
-               "bit_Field_Name" : "ERRORADDRESS",
-               "info" : "Error address. These bits hold the address of the first parity error generated in the RAM."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPCTRL",
-          "info" : "DMA Memory Protection Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1B0",
-          "fields" : [
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT3AB",
-               "info" : "Interrupt assignment of region 3 to Group A or Group B."
-             },
-             {
-               "start_bit" : "27",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT3ENA",
-               "info" : "Interrupt enable of region 3.",
-               "values" : [
-                 {"value" : "0", "desc" : "The interrupt is disabled."},
-                 {"value" : "1", "desc" : "The interrupt is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "25",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "REG3AP",
-               "info" : "Region 3 access permission.",
-               "values" : [
-                 {"value" : "0", "desc" : "All accesses are allowed."},
-                 {"value" : "1h", "desc" : "Read only accesses are allowed."},
-                 {"value" : "2h", "desc" : "Write only accesses are allowed."},
-                 {"value" : "3h", "desc" : "No accesses are allowed."}
-                ]
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG3ENA",
-               "info" : "Region 3 enable.",
-               "values" : [
-                 {"value" : "0", "desc" : "The region is disabled (no address checking done)."},
-                 {"value" : "1", "desc" : "The region is enabled (address and access permission checking done)."}
-                ]
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT2AB",
-               "info" : "Interrupt assignment of region 2 to Group A or Group B.",
-               "values" : [
-                 {"value" : "1", "desc" : "The interrupt is routed to the VIM (Group A)."},
-                 {"value" : "0", "desc" : "The interrupt is routed to the second CPU (Group B)."}
-                ]
-             },
-             {
-               "start_bit" : "19",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT2ENA",
-               "info" : "Interrupt enable of region 2.",
-               "values" : [
-                 {"value" : "1", "desc" : "The interrupt is disabled."},
-                 {"value" : "0", "desc" : "The interrupt is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "REG2AP",
-               "info" : "Region 2 access permission. These bits determine the access permission for region 2.",
-               "values" : [
-                 {"value" : "0", "desc" : "All accesses are allowed."},
-                 {"value" : "1h", "desc" : "Read only accesses are allowed."},
-                 {"value" : "2h", "desc" : "Write only accesses are allowed."},
-                 {"value" : "3h", "desc" : "No accesses are allowed."}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG2ENA",
-               "info" : "Region 2 enable.",
-               "values" : [
-                 {"value" : "0", "desc" : "The region is disabled (no address checking done)."},
-                 {"value" : "1", "desc" : "The region is enabled (address and access permission checking done)."}
-                ]
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT1AB",
-               "info" : "Interrupt assignment of region 1 to Group A or Group B.",
-               "values" : [
-                 {"value" : "0", "desc" : "The interrupt is routed to the VIM (Group A)."},
-                 {"value" : "1", "desc" : "The interrupt is routed to the second CPU (Group B)."}
-                ]
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT1ENA",
-               "info" : "Interrupt enable of region 1.",
-               "values" : [
-                 {"value" : "0", "desc" : "0"},
-                 {"value" : "1", "desc" : "The interrupt is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "REG1AP",
-               "info" : "Region 1 access permission.",
-               "values" : [
-                 {"value" : "0", "desc" : "All accesses are allowed."},
-                 {"value" : "1h", "desc" : "Read only accesses are allowed."},
-                 {"value" : "2h", "desc" : "Write only accesses are allowed."},
-                 {"value" : "3h", "desc" : "No accesses are allowed."}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG1ENA",
-               "info" : "Region 1 enable.",
-               "values" : [
-                 {"value" : "0", "desc" : "The region is disabled (no address checking done)."},
-                 {"value" : "1", "desc" : "The region is enabled (address and access permission checking done)."}
-                ]
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT0AB",
-               "info" : "Interrupt assignment of region 0 to Group A or Group B.",
-               "values" : [
-                 {"value" : "0", "desc" : "The interrupt is routed to the VIM (Group A)."},
-                 {"value" : "1", "desc" : "The interrupt is routed to the DSP CPU (Group B)."}
-                ]
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "INT0ENA",
-               "info" : "Interrupt enable of region 0.",
-               "values" : [
-                 {"value" : "0", "desc" : "The interrupt is disabled."},
-                 {"value" : "1", "desc" : "The interrupt is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "REG0AP",
-               "info" : "Region 0 access permission. These bits determine the access permission for region 0.",
-               "values" : [
-                 {"value" : "0", "desc" : "All accesses are allowed."},
-                 {"value" : "1h", "desc" : "Read only accesses are allowed."},
-                 {"value" : "2h", "desc" : "Write only accesses are allowed."},
-                 {"value" : "3h", "desc" : "No accesses are allowed."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG0ENA",
-               "info" : "Region 0 enable.",
-               "values" : [
-                 {"value" : "0", "desc" : "The region is disabled (no address checking done)."},
-                 {"value" : "1", "desc" : "The region is enabled (address and access permission checking done)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "DMAMPST",
-          "info" : "DMA Memory Protection Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1B4",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG3FT",
-               "info" : "Region 3 fault."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG2FT",
-               "info" : "Region 2 fault."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG1FT",
-               "info" : "Region 1 fault."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "REG0FT",
-               "info" : "Region 0 fault."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPROS",
-          "info" : "DMA Memory Protection Region 0 Start Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1B8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "STARTADDRESS",
-               "info" : "Start Address defines the address at which the region begins."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPROE",
-          "info" : "DMA Memory Protection Region 0 End Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1BC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ENDADDRESS",
-               "info" : "End Address defines the address at which the region ends."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR1S",
-          "info" : "DMA Memory Protection Region 1 Start Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "STARTADDRESS",
-               "info" : "Start Address defines the address at which the region begins."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR1E",
-          "info" : "DMA Memory Protection Region 1 End Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ENDADDRESS",
-               "info" : "End Address defines the address at which the region ends."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR2S",
-          "info" : "DMA Memory Protection Region 2 Start Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "STARTADDRESS",
-               "info" : "Start Address defines the address at which the region begins."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR2E",
-          "info" : "DMA Memory Protection Region 2 End Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1CC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ENDADDRESS",
-               "info" : "End Address defines the address at which the region ends."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR3S",
-          "info" : "DMA Memory Protection Region 3 Start Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1D0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "STARTADDRESS",
-               "info" : "Start Address defines the address at which the region begins."
-             }
-          ]
-        },
-{
-          "name" : "DMAMPR3E",
-          "info" : "DMA Memory Protection Region 3 End Address Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1D4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ENDADDRESS",
-               "info" : "End Address defines the address at which the region ends."
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-} 
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "DMA",
+     "full name" : "Direct Memory Access Controller",
+     "offset" : ["0xFFFFF000"],
+     "registers" : [
+       {
+       "name" : "GCTRL",
+       "info" : "Global Control Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DMA_EN",
+         "info" : "DMA enable bit."
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUS_BUSY",
+         "info" : "This bit indicates status of DMA external AHB bus status."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "DEBUG_MODE",
+         "info" : "Debug Mode."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DMA_RES",
+         "info" : "DMA software reset"
+         }
+        ]
+       },
+       {
+       "name" : "PEND",
+       "info" : "Channel Pending Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "PEND",
+         "info" : "Channel pending register."
+         }
+        ]
+       },
+       {
+       "name" : "DMASTAT",
+       "info" : "DMA Status Register",
+       "lenght" : "32",
+       "adress" : "0xc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "STCH",
+         "info" : "Status of DMA channels."
+         }
+        ]
+       },
+       {
+       "name" : "HWCHENAS",
+       "info" : "HW Channel Enable Set and Status Register",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HWCHENA",
+         "info" : "Hardware channel enable bit."
+         }
+        ]
+       },
+       {
+       "name" : "HWCHENAR",
+       "info" : "HW Channel Enable Reset and Status Register",
+       "lenght" : "32",
+       "adress" : "0x1c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HWCHDIS",
+         "info" : "HW channel disable bit."
+         }
+        ]
+       },
+       {
+       "name" : "SWCHENAS",
+       "info" : "SW Channel Enable Set and Status Register",
+       "lenght" : "32",
+       "adress" : "0x24",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "SWCHENA",
+         "info" : "SW channel enable bit."
+         }
+        ]
+       },
+       {
+       "name" : "SWCHENAR",
+       "info" : "SW Channel Enable Reset and Status Register",
+       "lenght" : "32",
+       "adress" : "0x2c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "SWCHDIS",
+         "info" : "SW channel disable bit."
+         }
+        ]
+       },
+       {
+       "name" : "CHPRIOS",
+       "info" : "Channel Priority Set Register",
+       "lenght" : "32",
+       "adress" : "0x34",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "CPS",
+         "info" : "Channel priority set bit."
+         }
+        ]
+       },
+       {
+       "name" : "CHPRIOR",
+       "info" : "Channel Priority Reset Register",
+       "lenght" : "32",
+       "adress" : "0x3c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "CPR",
+         "info" : "Channel priority reset bit."
+         }
+        ]
+       },
+       {
+       "name" : "GCHIENAS",
+       "info" : "Global Channel Interrupt Enable Set Register",
+       "lenght" : "32",
+       "adress" : "0x44",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "GCHIE",
+         "info" : "Global channel interrupt enable bit."
+         }
+        ]
+       },
+       {
+       "name" : "GCHIENAR",
+       "info" : "Global Channel Interrupt Enable Reset Register",
+       "lenght" : "32",
+       "adress" : "0x4c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "GCHID",
+         "info" : "Global channel interrupt disable bit."
+         }
+        ]
+       },
+       {
+       "name" : "DREQASI0",
+       "info" : "DMA Request Assignment Register 0",
+       "lenght" : "32",
+       "adress" : "0x54",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH0ASI",
+         "info" : "Channel 0 assignment. This bit field chooses the DMA request assignment for channel 0."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH1ASI",
+         "info" : "Channel 1 assignment. This bit field chooses the DMA request assignment for channel 1."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH2ASI",
+         "info" : "Channel 2 assignment. This bit field chooses the DMA request assignment for channel 2."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH3ASI",
+         "info" : "Channel 3 assignment. This bit field chooses the DMA request assignment for channel 3."
+         }
+        ]
+       },
+       {
+       "name" : "DREQASI1",
+       "info" : "DMA Request Assignment Register 1",
+       "lenght" : "32",
+       "adress" : "0x58",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH4ASI",
+         "info" : "Channel 4 assignment. This bit field chooses the DMA request assignment for channel 4."
+         },
+         {
+         "start_bit" : "21",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH5ASI",
+         "info" : "Channel 5 assignment. This bit field chooses the DMA request assignment for channel 5."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH6ASI",
+         "info" : "Channel 6 assignment. This bit field chooses the DMA request assignment for channel 6."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH7ASI",
+         "info" : "Channel 7 assignment. This bit field chooses the DMA request assignment for channel 7."
+         }
+        ]
+       },
+       {
+       "name" : "DREQASI2",
+       "info" : "DMA Request Assignment Register 2",
+       "lenght" : "32",
+       "adress" : "0x5c",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH8ASI",
+         "info" : "Channel 8 assignment. This bit field chooses the DMA request assignment for channel 8."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH9ASI",
+         "info" : "Channel 9 assignment. This bit field chooses the DMA request assignment for channel 9."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH10ASI",
+         "info" : "Channel 10 assignment. This bit field chooses the DMA request assignment for channel 10."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH11ASI",
+         "info" : "Channel 11 assignment. This bit field chooses the DMA request assignment for channel 11."
+         }
+        ]
+       },
+       {
+       "name" : "DREQASI3",
+       "info" : "DMA Request Assignment Register 3",
+       "lenght" : "32",
+       "adress" : "0x60",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH12ASI",
+         "info" : "Channel 12 assignment. This bit field chooses the DMA request assignment for channel 12."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH13ASI",
+         "info" : "Channel 13 assignment. This bit field chooses the DMA request assignment for channel 13."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH14ASI",
+         "info" : "Channel 14 assignment. This bit field chooses the DMA request assignment for channel 14."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "CH15ASI",
+         "info" : "Channel 15 assignment. This bit field chooses the DMA request assignment for channel 15."
+         }
+        ]
+       },
+       {
+       "name" : "PAR0",
+       "info" : "Port Assignment Register 0",
+       "lenght" : "32",
+       "adress" : "0x94",
+       "fields" : [
+         {
+         "start_bit" : "28",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH0PA",
+         "info" : "These bit fields determine to which port channel 0 is assigned."
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH1PA",
+         "info" : "These bit fields determine to which port channel 1 is assigned."
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH2PA",
+         "info" : "These bit fields determine to which port channel 2 is assigned."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH3PA",
+         "info" : "These bit fields determine to which port channel 3 is assigned."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH4PA",
+         "info" : "These bit fields determine to which port channel 4 is assigned."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH5PA",
+         "info" : "These bit fields determine to which port channel 5 is assigned."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH6PA",
+         "info" : "These bit fields determine to which port channel 6 is assigned."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH7PA",
+         "info" : "These bit fields determine to which port channel 7 is assigned."
+         }
+        ]
+       },
+       {
+       "name" : "PAR1",
+       "info" : "Port Assignment Register 1",
+       "lenght" : "32",
+       "adress" : "0x98",
+       "fields" : [
+         {
+         "start_bit" : "28",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH8PA",
+         "info" : "These bit fields determine to which port channel 8 is assigned."
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH9PA",
+         "info" : "These bit fields determine to which port channel 9 is assigned."
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH10PA",
+         "info" : "These bit fields determine to which port channel 10 is assigned."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH11PA",
+         "info" : "These bit fields determine to which port channel 11 is assigned."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH12PA",
+         "info" : "These bit fields determine to which port channel 12 is assigned."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH13PA",
+         "info" : "These bit fields determine to which port channel 13 is assigned."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH14PA",
+         "info" : "These bit fields determine to which port channel 14 is assigned."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CH15PA",
+         "info" : "These bit fields determine to which port channel 15 is assigned."
+         }
+        ]
+       },
+       {
+       "name" : "FTCMAP",
+       "info" : "FTC Interrupt Mapping Register",
+       "lenght" : "32",
+       "adress" : "0xb4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FTCAB",
+         "info" : "Frame transfer complete (FTC) interrupt to Group A or Group B."
+         }
+        ]
+       },
+       {
+       "name" : "LFSMAP",
+       "info" : "LFS Interrupt Mapping Register",
+       "lenght" : "32",
+       "adress" : "0xbc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "LFSAB",
+         "info" : "Last frame started (LFS) interrupt to Group A or Group B."
+         }
+        ]
+       },
+       {
+       "name" : "HBCMAP",
+       "info" : "HBC Interrupt Mapping Register",
+       "lenght" : "32",
+       "adress" : "0xc4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HBCAB",
+         "info" : "Half block complete (HBC) interrupt to Group A or Group B."
+         }
+        ]
+       },
+       {
+       "name" : "BTCMAP",
+       "info" : "BTC Interrupt Mapping Register",
+       "lenght" : "32",
+       "adress" : "0xcc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BTCAB",
+         "info" : "Block transfer complete (BTC) interrupt to Group A or Group B"
+         }
+        ]
+       },
+       {
+       "name" : "BERMAP",
+       "info" : "BER Interrupt Mapping Register",
+       "lenght" : "32",
+       "adress" : "0xd4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BERAB",
+         "info" : "Bus error (BER) interrupt to Group A or Group B."
+         }
+        ]
+       },
+       {
+       "name" : "FTCINTENAS",
+       "info" : "FTC Interrupt Enable Set",
+       "lenght" : "32",
+       "adress" : "0xdc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FTCINTENA",
+         "info" : "Frame transfer complete (FTC) interrupt enable."
+         }
+        ]
+       },
+       {
+       "name" : "FTCINTENAR",
+       "info" : "FTC Interrupt Enable Reset",
+       "lenght" : "32",
+       "adress" : "0xe4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FTCINTDIS",
+         "info" : "Frame transfer complete (FTC) interrupt disable."
+         }
+        ]
+       },
+       {
+       "name" : "LFSINTENAS",
+       "info" : "LFS Interrupt Enable Set",
+       "lenght" : "32",
+       "adress" : "0xec",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "LFSINTENA",
+         "info" : "Last frame started (LFS) interrupt enable."
+         }
+        ]
+       },
+       {
+       "name" : "LFSINTENAR",
+       "info" : "LFS Interrupt Enable Reset",
+       "lenght" : "32",
+       "adress" : "0xf4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "LFSINTDIS",
+         "info" : "Last frame started (LFS) interrupt disable."
+         }
+        ]
+       },
+       {
+       "name" : "HBCINTENAS",
+       "info" : "HBC Interrupt Enable Set",
+       "lenght" : "32",
+       "adress" : "0xfc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HBCINTENA",
+         "info" : "Half block complete (HBC) interrupt enable."
+         }
+        ]
+       },
+       {
+       "name" : "HBCINTENAR",
+       "info" : "HBC Interrupt Enable Reset",
+       "lenght" : "32",
+       "adress" : "0x104",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HBCINTDIS",
+         "info" : "Half block complete (HBC) interrupt disable."
+         }
+        ]
+       },
+       {
+       "name" : "BTCINTENAS",
+       "info" : "BTC Interrupt Enable Set",
+       "lenght" : "32",
+       "adress" : "0x10c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BTCINTENA",
+         "info" : "Block transfer complete (BTC) interrupt enable."
+         }
+        ]
+       },
+       {
+       "name" : "BTCINTENAR",
+       "info" : "BTC Interrupt Enable Reset",
+       "lenght" : "32",
+       "adress" : "0x114",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BTCINTDIS",
+         "info" : "Block transfer complete (BTC) interurpt disable."
+         }
+        ]
+       },
+       {
+       "name" : "GINTFLAG",
+       "info" : "Global Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x11c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "GINT",
+         "info" : "Global interrupt flags."
+         }
+        ]
+       },
+       {
+       "name" : "FTCFLAG",
+       "info" : "FTC Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x124",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FTCI",
+         "info" : "Frame transfer complete (FTC) flags."
+         }
+        ]
+       },
+       {
+       "name" : "LFSFLAG",
+       "info" : "LFS Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x12c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "LFSI",
+         "info" : "Last frame started (LFS) flags."
+         }
+        ]
+       },
+       {
+       "name" : "HBCFLAG",
+       "info" : "HBC Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x134",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "HBCI",
+         "info" : "Half block transfer (HBC) complete flags."
+         }
+        ]
+       },
+       {
+       "name" : "BTCFLAG",
+       "info" : "BTC Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x13c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BTCI",
+         "info" : "Block transfer complete (BTC) flags."
+         }
+        ]
+       },
+       {
+       "name" : "BERFLAG",
+       "info" : "BER Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x144",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "BERI",
+         "info" : "Bus error (BER) flags."
+         }
+        ]
+       },
+       {
+       "name" : "FTCAOFFSET",
+       "info" : "FTCA Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x14c",
+       "fields" : [
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "sbz",
+         "info" : "These bits should always be programmed as zero."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "FTCA",
+         "info" : "Channel causing FTC interrupt Group A."
+         }
+        ]
+       },
+       {
+       "name" : "LFSAOFFSET",
+       "info" : "LFSA Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x150",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "LFSA",
+         "info" : "Channel causing LFS interrupt Group A."
+         }
+        ]
+       },
+       {
+       "name" : "HBCAOFFSET",
+       "info" : "HBCA Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x154",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "HBCA",
+         "info" : "Channel causing HBC interrupt Group A."
+         }
+        ]
+       },
+       {
+       "name" : "BTCAOFFSET",
+       "info" : "BTCA Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x158",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "BTCA",
+         "info" : "Channel causing BTC interrupt Group A."
+         }
+        ]
+       },
+       {
+       "name" : "BERAOFFSET",
+       "info" : "BERA Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x15c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "BERA",
+         "info" : "Channel causing BER interrupt Group A."
+         }
+        ]
+       },
+       {
+       "name" : "FTCBOFFSET",
+       "info" : "FTCB Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x160",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "FTCB",
+         "info" : "Channel causing FTC interrupt Group B."
+         }
+        ]
+       },
+       {
+       "name" : "LFSBOFFSET",
+       "info" : "LFSB Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x164",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "LFSB",
+         "info" : "Channel causing LFS interrupt Group B."
+         }
+        ]
+       },
+       {
+       "name" : "HBCBOFFSET",
+       "info" : "HBCB Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x168",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "HBCB",
+         "info" : "Channel causing HBC interrupt Group B."
+         }
+        ]
+       },
+       {
+       "name" : "BTCBOFFSET",
+       "info" : "BTCB Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x16c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "BTCB",
+         "info" : "interrupt for Group B if the corresponding interrupt enable is set."
+         }
+        ]
+       },
+       {
+       "name" : "BERBOFFSET",
+       "info" : "BERB Interrupt Channel Offset Register",
+       "lenght" : "32",
+       "adress" : "0x170",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "BERB",
+         "info" : "Channel causing BER interrupt Group B."
+         }
+        ]
+       },
+       {
+       "name" : "PTCRL",
+       "info" : "Port Control Register",
+       "lenght" : "32",
+       "adress" : "0x178",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PENDB",
+         "info" : "Transfers pending for Port B. This flag determines if transfers are ongoing on port B."
+         },
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BYB",
+         "info" : "Bypass FIFO B."
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PSFRHQPB",
+         "info" : "Priority scheme fix or rotate for high priority queue of Port B."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PSFRLQPB",
+         "info" : "Priority scheme fix or rotate for low priority queue of Port B."
+         }
+        ]
+       },
+       {
+       "name" : "RTCTRL",
+       "info" : "RAM Test Control Register",
+       "lenght" : "32",
+       "adress" : "0x17c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RTC",
+         "info" : "RAM Test Control."
+         }
+        ]
+       },
+       {
+       "name" : "DCTRL",
+       "info" : "Debug Control",
+       "lenght" : "32",
+       "adress" : "0x180",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "CHNUM",
+         "info" : "Channel Number."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DMADBGS",
+         "info" : "DMA debug status."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DBGEN",
+         "info" : "Debug Enable."
+         }
+        ]
+       },
+       {
+       "name" : "WPR",
+       "info" : "Watch Point Register",
+       "lenght" : "32",
+       "adress" : "0x184",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "WP",
+         "info" : "Watch point."
+         }
+        ]
+       },
+       {
+       "name" : "WMR",
+       "info" : "Watch Mask Register",
+       "lenght" : "32",
+       "adress" : "0x188",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "WM",
+         "info" : "Watch mask."
+         }
+        ]
+       },
+       {
+       "name" : "PBACSADDR",
+       "info" : "Port B Active Channel Source Address Register",
+       "lenght" : "32",
+       "adress" : "0x198",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PBACSA",
+         "info" : "Port B Active Channel Source Address."
+         }
+        ]
+       },
+       {
+       "name" : "PBACDADDR",
+       "info" : "Port B Active Channel Destination Address Register",
+       "lenght" : "32",
+       "adress" : "0x19c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PBACDA",
+         "info" : "address of the active channel as broadcasted in Section 16.3.1.3 for Port B."
+         }
+        ]
+       },
+       {
+       "name" : "PBACTC",
+       "info" : "Port B Active Channel Transfer Count Register",
+       "lenght" : "32",
+       "adress" : "0x1a0",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "13",
+         "bit_Field_Name" : "PBFTCOUNT",
+         "info" : "Port B active channel frame count."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "13",
+         "bit_Field_Name" : "PBETCOUNT",
+         "info" : "Port B active channel element count."
+         }
+        ]
+       },
+       {
+       "name" : "DMAPCR",
+       "info" : "Parity Control Register",
+       "lenght" : "32",
+       "adress" : "0x1a8",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ERRA",
+         "info" : "Error action."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TEST",
+         "info" : "When this bit is set, the parity bits are memory mapped to make them accessible by the CPU."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PARITY_ENA",
+         "info" : "Parity error detection enable."
+         }
+        ]
+       },
+       {
+       "name" : "DMAPAR",
+       "info" : "DMA Parity Error Address Register",
+       "lenght" : "32",
+       "adress" : "0x1ac",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EDFLAG",
+         "info" : "Parity Error Detection Flag."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "12",
+         "bit_Field_Name" : "ERRORADDRESS",
+         "info" : "Error address. These bits hold the address of the first parity error generated in the RAM."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPCTRL",
+       "info" : "DMA Memory Protection Control Register",
+       "lenght" : "32",
+       "adress" : "0x1b0",
+       "fields" : [
+         {
+         "start_bit" : "28",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT3AB",
+         "info" : "Interrupt assignment of region 3 to Group A or Group B."
+         },
+         {
+         "start_bit" : "27",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT3ENA",
+         "info" : "Interrupt enable of region 3."
+         },
+         {
+         "start_bit" : "25",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "REG3AP",
+         "info" : "Region 3 access permission."
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG3ENA",
+         "info" : "Region 3 enable."
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT2AB",
+         "info" : "Interrupt assignment of region 2 to Group A or Group B."
+         },
+         {
+         "start_bit" : "19",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT2ENA",
+         "info" : "Interrupt enable of region 2."
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "REG2AP",
+         "info" : "Region 2 access permission. These bits determine the access permission for region 2."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG2ENA",
+         "info" : "Region 2 enable."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT1AB",
+         "info" : "Interrupt assignment of region 1 to Group A or Group B."
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT1ENA",
+         "info" : "Interrupt enable of region 1."
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "REG1AP",
+         "info" : "Region 1 access permission."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG1ENA",
+         "info" : "Region 1 enable."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT0AB",
+         "info" : "Interrupt assignment of region 0 to Group A or Group B."
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "INT0ENA",
+         "info" : "Interrupt enable of region 0."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "REG0AP",
+         "info" : "Region 0 access permission. These bits determine the access permission for region 0."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG0ENA",
+         "info" : "Region 0 enable."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPST",
+       "info" : "DMA Memory Protection Status Register",
+       "lenght" : "32",
+       "adress" : "0x1b4",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG3FT",
+         "info" : "Region 3 fault."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG2FT",
+         "info" : "Region 2 fault."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG1FT",
+         "info" : "Region 1 fault."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "REG0FT",
+         "info" : "Region 0 fault."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPROS",
+       "info" : "DMA Memory Protection Region 0 Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x1b8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Start Address defines the address at which the region begins."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPROE",
+       "info" : "DMA Memory Protection Region 0 End Address Register",
+       "lenght" : "32",
+       "adress" : "0x1bc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ENDADDRESS",
+         "info" : "End Address defines the address at which the region ends."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR1S",
+       "info" : "DMA Memory Protection Region 1 Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x1c0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Start Address defines the address at which the region begins."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR1E",
+       "info" : "DMA Memory Protection Region 1 End Address Register",
+       "lenght" : "32",
+       "adress" : "0x1c4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ENDADDRESS",
+         "info" : "End Address defines the address at which the region ends."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR2S",
+       "info" : "DMA Memory Protection Region 2 Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x1c8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Start Address defines the address at which the region begins."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR2E",
+       "info" : "DMA Memory Protection Region 2 End Address Register",
+       "lenght" : "32",
+       "adress" : "0x1cc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ENDADDRESS",
+         "info" : "End Address defines the address at which the region ends."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR3S",
+       "info" : "DMA Memory Protection Region 3 Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x1d0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Start Address defines the address at which the region begins."
+         }
+        ]
+       },
+       {
+       "name" : "DMAMPR3E",
+       "info" : "DMA Memory Protection Region 3 End Address Register",
+       "lenght" : "32",
+       "adress" : "0x1d4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ENDADDRESS",
+         "info" : "End Address defines the address at which the region ends."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

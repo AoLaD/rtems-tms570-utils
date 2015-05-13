@@ -1,445 +1,416 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "PLL",
-      "registers" :
-      [
-{
-          "name" : "CSDIS",
-          "info" : "Clock Source Disable Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF30",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "CLKSR[7-3]OFF",
-               "info" : "Clock source[7-3] off.",
-               "values" : [
-                 {"value" : "0", "desc" : "Clock source[7-3] is enabled."},
-                 {"value" : "1", "desc" : "Clock source[7-3] is disabled."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CLKSR[1-0]OFF",
-               "info" : "Clock source[1-0] off.",
-               "values" : [
-                 {"value" : "0", "desc" : "Clock source[1-0] is enabled."},
-                 {"value" : "1", "desc" : "Clock source[1-0] is disabled."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "CSDISSET",
-          "info" : "Clock Source Disable Set Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF34",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "SETCLKSR[7-3] OFF",
-               "info" : "Set clock source[7-3] to the disabled state."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "SETCLKSR[1-0] OFF",
-               "info" : "Set clock source[1-0] to the disabled state."
-             }
-          ]
-        },
-{
-          "name" : "CSDISCLR",
-          "info" : "Clock Source Disable Clear Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF38",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "CLRCLKSR[7-3] OFF",
-               "info" : "Enables clock source[7-3]."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CLRCLKSR[1-0] OFF",
-               "info" : "Enables clock source[1-0]."
-             }
-          ]
-        },
-{
-          "name" : "CSVSTAT",
-          "info" : "Clock Source Valid Status Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF54",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "CLKSR[7-3]V",
-               "info" : "Clock source[7-0] valid.",
-               "values" : [
-                 {"value" : "0", "desc" : "Clock source[7-0] is not valid."},
-                 {"value" : "1", "desc" : "Clock source[7-0] is valid."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "CLKSR[1-0]V",
-               "info" : "Clock source[1-0] valid.",
-               "values" : [
-                 {"value" : "0", "desc" : "Clock source[1-0] is not valid."},
-                 {"value" : "1", "desc" : "Clock source[1-0] is valid."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PLLCTL1",
-          "info" : "PLL Control 1 Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF70",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ROS",
-               "info" : "Reset on PLL Slip"
-             },
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MASK_SLIP",
-               "info" : "Mask detection of PLL slip"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "PLLDIV",
-               "info" : "PLL Output Clock Divider"
-             },
-             {
-               "start_bit" : "23",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ROF",
-               "info" : "Reset on Oscillator Fail"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "REFCLKDIV",
-               "info" : "Reference Clock Divider"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "PLLMUL",
-               "info" : "PLL Multiplication Factor"
-             }
-          ]
-        },
-{
-          "name" : "PLLCTL2",
-          "info" : "PLL Control 2 Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF74",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FMENA",
-               "info" : "Frequency Modulation Enable."
-             },
-             {
-               "start_bit" : "22",
-               "bit_lenght" : "9",
-               "bit_Field_Name" : "SPREADINGRATE",
-               "info" : "NS = SPREADINGRATE + 1"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "9",
-               "bit_Field_Name" : "MULMOD",
-               "info" : "Multiplier Correction when Frequency Modulation is enabled."
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "ODPLL",
-               "info" : "Internal PLL Output Divider."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "9",
-               "bit_Field_Name" : "SPR_AMOUNT",
-               "info" : "Spreading Amount."
-             }
-          ]
-        },
-{
-          "name" : "PLLCTL3",
-          "info" : "PLL Control 3 Register",
-          "lenght" : "32",
-          "adress" : "FFFF E100",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "ODPLL2",
-               "info" : "Internal PLL Output Divider"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "PLLDIV2",
-               "info" : "PLL2 Output Clock Divider"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "REFCLKDIV2",
-               "info" : "Reference Clock Divider"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "PLLMUL2",
-               "info" : "PLL2 Multiplication Factor"
-             }
-          ]
-        },
-{
-          "name" : "GPREG1",
-          "info" : "General Purpose Register",
-          "lenght" : "32",
-          "adress" : "FFFF FFA0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EMIF_FUNC",
-               "info" : "Enable EMIF functions to be output."
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "PLL1_FBSLIP_FILTER_ COUNT",
-               "info" : "FBSLIP down counter programmed value."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PLL1_RFSLIP_FILTER_ KEY",
-               "info" : "Configures the system response when a FBSLIP is indicated by the"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "OUTPUT_BUFFER_LOW_EMI_MODE",
-               "info" : "Control field for the low-EMI mode of output buffers for"
-             }
-          ]
-        },
-{
-          "name" : "GLBSTAT",
-          "info" : "Global Status Register",
-          "lenght" : "32",
-          "adress" : "FFFF FFEC",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FBSLIP",
-               "info" : "PLL over cycle slip detection."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RFSLIP",
-               "info" : "PLL under cycle slip detection."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "OSCFAIL",
-               "info" : "Oscillator fail flag bit."
-             }
-          ]
-        },
-{
-          "name" : "CLKSLIP",
-          "info" : "PLL Clock Slip Control Register",
-          "lenght" : "32",
-          "adress" : "FFFF E170",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "PLL1_SLIP_FILTER_COUNT",
-               "info" : "Configure the count for the filtered PLL slip. Count is on 10M clock."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PLL1_SLIP_FILTER_KEY",
-               "info" : "Enable the PLL filtering."
-             }
-          ]
-        },
-{
-          "name" : "SSWPLL1",
-          "info" : "PLL Modulation Depth Measurement Control Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF24",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "CAPTURE_WINDOW_INDEX",
-               "info" : "The capture counter present in the PLL wrapper will count the PLL clock edges when"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "COUNTER_READ_READY",
-               "info" : "Counter read ready."
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "COUNTER_RESET",
-               "info" : "Counter reset."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "COUNTER_EN",
-               "info" : "Counter enable."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "TAP_COUNTER_DIS",
-               "info" : "The value in this register is used to program a particular bit in CLKOUT counter."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EXT_COUNTER_EN",
-               "info" : "Modulation Depth Measurement mode"
-             }
-          ]
-        },
-{
-          "name" : "SSWPLL2",
-          "info" : "SSW PLL BIST Control Register 2",
-          "lenght" : "32",
-          "adress" : "FFFF FF28",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "SSW_CAPTURE_COUNT",
-               "info" : "Capture count. This register returns the value of the capture count."
-             }
-          ]
-        },
-{
-          "name" : "SSWPLL3",
-          "info" : "SSW PLL BIST Control Register 3",
-          "lenght" : "32",
-          "adress" : "FFFF FF2C",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "SSW_CAPTURE_COUNT",
-               "info" : "Value of CLKout count register."
-             }
-          ]
-        },
-{
-          "name" : "LPOMONCTL",
-          "info" : "LPO/Clock Monitor Control Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF88",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BIAS ENABLE",
-               "info" : "Bias enable."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "OSCFRQCONFIGCNT",
-               "info" : "Configures the counter based on OSC frequency."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "HFTRIM",
-               "info" : "High frequency oscillator trim value."
-             }
-          ]
-        },
-{
-          "name" : "CLKTEST",
-          "info" : "Clock Test Register",
-          "lenght" : "32",
-          "adress" : "FFFF FF8C",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "26",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ALTLIMPCLOCKENABLE",
-               "info" : "This bit selects a clock driven by the GIOB[0] pin as an alternate limp clock to the clock"
-             },
-             {
-               "start_bit" : "25",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RANGEDETCTRL",
-               "info" : "Range detection control."
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RANGEDETENASSEL",
-               "info" : "Selects range detection enable. This bit resets asynchronously on power on reset."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "CLK_TEST_EN",
-               "info" : "Clock test enable. This bit enables the clock going to the ECLK pin."
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-} 
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "PLL",
+     "full name" : "Oscillator and PLL",
+     "offset" : ["REAL"],
+     "registers" : [
+       {
+       "name" : "CSDIS",
+       "info" : "Clock Source Disable Register",
+       "lenght" : "32",
+       "adress" : "0xffffff30",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "CLKSR_7_3_OFF",
+         "info" : "Clock source[7-3] off."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "CLKSR_1_0_OFF",
+         "info" : "Clock source[1-0] off."
+         }
+        ]
+       },
+       {
+       "name" : "CSDISSET",
+       "info" : "Clock Source Disable Set Register",
+       "lenght" : "32",
+       "adress" : "0xffffff34",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "SETCLKSR_7_3_OFF",
+         "info" : "Set clock source[7-3] to the disabled state."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "SETCLKSR_1_0_OFF",
+         "info" : "Set clock source[1-0] to the disabled state."
+         }
+        ]
+       },
+       {
+       "name" : "CSDISCLR",
+       "info" : "Clock Source Disable Clear Register",
+       "lenght" : "32",
+       "adress" : "0xffffff38",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "CLRCLKSR_7_3_OFF",
+         "info" : "Enables clock source[7-3]."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "CLRCLKSR_1_0_OFF",
+         "info" : "Enables clock source[1-0]."
+         }
+        ]
+       },
+       {
+       "name" : "CSVSTAT",
+       "info" : "Clock Source Valid Status Register",
+       "lenght" : "32",
+       "adress" : "0xffffff54",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "CLKSR_7_3V",
+         "info" : "Clock source[7-0] valid."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "CLKSR_1_0V",
+         "info" : "Clock source[1-0] valid."
+         }
+        ]
+       },
+       {
+       "name" : "PLLCTL1",
+       "info" : "PLL Control 1 Register",
+       "lenght" : "32",
+       "adress" : "0xffffff70",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ROS",
+         "info" : "Reset on PLL Slip"
+         },
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MASK_SLIP",
+         "info" : "Mask detection of PLL slip"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "PLLDIV",
+         "info" : "PLL Output Clock Divider"
+         },
+         {
+         "start_bit" : "23",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ROF",
+         "info" : "Reset on Oscillator Fail"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "REFCLKDIV",
+         "info" : "Reference Clock Divider"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "PLLMUL",
+         "info" : "PLL Multiplication Factor"
+         }
+        ]
+       },
+       {
+       "name" : "PLLCTL2",
+       "info" : "PLL Control 2 Register",
+       "lenght" : "32",
+       "adress" : "0xffffff74",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FMENA",
+         "info" : "Frequency Modulation Enable."
+         },
+         {
+         "start_bit" : "22",
+         "bit_lenght" : "9",
+         "bit_Field_Name" : "SPREADINGRATE",
+         "info" : "NS = SPREADINGRATE + 1"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "9",
+         "bit_Field_Name" : "MULMOD",
+         "info" : "Multiplier Correction when Frequency Modulation is enabled."
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "ODPLL",
+         "info" : "Internal PLL Output Divider."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "9",
+         "bit_Field_Name" : "SPR_AMOUNT",
+         "info" : "Spreading Amount."
+         }
+        ]
+       },
+       {
+       "name" : "PLLCTL3",
+       "info" : "PLL Control 3 Register",
+       "lenght" : "32",
+       "adress" : "0xffffe100",
+       "fields" : [
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "ODPLL2",
+         "info" : "Internal PLL Output Divider"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "PLLDIV2",
+         "info" : "PLL2 Output Clock Divider"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "REFCLKDIV2",
+         "info" : "Reference Clock Divider"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "PLLMUL2",
+         "info" : "PLL2 Multiplication Factor"
+         }
+        ]
+       },
+       {
+       "name" : "GPREG1",
+       "info" : "General Purpose Register",
+       "lenght" : "32",
+       "adress" : "0xffffffa0",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EMIF_FUNC",
+         "info" : "Enable EMIF functions to be output."
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "PLL1_FBSLIP_FILTER__COUNT",
+         "info" : "FBSLIP down counter programmed value."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PLL1_RFSLIP_FILTER__KEY",
+         "info" : "Configures the system response when a FBSLIP is indicated by the"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "OUTPUT_BUFFER_LOW_EMI_MODE",
+         "info" : "Control field for the low-EMI mode of output buffers for"
+         }
+        ]
+       },
+       {
+       "name" : "GLBSTAT",
+       "info" : "Global Status Register",
+       "lenght" : "32",
+       "adress" : "0xffffffec",
+       "fields" : [
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FBSLIP",
+         "info" : "PLL over cycle slip detection."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RFSLIP",
+         "info" : "PLL under cycle slip detection."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "OSCFAIL",
+         "info" : "Oscillator fail flag bit."
+         }
+        ]
+       },
+       {
+       "name" : "CLKSLIP",
+       "info" : "PLL Clock Slip Control Register",
+       "lenght" : "32",
+       "adress" : "0xffffe170",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "PLL1_SLIP_FILTER_COUNT",
+         "info" : "Configure the count for the filtered PLL slip. Count is on 10M clock."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PLL1_SLIP_FILTER_KEY",
+         "info" : "Enable the PLL filtering."
+         }
+        ]
+       },
+       {
+       "name" : "SSWPLL1",
+       "info" : "PLL Modulation Depth Measurement Control Register",
+       "lenght" : "32",
+       "adress" : "0xffffff24",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "CAPTURE_WINDOW_INDEX",
+         "info" : "The capture counter present in the PLL wrapper will count the PLL clock edges when"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "COUNTER_READ_READY",
+         "info" : "Counter read ready."
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "COUNTER_RESET",
+         "info" : "Counter reset."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "COUNTER_EN",
+         "info" : "Counter enable."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "TAP_COUNTER_DIS",
+         "info" : "The value in this register is used to program a particular bit in CLKOUT counter."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EXT_COUNTER_EN",
+         "info" : "Modulation Depth Measurement mode"
+         }
+        ]
+       },
+       {
+       "name" : "SSWPLL2",
+       "info" : "SSW PLL BIST Control Register 2",
+       "lenght" : "32",
+       "adress" : "0xffffff28",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "SSW_CAPTURE_COUNT",
+         "info" : "Capture count. This register returns the value of the capture count."
+         }
+        ]
+       },
+       {
+       "name" : "SSWPLL3",
+       "info" : "SSW PLL BIST Control Register 3",
+       "lenght" : "32",
+       "adress" : "0xffffff2c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "SSW_CAPTURE_COUNT",
+         "info" : "Value of CLKout count register."
+         }
+        ]
+       },
+       {
+       "name" : "LPOMONCTL",
+       "info" : "LPO/Clock Monitor Control Register",
+       "lenght" : "32",
+       "adress" : "0xffffff88",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BIAS_ENABLE",
+         "info" : "Bias enable."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "OSCFRQCONFIGCNT",
+         "info" : "Configures the counter based on OSC frequency."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "HFTRIM",
+         "info" : "High frequency oscillator trim value."
+         }
+        ]
+       },
+       {
+       "name" : "CLKTEST",
+       "info" : "Clock Test Register",
+       "lenght" : "32",
+       "adress" : "0xffffff8c",
+       "fields" : [
+         {
+         "start_bit" : "26",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ALTLIMPCLOCKENABLE",
+         "info" : "This bit selects a clock driven by the GIOB[0] pin as an alternate limp clock to the clock"
+         },
+         {
+         "start_bit" : "25",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RANGEDETCTRL",
+         "info" : "Range detection control."
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RANGEDETENASSEL",
+         "info" : "Selects range detection enable. This bit resets asynchronously on power on reset."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "CLK_TEST_EN",
+         "info" : "Clock test enable. This bit enables the clock going to the ECLK pin."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

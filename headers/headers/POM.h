@@ -1,20 +1,39 @@
 /*
- * Copyright (c) 2014 Premysl Houdek <kom541000@gmail.com>
+ * Copyright (c) 2014-2015, Premysl Houdek <kom541000@gmail.com>
  *
- * Google Summer of Code 2014 at
  * Czech Technical University in Prague
  * Zikova 1903/4
  * 166 36 Praha 6
  * Czech Republic
  *
- * Based on LPC24xx and LPC1768 BSP
+ * All rights reserved.
  *
- * The license and distribution terms for this file may be
- * found in the file LICENSE in this distribution or at
- * http://www.rtems.org/license/LICENSE.
- */
-#ifndef LIBBSP_ARM_tms570_POM.H
-#define LIBBSP_ARM_tms570_POM.H
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * The views and conclusions contained in the software and documentation are those
+ * of the authors and should not be interpreted as representing official policies,
+ * either expressed or implied, of the FreeBSD Project.
+*/
+#ifndef LIBBSP_ARM_tms570_POP
+#define LIBBSP_ARM_tms570_POP
 
 #include <bsp/utility.h>
 
@@ -175,908 +194,257 @@ typedef struct{
   uint32_t POMCOMPONENTID1;   /*POM Component ID 1 Register*/
   uint32_t POMCOMPONENTID2;   /*POM Component ID 2 Register*/
   uint32_t POMCOMPONENTID3;   /*POM Component ID 3 Register*/
-} POM_struct;
+} tms570_pop_t;
 
-/*-------------------tms570_POM_POMGLBCTRL-------------------*/
+/*---------------------TMS570_POMGLBCTRL---------------------*/
 /* field: OTADDR - Overlay target Address. */
-#define tms570_POM_POMGLBCTRL_OTADDR(val) BSP_FLD32(val,23, 31)
-#define tms570_POM_POMGLBCTRL_OTADDR_GET(reg) BSP_FLD32GET(reg,23, 31)
-#define tms570_POM_POMGLBCTRL_OTADDR_SET(reg,val) BSP_FLD32SET(reg, val,23, 31)
+#define TMS570_POMGLBCTRL_OTADDR(val) BSP_FLD32(val,23, 31)
+#define TMS570_POMGLBCTRL_OTADDR_GET(reg) BSP_FLD32GET(reg,23, 31)
+#define TMS570_POMGLBCTRL_OTADDR_SET(reg,val) BSP_FLD32SET(reg, val,23, 31)
 
 /* field: ETO - Enable Timeout. Refer to Section 18.2.2 for more details on the timeout error. */
-#define tms570_POM_POMGLBCTRL_ETO(val) BSP_FLD32(val,8, 11)
-#define tms570_POM_POMGLBCTRL_ETO_GET(reg) BSP_FLD32GET(reg,8, 11)
-#define tms570_POM_POMGLBCTRL_ETO_SET(reg,val) BSP_FLD32SET(reg, val,8, 11)
+#define TMS570_POMGLBCTRL_ETO(val) BSP_FLD32(val,8, 11)
+#define TMS570_POMGLBCTRL_ETO_GET(reg) BSP_FLD32GET(reg,8, 11)
+#define TMS570_POMGLBCTRL_ETO_SET(reg,val) BSP_FLD32SET(reg, val,8, 11)
 
-/* field: ON/OFF - Turn functionality of POM on or off. */
-#define tms570_POM_POMGLBCTRL_ON/OFF(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMGLBCTRL_ON/OFF_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMGLBCTRL_ON/OFF_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+/* field: ON_OFF - Turn functionality of POM on or off. */
+#define TMS570_POMGLBCTRL_ON_OFF(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMGLBCTRL_ON_OFF_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMGLBCTRL_ON_OFF_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*---------------------tms570_POM_POMREV---------------------*/
+/*-----------------------TMS570_POMREV-----------------------*/
 /* field: SCHEME - Used to distinguish between different ID schemes. */
-#define tms570_POM_POMREV_SCHEME(val) BSP_FLD32(val,30, 31)
-#define tms570_POM_POMREV_SCHEME_GET(reg) BSP_FLD32GET(reg,30, 31)
-#define tms570_POM_POMREV_SCHEME_SET(reg,val) BSP_FLD32SET(reg, val,30, 31)
+#define TMS570_POMREV_SCHEME(val) BSP_FLD32(val,30, 31)
+#define TMS570_POMREV_SCHEME_GET(reg) BSP_FLD32GET(reg,30, 31)
+#define TMS570_POMREV_SCHEME_SET(reg,val) BSP_FLD32SET(reg, val,30, 31)
 
 /* field: FUNC - Indicates the SW compatible module family */
-#define tms570_POM_POMREV_FUNC(val) BSP_FLD32(val,16, 27)
-#define tms570_POM_POMREV_FUNC_GET(reg) BSP_FLD32GET(reg,16, 27)
-#define tms570_POM_POMREV_FUNC_SET(reg,val) BSP_FLD32SET(reg, val,16, 27)
+#define TMS570_POMREV_FUNC(val) BSP_FLD32(val,16, 27)
+#define TMS570_POMREV_FUNC_GET(reg) BSP_FLD32GET(reg,16, 27)
+#define TMS570_POMREV_FUNC_SET(reg,val) BSP_FLD32SET(reg, val,16, 27)
 
 /* field: RTL - RTL version number */
-#define tms570_POM_POMREV_RTL(val) BSP_FLD32(val,11, 15)
-#define tms570_POM_POMREV_RTL_GET(reg) BSP_FLD32GET(reg,11, 15)
-#define tms570_POM_POMREV_RTL_SET(reg,val) BSP_FLD32SET(reg, val,11, 15)
+#define TMS570_POMREV_RTL(val) BSP_FLD32(val,11, 15)
+#define TMS570_POMREV_RTL_GET(reg) BSP_FLD32GET(reg,11, 15)
+#define TMS570_POMREV_RTL_SET(reg,val) BSP_FLD32SET(reg, val,11, 15)
 
 /* field: MAJOR - Major revision number */
-#define tms570_POM_POMREV_MAJOR(val) BSP_FLD32(val,8, 10)
-#define tms570_POM_POMREV_MAJOR_GET(reg) BSP_FLD32GET(reg,8, 10)
-#define tms570_POM_POMREV_MAJOR_SET(reg,val) BSP_FLD32SET(reg, val,8, 10)
+#define TMS570_POMREV_MAJOR(val) BSP_FLD32(val,8, 10)
+#define TMS570_POMREV_MAJOR_GET(reg) BSP_FLD32GET(reg,8, 10)
+#define TMS570_POMREV_MAJOR_SET(reg,val) BSP_FLD32SET(reg, val,8, 10)
 
 /* field: CUSTOM - Indicates a device specific implementation */
-#define tms570_POM_POMREV_CUSTOM(val) BSP_FLD32(val,6, 7)
-#define tms570_POM_POMREV_CUSTOM_GET(reg) BSP_FLD32GET(reg,6, 7)
-#define tms570_POM_POMREV_CUSTOM_SET(reg,val) BSP_FLD32SET(reg, val,6, 7)
+#define TMS570_POMREV_CUSTOM(val) BSP_FLD32(val,6, 7)
+#define TMS570_POMREV_CUSTOM_GET(reg) BSP_FLD32GET(reg,6, 7)
+#define TMS570_POMREV_CUSTOM_SET(reg,val) BSP_FLD32SET(reg, val,6, 7)
 
-/* field: 5-0 - MINOR 8h Minor revision number */
-#define tms570_POM_POMREV_5-0(val) BSP_FLD32(val,0, 5)
-#define tms570_POM_POMREV_5-0_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define tms570_POM_POMREV_5-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+/* field: 5_0 - MINOR 8h Minor revision number */
+#define TMS570_POMREV_5_0(val) BSP_FLD32(val,0, 5)
+#define TMS570_POMREV_5_0_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_POMREV_5_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*-------------------tms570_POM_POMCLKCTRL-------------------*/
+/*---------------------TMS570_POMCLKCTRL---------------------*/
 /* field: CLK_GATE_OFF - Do not modify this bit. Leave it in its reset state. */
-#define tms570_POM_POMCLKCTRL_CLK_GATE_OFF BSP_FLD32(0)
+#define TMS570_POMCLKCTRL_CLK_GATE_OFF BSP_FLD32(0)
 
 
-/*---------------------tms570_POM_POMFLG---------------------*/
+/*-----------------------TMS570_POMFLG-----------------------*/
 /* field: TO - Timeout. */
-#define tms570_POM_POMFLG_TO BSP_FLD32(0)
+#define TMS570_POMFLG_TO BSP_FLD32(0)
 
 
-/*------------------tms570_POM_POMPROGSTART0------------------*/
+/*--------------------TMS570_POMPROGSTART0--------------------*/
 /* field: STARTADDRESS - Defines the start address of the program memory region. */
-#define tms570_POM_POMPROGSTART0_STARTADDRESS(val) BSP_FLD32(val,0, 22)
-#define tms570_POM_POMPROGSTART0_STARTADDRESS_GET(reg) BSP_FLD32GET(reg,0, 22)
-#define tms570_POM_POMPROGSTART0_STARTADDRESS_SET(reg,val) BSP_FLD32SET(reg, val,0, 22)
+#define TMS570_POMPROGSTART0_STARTADDRESS(val) BSP_FLD32(val,0, 22)
+#define TMS570_POMPROGSTART0_STARTADDRESS_GET(reg) BSP_FLD32GET(reg,0, 22)
+#define TMS570_POMPROGSTART0_STARTADDRESS_SET(reg,val) BSP_FLD32SET(reg, val,0, 22)
 
 
-/*------------------tms570_POM_POMOVLSTART0------------------*/
+/*--------------------TMS570_POMOVLSTART0--------------------*/
 /* field: STARTADDRESS - Defines the start address of the overlay memory region. */
-#define tms570_POM_POMOVLSTART0_STARTADDRESS(val) BSP_FLD32(val,0, 22)
-#define tms570_POM_POMOVLSTART0_STARTADDRESS_GET(reg) BSP_FLD32GET(reg,0, 22)
-#define tms570_POM_POMOVLSTART0_STARTADDRESS_SET(reg,val) BSP_FLD32SET(reg, val,0, 22)
+#define TMS570_POMOVLSTART0_STARTADDRESS(val) BSP_FLD32(val,0, 22)
+#define TMS570_POMOVLSTART0_STARTADDRESS_GET(reg) BSP_FLD32GET(reg,0, 22)
+#define TMS570_POMOVLSTART0_STARTADDRESS_SET(reg,val) BSP_FLD32SET(reg, val,0, 22)
 
 
-/*-------------------tms570_POM_POMREGSIZE0-------------------*/
+/*---------------------TMS570_POMREGSIZE0---------------------*/
 /* field: SIZE - Region size */
-#define tms570_POM_POMREGSIZE0_SIZE(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMREGSIZE0_SIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMREGSIZE0_SIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_POMREGSIZE0_SIZE(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMREGSIZE0_SIZE_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMREGSIZE0_SIZE_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*--------------------tms570_POM_POMITCTRL--------------------*/
+/*----------------------TMS570_POMITCTRL----------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMITCTRL_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMITCTRL_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMITCTRL_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMITCTRL_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMITCTRL_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMITCTRL_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_POM_POMCLAIMSET-------------------*/
+/*---------------------TMS570_POMCLAIMSET---------------------*/
 /* field: SET1 - The module is claimed */
-#define tms570_POM_POMCLAIMSET_SET1 BSP_FLD32(1)
+#define TMS570_POMCLAIMSET_SET1 BSP_FLD32(1)
 
 /* field: SET0 - The module is claimed */
-#define tms570_POM_POMCLAIMSET_SET0 BSP_FLD32(0)
+#define TMS570_POMCLAIMSET_SET0 BSP_FLD32(0)
 
 
-/*-------------------tms570_POM_POMCLAIMCLR-------------------*/
+/*---------------------TMS570_POMCLAIMCLR---------------------*/
 /* field: CLR1 - The module is claimed */
-#define tms570_POM_POMCLAIMCLR_CLR1 BSP_FLD32(1)
+#define TMS570_POMCLAIMCLR_CLR1 BSP_FLD32(1)
 
 /* field: CLR0 - The module is claimed */
-#define tms570_POM_POMCLAIMCLR_CLR0 BSP_FLD32(0)
+#define TMS570_POMCLAIMCLR_CLR0 BSP_FLD32(0)
 
 
-/*------------------tms570_POM_POMLOCKACCESS------------------*/
+/*--------------------TMS570_POMLOCKACCESS--------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMLOCKACCESS_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMLOCKACCESS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMLOCKACCESS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMLOCKACCESS_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMLOCKACCESS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMLOCKACCESS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*------------------tms570_POM_POMLOCKSTATUS------------------*/
+/*--------------------TMS570_POMLOCKSTATUS--------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMLOCKSTATUS_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMLOCKSTATUS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMLOCKSTATUS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMLOCKSTATUS_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMLOCKSTATUS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMLOCKSTATUS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*------------------tms570_POM_POMAUTHSTATUS------------------*/
+/*--------------------TMS570_POMAUTHSTATUS--------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMAUTHSTATUS_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMAUTHSTATUS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMAUTHSTATUS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMAUTHSTATUS_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMAUTHSTATUS_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMAUTHSTATUS_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------tms570_POM_POMDEVID--------------------*/
+/*----------------------TMS570_POMDEVID----------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMDEVID_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMDEVID_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMDEVID_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMDEVID_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMDEVID_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMDEVID_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_POM_POMDEVTYPE-------------------*/
+/*---------------------TMS570_POMDEVTYPE---------------------*/
 /* field: Sub_Type - Other */
-#define tms570_POM_POMDEVTYPE_Sub_Type(val) BSP_FLD32(val,4, 7)
-#define tms570_POM_POMDEVTYPE_Sub_Type_GET(reg) BSP_FLD32GET(reg,4, 7)
-#define tms570_POM_POMDEVTYPE_Sub_Type_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
+#define TMS570_POMDEVTYPE_Sub_Type(val) BSP_FLD32(val,4, 7)
+#define TMS570_POMDEVTYPE_Sub_Type_GET(reg) BSP_FLD32GET(reg,4, 7)
+#define TMS570_POMDEVTYPE_Sub_Type_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
 
 /* field: Major_Type - Debug Control */
-#define tms570_POM_POMDEVTYPE_Major_Type(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMDEVTYPE_Major_Type_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMDEVTYPE_Major_Type_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_POMDEVTYPE_Major_Type(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMDEVTYPE_Major_Type_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMDEVTYPE_Major_Type_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*----------------tms570_POM_POMPERIPHERALID4----------------*/
+/*------------------TMS570_POMPERIPHERALID4------------------*/
 /* field: 4KB_Count - Only 4KB implemented */
-#define tms570_POM_POMPERIPHERALID4_4KB_Count(val) BSP_FLD32(val,4, 7)
-#define tms570_POM_POMPERIPHERALID4_4KB_Count_GET(reg) BSP_FLD32GET(reg,4, 7)
-#define tms570_POM_POMPERIPHERALID4_4KB_Count_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
+#define TMS570_POMPERIPHERALID4_4KB_Count(val) BSP_FLD32(val,4, 7)
+#define TMS570_POMPERIPHERALID4_4KB_Count_GET(reg) BSP_FLD32GET(reg,4, 7)
+#define TMS570_POMPERIPHERALID4_4KB_Count_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
 
 /* field: JEP_Continuation - JEP106 Code */
-#define tms570_POM_POMPERIPHERALID4_JEP_Continuation(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMPERIPHERALID4_JEP_Continuation_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMPERIPHERALID4_JEP_Continuation_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_POMPERIPHERALID4_JEP_Continuation(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMPERIPHERALID4_JEP_Continuation_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMPERIPHERALID4_JEP_Continuation_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*----------------tms570_POM_POMPERIPHERALID5----------------*/
+/*------------------TMS570_POMPERIPHERALID5------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMPERIPHERALID5_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMPERIPHERALID5_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMPERIPHERALID5_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMPERIPHERALID5_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMPERIPHERALID5_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMPERIPHERALID5_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*----------------tms570_POM_POMPERIPHERALID6----------------*/
+/*------------------TMS570_POMPERIPHERALID6------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMPERIPHERALID6_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMPERIPHERALID6_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMPERIPHERALID6_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMPERIPHERALID6_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMPERIPHERALID6_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMPERIPHERALID6_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*----------------tms570_POM_POMPERIPHERALID7----------------*/
+/*------------------TMS570_POMPERIPHERALID7------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMPERIPHERALID7_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMPERIPHERALID7_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMPERIPHERALID7_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMPERIPHERALID7_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMPERIPHERALID7_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMPERIPHERALID7_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*----------------tms570_POM_POMPERIPHERALID0----------------*/
+/*------------------TMS570_POMPERIPHERALID0------------------*/
 /* field: Part_Number - Reads 0, since POMREV defines the module */
-#define tms570_POM_POMPERIPHERALID0_Part_Number(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMPERIPHERALID0_Part_Number_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMPERIPHERALID0_Part_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_POMPERIPHERALID0_Part_Number(val) BSP_FLD32(val,0, 7)
+#define TMS570_POMPERIPHERALID0_Part_Number_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_POMPERIPHERALID0_Part_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*----------------tms570_POM_POMPERIPHERALID1----------------*/
+/*------------------TMS570_POMPERIPHERALID1------------------*/
 /* field: JEP106_Identity - Part of TI JEDEC number */
-#define tms570_POM_POMPERIPHERALID1_JEP106_Identity(val) BSP_FLD32(val,4, 7)
-#define tms570_POM_POMPERIPHERALID1_JEP106_Identity_GET(reg) BSP_FLD32GET(reg,4, 7)
-#define tms570_POM_POMPERIPHERALID1_JEP106_Identity_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
+#define TMS570_POMPERIPHERALID1_JEP106_Identity(val) BSP_FLD32(val,4, 7)
+#define TMS570_POMPERIPHERALID1_JEP106_Identity_GET(reg) BSP_FLD32GET(reg,4, 7)
+#define TMS570_POMPERIPHERALID1_JEP106_Identity_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
 
 /* field: Part_Number - Reads 0, since POMREV defines the module */
-#define tms570_POM_POMPERIPHERALID1_Part_Number(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMPERIPHERALID1_Part_Number_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMPERIPHERALID1_Part_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_POMPERIPHERALID1_Part_Number(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMPERIPHERALID1_Part_Number_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMPERIPHERALID1_Part_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*----------------tms570_POM_POMPERIPHERALID2----------------*/
+/*------------------TMS570_POMPERIPHERALID2------------------*/
 /* field: Revision - Reads 0, since POMREV defines the module */
-#define tms570_POM_POMPERIPHERALID2_Revision(val) BSP_FLD32(val,4, 7)
-#define tms570_POM_POMPERIPHERALID2_Revision_GET(reg) BSP_FLD32GET(reg,4, 7)
-#define tms570_POM_POMPERIPHERALID2_Revision_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
+#define TMS570_POMPERIPHERALID2_Revision(val) BSP_FLD32(val,4, 7)
+#define TMS570_POMPERIPHERALID2_Revision_GET(reg) BSP_FLD32GET(reg,4, 7)
+#define TMS570_POMPERIPHERALID2_Revision_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
 
 /* field: JEDEC - Indicates JEDEC assigned value */
-#define tms570_POM_POMPERIPHERALID2_JEDEC BSP_FLD32(3)
+#define TMS570_POMPERIPHERALID2_JEDEC BSP_FLD32(3)
 
 /* field: JEP106_Identity - JEDEC+JEP106 Identity Code (POMPERIPHERALID2)+JEP106 Identity Code */
-#define tms570_POM_POMPERIPHERALID2_JEP106_Identity(val) BSP_FLD32(val,0, 2)
-#define tms570_POM_POMPERIPHERALID2_JEP106_Identity_GET(reg) BSP_FLD32GET(reg,0, 2)
-#define tms570_POM_POMPERIPHERALID2_JEP106_Identity_SET(reg,val) BSP_FLD32SET(reg, val,0, 2)
+#define TMS570_POMPERIPHERALID2_JEP106_Identity(val) BSP_FLD32(val,0, 2)
+#define TMS570_POMPERIPHERALID2_JEP106_Identity_GET(reg) BSP_FLD32GET(reg,0, 2)
+#define TMS570_POMPERIPHERALID2_JEP106_Identity_SET(reg,val) BSP_FLD32SET(reg, val,0, 2)
 
 
-/*----------------tms570_POM_POMPERIPHERALID3----------------*/
+/*------------------TMS570_POMPERIPHERALID3------------------*/
 /* field: Reserved - Read returns 0. Writes have no effect. */
-#define tms570_POM_POMPERIPHERALID3_Reserved(val) BSP_FLD32(val,0, 31)
-#define tms570_POM_POMPERIPHERALID3_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_POM_POMPERIPHERALID3_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_POMPERIPHERALID3_Reserved(val) BSP_FLD32(val,0, 31)
+#define TMS570_POMPERIPHERALID3_Reserved_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_POMPERIPHERALID3_Reserved_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-----------------tms570_POM_POMCOMPONENTID0-----------------*/
+/*-------------------TMS570_POMCOMPONENTID0-------------------*/
 /* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID0_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID0_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID0_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_POMCOMPONENTID0_Preamble(val) BSP_FLD32(val,0, 7)
+#define TMS570_POMCOMPONENTID0_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_POMCOMPONENTID0_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-----------------tms570_POM_POMCOMPONENTID1-----------------*/
+/*-------------------TMS570_POMCOMPONENTID1-------------------*/
 /* field: Component_Class - CoreSight Component */
-#define tms570_POM_POMCOMPONENTID1_Component_Class(val) BSP_FLD32(val,4, 7)
-#define tms570_POM_POMCOMPONENTID1_Component_Class_GET(reg) BSP_FLD32GET(reg,4, 7)
-#define tms570_POM_POMCOMPONENTID1_Component_Class_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
+#define TMS570_POMCOMPONENTID1_Component_Class(val) BSP_FLD32(val,4, 7)
+#define TMS570_POMCOMPONENTID1_Component_Class_GET(reg) BSP_FLD32GET(reg,4, 7)
+#define TMS570_POMCOMPONENTID1_Component_Class_SET(reg,val) BSP_FLD32SET(reg, val,4, 7)
 
 /* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID1_Preamble(val) BSP_FLD32(val,0, 3)
-#define tms570_POM_POMCOMPONENTID1_Preamble_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_POM_POMCOMPONENTID1_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_POMCOMPONENTID1_Preamble(val) BSP_FLD32(val,0, 3)
+#define TMS570_POMCOMPONENTID1_Preamble_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_POMCOMPONENTID1_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*-----------------tms570_POM_POMCOMPONENTID2-----------------*/
+/*-------------------TMS570_POMCOMPONENTID2-------------------*/
 /* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID2_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID2_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID2_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_POMCOMPONENTID2_Preamble(val) BSP_FLD32(val,0, 7)
+#define TMS570_POMCOMPONENTID2_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_POMCOMPONENTID2_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
+/*-------------------TMS570_POMCOMPONENTID3-------------------*/
 /* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
+#define TMS570_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
-/*-----------------tms570_POM_POMCOMPONENTID3-----------------*/
-/* field: Preamble - Preamble */
-#define tms570_POM_POMCOMPONENTID3_Preamble(val) BSP_FLD32(val,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_POM_POMCOMPONENTID3_Preamble_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
-
-
 
-#endif /* LIBBSP_ARM_tms570_POM.H */
+#endif /* LIBBSP_ARM_tms570_POP */

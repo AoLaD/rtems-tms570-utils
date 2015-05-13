@@ -1,1009 +1,976 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "DMM",
-      "registers" :
-      [
-{
-          "name" : "DMMGLBCTRL",
-          "info" : "DMM Global Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUSY",
-               "info" : "Busy indicator."
-             },
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CONTCLK",
-               "info" : "Continuous DMMCLK input."
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "COS",
-               "info" : "Continue on suspend. Influences behavior of module while in debug mode."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RESET",
-               "info" : "Reset."
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "DDM_WIDTH",
-               "info" : "Packet Width in direct data mode."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TM_DMM",
-               "info" : "Packet Format."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "ON/OFF",
-               "info" : "Switch module on or off"
-             }
-          ]
-        },
-{
-          "name" : "DMMINTSET",
-          "info" : "DMM Interrupt Set Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4",
-          "fields" : [
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PROG_BUFF",
-               "info" : "Programmable Buffer Interrupt Set."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EO_BUFF",
-               "info" : "EO_BUFF"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG2",
-               "info" : "Destination 3 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG1",
-               "info" : "Destination 3 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG2",
-               "info" : "Destination 2 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG1",
-               "info" : "Destination 2 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG2",
-               "info" : "Destination 1 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG1",
-               "info" : "DEST1REG1"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG2",
-               "info" : "Destination 0 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG1",
-               "info" : "Destination 0 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUSERROR",
-               "info" : "Bus Error Response for errors generated when doing internal bus transfers."
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUFF_OVF",
-               "info" : "Buffer Overflow."
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SRC_OVF",
-               "info" : "Source Overflow."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3_ERR",
-               "info" : "Destination 3 Error."
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2_ERR",
-               "info" : "Destination 2 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1_ERR",
-               "info" : "Destination 1 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0_ERR",
-               "info" : "Destination 0 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACKET_ERR_INT",
-               "info" : "Packet Error."
-             }
-          ]
-        },
-{
-          "name" : "DMMINTCLR",
-          "info" : "DMM Interrupt Clear Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "8",
-          "fields" : [
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PROG_BUFF",
-               "info" : "Programmable Buffer Interrupt Set."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EO_BUFF",
-               "info" : "End of Buffer Interrupt Set."
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG2",
-               "info" : "was accessed at the startaddress of Destination 3 Region 2."
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG1",
-               "info" : "Destination 3 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG2",
-               "info" : "Destination 2 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG1",
-               "info" : "Destination 2 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG2",
-               "info" : "Destination 1 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG1",
-               "info" : "Destination 1 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG2",
-               "info" : "Destination 0 Region 2 Interrupt Set."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG1",
-               "info" : "Destination 0 Region 1 Interrupt Set."
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUSERROR",
-               "info" : "Bus Error Response for errors generated when doing internal bus transfers."
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUFF_OVF",
-               "info" : "Buffer Overflow."
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SRC_OVF",
-               "info" : "Source Overflow."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3_ERR",
-               "info" : "Destination 3 Error."
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2_ERR",
-               "info" : "Destination 2 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1_ERR",
-               "info" : "Destination 1 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0_ERR",
-               "info" : "Destination 0 Error Interrupt Set."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACKET_ERR_INT",
-               "info" : "Packet Error."
-             }
-          ]
-        },
-{
-          "name" : "DMMINTLVL",
-          "info" : "DMM Interrupt Level Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C",
-          "fields" : [
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PROG_BUFF",
-               "info" : "Programmable Buffer Interrupt Level"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EO_BUFF",
-               "info" : "End of Buffer Interrupt Level"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG2",
-               "info" : "Destination 3 Region 2 Interrupt Level"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG1",
-               "info" : "Destination 3 Region 1 Interrupt Level"
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG2",
-               "info" : "Destination 2 Region 2 Interrupt Level"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG1",
-               "info" : "Destination 2 Region 1 Interrupt Level"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG2",
-               "info" : "Destination 1 Region 2 Interrupt Level"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG1",
-               "info" : "Destination 1 Region 1 Interrupt Level"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG2",
-               "info" : "Destination 0 Region 2 Interrupt Level"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG1",
-               "info" : "Destination 0 Region 1 Interrupt Level"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUSERROR",
-               "info" : "BMM Bus Error Response"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUFF_OVF",
-               "info" : "Write Buffer Overflow Interrupt Level"
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SRC_OVF",
-               "info" : "Source Overflow Interrupt Level"
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3_ERR",
-               "info" : "Destination 3 Error Interrupt Level"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2_ERR",
-               "info" : "Destination 2 Error Interrupt Level"
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1_ERR",
-               "info" : "Destination 1 Error Interrupt Level"
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0_ERR",
-               "info" : "Destination 0 Error Interrupt Level"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACKET_ERR_INT",
-               "info" : "Packet Error Interrupt Level"
-             }
-          ]
-        },
-{
-          "name" : "DMMINTFLG",
-          "info" : "DMM Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10",
-          "fields" : [
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PROG_BUFF",
-               "info" : "Programmable Buffer Interrupt Flag"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EO_BUFF",
-               "info" : "End of Buffer Interrupt Flag"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG2",
-               "info" : "Destination 3 Region 2 Interrupt Flag"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3REG1",
-               "info" : "Destination 3 Region 1 Interrupt Flag"
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG2",
-               "info" : "Destination 2 Region 2 Interrupt Flag"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2REG1",
-               "info" : "Destination 2 Region 1 Interrupt Flag"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG2",
-               "info" : "Destination 1 Region 2 Interrupt Flag"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1REG1",
-               "info" : "Destination 1 Region 1 Interrupt Flag"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG2",
-               "info" : "Destination 0 Region 2 Interrupt Flag"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0REG1",
-               "info" : "Destination 0 Region 1 Interrupt Flag"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUSERROR",
-               "info" : "BMM Bus Error Response."
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BUFF_OVF",
-               "info" : "Write Buffer Overflow Interrupt Flag"
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SRC_OVF",
-               "info" : "Source Overflow Interrupt Flag"
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST3_ERR",
-               "info" : "Destination 3 Error Interrupt Flag"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST2_ERR",
-               "info" : "Destination 2 Error Interrupt Flag"
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST1_ERR",
-               "info" : "Destination 1 Error Interrupt Flag"
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DEST0_ERR",
-               "info" : "Destination 0 Error Interrupt Flag"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACKET_ERR_INT",
-               "info" : "Packet Error Interrupt Flag"
-             }
-          ]
-        },
-{
-          "name" : "DMMOFF1",
-          "info" : "DMM Interrupt Offset 1 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "OFFSET",
-               "info" : "User and privilege mode (read):"
-             }
-          ]
-        },
-{
-          "name" : "DMMOFF2",
-          "info" : "DMM Interrupt Offset 2 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "18",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "OFFSET",
-               "info" : "User and privilege mode (read):"
-             }
-          ]
-        },
-{
-          "name" : "DMMDDMDEST",
-          "info" : "DMM Direct Data Mode Destination Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "STARTADDR",
-               "info" : "These bits define the starting address of the buffer."
-             }
-          ]
-        },
-{
-          "name" : "DMMDDMBL",
-          "info" : "DMM Direct Data Mode Blocksize Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "20",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the size of the buffer region"
-             }
-          ]
-        },
-{
-          "name" : "DMMDDMPT",
-          "info" : "DMM Direct Data Mode Pointer Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "24",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "15",
-               "bit_Field_Name" : "POINTER",
-               "info" : "These bits hold the pointer to the next entry to be written in the buffer."
-             }
-          ]
-        },
-{
-          "name" : "DMMINTPT",
-          "info" : "DMM Direct Data Mode Interrupt Pointer Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "28",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "15",
-               "bit_Field_Name" : "INTPT",
-               "info" : "Interrupt Pointer. When the buffer pointer (Section 30.3."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC0",
-          "info" : "DMM Pin Control 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "6C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAFUNC",
-               "info" : "Functional mode of DMMENA pin."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxFUNC",
-               "info" : "Functional mode of DMMDATA[x] pin."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKFUNC",
-               "info" : "Functional mode of DMMCLK pin."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCFUNC",
-               "info" : "Functional mode of DMMSYNC pin."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC1",
-          "info" : "DMM Pin Control 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "70",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENADIR",
-               "info" : "Direction of DMMENA pin."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxDIR",
-               "info" : "Direction of DMMDATA[x] pin."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKDIR",
-               "info" : "Direction of DMMCLK pin."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCDIR",
-               "info" : "Direction of DMMSYNC pin."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC2",
-          "info" : "DMM Pin Control 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "74",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAIN",
-               "info" : "DMMENA input. This bit reflects the state of the pin in all modes."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxIN",
-               "info" : "DMMDATA[x] input. This bit reflects the state of the pin in all modes."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKIN",
-               "info" : "DMMCLK input. This bit reflects the state of the pin in all modes."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCIN",
-               "info" : "DMMSYNC input."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC3",
-          "info" : "DMM Pin Control 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "78",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAOUT",
-               "info" : "Output state of DMMENA pin."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxOUT",
-               "info" : "Output state of DMMDATA[x] pin. This bit sets the pin to logic low or high level."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKOUT",
-               "info" : "Output state of DMMCLK pin."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCOUT",
-               "info" : "Output state of DMMSYNC pin. This bit sets the pin to logic low or high level."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC4",
-          "info" : "DMM Pin Control 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "7C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENASET",
-               "info" : "control register bit to 1 regardless of the current value in the ENAOUT bit."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxSET",
-               "info" : "Sets output state of DMMDATA[x] pin to logic high."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKSET",
-               "info" : "Sets output state of DMMCLK pin to logic high."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCSET",
-               "info" : "Sets output state of DMMSYNC pin logic high."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC5",
-          "info" : "DMM Pin Control 5",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "80",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENACLR",
-               "info" : "Sets output state of DMMENA pin to logic low."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxCLR",
-               "info" : "Sets output state of DMMDATA[x] pin to logic low."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKCLR",
-               "info" : "Sets output state of DMMCLK pin to logic low."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCCLR",
-               "info" : "Sets output state of DMMSYNC pin to logic low."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC6",
-          "info" : "DMM Pin Control 6",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "84",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAPDR",
-               "info" : "Open Drain enable."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxPDR",
-               "info" : "Open Drain enable."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKPDR",
-               "info" : "Open Drain enable."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCPDR",
-               "info" : "Open Drain enable."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC7",
-          "info" : "DMM Pin Control 7",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "88",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAPDIS",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxPDIS",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKPDIS",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCPDIS",
-               "info" : "Pull disable."
-             }
-          ]
-        },
-{
-          "name" : "DMMPC8",
-          "info" : "DMM Pin Control 8",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "8C",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENAPSEL",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "DATAxPSEL",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CLKPSEL",
-               "info" : "Pull disable."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SYNCPSEL",
-               "info" : "Pull disable."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST{}REG1",
-          "info" : "DMM Destination {} Region 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "2C",
-          "group_position" : ["2C","3C","4C","5C"],
-          "group_names" : ["0","1","2","3"],
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "BASEADDR",
-               "info" : "These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST{}BL1",
-          "info" : "DMM Destination {} Blocksize 1",
-          "lenght" : "32",
-
-          "adress" : "0",
-
-          "offset" : "30",
-
-          "group_position" : ["30","40", "50", "60"],
-          "group_names" : ["0","1","2","3"],
-          "fields" : [
-
-             {
-
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-
-               "bit_Field_Name" : "BLOCKSIZE",
-
-               "info" : "These bits define the length of the buffer region."
-
-             }
-
-          ]
-
-        },
-
-{
-          "name" : "DMMDEST{}REG2",
-          "info" : "DMM Destination {} Region 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "34",
-          "group_position" : ["34","44", "54", "64"],
-          "group_names" : ["0","1","2","3"],
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "14",
-               "bit_Field_Name" : "BASEADDR",
-               "info" : "These bits define the base address of the 256kB region where the buffer is located."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "18",
-               "bit_Field_Name" : "BLOCKADDR",
-               "info" : "These bits define the starting address of the buffer in the 256kB page."
-             }
-          ]
-        },
-{
-          "name" : "DMMDEST{}BL2",
-          "info" : "DMM Destination {} Blocksize 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "38",
-          "group_position" : ["38","48", "58", "68"],
-          "group_names" : ["0","1","2","3"],
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BLOCKSIZE",
-               "info" : "These bits define the length of the buffer region."
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-}
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "DMM",
+     "full name" : "Data Modification Module",
+     "offset" : ["0xFFFFF700"],
+     "registers" : [
+       {
+       "name" : "DMMGLBCTRL",
+       "info" : "DMM Global Control Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUSY",
+         "info" : "Busy indicator."
+         },
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CONTCLK",
+         "info" : "Continuous DMMCLK input."
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "COS",
+         "info" : "Continue on suspend. Influences behavior of module while in debug mode."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RESET",
+         "info" : "Reset."
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "DDM_WIDTH",
+         "info" : "Packet Width in direct data mode."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TM_DMM",
+         "info" : "Packet Format."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "ON_OFF",
+         "info" : "Switch module on or off"
+         }
+        ]
+       },
+       {
+       "name" : "DMMINTSET",
+       "info" : "DMM Interrupt Set Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PROG_BUFF",
+         "info" : "Programmable Buffer Interrupt Set."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EO_BUFF",
+         "info" : "EO_BUFF"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG2",
+         "info" : "Destination 3 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG1",
+         "info" : "Destination 3 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG2",
+         "info" : "Destination 2 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG1",
+         "info" : "Destination 2 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG2",
+         "info" : "Destination 1 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG1",
+         "info" : "DEST1REG1"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG2",
+         "info" : "Destination 0 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG1",
+         "info" : "Destination 0 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUSERROR",
+         "info" : "Bus Error Response for errors generated when doing internal bus transfers."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUFF_OVF",
+         "info" : "Buffer Overflow."
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SRC_OVF",
+         "info" : "Source Overflow."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3_ERR",
+         "info" : "Destination 3 Error."
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2_ERR",
+         "info" : "Destination 2 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1_ERR",
+         "info" : "Destination 1 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0_ERR",
+         "info" : "Destination 0 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACKET_ERR_INT",
+         "info" : "Packet Error."
+         }
+        ]
+       },
+       {
+       "name" : "DMMINTCLR",
+       "info" : "DMM Interrupt Clear Register",
+       "lenght" : "32",
+       "adress" : "0x8",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PROG_BUFF",
+         "info" : "Programmable Buffer Interrupt Set."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EO_BUFF",
+         "info" : "End of Buffer Interrupt Set."
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG2",
+         "info" : "was accessed at the startaddress of Destination 3 Region 2."
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG1",
+         "info" : "Destination 3 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG2",
+         "info" : "Destination 2 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG1",
+         "info" : "Destination 2 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG2",
+         "info" : "Destination 1 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG1",
+         "info" : "Destination 1 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG2",
+         "info" : "Destination 0 Region 2 Interrupt Set."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG1",
+         "info" : "Destination 0 Region 1 Interrupt Set."
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUSERROR",
+         "info" : "Bus Error Response for errors generated when doing internal bus transfers."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUFF_OVF",
+         "info" : "Buffer Overflow."
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SRC_OVF",
+         "info" : "Source Overflow."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3_ERR",
+         "info" : "Destination 3 Error."
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2_ERR",
+         "info" : "Destination 2 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1_ERR",
+         "info" : "Destination 1 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0_ERR",
+         "info" : "Destination 0 Error Interrupt Set."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACKET_ERR_INT",
+         "info" : "Packet Error."
+         }
+        ]
+       },
+       {
+       "name" : "DMMINTLVL",
+       "info" : "DMM Interrupt Level Register",
+       "lenght" : "32",
+       "adress" : "0xc",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PROG_BUFF",
+         "info" : "Programmable Buffer Interrupt Level"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EO_BUFF",
+         "info" : "End of Buffer Interrupt Level"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG2",
+         "info" : "Destination 3 Region 2 Interrupt Level"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG1",
+         "info" : "Destination 3 Region 1 Interrupt Level"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG2",
+         "info" : "Destination 2 Region 2 Interrupt Level"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG1",
+         "info" : "Destination 2 Region 1 Interrupt Level"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG2",
+         "info" : "Destination 1 Region 2 Interrupt Level"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG1",
+         "info" : "Destination 1 Region 1 Interrupt Level"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG2",
+         "info" : "Destination 0 Region 2 Interrupt Level"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG1",
+         "info" : "Destination 0 Region 1 Interrupt Level"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUSERROR",
+         "info" : "BMM Bus Error Response"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUFF_OVF",
+         "info" : "Write Buffer Overflow Interrupt Level"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SRC_OVF",
+         "info" : "Source Overflow Interrupt Level"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3_ERR",
+         "info" : "Destination 3 Error Interrupt Level"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2_ERR",
+         "info" : "Destination 2 Error Interrupt Level"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1_ERR",
+         "info" : "Destination 1 Error Interrupt Level"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0_ERR",
+         "info" : "Destination 0 Error Interrupt Level"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACKET_ERR_INT",
+         "info" : "Packet Error Interrupt Level"
+         }
+        ]
+       },
+       {
+       "name" : "DMMINTFLG",
+       "info" : "DMM Interrupt Flag Register",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PROG_BUFF",
+         "info" : "Programmable Buffer Interrupt Flag"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EO_BUFF",
+         "info" : "End of Buffer Interrupt Flag"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG2",
+         "info" : "Destination 3 Region 2 Interrupt Flag"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3REG1",
+         "info" : "Destination 3 Region 1 Interrupt Flag"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG2",
+         "info" : "Destination 2 Region 2 Interrupt Flag"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2REG1",
+         "info" : "Destination 2 Region 1 Interrupt Flag"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG2",
+         "info" : "Destination 1 Region 2 Interrupt Flag"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1REG1",
+         "info" : "Destination 1 Region 1 Interrupt Flag"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG2",
+         "info" : "Destination 0 Region 2 Interrupt Flag"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0REG1",
+         "info" : "Destination 0 Region 1 Interrupt Flag"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUSERROR",
+         "info" : "BMM Bus Error Response."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BUFF_OVF",
+         "info" : "Write Buffer Overflow Interrupt Flag"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SRC_OVF",
+         "info" : "Source Overflow Interrupt Flag"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST3_ERR",
+         "info" : "Destination 3 Error Interrupt Flag"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST2_ERR",
+         "info" : "Destination 2 Error Interrupt Flag"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST1_ERR",
+         "info" : "Destination 1 Error Interrupt Flag"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DEST0_ERR",
+         "info" : "Destination 0 Error Interrupt Flag"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACKET_ERR_INT",
+         "info" : "Packet Error Interrupt Flag"
+         }
+        ]
+       },
+       {
+       "name" : "DMMOFF1",
+       "info" : "DMM Interrupt Offset 1 Register",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "OFFSET",
+         "info" : "User and privilege mode (read):"
+         }
+        ]
+       },
+       {
+       "name" : "DMMOFF2",
+       "info" : "DMM Interrupt Offset 2 Register",
+       "lenght" : "32",
+       "adress" : "0x18",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "OFFSET",
+         "info" : "User and privilege mode (read):"
+         }
+        ]
+       },
+       {
+       "name" : "DMMDDMDEST",
+       "info" : "DMM Direct Data Mode Destination Register",
+       "lenght" : "32",
+       "adress" : "0x1c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDR",
+         "info" : "These bits define the starting address of the buffer."
+         }
+        ]
+       },
+       {
+       "name" : "DMMDDMBL",
+       "info" : "DMM Direct Data Mode Blocksize Register",
+       "lenght" : "32",
+       "adress" : "0x20",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "BLOCKSIZE",
+         "info" : "These bits define the size of the buffer region"
+         }
+        ]
+       },
+       {
+       "name" : "DMMDDMPT",
+       "info" : "DMM Direct Data Mode Pointer Register",
+       "lenght" : "32",
+       "adress" : "0x24",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "15",
+         "bit_Field_Name" : "POINTER",
+         "info" : "These bits hold the pointer to the next entry to be written in the buffer."
+         }
+        ]
+       },
+       {
+       "name" : "DMMINTPT",
+       "info" : "DMM Direct Data Mode Interrupt Pointer Register",
+       "lenght" : "32",
+       "adress" : "0x28",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "15",
+         "bit_Field_Name" : "INTPT",
+         "info" : "Interrupt Pointer. When the buffer pointer (Section 30.3."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC0",
+       "info" : "DMM Pin Control 0",
+       "lenght" : "32",
+       "adress" : "0x6c",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAFUNC",
+         "info" : "Functional mode of DMMENA pin."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxFUNC",
+         "info" : "Functional mode of DMMDATA[x] pin."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKFUNC",
+         "info" : "Functional mode of DMMCLK pin."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCFUNC",
+         "info" : "Functional mode of DMMSYNC pin."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC1",
+       "info" : "DMM Pin Control 1",
+       "lenght" : "32",
+       "adress" : "0x70",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENADIR",
+         "info" : "Direction of DMMENA pin."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxDIR",
+         "info" : "Direction of DMMDATA[x] pin."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKDIR",
+         "info" : "Direction of DMMCLK pin."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCDIR",
+         "info" : "Direction of DMMSYNC pin."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC2",
+       "info" : "DMM Pin Control 2",
+       "lenght" : "32",
+       "adress" : "0x74",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAIN",
+         "info" : "DMMENA input. This bit reflects the state of the pin in all modes."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxIN",
+         "info" : "DMMDATA[x] input. This bit reflects the state of the pin in all modes."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKIN",
+         "info" : "DMMCLK input. This bit reflects the state of the pin in all modes."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCIN",
+         "info" : "DMMSYNC input."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC3",
+       "info" : "DMM Pin Control 3",
+       "lenght" : "32",
+       "adress" : "0x78",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAOUT",
+         "info" : "Output state of DMMENA pin."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxOUT",
+         "info" : "Output state of DMMDATA[x] pin. This bit sets the pin to logic low or high level."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKOUT",
+         "info" : "Output state of DMMCLK pin."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCOUT",
+         "info" : "Output state of DMMSYNC pin. This bit sets the pin to logic low or high level."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC4",
+       "info" : "DMM Pin Control 4",
+       "lenght" : "32",
+       "adress" : "0x7c",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENASET",
+         "info" : "control register bit to 1 regardless of the current value in the ENAOUT bit."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxSET",
+         "info" : "Sets output state of DMMDATA[x] pin to logic high."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKSET",
+         "info" : "Sets output state of DMMCLK pin to logic high."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCSET",
+         "info" : "Sets output state of DMMSYNC pin logic high."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC5",
+       "info" : "DMM Pin Control 5",
+       "lenght" : "32",
+       "adress" : "0x80",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENACLR",
+         "info" : "Sets output state of DMMENA pin to logic low."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxCLR",
+         "info" : "Sets output state of DMMDATA[x] pin to logic low."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKCLR",
+         "info" : "Sets output state of DMMCLK pin to logic low."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCCLR",
+         "info" : "Sets output state of DMMSYNC pin to logic low."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC6",
+       "info" : "DMM Pin Control 6",
+       "lenght" : "32",
+       "adress" : "0x84",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAPDR",
+         "info" : "Open Drain enable."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxPDR",
+         "info" : "Open Drain enable."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKPDR",
+         "info" : "Open Drain enable."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCPDR",
+         "info" : "Open Drain enable."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC7",
+       "info" : "DMM Pin Control 7",
+       "lenght" : "32",
+       "adress" : "0x88",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAPDIS",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxPDIS",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKPDIS",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCPDIS",
+         "info" : "Pull disable."
+         }
+        ]
+       },
+       {
+       "name" : "DMMPC8",
+       "info" : "DMM Pin Control 8",
+       "lenght" : "32",
+       "adress" : "0x8c",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENAPSEL",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "DATAxPSEL",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CLKPSEL",
+         "info" : "Pull disable."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SYNCPSEL",
+         "info" : "Pull disable."
+         }
+        ]
+       },
+       {
+       "name" : "DMMDEST{}REG1",
+       "info" : "DMM Destination {} Region 1",
+       "lenght" : "32",
+       "adress" : "0x2c",
+       "group_position" : ["0x2C", "0x3C", "0x4C", "0x5C"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "14",
+         "bit_Field_Name" : "BASEADDR",
+         "info" : "These bits define the base address of the 256kB region where the buffer is located."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "18",
+         "bit_Field_Name" : "BLOCKADDR",
+         "info" : "These bits define the starting address of the buffer in the 256kB page."
+         }
+        ]
+       },
+       {
+       "name" : "DMMDEST{}BL1",
+       "info" : "DMM Destination {} Blocksize 1",
+       "lenght" : "32",
+       "adress" : "0x30",
+       "group_position" : ["0x30", "0x40", "0x50", "0x60"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "BLOCKSIZE",
+         "info" : "These bits define the length of the buffer region."
+         }
+        ]
+       },
+       {
+       "name" : "DMMDEST{}REG2",
+       "info" : "DMM Destination {} Region 2",
+       "lenght" : "32",
+       "adress" : "0x34",
+       "group_position" : ["0x34", "0x44", "0x54", "0x64"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "14",
+         "bit_Field_Name" : "BASEADDR",
+         "info" : "These bits define the base address of the 256kB region where the buffer is located."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "18",
+         "bit_Field_Name" : "BLOCKADDR",
+         "info" : "These bits define the starting address of the buffer in the 256kB page."
+         }
+        ]
+       },
+       {
+       "name" : "DMMDEST{}BL2",
+       "info" : "DMM Destination {} Blocksize 2",
+       "lenght" : "32",
+       "adress" : "0x38",
+       "group_position" : ["0x38", "0x48", "0x58", "0x68"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "BLOCKSIZE",
+         "info" : "These bits define the length of the buffer region."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

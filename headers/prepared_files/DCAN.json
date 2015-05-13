@@ -1,1855 +1,1800 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "DCAN",
-      "registers" :
-      [
-{
-          "name" : "DCAN CTL",
-          "info" : "CAN Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "25",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "WUBA",
-               "info" : "Automatic wake up on bus activity when in local power down mode"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDR",
-               "info" : "Request for local low power down mode"
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DE3",
-               "info" : "Enable DMA request line for IF3"
-             },
-             {
-               "start_bit" : "19",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DE2",
-               "info" : "Enable DMA request line for IF2"
-             },
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DE1",
-               "info" : "Enable DMA request line for IF1"
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IE1",
-               "info" : "Interrupt line 1 Enable"
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "InitDbg",
-               "info" : "Internal Init state while debug access"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SWR",
-               "info" : "SW Reset Enable"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PMD",
-               "info" : "Parity on/off"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ABO",
-               "info" : "Auto-Bus-On Enable"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IDS",
-               "info" : "Interruption Debug Support Enable"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Test",
-               "info" : "Test Mode Enable"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CCE",
-               "info" : "Configuration Change Enable"
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DAR",
-               "info" : "Disable Automatic Retransmission"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EIE",
-               "info" : "Error Interrupt Enable"
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SIE",
-               "info" : "Status Change Interrupt Enable"
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IE0",
-               "info" : "Interrupt line 0 Enable"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Init",
-               "info" : "Initialization"
-             }
-          ]
-        },
-{
-          "name" : "DCAN ES",
-          "info" : "Error and Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "04",
-          "fields" : [
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDA",
-               "info" : "Local power down mode acknowledge"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "WakeUp Pnd",
-               "info" : "Wake Up Pending"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PER",
-               "info" : "Parity Error Detected"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "BOff",
-               "info" : "Bus-Off State"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EWarn",
-               "info" : "Warning State"
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EPass",
-               "info" : "Error Passive State"
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RxOK",
-               "info" : "Received a message successfully"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxOK",
-               "info" : "Transmitted a message successfully"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "LEC",
-               "info" : "Last Error Code"
-             }
-          ]
-        },
-{
-          "name" : "DCAN ERRC",
-          "info" : "Error Counter Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "08",
-          "fields" : [
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RP",
-               "info" : "Receive Error Passive"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "7",
-               "bit_Field_Name" : "REC",
-               "info" : "Receive Error Counter. Actual state of the Receive Error Counter. (values from 0 to 255)."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "TEC",
-               "info" : "Transmit Error Counter. Actual state of the Transmit Error Counter. (values from 0 to 255)."
-             }
-          ]
-        },
-{
-          "name" : "DCAN BTR",
-          "info" : "Bit Timing Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "BRPE",
-               "info" : "Baud Rate Prescaler Extension."
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "TSeg2",
-               "info" : "Time segment after the sample point"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "TSeg1",
-               "info" : "Time segment before the sample point"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "SJW",
-               "info" : "Synchronization Jump Width"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "6",
-               "bit_Field_Name" : "BRP",
-               "info" : "Baud Rate Prescaler"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INT",
-          "info" : "Interrupt Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Int1ID",
-               "info" : "Interrupt 1 Identifier (indicates the message object with the highest pending interrupt)"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "Int0ID",
-               "info" : "Interrupt Identifier (the number here indicates the source of the interrupt)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TEST",
-          "info" : "Test Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14",
-          "fields" : [
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RDA",
-               "info" : "RAM Direct Access Enable"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EXL",
-               "info" : "External Loop Back Mode"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Rx",
-               "info" : "Receive Pin. Monitors the actual value of the CAN_RX pin."
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "Tx",
-               "info" : "Control of CAN_TX pin"
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LBack",
-               "info" : "Loop Back Mode"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Silent",
-               "info" : "Silent Mode"
-             }
-          ]
-        },
-{
-          "name" : "DCAN PERR",
-          "info" : "Parity Error Code Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "Word Number",
-               "info" : "Word number where parity error has been detected"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Message Number",
-               "info" : ""
-             }
-          ]
-        },
-{
-          "name" : "DCAN ABOTR",
-          "info" : "Auto-Bus-On Time Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "80",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ABO Time",
-               "info" : "Number of VBUS clock cycles before a Bus-Off recovery sequence is"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TXRQX",
-          "info" : "Transmission Request X Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "84",
-          "fields" : [
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg8",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "12",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg7",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "10",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg6",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "8",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg5",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg4",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "4",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg3",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "2",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg2",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "TxRqstReg1",
-               "info" : "TxRqstReg8"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TXRQ12",
-          "info" : "Transmission Request 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "88",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TxRqs1To32",
-               "info" : "Transmission Request Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TXRQ34",
-          "info" : "Transmission Request 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "8C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TxRqs33To64",
-               "info" : "Transmission Request Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TXRQ56",
-          "info" : "Transmission Request 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "90",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TxRqs65To96",
-               "info" : "Transmission Request Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TXRQ78",
-          "info" : "Transmission Request 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "94",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TxRqs97To128",
-               "info" : "Transmission Request Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN NWDATX",
-          "info" : "New Data X Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "98",
-          "fields" : [
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg8",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "12",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg7",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "10",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg6",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "8",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg5",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg4",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "4",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg3",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "2",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg2",
-               "info" : "TxRqstReg8"
-             },
-	     {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "NewDatReg1",
-               "info" : "TxRqstReg8"
-             }
-          ]
-        },
-{
-          "name" : "DCAN NWDAT12",
-          "info" : "New Data 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "9C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "NewDat1To32",
-               "info" : "New Data Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN NWDAT34",
-          "info" : "New Data 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "A0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "NewDat33To64",
-               "info" : "New Data Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN NWDAT56",
-          "info" : "New Data 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "A4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "NewDat65To96",
-               "info" : "New Data Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN NWDAT78",
-          "info" : "New Data 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "A8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "NewDat97To128",
-               "info" : "New Data Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTPNDX",
-          "info" : "Interrupt Pending X Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "AC",
-          "fields" : [
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg8",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "12",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg7",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "10",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg6",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "8",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg5",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg4",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "4",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg3",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "2",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg2",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             },
-	     {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "IntPndReg1",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTPND12",
-          "info" : "Interrupt Pending 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntPnd1To32",
-               "info" : "Interrupt Pending Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTPND34",
-          "info" : "Interrupt Pending 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntPnd33To64",
-               "info" : "Interrupt Pending Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTPND56",
-          "info" : "Interrupt Pending 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntPnd65To96",
-               "info" : "Interrupt Pending Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTPND78",
-          "info" : "Interrupt Pending 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "BC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntPnd97To128",
-               "info" : "Interrupt Pending Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN MSGVALX",
-          "info" : "Message Valid X Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "C0",
-          "fields" : [
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg8",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "12",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg7",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "10",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg6",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "8",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg5",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg4",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "4",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg3",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "2",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg2",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             },
-	     {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MsgValReg1",
-               "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
-             }
-          ]
-        },
-{
-          "name" : "DCAN MSGVAL12",
-          "info" : "Message Valid 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "C4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "MsgVal1To32",
-               "info" : "Message Valid Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN MSGVAL34",
-          "info" : "Message Valid 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "C8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "MsgVal33To64",
-               "info" : "Message Valid Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN MSGVAL56",
-          "info" : "Message Valid 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "CC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "MsgVal65To96",
-               "info" : "Message Valid Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN MSGVAL78",
-          "info" : "Message Valid 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "D0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "MsgVal97To128",
-               "info" : "Message Valid Bits (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTMUX12",
-          "info" : "Interrupt Multiplexer 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "D8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntMux1To32",
-               "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTMUX34",
-          "info" : "Interrupt Multiplexer 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "DC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntMux33To64",
-               "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTMUX56",
-          "info" : "Interrupt Multiplexer 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "E0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntMux65To96",
-               "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-             }
-          ]
-        },
-{
-          "name" : "DCAN INTMUX78",
-          "info" : "Interrupt Multiplexer 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "E4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IntMux97To128",
-               "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1CMD",
-          "info" : "IF1 Command Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "100",
-          "fields" : [
-             {
-               "start_bit" : "23",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "WR/RD",
-               "info" : "Write/Read"
-             },
-             {
-               "start_bit" : "22",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Mask",
-               "info" : "Access Mask bits"
-             },
-             {
-               "start_bit" : "21",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Arb",
-               "info" : "Access Arbitration bits"
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Control",
-               "info" : "Access Control bits"
-             },
-             {
-               "start_bit" : "19",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ClrIntPnd",
-               "info" : "Clear Interrupt Pending bit"
-             },
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxRqst/NewDat",
-               "info" : "Access Transmission Request bit"
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data A",
-               "info" : "Access Data Bytes 0-3"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data B",
-               "info" : "Access Data Bytes 4-7"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Busy",
-               "info" : "Busy flag"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DMA Active",
-               "info" : "Activation of DMA feature for subsequent internal IF1/IF2 update"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Message Number",
-               "info" : "Number of message object in Message RAM that is used for data transfer"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2CMD",
-          "info" : "IF2 Command Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "120",
-          "fields" : [
-             {
-               "start_bit" : "23",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "WR/RD",
-               "info" : "Write/Read"
-             },
-             {
-               "start_bit" : "22",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Mask",
-               "info" : "Access Mask bits"
-             },
-             {
-               "start_bit" : "21",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Arb",
-               "info" : "Access Arbitration bits"
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Control",
-               "info" : "Access Control bits"
-             },
-             {
-               "start_bit" : "19",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ClrIntPnd",
-               "info" : "Clear Interrupt Pending bit"
-             },
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxRqst/NewDat",
-               "info" : "Access Transmission Request bit"
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data A",
-               "info" : "Access Data Bytes 0-3"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data B",
-               "info" : "Access Data Bytes 4-7"
-             },
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Busy",
-               "info" : "Busy flag"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DMA Active",
-               "info" : "Activation of DMA feature for subsequent internal IF1/IF2 update"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Message Number",
-               "info" : "Number of message object in Message RAM that is used for data transfer"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1MSK",
-          "info" : "IF1 Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "104",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MXtd",
-               "info" : "Mask Extended Identifier"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MDir",
-               "info" : "Mask Message Direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "Msk",
-               "info" : "Identifier Mask"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2MSK",
-          "info" : "IF2 Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "124",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MXtd",
-               "info" : "Mask Extended Identifier"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MDir",
-               "info" : "Mask Message Direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "Msk",
-               "info" : "Identifier Mask"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1ARB",
-          "info" : "IF1 Arbitration Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "108",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgVal",
-               "info" : "Message Valid"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Xtd",
-               "info" : "Extended Identifier"
-             },
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Dir",
-               "info" : "Message direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "ID",
-               "info" : "Message Identifier"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2ARB",
-          "info" : "IF2 Arbitration Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "128",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgVal",
-               "info" : "Message Valid"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Xtd",
-               "info" : "Extended Identifier"
-             },
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Dir",
-               "info" : "Message direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "ID",
-               "info" : "Message Identifier"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1MCTL",
-          "info" : "IF1 Message Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10C",
-          "fields" : [
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "NewDat",
-               "info" : "New Data"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgLst",
-               "info" : "Message Lost (only valid for message objects with direction = receive)"
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IntPnd",
-               "info" : "Interrupt Pending"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "UMask",
-               "info" : "Use Acceptance Mask"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxIE",
-               "info" : "Transmit Interrupt Enable"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RxIE",
-               "info" : "Receive Interrupt Enable"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RmtEn",
-               "info" : "Remote Enable"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxRqst",
-               "info" : "Transmit Request"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EoB",
-               "info" : "Data Frame has 0-8 data bits"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "DLC",
-               "info" : "Data Length Code"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2MCTL",
-          "info" : "IF2 Message Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "12C",
-          "fields" : [
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "NewDat",
-               "info" : "New Data"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgLst",
-               "info" : "Message Lost (only valid for message objects with direction = receive)"
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IntPnd",
-               "info" : "Interrupt Pending"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "UMask",
-               "info" : "Use Acceptance Mask"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxIE",
-               "info" : "Transmit Interrupt Enable"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RxIE",
-               "info" : "Receive Interrupt Enable"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RmtEn",
-               "info" : "Remote Enable"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxRqst",
-               "info" : "Transmit Request"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EoB",
-               "info" : "Data Frame has 0-8 data bits"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "DLC",
-               "info" : "Data Length Code"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1DATA",
-          "info" : "IF1 Data A Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "110",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data0",
-               "info" : "Data 0"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data1",
-               "info" : "Data 1"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data2",
-               "info" : "Data 2"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data3",
-               "info" : "Data 3"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF1DATB",
-          "info" : "IF1 Data B Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "114",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data4",
-               "info" : "Data 4"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data5",
-               "info" : "Data 5"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data6",
-               "info" : "Data 6"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data7",
-               "info" : "Data 7"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2DATA",
-          "info" : "IF2 Data A Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "130",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data0",
-               "info" : "Data 0"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data1",
-               "info" : "Data 1"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data2",
-               "info" : "Data 2"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data3",
-               "info" : "Data 3"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF2DATB",
-          "info" : "IF2 Data B Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "134",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data4",
-               "info" : "Data 4"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data5",
-               "info" : "Data 5"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data6",
-               "info" : "Data 6"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data7",
-               "info" : "Data 7"
-             }
-          ]
-        },
-
-{
-          "name" : "DCAN IF3OBS",
-          "info" : "IF3 Observation Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "140",
-          "fields" : [
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 Upd",
-               "info" : "IF3 Update Data"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 SDB",
-               "info" : "IF3 Status of Data B read access"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 SDA",
-               "info" : "IF3 Status of Data A read access"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 SC",
-               "info" : "IF3 Status of Control bits read access"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 SA",
-               "info" : "IF3 Status of Arbitration data read access"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IF3 SM",
-               "info" : "IF3 Status of Mask data read access"
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data B",
-               "info" : "Data B read observation"
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Data A",
-               "info" : "Data A read observation"
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Ctrl",
-               "info" : "Ctrl read observation"
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Arb",
-               "info" : "Arbitration data read observation"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Mask",
-               "info" : "Mask data read observation"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3MSK",
-          "info" : "IF3 Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "144",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MXtd",
-               "info" : "Mask Extended Identifier"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MDir",
-               "info" : "Mask Message Direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "Msk[28:0]",
-               "info" : "Identifier Mask"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3ARB",
-          "info" : "IF3 Arbitration Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "148",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgVal",
-               "info" : "Message Valid"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Xtd",
-               "info" : "Extended Identifier"
-             },
-             {
-               "start_bit" : "29",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Dir",
-               "info" : "Message direction"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "29",
-               "bit_Field_Name" : "ID[28:0]",
-               "info" : "Message Identifier"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3MCTL",
-          "info" : "IF3 Message Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14C",
-          "fields" : [
-             {
-               "start_bit" : "15",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "NewDat",
-               "info" : "New Data"
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MsgLst",
-               "info" : "Message Lost (only valid for message objects with direction = receive)"
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IntPnd",
-               "info" : "Interrupt Pending"
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "UMask",
-               "info" : "Use Acceptance Mask"
-             },
-             {
-               "start_bit" : "11",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxIE",
-               "info" : "Transmit Interrupt Enable"
-             },
-             {
-               "start_bit" : "10",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RxIE",
-               "info" : "Receive Interrupt Enable"
-             },
-             {
-               "start_bit" : "9",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "RmtEn",
-               "info" : "Remote Enable"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TxRqst",
-               "info" : "TxRqst"
-             },
-             {
-               "start_bit" : "7",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EoB",
-               "info" : "End of Block"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "DLC[3:0]",
-               "info" : "Data Length Code"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3DATA",
-          "info" : "IF3 Data A Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "150",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data0",
-               "info" : "Data 0"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data1",
-               "info" : "Data 1"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data2",
-               "info" : "Data 2"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data3",
-               "info" : "Data 3"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3DATB",
-          "info" : "IF3 Data B Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "154",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data4",
-               "info" : "Data 4"
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data5",
-               "info" : "Data 5"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data6",
-               "info" : "Data 6"
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "Data7",
-               "info" : "Data 7"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3UPD12",
-          "info" : "IF3 Update Enable 12 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "160",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IF3UpdEn1To32",
-               "info" : "IF3 Update Enabled (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3UPD34",
-          "info" : "IF3 Update Enable 34 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "164",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IF3UpdEn33To64",
-               "info" : "IF3 Update Enabled (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3UPD56",
-          "info" : "IF3 Update Enable 56 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "168",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IF3UpdEn65To96",
-               "info" : "IF3 Update Enabled (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN IF3UPD78",
-          "info" : "IF3 Update Enable 78 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "16C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "IF3UpdEn97To128",
-               "info" : "IF3 Update Enabled (for all message objects)"
-             }
-          ]
-        },
-{
-          "name" : "DCAN TIOC",
-          "info" : "CAN TX IO Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1E0",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PU",
-               "info" : "CAN_TX Pullup/Pulldown select. This bit is only active when CAN_TX is configured to be an input."
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PD",
-               "info" : "CAN_TX pull disable. This bit is only active when CAN_TX is configured to be an input."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "OD",
-               "info" : "CAN_TX open drain enable."
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Func",
-               "info" : "CAN_TX function. This bit changes the function of the CAN_TX pin."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Dir",
-               "info" : "CAN_TX data direction."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Out",
-               "info" : "CAN_TX data out write."
-             }
-          ]
-        },
-{
-          "name" : "DCAN RIOC",
-          "info" : "CAN RX IO Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1E4",
-          "fields" : [
-             {
-               "start_bit" : "18",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PU",
-               "info" : "CAN_RX Pullup/Pulldown select. This bit is only active when CAN_RX is configured to be an input."
-             },
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PD",
-               "info" : "CAN_RX pull disable. This bit is only active when CAN_RX is configured to be an input."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "OD",
-               "info" : "CAN_RX open drain enable."
-             },
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Func",
-               "info" : "CAN_RX function. This bit changes the function of the CAN_RX pin."
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Dir",
-               "info" : "CAN_RX data direction."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "Out",
-               "info" : "CAN_RX data out write."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "In",
-               "info" : "CAN_RX data in."
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-} 
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "DCAN",
+     "full name" : "Controller Area Network",
+     "offset" : ["0xFFF7DC00", "0xFFF7DE00", "0xFFF7E000"],
+     "registers" : [
+       {
+       "name" : "DCAN_CTL",
+       "info" : "CAN Control Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "25",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "WUBA",
+         "info" : "Automatic wake up on bus activity when in local power down mode"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDR",
+         "info" : "Request for local low power down mode"
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DE3",
+         "info" : "Enable DMA request line for IF3"
+         },
+         {
+         "start_bit" : "19",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DE2",
+         "info" : "Enable DMA request line for IF2"
+         },
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DE1",
+         "info" : "Enable DMA request line for IF1"
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IE1",
+         "info" : "Interrupt line 1 Enable"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "InitDbg",
+         "info" : "Internal Init state while debug access"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SWR",
+         "info" : "SW Reset Enable"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PMD",
+         "info" : "Parity on/off"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ABO",
+         "info" : "Auto-Bus-On Enable"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IDS",
+         "info" : "Interruption Debug Support Enable"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Test",
+         "info" : "Test Mode Enable"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CCE",
+         "info" : "Configuration Change Enable"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DAR",
+         "info" : "Disable Automatic Retransmission"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EIE",
+         "info" : "Error Interrupt Enable"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SIE",
+         "info" : "Status Change Interrupt Enable"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IE0",
+         "info" : "Interrupt line 0 Enable"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Init",
+         "info" : "Initialization"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_ES",
+       "info" : "Error and Status Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDA",
+         "info" : "Local power down mode acknowledge"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "WakeUp_Pnd",
+         "info" : "Wake Up Pending"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PER",
+         "info" : "Parity Error Detected"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "BOff",
+         "info" : "Bus-Off State"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EWarn",
+         "info" : "Warning State"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EPass",
+         "info" : "Error Passive State"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RxOK",
+         "info" : "Received a message successfully"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxOK",
+         "info" : "Transmitted a message successfully"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "LEC",
+         "info" : "Last Error Code"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_ERRC",
+       "info" : "Error Counter Register",
+       "lenght" : "32",
+       "adress" : "0x8",
+       "fields" : [
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RP",
+         "info" : "Receive Error Passive"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "7",
+         "bit_Field_Name" : "REC",
+         "info" : "Receive Error Counter. Actual state of the Receive Error Counter. (values from 0 to 255)."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "TEC",
+         "info" : "Transmit Error Counter. Actual state of the Transmit Error Counter. (values from 0 to 255)."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_BTR",
+       "info" : "Bit Timing Register",
+       "lenght" : "32",
+       "adress" : "0xc",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "BRPE",
+         "info" : "Baud Rate Prescaler Extension."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "TSeg2",
+         "info" : "Time segment after the sample point"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "TSeg1",
+         "info" : "Time segment before the sample point"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "SJW",
+         "info" : "Synchronization Jump Width"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "BRP",
+         "info" : "Baud Rate Prescaler"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INT",
+       "info" : "Interrupt Register",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Int1ID",
+         "info" : "Interrupt 1 Identifier (indicates the message object with the highest pending interrupt)"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "Int0ID",
+         "info" : "Interrupt Identifier (the number here indicates the source of the interrupt)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TEST",
+       "info" : "Test Register",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RDA",
+         "info" : "RAM Direct Access Enable"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EXL",
+         "info" : "External Loop Back Mode"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Rx",
+         "info" : "Receive Pin. Monitors the actual value of the CAN_RX pin."
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "Tx",
+         "info" : "Control of CAN_TX pin"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LBack",
+         "info" : "Loop Back Mode"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Silent",
+         "info" : "Silent Mode"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_PERR",
+       "info" : "Parity Error Code Register",
+       "lenght" : "32",
+       "adress" : "0x1c",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "Word_Number",
+         "info" : "Word number where parity error has been detected"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Message_Number",
+         "info" : ""
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_ABOTR",
+       "info" : "Auto-Bus-On Time Register",
+       "lenght" : "32",
+       "adress" : "0x80",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ABO_Time",
+         "info" : "Number of VBUS clock cycles before a Bus-Off recovery sequence is"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TXRQX",
+       "info" : "Transmission Request X Register",
+       "lenght" : "32",
+       "adress" : "0x84",
+       "fields" : [
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg8",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg7",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg6",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg5",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg4",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg3",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg2",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "TxRqstReg1",
+         "info" : "TxRqstReg8"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TXRQ12",
+       "info" : "Transmission Request 12 Register",
+       "lenght" : "32",
+       "adress" : "0x88",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TxRqs1To32",
+         "info" : "Transmission Request Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TXRQ34",
+       "info" : "Transmission Request 34 Register",
+       "lenght" : "32",
+       "adress" : "0x8c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TxRqs33To64",
+         "info" : "Transmission Request Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TXRQ56",
+       "info" : "Transmission Request 56 Register",
+       "lenght" : "32",
+       "adress" : "0x90",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TxRqs65To96",
+         "info" : "Transmission Request Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TXRQ78",
+       "info" : "Transmission Request 78 Register",
+       "lenght" : "32",
+       "adress" : "0x94",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TxRqs97To128",
+         "info" : "Transmission Request Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_NWDATX",
+       "info" : "New Data X Register",
+       "lenght" : "32",
+       "adress" : "0x98",
+       "fields" : [
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg8",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg7",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg6",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg5",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg4",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg3",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg2",
+         "info" : "TxRqstReg8"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "NewDatReg1",
+         "info" : "TxRqstReg8"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_NWDAT12",
+       "info" : "New Data 12 Register",
+       "lenght" : "32",
+       "adress" : "0x9c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "NewDat1To32",
+         "info" : "New Data Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_NWDAT34",
+       "info" : "New Data 34 Register",
+       "lenght" : "32",
+       "adress" : "0xa0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "NewDat33To64",
+         "info" : "New Data Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_NWDAT56",
+       "info" : "New Data 56 Register",
+       "lenght" : "32",
+       "adress" : "0xa4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "NewDat65To96",
+         "info" : "New Data Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_NWDAT78",
+       "info" : "New Data 78 Register",
+       "lenght" : "32",
+       "adress" : "0xa8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "NewDat97To128",
+         "info" : "New Data Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTPNDX",
+       "info" : "Interrupt Pending X Register",
+       "lenght" : "32",
+       "adress" : "0xac",
+       "fields" : [
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg8",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg7",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg6",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg5",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg4",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg3",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg2",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "IntPndReg1",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTPND12",
+       "info" : "Interrupt Pending 12 Register",
+       "lenght" : "32",
+       "adress" : "0xb0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntPnd1To32",
+         "info" : "Interrupt Pending Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTPND34",
+       "info" : "Interrupt Pending 34 Register",
+       "lenght" : "32",
+       "adress" : "0xb4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntPnd33To64",
+         "info" : "Interrupt Pending Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTPND56",
+       "info" : "Interrupt Pending 56 Register",
+       "lenght" : "32",
+       "adress" : "0xb8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntPnd65To96",
+         "info" : "Interrupt Pending Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTPND78",
+       "info" : "Interrupt Pending 78 Register",
+       "lenght" : "32",
+       "adress" : "0xbc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntPnd97To128",
+         "info" : "Interrupt Pending Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_MSGVALX",
+       "info" : "Message Valid X Register",
+       "lenght" : "32",
+       "adress" : "0xc0",
+       "fields" : [
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg8",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg7",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg6",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg5",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg4",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg3",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg2",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MsgValReg1",
+         "info" : "If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_MSGVAL12",
+       "info" : "Message Valid 12 Register",
+       "lenght" : "32",
+       "adress" : "0xc4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "MsgVal1To32",
+         "info" : "Message Valid Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_MSGVAL34",
+       "info" : "Message Valid 34 Register",
+       "lenght" : "32",
+       "adress" : "0xc8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "MsgVal33To64",
+         "info" : "Message Valid Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_MSGVAL56",
+       "info" : "Message Valid 56 Register",
+       "lenght" : "32",
+       "adress" : "0xcc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "MsgVal65To96",
+         "info" : "Message Valid Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_MSGVAL78",
+       "info" : "Message Valid 78 Register",
+       "lenght" : "32",
+       "adress" : "0xd0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "MsgVal97To128",
+         "info" : "Message Valid Bits (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTMUX12",
+       "info" : "Interrupt Multiplexer 12 Register",
+       "lenght" : "32",
+       "adress" : "0xd8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntMux1To32",
+         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTMUX34",
+       "info" : "Interrupt Multiplexer 34 Register",
+       "lenght" : "32",
+       "adress" : "0xdc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntMux33To64",
+         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTMUX56",
+       "info" : "Interrupt Multiplexer 56 Register",
+       "lenght" : "32",
+       "adress" : "0xe0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntMux65To96",
+         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_INTMUX78",
+       "info" : "Interrupt Multiplexer 78 Register",
+       "lenght" : "32",
+       "adress" : "0xe4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IntMux97To128",
+         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1CMD",
+       "info" : "IF1 Command Register",
+       "lenght" : "32",
+       "adress" : "0x100",
+       "fields" : [
+         {
+         "start_bit" : "23",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "WR_RD",
+         "info" : "Write/Read"
+         },
+         {
+         "start_bit" : "22",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Mask",
+         "info" : "Access Mask bits"
+         },
+         {
+         "start_bit" : "21",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Arb",
+         "info" : "Access Arbitration bits"
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Control",
+         "info" : "Access Control bits"
+         },
+         {
+         "start_bit" : "19",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ClrIntPnd",
+         "info" : "Clear Interrupt Pending bit"
+         },
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxRqst_NewDat",
+         "info" : "Access Transmission Request bit"
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_A",
+         "info" : "Access Data Bytes 0-3"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_B",
+         "info" : "Access Data Bytes 4-7"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Busy",
+         "info" : "Busy flag"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DMA_Active",
+         "info" : "Activation of DMA feature for subsequent internal IF1/IF2 update"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Message_Number",
+         "info" : "Number of message object in Message RAM that is used for data transfer"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2CMD",
+       "info" : "IF2 Command Register",
+       "lenght" : "32",
+       "adress" : "0x120",
+       "fields" : [
+         {
+         "start_bit" : "23",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "WR_RD",
+         "info" : "Write/Read"
+         },
+         {
+         "start_bit" : "22",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Mask",
+         "info" : "Access Mask bits"
+         },
+         {
+         "start_bit" : "21",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Arb",
+         "info" : "Access Arbitration bits"
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Control",
+         "info" : "Access Control bits"
+         },
+         {
+         "start_bit" : "19",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ClrIntPnd",
+         "info" : "Clear Interrupt Pending bit"
+         },
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxRqst_NewDat",
+         "info" : "Access Transmission Request bit"
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_A",
+         "info" : "Access Data Bytes 0-3"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_B",
+         "info" : "Access Data Bytes 4-7"
+         },
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Busy",
+         "info" : "Busy flag"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DMA_Active",
+         "info" : "Activation of DMA feature for subsequent internal IF1/IF2 update"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Message_Number",
+         "info" : "Number of message object in Message RAM that is used for data transfer"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1MSK",
+       "info" : "IF1 Mask Register",
+       "lenght" : "32",
+       "adress" : "0x104",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MXtd",
+         "info" : "Mask Extended Identifier"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MDir",
+         "info" : "Mask Message Direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "Msk",
+         "info" : "Identifier Mask"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2MSK",
+       "info" : "IF2 Mask Register",
+       "lenght" : "32",
+       "adress" : "0x124",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MXtd",
+         "info" : "Mask Extended Identifier"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MDir",
+         "info" : "Mask Message Direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "Msk",
+         "info" : "Identifier Mask"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1ARB",
+       "info" : "IF1 Arbitration Register",
+       "lenght" : "32",
+       "adress" : "0x108",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgVal",
+         "info" : "Message Valid"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Xtd",
+         "info" : "Extended Identifier"
+         },
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Dir",
+         "info" : "Message direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "ID",
+         "info" : "Message Identifier"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2ARB",
+       "info" : "IF2 Arbitration Register",
+       "lenght" : "32",
+       "adress" : "0x128",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgVal",
+         "info" : "Message Valid"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Xtd",
+         "info" : "Extended Identifier"
+         },
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Dir",
+         "info" : "Message direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "ID",
+         "info" : "Message Identifier"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1MCTL",
+       "info" : "IF1 Message Control Register",
+       "lenght" : "32",
+       "adress" : "0x10c",
+       "fields" : [
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "NewDat",
+         "info" : "New Data"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgLst",
+         "info" : "Message Lost (only valid for message objects with direction = receive)"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IntPnd",
+         "info" : "Interrupt Pending"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "UMask",
+         "info" : "Use Acceptance Mask"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxIE",
+         "info" : "Transmit Interrupt Enable"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RxIE",
+         "info" : "Receive Interrupt Enable"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RmtEn",
+         "info" : "Remote Enable"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxRqst",
+         "info" : "Transmit Request"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EoB",
+         "info" : "Data Frame has 0-8 data bits"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "DLC",
+         "info" : "Data Length Code"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2MCTL",
+       "info" : "IF2 Message Control Register",
+       "lenght" : "32",
+       "adress" : "0x12c",
+       "fields" : [
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "NewDat",
+         "info" : "New Data"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgLst",
+         "info" : "Message Lost (only valid for message objects with direction = receive)"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IntPnd",
+         "info" : "Interrupt Pending"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "UMask",
+         "info" : "Use Acceptance Mask"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxIE",
+         "info" : "Transmit Interrupt Enable"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RxIE",
+         "info" : "Receive Interrupt Enable"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RmtEn",
+         "info" : "Remote Enable"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxRqst",
+         "info" : "Transmit Request"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EoB",
+         "info" : "Data Frame has 0-8 data bits"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "DLC",
+         "info" : "Data Length Code"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1DATA",
+       "info" : "IF1 Data A Register",
+       "lenght" : "32",
+       "adress" : "0x110",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data0",
+         "info" : "Data 0"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data1",
+         "info" : "Data 1"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data2",
+         "info" : "Data 2"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data3",
+         "info" : "Data 3"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF1DATB",
+       "info" : "IF1 Data B Register",
+       "lenght" : "32",
+       "adress" : "0x114",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data4",
+         "info" : "Data 4"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data5",
+         "info" : "Data 5"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data6",
+         "info" : "Data 6"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data7",
+         "info" : "Data 7"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2DATA",
+       "info" : "IF2 Data A Register",
+       "lenght" : "32",
+       "adress" : "0x130",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data0",
+         "info" : "Data 0"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data1",
+         "info" : "Data 1"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data2",
+         "info" : "Data 2"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data3",
+         "info" : "Data 3"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF2DATB",
+       "info" : "IF2 Data B Register",
+       "lenght" : "32",
+       "adress" : "0x134",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data4",
+         "info" : "Data 4"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data5",
+         "info" : "Data 5"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data6",
+         "info" : "Data 6"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data7",
+         "info" : "Data 7"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3OBS",
+       "info" : "IF3 Observation Register",
+       "lenght" : "32",
+       "adress" : "0x140",
+       "fields" : [
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_Upd",
+         "info" : "IF3 Update Data"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_SDB",
+         "info" : "IF3 Status of Data B read access"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_SDA",
+         "info" : "IF3 Status of Data A read access"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_SC",
+         "info" : "IF3 Status of Control bits read access"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_SA",
+         "info" : "IF3 Status of Arbitration data read access"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IF3_SM",
+         "info" : "IF3 Status of Mask data read access"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_B",
+         "info" : "Data B read observation"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Data_A",
+         "info" : "Data A read observation"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Ctrl",
+         "info" : "Ctrl read observation"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Arb",
+         "info" : "Arbitration data read observation"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Mask",
+         "info" : "Mask data read observation"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3MSK",
+       "info" : "IF3 Mask Register",
+       "lenght" : "32",
+       "adress" : "0x144",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MXtd",
+         "info" : "Mask Extended Identifier"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MDir",
+         "info" : "Mask Message Direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "Msk",
+         "info" : "Identifier Mask"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3ARB",
+       "info" : "IF3 Arbitration Register",
+       "lenght" : "32",
+       "adress" : "0x148",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgVal",
+         "info" : "Message Valid"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Xtd",
+         "info" : "Extended Identifier"
+         },
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Dir",
+         "info" : "Message direction"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "29",
+         "bit_Field_Name" : "ID",
+         "info" : "Message Identifier"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3MCTL",
+       "info" : "IF3 Message Control Register",
+       "lenght" : "32",
+       "adress" : "0x14c",
+       "fields" : [
+         {
+         "start_bit" : "15",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "NewDat",
+         "info" : "New Data"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MsgLst",
+         "info" : "Message Lost (only valid for message objects with direction = receive)"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IntPnd",
+         "info" : "Interrupt Pending"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "UMask",
+         "info" : "Use Acceptance Mask"
+         },
+         {
+         "start_bit" : "11",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxIE",
+         "info" : "Transmit Interrupt Enable"
+         },
+         {
+         "start_bit" : "10",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RxIE",
+         "info" : "Receive Interrupt Enable"
+         },
+         {
+         "start_bit" : "9",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RmtEn",
+         "info" : "Remote Enable"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TxRqst",
+         "info" : "TxRqst"
+         },
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EoB",
+         "info" : "End of Block"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "DLC",
+         "info" : "Data Length Code"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3DATA",
+       "info" : "IF3 Data A Register",
+       "lenght" : "32",
+       "adress" : "0x150",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data0",
+         "info" : "Data 0"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data1",
+         "info" : "Data 1"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data2",
+         "info" : "Data 2"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data3",
+         "info" : "Data 3"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3DATB",
+       "info" : "IF3 Data B Register",
+       "lenght" : "32",
+       "adress" : "0x154",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data4",
+         "info" : "Data 4"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data5",
+         "info" : "Data 5"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data6",
+         "info" : "Data 6"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "Data7",
+         "info" : "Data 7"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3UPD12",
+       "info" : "IF3 Update Enable 12 Register",
+       "lenght" : "32",
+       "adress" : "0x160",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IF3UpdEn1To32",
+         "info" : "IF3 Update Enabled (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3UPD34",
+       "info" : "IF3 Update Enable 34 Register",
+       "lenght" : "32",
+       "adress" : "0x164",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IF3UpdEn33To64",
+         "info" : "IF3 Update Enabled (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3UPD56",
+       "info" : "IF3 Update Enable 56 Register",
+       "lenght" : "32",
+       "adress" : "0x168",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IF3UpdEn65To96",
+         "info" : "IF3 Update Enabled (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_IF3UPD78",
+       "info" : "IF3 Update Enable 78 Register",
+       "lenght" : "32",
+       "adress" : "0x16c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "IF3UpdEn97To128",
+         "info" : "IF3 Update Enabled (for all message objects)"
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_TIOC",
+       "info" : "CAN TX IO Control Register",
+       "lenght" : "32",
+       "adress" : "0x1e0",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PU",
+         "info" : "CAN_TX Pullup/Pulldown select. This bit is only active when CAN_TX is configured to be an input."
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PD",
+         "info" : "CAN_TX pull disable. This bit is only active when CAN_TX is configured to be an input."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "OD",
+         "info" : "CAN_TX open drain enable."
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Func",
+         "info" : "CAN_TX function. This bit changes the function of the CAN_TX pin."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Dir",
+         "info" : "CAN_TX data direction."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Out",
+         "info" : "CAN_TX data out write."
+         }
+        ]
+       },
+       {
+       "name" : "DCAN_RIOC",
+       "info" : "CAN RX IO Control Register",
+       "lenght" : "32",
+       "adress" : "0x1e4",
+       "fields" : [
+         {
+         "start_bit" : "18",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PU",
+         "info" : "CAN_RX Pullup/Pulldown select. This bit is only active when CAN_RX is configured to be an input."
+         },
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PD",
+         "info" : "CAN_RX pull disable. This bit is only active when CAN_RX is configured to be an input."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "OD",
+         "info" : "CAN_RX open drain enable."
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Func",
+         "info" : "CAN_RX function. This bit changes the function of the CAN_RX pin."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Dir",
+         "info" : "CAN_RX data direction."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "Out",
+         "info" : "CAN_RX data out write."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "In",
+         "info" : "CAN_RX data in."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

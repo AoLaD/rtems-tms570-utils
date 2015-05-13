@@ -1,20 +1,39 @@
 /*
- * Copyright (c) 2014 Premysl Houdek <kom541000@gmail.com>
+ * Copyright (c) 2014-2015, Premysl Houdek <kom541000@gmail.com>
  *
- * Google Summer of Code 2014 at
  * Czech Technical University in Prague
  * Zikova 1903/4
  * 166 36 Praha 6
  * Czech Republic
  *
- * Based on LPC24xx and LPC1768 BSP
+ * All rights reserved.
  *
- * The license and distribution terms for this file may be
- * found in the file LICENSE in this distribution or at
- * http://www.rtems.org/license/LICENSE.
- */
-#ifndef LIBBSP_ARM_TMS570_GIO.H
-#define LIBBSP_ARM_TMS570_GIO.H
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * The views and conclusions contained in the software and documentation are those
+ * of the authors and should not be interpreted as representing official policies,
+ * either expressed or implied, of the FreeBSD Project.
+*/
+#ifndef LIBBSP_ARM_tms570_GIO
+#define LIBBSP_ARM_tms570_GIO
 
 #include <bsp/utility.h>
 
@@ -96,642 +115,642 @@ typedef struct{
   uint32_t GIOPDRH;           /*GIO Open Drain Register H*/
   uint32_t GIOPULDISH;        /*GIO Pull Disable Register H*/
   uint32_t GIOPSLH;           /*GIO Pull Select Register H*/
-} GIO_struct;
+} tms570_gio_t;
 
-/*---------------------TMS570_GIO_GIOGCR0---------------------*/
+/*-----------------------TMS570_GIOGCR0-----------------------*/
 /* field: RESET - GIO reset. */
-#define TMS570_GIO_GIOGCR0_RESET BSP_FLD32(0)
+#define TMS570_GIOGCR0_RESET BSP_FLD32(0)
 
 
-/*--------------------TMS570_GIO_GIOINTDET--------------------*/
+/*----------------------TMS570_GIOINTDET----------------------*/
 /* field: GIOINTDET_3 - Interrupt detection select for pins GIOD[7:0] */
-#define TMS570_GIO_GIOINTDET_GIOINTDET_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOINTDET_GIOINTDET_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOINTDET_GIOINTDET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOINTDET_GIOINTDET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOINTDET_2 - Interrupt detection select for pins GIOC[7:0] */
-#define TMS570_GIO_GIOINTDET_GIOINTDET_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOINTDET_GIOINTDET_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOINTDET_GIOINTDET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOINTDET_GIOINTDET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOINTDET_1 - Interrupt detection select for pins GIOB[7:0] */
-#define TMS570_GIO_GIOINTDET_GIOINTDET_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOINTDET_GIOINTDET_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOINTDET_GIOINTDET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOINTDET_GIOINTDET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOINTDET_0 - Interrupt detection select for pins GIOA[7:0] */
-#define TMS570_GIO_GIOINTDET_GIOINTDET_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOINTDET_GIOINTDET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOINTDET_GIOINTDET_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOINTDET_GIOINTDET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOINTDET_GIOINTDET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPOL---------------------*/
+/*-----------------------TMS570_GIOPOL-----------------------*/
 /* field: GIOPOL_3 - Interrupt polarity select for pins GIOD[7:0] */
-#define TMS570_GIO_GIOPOL_GIOPOL_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOPOL_GIOPOL_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOPOL_GIOPOL_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOPOL_GIOPOL_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOPOL_GIOPOL_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOPOL_GIOPOL_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOPOL_2 - Interrupt polarity select for pins GIOC[7:0] */
-#define TMS570_GIO_GIOPOL_GIOPOL_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOPOL_GIOPOL_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOPOL_GIOPOL_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOPOL_GIOPOL_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOPOL_GIOPOL_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOPOL_GIOPOL_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOPOL_1 - Interrupt polarity select for pins GIOB[7:0] */
-#define TMS570_GIO_GIOPOL_GIOPOL_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOPOL_GIOPOL_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOPOL_GIOPOL_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOPOL_GIOPOL_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOPOL_GIOPOL_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOPOL_GIOPOL_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOPOL_0 - Interrupt polarity select for pins GIOA[7:0] */
-#define TMS570_GIO_GIOPOL_GIOPOL_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPOL_GIOPOL_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPOL_GIOPOL_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPOL_GIOPOL_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPOL_GIOPOL_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPOL_GIOPOL_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIOENASET--------------------*/
+/*----------------------TMS570_GIOENASET----------------------*/
 /* field: GIOENASET_3 - nterrupt enable for pins GIOD[7:0] */
-#define TMS570_GIO_GIOENASET_GIOENASET_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOENASET_GIOENASET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOENASET_GIOENASET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOENASET_GIOENASET_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOENASET_GIOENASET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOENASET_GIOENASET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOENASET_2 - Interrupt enable for pins GIOC[7:0] */
-#define TMS570_GIO_GIOENASET_GIOENASET_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOENASET_GIOENASET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOENASET_GIOENASET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOENASET_GIOENASET_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOENASET_GIOENASET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOENASET_GIOENASET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOENASET_1 - Interrupt enable for pins GIOB[7:0] */
-#define TMS570_GIO_GIOENASET_GIOENASET_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOENASET_GIOENASET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOENASET_GIOENASET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOENASET_GIOENASET_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOENASET_GIOENASET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOENASET_GIOENASET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOENASET_0 - Interrupt enable for pins GIOA[7:0] */
-#define TMS570_GIO_GIOENASET_GIOENASET_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOENASET_GIOENASET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOENASET_GIOENASET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOENASET_GIOENASET_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOENASET_GIOENASET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOENASET_GIOENASET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIOENACLR--------------------*/
+/*----------------------TMS570_GIOENACLR----------------------*/
 /* field: GIOENACLR_3 - Interrupt enable for pins GIOD[7:0] */
-#define TMS570_GIO_GIOENACLR_GIOENACLR_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOENACLR_GIOENACLR_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOENACLR_GIOENACLR_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOENACLR_GIOENACLR_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOENACLR_2 - Interrupt enable for pins GIOC[7:0] */
-#define TMS570_GIO_GIOENACLR_GIOENACLR_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOENACLR_GIOENACLR_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOENACLR_GIOENACLR_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOENACLR_GIOENACLR_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOENACLR_1 - Interrupt enable for pins GIOB[7:0] */
-#define TMS570_GIO_GIOENACLR_GIOENACLR_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOENACLR_GIOENACLR_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOENACLR_GIOENACLR_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOENACLR_GIOENACLR_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOENACLR_0 - Interrupt enable for pins GIOA[7:0] */
-#define TMS570_GIO_GIOENACLR_GIOENACLR_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOENACLR_GIOENACLR_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOENACLR_GIOENACLR_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOENACLR_GIOENACLR_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOENACLR_GIOENACLR_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIOLVLSET--------------------*/
+/*----------------------TMS570_GIOLVLSET----------------------*/
 /* field: GIOLVLSET_3 - GIO high priority interrupt for pins GIOD[7:0]. */
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOLVLSET_GIOLVLSET_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOLVLSET_GIOLVLSET_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOLVLSET_GIOLVLSET_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOLVLSET_2 - GIO high priority interrupt for pins GIOC[7:0]. */
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOLVLSET_GIOLVLSET_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOLVLSET_GIOLVLSET_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOLVLSET_GIOLVLSET_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOLVLSET_1 - GIO high priority interrupt for pins GIOB[7:0]. */
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOLVLSET_GIOLVLSET_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOLVLSET_GIOLVLSET_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOLVLSET_GIOLVLSET_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOLVLSET_0 - GIO high priority interrupt for pins GIOA[7:0]. */
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOLVLSET_GIOLVLSET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOLVLSET_GIOLVLSET_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOLVLSET_GIOLVLSET_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOLVLSET_GIOLVLSET_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIOLVLCLR--------------------*/
+/*----------------------TMS570_GIOLVLCLR----------------------*/
 /* field: GIOLVLCLR_3 - GIO low priority interrupt for pins GIOD[7:0] */
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOLVLCLR_2 - GIO low priority interrupt for pins GIOC[7:0] */
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOLVLCLR_1 - GIO low priority interrupt for pins GIOB[7:0] */
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOLVLCLR_0 - GIO low priority interrupt for pins GIOA[7:0] */
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOLVLCLR_GIOLVLCLR_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOLVLCLR_GIOLVLCLR_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOFLG---------------------*/
+/*-----------------------TMS570_GIOFLG-----------------------*/
 /* field: GIOFLG_3 - GIO flag for pins GIOD[7:0]. */
-#define TMS570_GIO_GIOFLG_GIOFLG_3(val) BSP_FLD32(val,24, 31)
-#define TMS570_GIO_GIOFLG_GIOFLG_3_GET(reg) BSP_FLD32GET(reg,24, 31)
-#define TMS570_GIO_GIOFLG_GIOFLG_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
+#define TMS570_GIOFLG_GIOFLG_3(val) BSP_FLD32(val,24, 31)
+#define TMS570_GIOFLG_GIOFLG_3_GET(reg) BSP_FLD32GET(reg,24, 31)
+#define TMS570_GIOFLG_GIOFLG_3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 /* field: GIOFLG_2 - GIO flag for pins GIOC[7:0]. */
-#define TMS570_GIO_GIOFLG_GIOFLG_2(val) BSP_FLD32(val,16, 23)
-#define TMS570_GIO_GIOFLG_GIOFLG_2_GET(reg) BSP_FLD32GET(reg,16, 23)
-#define TMS570_GIO_GIOFLG_GIOFLG_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
+#define TMS570_GIOFLG_GIOFLG_2(val) BSP_FLD32(val,16, 23)
+#define TMS570_GIOFLG_GIOFLG_2_GET(reg) BSP_FLD32GET(reg,16, 23)
+#define TMS570_GIOFLG_GIOFLG_2_SET(reg,val) BSP_FLD32SET(reg, val,16, 23)
 
 /* field: GIOFLG_1 - GIO flag for pins GIOB[7:0]. */
-#define TMS570_GIO_GIOFLG_GIOFLG_1(val) BSP_FLD32(val,8, 15)
-#define TMS570_GIO_GIOFLG_GIOFLG_1_GET(reg) BSP_FLD32GET(reg,8, 15)
-#define TMS570_GIO_GIOFLG_GIOFLG_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
+#define TMS570_GIOFLG_GIOFLG_1(val) BSP_FLD32(val,8, 15)
+#define TMS570_GIOFLG_GIOFLG_1_GET(reg) BSP_FLD32GET(reg,8, 15)
+#define TMS570_GIOFLG_GIOFLG_1_SET(reg,val) BSP_FLD32SET(reg, val,8, 15)
 
 /* field: GIOFLG_0 - GIO flag for pins GIOA[7:0]. */
-#define TMS570_GIO_GIOFLG_GIOFLG_0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOFLG_GIOFLG_0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOFLG_GIOFLG_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOFLG_GIOFLG_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOFLG_GIOFLG_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOFLG_GIOFLG_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOOFF1---------------------*/
+/*-----------------------TMS570_GIOOFF1-----------------------*/
 /* field: GIOOFF1 - GIO offset 1. These bits index the currently pending high-priority interrupt. */
-#define TMS570_GIO_GIOOFF1_GIOOFF1(val) BSP_FLD32(val,0, 5)
-#define TMS570_GIO_GIOOFF1_GIOOFF1_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_GIO_GIOOFF1_GIOOFF1_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_GIOOFF1_GIOOFF1(val) BSP_FLD32(val,0, 5)
+#define TMS570_GIOOFF1_GIOOFF1_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_GIOOFF1_GIOOFF1_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*---------------------TMS570_GIO_GIOOFF2---------------------*/
+/*-----------------------TMS570_GIOOFF2-----------------------*/
 /* field: GIOOFF2 - GIO offset 2. These bits index the currently pending low-priority interrupt. */
-#define TMS570_GIO_GIOOFF2_GIOOFF2(val) BSP_FLD32(val,0, 5)
-#define TMS570_GIO_GIOOFF2_GIOOFF2_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_GIO_GIOOFF2_GIOOFF2_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_GIOOFF2_GIOOFF2(val) BSP_FLD32(val,0, 5)
+#define TMS570_GIOOFF2_GIOOFF2_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_GIOOFF2_GIOOFF2_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*---------------------TMS570_GIO_GIOEMU1---------------------*/
+/*-----------------------TMS570_GIOEMU1-----------------------*/
 /* field: GIOEMU1 - GIO offset emulation 1. These bits index the currently pending high-priority interrupt. */
-#define TMS570_GIO_GIOEMU1_GIOEMU1(val) BSP_FLD32(val,0, 5)
-#define TMS570_GIO_GIOEMU1_GIOEMU1_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_GIO_GIOEMU1_GIOEMU1_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_GIOEMU1_GIOEMU1(val) BSP_FLD32(val,0, 5)
+#define TMS570_GIOEMU1_GIOEMU1_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_GIOEMU1_GIOEMU1_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*---------------------TMS570_GIO_GIOEMU2---------------------*/
+/*-----------------------TMS570_GIOEMU2-----------------------*/
 /* field: GIOEMU2 - GIO offset emulation 2. These bits index the currently pending low-priority interrupt. */
-#define TMS570_GIO_GIOEMU2_GIOEMU2(val) BSP_FLD32(val,0, 5)
-#define TMS570_GIO_GIOEMU2_GIOEMU2_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_GIO_GIOEMU2_GIOEMU2_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_GIOEMU2_GIOEMU2(val) BSP_FLD32(val,0, 5)
+#define TMS570_GIOEMU2_GIOEMU2_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_GIOEMU2_GIOEMU2_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*---------------------TMS570_GIO_GIODIRA---------------------*/
+/*-----------------------TMS570_GIODIRA-----------------------*/
 /* field: GIODIR_A - GIO data direction of port A, pins [7:0] */
-#define TMS570_GIO_GIODIRA_GIODIR_A(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRA_GIODIR_A_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRA_GIODIR_A_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRA_GIODIR_A(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRA_GIODIR_A_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRA_GIODIR_A_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINA---------------------*/
+/*-----------------------TMS570_GIODINA-----------------------*/
 /* field: GIODINA - GIO data input for port A, pins [7:0] */
-#define TMS570_GIO_GIODINA_GIODINA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINA_GIODINA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINA_GIODINA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINA_GIODINA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINA_GIODINA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINA_GIODINA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTA--------------------*/
+/*----------------------TMS570_GIODOUTA----------------------*/
 /* field: GIODOUTA - IO data output of port A, pins[7:0]. */
-#define TMS570_GIO_GIODOUTA_GIODOUTA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTA_GIODOUTA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTA_GIODOUTA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTA_GIODOUTA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTA_GIODOUTA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTA_GIODOUTA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETA--------------------*/
+/*----------------------TMS570_GIODSETA----------------------*/
 /* field: GIODSETA - GIO data set for port A, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETA_GIODSETA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETA_GIODSETA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETA_GIODSETA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETA_GIODSETA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETA_GIODSETA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETA_GIODSETA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRA--------------------*/
+/*----------------------TMS570_GIODCLRA----------------------*/
 /* field: GIODCLRA - GIO data clear for port A, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRA_GIODCLRA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRA_GIODCLRA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRA_GIODCLRA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRA_GIODCLRA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRA_GIODCLRA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRA_GIODCLRA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRA---------------------*/
-/* field: 7-0 - GIOPDRA GIO open drain for port A, pins[7:0] */
-#define TMS570_GIO_GIOPDRA_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRA_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRA_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRA-----------------------*/
+/* field: 7_0 - GIOPDRA GIO open drain for port A, pins[7:0] */
+#define TMS570_GIOPDRA_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRA_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRA_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISA-------------------*/
+/*---------------------TMS570_GIOPULDISA---------------------*/
 /* field: GIOPULDISA - GIO pull disable for port A, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISA_GIOPULDISA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISA_GIOPULDISA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISA_GIOPULDISA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISA_GIOPULDISA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISA_GIOPULDISA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISA_GIOPULDISA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLA---------------------*/
+/*-----------------------TMS570_GIOPSLA-----------------------*/
 /* field: GIOPSLA - GIO pull select for port A, pins[7:0] */
-#define TMS570_GIO_GIOPSLA_GIOPSLA(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLA_GIOPSLA_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLA_GIOPSLA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLA_GIOPSLA(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLA_GIOPSLA_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLA_GIOPSLA_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRB---------------------*/
+/*-----------------------TMS570_GIODIRB-----------------------*/
 /* field: GIODIRB - GIO data direction of port B, pins [7:0] */
-#define TMS570_GIO_GIODIRB_GIODIRB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRB_GIODIRB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRB_GIODIRB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRB_GIODIRB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRB_GIODIRB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRB_GIODIRB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINB---------------------*/
+/*-----------------------TMS570_GIODINB-----------------------*/
 /* field: GIODINB - GIO data input for port B, pins [7:0] */
-#define TMS570_GIO_GIODINB_GIODINB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINB_GIODINB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINB_GIODINB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINB_GIODINB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINB_GIODINB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINB_GIODINB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTB--------------------*/
+/*----------------------TMS570_GIODOUTB----------------------*/
 /* field: GIODOUTB - IO data output of port B, pins[7:0]. */
-#define TMS570_GIO_GIODOUTB_GIODOUTB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTB_GIODOUTB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTB_GIODOUTB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTB_GIODOUTB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTB_GIODOUTB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTB_GIODOUTB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETB--------------------*/
+/*----------------------TMS570_GIODSETB----------------------*/
 /* field: GIODSETB - GIO data set for port B, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETB_GIODSETB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETB_GIODSETB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETB_GIODSETB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETB_GIODSETB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETB_GIODSETB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETB_GIODSETB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRB--------------------*/
+/*----------------------TMS570_GIODCLRB----------------------*/
 /* field: GIODCLRB - GIO data clear for port B, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRB_GIODCLRB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRB_GIODCLRB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRB_GIODCLRB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRB_GIODCLRB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRB_GIODCLRB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRB_GIODCLRB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRB---------------------*/
-/* field: 7-0 - GIOPDRB GIO open drain for port B, pins[7:0] */
-#define TMS570_GIO_GIOPDRB_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRB_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRB_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRB-----------------------*/
+/* field: 7_0 - GIOPDRB GIO open drain for port B, pins[7:0] */
+#define TMS570_GIOPDRB_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRB_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRB_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISB-------------------*/
+/*---------------------TMS570_GIOPULDISB---------------------*/
 /* field: GIOPULDISB - GIO pull disable for port B, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISB_GIOPULDISB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISB_GIOPULDISB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISB_GIOPULDISB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISB_GIOPULDISB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISB_GIOPULDISB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISB_GIOPULDISB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLB---------------------*/
+/*-----------------------TMS570_GIOPSLB-----------------------*/
 /* field: GIOPSLB - GIO pull select for port B, pins[7:0] */
-#define TMS570_GIO_GIOPSLB_GIOPSLB(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLB_GIOPSLB_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLB_GIOPSLB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLB_GIOPSLB(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLB_GIOPSLB_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLB_GIOPSLB_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRC---------------------*/
+/*-----------------------TMS570_GIODIRC-----------------------*/
 /* field: GIODIRC - GIO data direction of port C, pins [7:0] */
-#define TMS570_GIO_GIODIRC_GIODIRC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRC_GIODIRC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRC_GIODIRC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRC_GIODIRC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRC_GIODIRC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRC_GIODIRC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINC---------------------*/
+/*-----------------------TMS570_GIODINC-----------------------*/
 /* field: GIODINC - GIO data input for port C, pins [7:0] */
-#define TMS570_GIO_GIODINC_GIODINC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINC_GIODINC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINC_GIODINC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINC_GIODINC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINC_GIODINC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINC_GIODINC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTC--------------------*/
+/*----------------------TMS570_GIODOUTC----------------------*/
 /* field: GIODOUTC - IO data output of port C, pins[7:0]. */
-#define TMS570_GIO_GIODOUTC_GIODOUTC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTC_GIODOUTC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTC_GIODOUTC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTC_GIODOUTC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTC_GIODOUTC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTC_GIODOUTC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETC--------------------*/
+/*----------------------TMS570_GIODSETC----------------------*/
 /* field: GIODSETC - GIO data set for port C, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETC_GIODSETC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETC_GIODSETC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETC_GIODSETC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETC_GIODSETC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETC_GIODSETC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETC_GIODSETC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRC--------------------*/
+/*----------------------TMS570_GIODCLRC----------------------*/
 /* field: GIODCLRC - GIO data clear for port C, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRC_GIODCLRC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRC_GIODCLRC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRC_GIODCLRC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRC_GIODCLRC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRC_GIODCLRC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRC_GIODCLRC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRC---------------------*/
-/* field: 7-0 - GIOPDRC GIO open drain for port C, pins[7:0] */
-#define TMS570_GIO_GIOPDRC_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRC_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRC_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRC-----------------------*/
+/* field: 7_0 - GIOPDRC GIO open drain for port C, pins[7:0] */
+#define TMS570_GIOPDRC_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRC_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRC_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISC-------------------*/
+/*---------------------TMS570_GIOPULDISC---------------------*/
 /* field: GIOPULDISC - GIO pull disable for port C, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISC_GIOPULDISC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISC_GIOPULDISC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISC_GIOPULDISC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISC_GIOPULDISC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISC_GIOPULDISC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISC_GIOPULDISC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLC---------------------*/
+/*-----------------------TMS570_GIOPSLC-----------------------*/
 /* field: GIOPSLC - GIO pull select for port C, pins[7:0] */
-#define TMS570_GIO_GIOPSLC_GIOPSLC(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLC_GIOPSLC_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLC_GIOPSLC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLC_GIOPSLC(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLC_GIOPSLC_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLC_GIOPSLC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRD---------------------*/
+/*-----------------------TMS570_GIODIRD-----------------------*/
 /* field: GIODIRD - GIO data direction of port D, pins [7:0] */
-#define TMS570_GIO_GIODIRD_GIODIRD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRD_GIODIRD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRD_GIODIRD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRD_GIODIRD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRD_GIODIRD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRD_GIODIRD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIND---------------------*/
+/*-----------------------TMS570_GIODIND-----------------------*/
 /* field: GIODIND - GIO data input for port D, pins [7:0] */
-#define TMS570_GIO_GIODIND_GIODIND(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIND_GIODIND_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIND_GIODIND_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIND_GIODIND(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIND_GIODIND_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIND_GIODIND_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTD--------------------*/
+/*----------------------TMS570_GIODOUTD----------------------*/
 /* field: GIODOUTD - IO data output of port D, pins[7:0]. */
-#define TMS570_GIO_GIODOUTD_GIODOUTD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTD_GIODOUTD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTD_GIODOUTD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTD_GIODOUTD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTD_GIODOUTD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTD_GIODOUTD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETD--------------------*/
+/*----------------------TMS570_GIODSETD----------------------*/
 /* field: GIODSETD - GIO data set for port D, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETD_GIODSETD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETD_GIODSETD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETD_GIODSETD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETD_GIODSETD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETD_GIODSETD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETD_GIODSETD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRD--------------------*/
+/*----------------------TMS570_GIODCLRD----------------------*/
 /* field: GIODCLRD - GIO data clear for port D, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRD_GIODCLRD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRD_GIODCLRD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRD_GIODCLRD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRD_GIODCLRD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRD_GIODCLRD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRD_GIODCLRD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRD---------------------*/
-/* field: 7-0 - GIOPDRD GIO open drain for port D, pins[7:0] */
-#define TMS570_GIO_GIOPDRD_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRD_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRD_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRD-----------------------*/
+/* field: 7_0 - GIOPDRD GIO open drain for port D, pins[7:0] */
+#define TMS570_GIOPDRD_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRD_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRD_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISD-------------------*/
+/*---------------------TMS570_GIOPULDISD---------------------*/
 /* field: GIOPULDISD - GIO pull disable for port D, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISD_GIOPULDISD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISD_GIOPULDISD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISD_GIOPULDISD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISD_GIOPULDISD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISD_GIOPULDISD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISD_GIOPULDISD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLD---------------------*/
+/*-----------------------TMS570_GIOPSLD-----------------------*/
 /* field: GIOPSLD - GIO pull select for port D, pins[7:0] */
-#define TMS570_GIO_GIOPSLD_GIOPSLD(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLD_GIOPSLD_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLD_GIOPSLD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLD_GIOPSLD(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLD_GIOPSLD_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLD_GIOPSLD_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRE---------------------*/
+/*-----------------------TMS570_GIODIRE-----------------------*/
 /* field: GIODIRE - GIO data direction of port E, pins [7:0] */
-#define TMS570_GIO_GIODIRE_GIODIRE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRE_GIODIRE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRE_GIODIRE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRE_GIODIRE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRE_GIODIRE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRE_GIODIRE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINE---------------------*/
+/*-----------------------TMS570_GIODINE-----------------------*/
 /* field: GIODINE - GIO data input for port E, pins [7:0] */
-#define TMS570_GIO_GIODINE_GIODINE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINE_GIODINE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINE_GIODINE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINE_GIODINE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINE_GIODINE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINE_GIODINE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTE--------------------*/
+/*----------------------TMS570_GIODOUTE----------------------*/
 /* field: GIODOUTE - IO data output of port E, pins[7:0]. */
-#define TMS570_GIO_GIODOUTE_GIODOUTE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTE_GIODOUTE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTE_GIODOUTE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTE_GIODOUTE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTE_GIODOUTE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTE_GIODOUTE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETE--------------------*/
+/*----------------------TMS570_GIODSETE----------------------*/
 /* field: GIODSETE - GIO data set for port E, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETE_GIODSETE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETE_GIODSETE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETE_GIODSETE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETE_GIODSETE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETE_GIODSETE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETE_GIODSETE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRE--------------------*/
+/*----------------------TMS570_GIODCLRE----------------------*/
 /* field: GIODCLRE - GIO data clear for port E, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRE_GIODCLRE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRE_GIODCLRE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRE_GIODCLRE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRE_GIODCLRE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRE_GIODCLRE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRE_GIODCLRE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRE---------------------*/
-/* field: 7-0 - GIOPDRE GIO open drain for port E, pins[7:0] */
-#define TMS570_GIO_GIOPDRE_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRE_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRE_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRE-----------------------*/
+/* field: 7_0 - GIOPDRE GIO open drain for port E, pins[7:0] */
+#define TMS570_GIOPDRE_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRE_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRE_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISE-------------------*/
+/*---------------------TMS570_GIOPULDISE---------------------*/
 /* field: GIOPULDISE - GIO pull disable for port E, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISE_GIOPULDISE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISE_GIOPULDISE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISE_GIOPULDISE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISE_GIOPULDISE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISE_GIOPULDISE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISE_GIOPULDISE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLE---------------------*/
+/*-----------------------TMS570_GIOPSLE-----------------------*/
 /* field: GIOPSLE - GIO pull select for port E, pins[7:0] */
-#define TMS570_GIO_GIOPSLE_GIOPSLE(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLE_GIOPSLE_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLE_GIOPSLE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLE_GIOPSLE(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLE_GIOPSLE_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLE_GIOPSLE_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRF---------------------*/
+/*-----------------------TMS570_GIODIRF-----------------------*/
 /* field: GIODIRF - GIO data direction of port E, pins [7:0] */
-#define TMS570_GIO_GIODIRF_GIODIRF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRF_GIODIRF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRF_GIODIRF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRF_GIODIRF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRF_GIODIRF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRF_GIODIRF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINF---------------------*/
+/*-----------------------TMS570_GIODINF-----------------------*/
 /* field: GIODINF - GIO data input for port F, pins [7:0] */
-#define TMS570_GIO_GIODINF_GIODINF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINF_GIODINF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINF_GIODINF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINF_GIODINF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINF_GIODINF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINF_GIODINF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTF--------------------*/
+/*----------------------TMS570_GIODOUTF----------------------*/
 /* field: GIODOUTF - IO data output of port F, pins[7:0]. */
-#define TMS570_GIO_GIODOUTF_GIODOUTF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTF_GIODOUTF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTF_GIODOUTF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTF_GIODOUTF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTF_GIODOUTF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTF_GIODOUTF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETF--------------------*/
+/*----------------------TMS570_GIODSETF----------------------*/
 /* field: GIODSETF - GIO data set for port F, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETF_GIODSETF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETF_GIODSETF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETF_GIODSETF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETF_GIODSETF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETF_GIODSETF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETF_GIODSETF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRF--------------------*/
+/*----------------------TMS570_GIODCLRF----------------------*/
 /* field: GIODCLRF - GIO data clear for port F, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRF_GIODCLRF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRF_GIODCLRF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRF_GIODCLRF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRF_GIODCLRF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRF_GIODCLRF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRF_GIODCLRF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRF---------------------*/
-/* field: 7-0 - GIOPDRF GIO open drain for port F, pins[7:0] */
-#define TMS570_GIO_GIOPDRF_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRF_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRF_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRF-----------------------*/
+/* field: 7_0 - GIOPDRF GIO open drain for port F, pins[7:0] */
+#define TMS570_GIOPDRF_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRF_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRF_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISF-------------------*/
+/*---------------------TMS570_GIOPULDISF---------------------*/
 /* field: GIOPULDISF - GIO pull disable for port F, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISF_GIOPULDISF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISF_GIOPULDISF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISF_GIOPULDISF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISF_GIOPULDISF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISF_GIOPULDISF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISF_GIOPULDISF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLF---------------------*/
+/*-----------------------TMS570_GIOPSLF-----------------------*/
 /* field: GIOPSLF - GIO pull select for port F, pins[7:0] */
-#define TMS570_GIO_GIOPSLF_GIOPSLF(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLF_GIOPSLF_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLF_GIOPSLF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLF_GIOPSLF(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLF_GIOPSLF_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLF_GIOPSLF_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRG---------------------*/
+/*-----------------------TMS570_GIODIRG-----------------------*/
 /* field: GIODIRG - GIO data direction of port G, pins [7:0] */
-#define TMS570_GIO_GIODIRG_GIODIRG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRG_GIODIRG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRG_GIODIRG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRG_GIODIRG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRG_GIODIRG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRG_GIODIRG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODING---------------------*/
+/*-----------------------TMS570_GIODING-----------------------*/
 /* field: GIODING - GIO data input for port G, pins [7:0] */
-#define TMS570_GIO_GIODING_GIODING(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODING_GIODING_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODING_GIODING_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODING_GIODING(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODING_GIODING_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODING_GIODING_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTG--------------------*/
+/*----------------------TMS570_GIODOUTG----------------------*/
 /* field: GIODOUTG - IO data output of port G, pins[7:0]. */
-#define TMS570_GIO_GIODOUTG_GIODOUTG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTG_GIODOUTG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTG_GIODOUTG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTG_GIODOUTG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTG_GIODOUTG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTG_GIODOUTG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETG--------------------*/
+/*----------------------TMS570_GIODSETG----------------------*/
 /* field: GIODSETG - GIO data set for port G, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETG_GIODSETG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETG_GIODSETG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETG_GIODSETG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETG_GIODSETG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETG_GIODSETG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETG_GIODSETG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRG--------------------*/
+/*----------------------TMS570_GIODCLRG----------------------*/
 /* field: GIODCLRG - GIO data clear for port G, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRG_GIODCLRG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRG_GIODCLRG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRG_GIODCLRG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRG_GIODCLRG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRG_GIODCLRG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRG_GIODCLRG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRG---------------------*/
-/* field: 7-0 - GIOPDRG GIO open drain for port G, pins[7:0] */
-#define TMS570_GIO_GIOPDRG_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRG_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRG_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRG-----------------------*/
+/* field: 7_0 - GIOPDRG GIO open drain for port G, pins[7:0] */
+#define TMS570_GIOPDRG_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRG_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRG_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISG-------------------*/
+/*---------------------TMS570_GIOPULDISG---------------------*/
 /* field: GIOPULDISG - GIO pull disable for port G, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISG_GIOPULDISG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISG_GIOPULDISG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISG_GIOPULDISG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISG_GIOPULDISG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISG_GIOPULDISG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISG_GIOPULDISG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLG---------------------*/
+/*-----------------------TMS570_GIOPSLG-----------------------*/
 /* field: GIOPSLG - GIO pull select for port G, pins[7:0] */
-#define TMS570_GIO_GIOPSLG_GIOPSLG(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLG_GIOPSLG_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLG_GIOPSLG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLG_GIOPSLG(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLG_GIOPSLG_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLG_GIOPSLG_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODIRH---------------------*/
+/*-----------------------TMS570_GIODIRH-----------------------*/
 /* field: GIODIRH - GIO data direction of port H, pins [7:0] */
-#define TMS570_GIO_GIODIRH_GIODIRH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODIRH_GIODIRH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODIRH_GIODIRH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODIRH_GIODIRH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODIRH_GIODIRH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODIRH_GIODIRH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIODINH---------------------*/
+/*-----------------------TMS570_GIODINH-----------------------*/
 /* field: GIODINH - GIO data input for port H, pins [7:0] */
-#define TMS570_GIO_GIODINH_GIODINH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODINH_GIODINH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODINH_GIODINH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODINH_GIODINH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODINH_GIODINH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODINH_GIODINH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODOUTH--------------------*/
+/*----------------------TMS570_GIODOUTH----------------------*/
 /* field: GIODOUTH - IO data output of port H, pins[7:0]. */
-#define TMS570_GIO_GIODOUTH_GIODOUTH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODOUTH_GIODOUTH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODOUTH_GIODOUTH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODOUTH_GIODOUTH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODOUTH_GIODOUTH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODOUTH_GIODOUTH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODSETH--------------------*/
+/*----------------------TMS570_GIODSETH----------------------*/
 /* field: GIODSETH - GIO data set for port H, pins[7:0]. This bit drives the output of GIO pin high. */
-#define TMS570_GIO_GIODSETH_GIODSETH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODSETH_GIODSETH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODSETH_GIODSETH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODSETH_GIODSETH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODSETH_GIODSETH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODSETH_GIODSETH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------TMS570_GIO_GIODCLRH--------------------*/
+/*----------------------TMS570_GIODCLRH----------------------*/
 /* field: GIODCLRH - GIO data clear for port H, pins[7:0]. This bit drives the output of GIO pin low. */
-#define TMS570_GIO_GIODCLRH_GIODCLRH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIODCLRH_GIODCLRH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIODCLRH_GIODCLRH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIODCLRH_GIODCLRH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIODCLRH_GIODCLRH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIODCLRH_GIODCLRH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPDRH---------------------*/
-/* field: 7-0 - GIOPDRH GIO open drain for port H, pins[7:0] */
-#define TMS570_GIO_GIOPDRH_7-0(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPDRH_7-0_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPDRH_7-0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+/*-----------------------TMS570_GIOPDRH-----------------------*/
+/* field: 7_0 - GIOPDRH GIO open drain for port H, pins[7:0] */
+#define TMS570_GIOPDRH_7_0(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPDRH_7_0_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPDRH_7_0_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*-------------------TMS570_GIO_GIOPULDISH-------------------*/
+/*---------------------TMS570_GIOPULDISH---------------------*/
 /* field: GIOPULDISH - GIO pull disable for port H, pins[7:0]. */
-#define TMS570_GIO_GIOPULDISH_GIOPULDISH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPULDISH_GIOPULDISH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPULDISH_GIOPULDISH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPULDISH_GIOPULDISH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPULDISH_GIOPULDISH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPULDISH_GIOPULDISH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_GIO_GIOPSLH---------------------*/
+/*-----------------------TMS570_GIOPSLH-----------------------*/
 /* field: GIOPSLH - GIO pull select for port H, pins[7:0] */
-#define TMS570_GIO_GIOPSLH_GIOPSLH(val) BSP_FLD32(val,0, 7)
-#define TMS570_GIO_GIOPSLH_GIOPSLH_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define TMS570_GIO_GIOPSLH_GIOPSLH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_GIOPSLH_GIOPSLH(val) BSP_FLD32(val,0, 7)
+#define TMS570_GIOPSLH_GIOPSLH_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_GIOPSLH_GIOPSLH_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
 
-#endif /* LIBBSP_ARM_TMS570_GIO.H */
+#endif /* LIBBSP_ARM_tms570_GIO */

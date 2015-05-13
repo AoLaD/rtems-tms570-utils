@@ -1,815 +1,534 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "PMM",
-      "registers" :
-      [
-{
-          "name" : "LOGICPDPWRCTRL0",
-          "info" : "Logic Power Domain Control Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LOGICPDON0",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain PD2 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain PD2 is in Active state."}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LOGICPDON1",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain PD3 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain PD3 is in Active state."}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LOGICPDON2",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain PD4 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain PD4 is in Active state."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LOGICPDON3",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain PD5 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain PD5 is in Active state."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRCTRL0",
-          "info" : "Memory Power Domain Control Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "MEMPDON0",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain RAM_PD1 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain RAM_PD1 is in Active state."}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "MEMPDON1",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain RAM_PD2 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain RAM_PD2 is in Active state."}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "MEMPDON2",
-               "info" : "Read in User and Privileged Mode. Write in Privileged Mode only.",
-               "values" : [
-                 {"value" : "Ah", "desc" : "Read: Power domain RAM_PD3 is in OFF state."},
-                 {"value" : "9h", "desc" : "Reserved"},
-                 {"value" : "Any other value", "desc" : "Read: Power domain RAM_PD3 is in Active state."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PDCLKDIS",
-          "info" : "Power Domain Clock Disable Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "20",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DIS[3]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[3].",
-               "values" : [
-                 {"value" : "0", "desc" : "Enable clocks to logic power domain PD5"},
-                 {"value" : "1", "desc" : "1"}
-                ]
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DIS[2]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[2].",
-               "values" : [
-                 {"value" : "0", "desc" : "Enable clocks to logic power domain PD4"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD4"}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DIS[1]",
-               "info" : "ead in User and Privileged Mode returns the current value of PDCLK_DIS[1].",
-               "values" : [
-                 {"value" : "0", "desc" : "Enable clocks to logic power domain PD3"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD3"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DIS[0]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[0].",
-               "values" : [
-                 {"value" : "0", "desc" : "Enable clocks to logic power domain PD2"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD2"}
-                ]
-             }
-          ]
-        },{
-          "name" : "PDCLKDISSET",
-          "info" : "Power Domain Clock Disable Set Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "24",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISSET[3]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[3].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD5"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD5"}
-                ]
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISSET[2]",
-               "info" : "Privileged Mode only.",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD4"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD4"}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISSET[1]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[1].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD3"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD3"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISSET[0]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[0].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD2"},
-                 {"value" : "1", "desc" : "Disable clocks to logic power domain PD2"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PDCLKDISCLR",
-          "info" : "Power Domain Clock Disable Clear Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "28",
-          "fields" : [
-             {
-               "start_bit" : "3",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISCLR[3]",
-               "info" : "PDCLK_DISCLR[3]",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD5"},
-                 {"value" : "1", "desc" : "Enable clocks to logic power domain PD5"}
-                ]
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISCLR[2]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[2].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD4"},
-                 {"value" : "1", "desc" : "1"}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISCLR[1]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[1].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD3"},
-                 {"value" : "1", "desc" : "Enable clocks to logic power domain PD3"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PDCLK_DISCLR[0]",
-               "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[0].",
-               "values" : [
-                 {"value" : "0", "desc" : "No effect to state of clocks to power domain PD2"},
-                 {"value" : "1", "desc" : "Enable clocks to logic power domain PD2"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT0",
-          "info" : "Logic Power Domain PD2 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "40",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS0",
-               "info" : "Logic in transition status for power domain PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS0",
-               "info" : "Memory in transition status for power domain PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON0",
-               "info" : "Current state of power domain PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD2 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD2 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "LOGICPDPWR STAT0",
-               "info" : "Logic power domain PD2 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD2 is switched OFF"},
-                 {"value" : "1h", "desc" : "Logic power domain PD2 is in Idle state"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD2 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT1",
-          "info" : "Logic Power Domain PD3 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS1",
-               "info" : "Logic in transition status for power domain PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS1",
-               "info" : "Memory in transition status for power domain PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON1",
-               "info" : "Current state of power domain PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD3 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD3 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "LOGICPDPWR STAT1",
-               "info" : "Logic power domain PD3 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD3 is switched OFF"},
-                 {"value" : "1h", "desc" : "1h"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD3 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT2",
-          "info" : "Logic Power Domain PD4 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "48",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS2",
-               "info" : "Logic in transition status for power domain PD4.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD4 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD4 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS2",
-               "info" : "Memory in transition status for power domain PD4.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD4 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD4 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON2",
-               "info" : "Current state of power domain PD4.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD4 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD4 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "LOGICPDPWR STAT2",
-               "info" : "Logic power domain PD4 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD4 is switched OFF"},
-                 {"value" : "1h", "desc" : "Logic power domain PD4 is in Idle state"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD4 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT3",
-          "info" : "Logic Power Domain PD5 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4C",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS3",
-               "info" : "Logic in transition status for power domain PD5.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD5 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD5 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS3",
-               "info" : "Memory in transition status for power domain PD5.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD5 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD5 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON3",
-               "info" : "Current state of power domain PD5.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD5 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD5 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "LOGICPDPWR STAT3",
-               "info" : "Logic power domain PD5 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD5 is switched OFF"},
-                 {"value" : "1h", "desc" : "Logic power domain PD5 is in Idle state"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD5 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT0",
-          "info" : "Memory Power Domain RAM_PD1 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "80",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS0",
-               "info" : "Logic in transition status for power domain RAM_PD1.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain RAM_PD1 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain RAM_PD1 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS0",
-               "info" : "Memory in transition status for power domain RAM_PD1.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain RAM_PD1 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain RAM_PD1 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON0",
-               "info" : "Current state of power domain RAM_PD1.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain RAM_PD1 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain RAM_PD1 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MEMPDPWR STAT0",
-               "info" : "Memory power domain RAM_PD1 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory power domain RAM_PD1 is switched OFF"},
-                 {"value" : "1h", "desc" : "Reserved"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain RAM_PD1 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT1",
-          "info" : "Memory Power Domain RAM_PD2 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "84",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS1",
-               "info" : "Logic in transition status for power domain RAM_PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain RAM_PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain RAM_PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS1",
-               "info" : "Memory in transition status for power domain RAM_PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain RAM_PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain RAM_PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON1",
-               "info" : "Current state of power domain RAM_PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain RAM_PD2 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain RAM_PD2 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MEMPDPWR STAT1",
-               "info" : "Memory power domain RAM_PD2power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory power domain RAM_PD2 is switched OFF"},
-                 {"value" : "1h", "desc" : "Reserved"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain RAM_PD2 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT2",
-          "info" : "Memory Power Domain RAM_PD3 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "88",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "LOGIC IN TRANS2",
-               "info" : "Logic in transition status for power domain RAM_PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain RAM_PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain RAM_PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MEM IN TRANS2",
-               "info" : "Memory in transition status for power domain RAM_PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain RAM_PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain RAM_PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DOMAIN ON2",
-               "info" : "Current state of power domain RAM_PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain RAM_PD3 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain RAM_PD3 is in the Active state"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "MEMPDPWR STAT2",
-               "info" : "Memory power domain RAM_PD3 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory power domain RAM_PD3 is switched OFF"},
-                 {"value" : "1h", "desc" : "Reserved"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain RAM_PD3 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GLOBALCTRL1",
-          "info" : "Global Control Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "A0",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PMCTRL PWRDN",
-               "info" : "PMC/PSCON Power Down",
-               "values" : [
-                 {"value" : "0", "desc" : "0"},
-                 {"value" : "1", "desc" : "Disable the clock to pmctrl_wakeup block, which contains PMC and all PSCONs."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "AUTO CLK WAKE ENA",
-               "info" : "Automatic Clock Enable on Wake Up",
-               "values" : [
-                 {"value" : "0", "desc" : "Disable automatic clock wake up."},
-                 {"value" : "1", "desc" : "Enable automatic clock wake up when a power domain transitions to Active state."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GLOBALSTAT",
-          "info" : "Global Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "A8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PMCTRL IDLE",
-               "info" : "State of PMC and all PSCONs.",
-               "values" : [
-                 {"value" : "0", "desc" : "PMC and PSCONs for all power domains are in the process of generating power state transition"},
-                 {"value" : "1", "desc" : "PMC and PSCONs for all power domains have completed generating power state transition control"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PRCKEYREG",
-          "info" : "PSCON Diagnostic Compare Key Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "AC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "MKEY",
-               "info" : "Diagnostic PSCON Mode Key. The mode key is applied to all individual PSCON compare units.",
-               "values" : [
-                 {"value" : "0", "desc" : "Lock Step mode"},
-                 {"value" : "6h", "desc" : "Self-test mode"},
-                 {"value" : "9h", "desc" : "Error Forcing mode"},
-                 {"value" : "Fh", "desc" : "Self-test Error Forcing Mode"},
-                 {"value" : "All others", "desc" : "Lock Step mode"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LPDDCSTAT1",
-          "info" : "LogicPD PSCON Diagnostic Compare Status Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B0",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LCMPE[3-0]",
-               "info" : "Logic Power Domain Compare Error",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: PSCON signals are identical."},
-                 {"value" : "1", "desc" : "Read: PSCON signal compare mismatch identified."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LSTC[3-0]",
-               "info" : "Logic Power Domain Self-test Complete",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test is ongoing if self-test mode is entered."},
-                 {"value" : "1", "desc" : "Self-test is complete."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LPDDCSTAT2",
-          "info" : "LogicPD PSCON Diagnostic Compare Status Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B4",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LSTET[3-0]",
-               "info" : "Logic Power Domain Self-test Error Type",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test failed during compare match test."},
-                 {"value" : "1", "desc" : "Self-test failed during compare mismatch test."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "LSTE[3-0]",
-               "info" : "Logic Power Domain Self-test Error",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test passed."},
-                 {"value" : "1", "desc" : "Self-test failed."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MPDDCSTAT1",
-          "info" : "Memory PD PSCON Diagnostic Compare Status Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "B8",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "MCMPE[2-0]",
-               "info" : "Memory Power Domain Compare Error",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: PSCON signals are identical."},
-                 {"value" : "1", "desc" : "Read: PSCON signal compare mismatch identified."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "MSTC[2-0]",
-               "info" : "Memory Power Domain Self-test Complete",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test is ongoing if self-test mode is entered."},
-                 {"value" : "1", "desc" : "Self-test is complete."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MPDDCSTAT2",
-          "info" : "Memory PD PSCON Diagnostic Compare Status Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "BC",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "MSTET[2-0]",
-               "info" : "Memory Power Domain Self-test Error Type",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test failed during compare match test."},
-                 {"value" : "1", "desc" : "Self-test failed during compare mismatch test."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "MSTE[2-0]",
-               "info" : "Memory Power Domain Self-test Error",
-               "values" : [
-                 {"value" : "0", "desc" : "Self-test passed."},
-                 {"value" : "1", "desc" : "Self-test failed."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "ISODIAGSTAT",
-          "info" : "Isolation Diagnostic Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "C0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "ISO DIAG[3-0]",
-               "info" : "Isolation Diagnostic",
-               "values" : [
-                 {"value" : "0", "desc" : "Isolation is enabled for corresponding power domain"},
-                 {"value" : "1", "desc" : "Isolation is disabled for corresponding power domain"}
-                ]
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-} 
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "PMM",
+     "full name" : "Power Management Module",
+     "offset" : ["0xFFFF0000"],
+     "registers" : [
+       {
+       "name" : "LOGICPDPWRCTRL0",
+       "info" : "Logic Power Domain Control Register 0",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LOGICPDON0",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LOGICPDON1",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LOGICPDON2",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LOGICPDON3",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         }
+        ]
+       },
+       {
+       "name" : "MEMPDPWRCTRL0",
+       "info" : "Memory Power Domain Control Register 0",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "MEMPDON0",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "MEMPDON1",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "MEMPDON2",
+         "info" : "Read in User and Privileged Mode. Write in Privileged Mode only."
+         }
+        ]
+       },
+       {
+       "name" : "PDCLKDIS",
+       "info" : "Power Domain Clock Disable Register",
+       "lenght" : "32",
+       "adress" : "0x20",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DIS_3",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[3]."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DIS_2",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[2]."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DIS_1",
+         "info" : "ead in User and Privileged Mode returns the current value of PDCLK_DIS[1]."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DIS_0",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[0]."
+         }
+        ]
+       },
+       {
+       "name" : "PDCLKDISSET",
+       "info" : "Power Domain Clock Disable Set Register",
+       "lenght" : "32",
+       "adress" : "0x24",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISSET_3",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[3]."
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISSET_2",
+         "info" : "Privileged Mode only."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISSET_1",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[1]."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISSET_0",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DISSET[0]."
+         }
+        ]
+       },
+       {
+       "name" : "PDCLKDISCLR",
+       "info" : "Power Domain Clock Disable Clear Register",
+       "lenght" : "32",
+       "adress" : "0x28",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISCLR_3",
+         "info" : "PDCLK_DISCLR[3]"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISCLR_2",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[2]."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISCLR_1",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[1]."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PDCLK_DISCLR_0",
+         "info" : "Read in User and Privileged Mode returns the current value of PDCLK_DIS[0]."
+         }
+        ]
+       },
+       {
+       "name" : "LOGICPDPWRSTAT0",
+       "info" : "Logic Power Domain PD2 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x40",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS0",
+         "info" : "Logic in transition status for power domain PD2."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS0",
+         "info" : "Memory in transition status for power domain PD2."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON0",
+         "info" : "Current state of power domain PD2."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "LOGICPDPWR_STAT0",
+         "info" : "Logic power domain PD2 power state."
+         }
+        ]
+       },
+       {
+       "name" : "LOGICPDPWRSTAT1",
+       "info" : "Logic Power Domain PD3 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x44",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS1",
+         "info" : "Logic in transition status for power domain PD3."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS1",
+         "info" : "Memory in transition status for power domain PD3."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON1",
+         "info" : "Current state of power domain PD3."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "LOGICPDPWR_STAT1",
+         "info" : "Logic power domain PD3 power state."
+         }
+        ]
+       },
+       {
+       "name" : "LOGICPDPWRSTAT2",
+       "info" : "Logic Power Domain PD4 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x48",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS2",
+         "info" : "Logic in transition status for power domain PD4."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS2",
+         "info" : "Memory in transition status for power domain PD4."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON2",
+         "info" : "Current state of power domain PD4."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "LOGICPDPWR_STAT2",
+         "info" : "Logic power domain PD4 power state."
+         }
+        ]
+       },
+       {
+       "name" : "LOGICPDPWRSTAT3",
+       "info" : "Logic Power Domain PD5 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x4c",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS3",
+         "info" : "Logic in transition status for power domain PD5."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS3",
+         "info" : "Memory in transition status for power domain PD5."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON3",
+         "info" : "Current state of power domain PD5."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "LOGICPDPWR_STAT3",
+         "info" : "Logic power domain PD5 power state."
+         }
+        ]
+       },
+       {
+       "name" : "MEMPDPWRSTAT0",
+       "info" : "Memory Power Domain RAM_PD1 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x80",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS0",
+         "info" : "Logic in transition status for power domain RAM_PD1."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS0",
+         "info" : "Memory in transition status for power domain RAM_PD1."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON0",
+         "info" : "Current state of power domain RAM_PD1."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MEMPDPWR_STAT0",
+         "info" : "Memory power domain RAM_PD1 power state."
+         }
+        ]
+       },
+       {
+       "name" : "MEMPDPWRSTAT1",
+       "info" : "Memory Power Domain RAM_PD2 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x84",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS1",
+         "info" : "Logic in transition status for power domain RAM_PD2."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS1",
+         "info" : "Memory in transition status for power domain RAM_PD2."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON1",
+         "info" : "Current state of power domain RAM_PD2."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MEMPDPWR_STAT1",
+         "info" : "Memory power domain RAM_PD2power state."
+         }
+        ]
+       },
+       {
+       "name" : "MEMPDPWRSTAT2",
+       "info" : "Memory Power Domain RAM_PD3 Power Status Register",
+       "lenght" : "32",
+       "adress" : "0x88",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LOGIC_IN_TRANS2",
+         "info" : "Logic in transition status for power domain RAM_PD3."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MEM_IN_TRANS2",
+         "info" : "Memory in transition status for power domain RAM_PD3."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DOMAIN_ON2",
+         "info" : "Current state of power domain RAM_PD3."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "MEMPDPWR_STAT2",
+         "info" : "Memory power domain RAM_PD3 power state."
+         }
+        ]
+       },
+       {
+       "name" : "GLOBALCTRL1",
+       "info" : "Global Control Register 1",
+       "lenght" : "32",
+       "adress" : "0xa0",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PMCTRL_PWRDN",
+         "info" : "PMC/PSCON Power Down"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "AUTO_CLK_WAKE_ENA",
+         "info" : "Automatic Clock Enable on Wake Up"
+         }
+        ]
+       },
+       {
+       "name" : "GLOBALSTAT",
+       "info" : "Global Status Register",
+       "lenght" : "32",
+       "adress" : "0xa8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PMCTRL_IDLE",
+         "info" : "State of PMC and all PSCONs."
+         }
+        ]
+       },
+       {
+       "name" : "PRCKEYREG",
+       "info" : "PSCON Diagnostic Compare Key Register",
+       "lenght" : "32",
+       "adress" : "0xac",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "MKEY",
+         "info" : "Diagnostic PSCON Mode Key. The mode key is applied to all individual PSCON compare units."
+         }
+        ]
+       },
+       {
+       "name" : "LPDDCSTAT1",
+       "info" : "LogicPD PSCON Diagnostic Compare Status Register 1",
+       "lenght" : "32",
+       "adress" : "0xb0",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LCMPE",
+         "info" : "Logic Power Domain Compare Error"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LSTC",
+         "info" : "Logic Power Domain Self-test Complete"
+         }
+        ]
+       },
+       {
+       "name" : "LPDDCSTAT2",
+       "info" : "LogicPD PSCON Diagnostic Compare Status Register 2",
+       "lenght" : "32",
+       "adress" : "0xb4",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LSTET",
+         "info" : "Logic Power Domain Self-test Error Type"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "LSTE",
+         "info" : "Logic Power Domain Self-test Error"
+         }
+        ]
+       },
+       {
+       "name" : "MPDDCSTAT1",
+       "info" : "Memory PD PSCON Diagnostic Compare Status Register 1",
+       "lenght" : "32",
+       "adress" : "0xb8",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "MCMPE",
+         "info" : "Memory Power Domain Compare Error"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "MSTC",
+         "info" : "Memory Power Domain Self-test Complete"
+         }
+        ]
+       },
+       {
+       "name" : "MPDDCSTAT2",
+       "info" : "Memory PD PSCON Diagnostic Compare Status Register 2",
+       "lenght" : "32",
+       "adress" : "0xbc",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "MSTET",
+         "info" : "Memory Power Domain Self-test Error Type"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "MSTE",
+         "info" : "Memory Power Domain Self-test Error"
+         }
+        ]
+       },
+       {
+       "name" : "ISODIAGSTAT",
+       "info" : "Isolation Diagnostic Status Register",
+       "lenght" : "32",
+       "adress" : "0xc0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "ISO_DIAG",
+         "info" : "Isolation Diagnostic"
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

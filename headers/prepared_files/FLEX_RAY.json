@@ -1,1545 +1,1318 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "FLEX",
-      "registers" :
-      [
-{
-          "name" : "GSN0",
-          "info" : "Global Static Number 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "Data_A(15-0)",
-               "info" : "Data_A(15-0)"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "Data_B(15-0)",
-               "info" : "(complement of Data_A(15-0))"
-             }
-          ]
-        },
-{
-          "name" : "GSN1",
-          "info" : "Global Static Number 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "004",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "Data_C(15-0)",
-               "info" : "Data_C(15-0)"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "Data_D(15-0)",
-               "info" : "(complement of Data_C(15-0))"
-             }
-          ]
-        },
-{
-          "name" : "GCS",
-          "info" : "Global Control Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "010",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENDVBM",
-               "info" : "Endianness Correction on VBusp Master"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENDVBS",
-               "info" : "Endianness correction on VBusp Slave"
-             },
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDRx",
-               "info" : "Endianness Correction for No (header or payload) Data Sink Access",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "Remapped to CDABh"},
-                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "26",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDHx",
-               "info" : "Endianness Correction for Header",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "Remapped to CDABh"},
-                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDPx",
-               "info" : "Endianness Correction for Payload",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "2h"},
-                 {"value" : "3h Remapped to DCBAh", "desc" : "3h Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "21",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PRIO",
-               "info" : "Transfer Priority",
-               "values" : [
-                 {"value" : "0", "desc" : "TTSM gets higher priority than TTCC"},
-                 {"value" : "1", "desc" : "TTCC gets higher priority than TTSM"}
-                ]
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PEFT",
-               "info" : "Parity for Test"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PELx",
-               "info" : "Parity Lock",
-               "values" : [
-                 {"value" : "5h", "desc" : "Parity protection for TCR is switched off."},
-                 {"value" : "Others", "desc" : "Parity protection for TCR is switched on."}
-                ]
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CETESM",
-               "info" : "Clear ETESM Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
-                ]
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CTTCC",
-               "info" : "Clear TTCC Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
-                ]
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CTTSM",
-               "info" : "Clear TTSM Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "1"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ETSM",
-               "info" : "Enable Transfer Status Mirrored",
-               "values" : [
-                 {"value" : "0", "desc" : "Disable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."},
-                 {"value" : "1", "desc" : "Enable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."}
-                ]
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SILE",
-               "info" : "Status Interrupt Line Enable",
-               "values" : [
-                 {"value" : "0", "desc" : "TU_Int0 is disabled."},
-                 {"value" : "1", "desc" : "TU_Int0 is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EILE",
-               "info" : "Error Interrupt Line Enable",
-               "values" : [
-                 {"value" : "0", "desc" : "TU_Int1 is disabled."},
-                 {"value" : "1", "desc" : "TU_Int1 is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TUH",
-               "info" : "Transfer Unit Halted",
-               "values" : [
-                 {"value" : "0", "desc" : "Transfer Unit not halted"},
-                 {"value" : "1", "desc" : "Transfer Unit halted"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TUE",
-               "info" : "Transfer Unit Enabled",
-               "values" : [
-                 {"value" : "0", "desc" : "Transfer Unit disabled, reset Transfer Unit State Machine, completion of the current VBUS transfer"},
-                 {"value" : "1", "desc" : "Transfer Unit enabled"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GCR",
-          "info" : "Global Control Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "014",
-          "fields" : [
-             {
-               "start_bit" : "31",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENDVBM",
-               "info" : "Endianness Correction on VBusp Master"
-             },
-             {
-               "start_bit" : "30",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ENDVBS",
-               "info" : "Endianness correction on VBusp Slave"
-             },
-             {
-               "start_bit" : "28",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDRx",
-               "info" : "Endianness Correction for No (header or payload) Data Sink Access",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "Remapped to CDABh"},
-                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "26",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDHx",
-               "info" : "Endianness Correction for Header",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "Remapped to CDABh"},
-                 {"value" : "3h", "desc" : "Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ENDPx",
-               "info" : "Endianness Correction for Payload",
-               "values" : [
-                 {"value" : "0", "desc" : "Remapped to ABCDh"},
-                 {"value" : "1h", "desc" : "Remapped to BADCh"},
-                 {"value" : "2h", "desc" : "2h"},
-                 {"value" : "3h Remapped to DCBAh", "desc" : "3h Remapped to DCBAh"}
-                ]
-             },
-             {
-               "start_bit" : "21",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PRIO",
-               "info" : "Transfer Priority",
-               "values" : [
-                 {"value" : "0", "desc" : "TTSM gets higher priority than TTCC"},
-                 {"value" : "1", "desc" : "TTCC gets higher priority than TTSM"}
-                ]
-             },
-             {
-               "start_bit" : "20",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PEFT",
-               "info" : "Parity for Test"
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PELx",
-               "info" : "Parity Lock",
-               "values" : [
-                 {"value" : "5h", "desc" : "Parity protection for TCR is switched off."},
-                 {"value" : "Others", "desc" : "Parity protection for TCR is switched on."}
-                ]
-             },
-             {
-               "start_bit" : "14",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CETESM",
-               "info" : "Clear ETESM Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
-                ]
-             },
-             {
-               "start_bit" : "13",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CTTCC",
-               "info" : "Clear TTCC Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "Clear the register when bit is set from 0 to 1."}
-                ]
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "CTTSM",
-               "info" : "Clear TTSM Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Do not clear the register."},
-                 {"value" : "1", "desc" : "1"}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "ETSM",
-               "info" : "Enable Transfer Status Mirrored",
-               "values" : [
-                 {"value" : "0", "desc" : "Disable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."},
-                 {"value" : "1", "desc" : "Enable mirror function for TSCB, LTBCC, LTBSM, TSMO1-4, TCCO1-4 and TOOFF."}
-                ]
-             },
-             {
-               "start_bit" : "5",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "SILE",
-               "info" : "Status Interrupt Line Enable",
-               "values" : [
-                 {"value" : "0", "desc" : "TU_Int0 is disabled."},
-                 {"value" : "1", "desc" : "TU_Int0 is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "EILE",
-               "info" : "Error Interrupt Line Enable",
-               "values" : [
-                 {"value" : "0", "desc" : "TU_Int1 is disabled."},
-                 {"value" : "1", "desc" : "TU_Int1 is enabled."}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TUH",
-               "info" : "Transfer Unit Halted",
-               "values" : [
-                 {"value" : "0", "desc" : "Transfer Unit not halted"},
-                 {"value" : "1", "desc" : "Transfer Unit halted"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TUE",
-               "info" : "Transfer Unit Enabled",
-               "values" : [
-                 {"value" : "0", "desc" : "Transfer Unit disabled, reset Transfer Unit State Machine, completion of the current VBUS transfer"},
-                 {"value" : "1", "desc" : "Transfer Unit enabled"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "TSCB",
-          "info" : "Transfer Status Current Buffer",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "018",
-          "fields" : [
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "5",
-               "bit_Field_Name" : "TSMS[4:0]",
-               "info" : "Transfer State Machine Status",
-               "values" : [
-                 {"value" : "01h", "desc" : "IDLE state"},
-                 {"value" : "02h", "desc" : "Start state (TTSM_START)"},
-                 {"value" : "03h", "desc" : "Output Buffer Command Mask access state (TTSM_OBCM)"},
-                 {"value" : "04h", "desc" : "Request state (TTSM_REQ)"},
-                 {"value" : "05h", "desc" : "View state (TTSM_VIEW)"},
-                 {"value" : "06h", "desc" : "Check state (TTSM_CHECK)"},
-                 {"value" : "07h", "desc" : "Read Header Section access state (TTSM_RDHS)"},
-                 {"value" : "08h", "desc" : "Read Data Section access state (TTSM_RDDS)"},
-                 {"value" : "09h", "desc" : "Start state (TTCC_START)"},
-                 {"value" : "0Ah", "desc" : "Busy state (TTCC_IBUSY)"},
-                 {"value" : "0Bh", "desc" : "Check state (TTCC_CHECK)"},
-                 {"value" : "0Ch", "desc" : "Write Header Section access state (TTCC_WRHS)"},
-                 {"value" : "0Dh", "desc" : "Payload Read state (TTCC_PLC_READ)"},
-                 {"value" : "0Eh", "desc" : "0Eh"},
-                 {"value" : "0Fh", "desc" : "Write Data Section access state (TTCC_WRDS)"},
-                 {"value" : "10h", "desc" : "Input Buffer Command Mask access state (TTCC_IBCM)"},
-                 {"value" : "11h", "desc" : "Input Buffer Command Request access state (TTCC_IBCR)"},
-                 {"value" : "12h", "desc" : "Mirror state (TTCC_MIRROR)"},
-                 {"value" : "13h", "desc" : "End state (TTSM_END)"},
-                 {"value" : "1Fh", "desc" : "Undefined state"}
-                ]
-             },
-             {
-               "start_bit" : "12",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "STUH",
-               "info" : "Status of Transfer Unit State Machine for Halt Detection",
-               "values" : [
-                 {"value" : "0", "desc" : "Not in HALT status."},
-                 {"value" : "1", "desc" : "In HALT status."}
-                ]
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "IDLE",
-               "info" : "Detects Transfer State Machine State IDLE",
-               "values" : [
-                 {"value" : "0", "desc" : "IDLE state not reached since last clear."},
-                 {"value" : "1", "desc" : "IDLE state reached."}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "7",
-               "bit_Field_Name" : "BN[6:0]",
-               "info" : "Buffer Number"
-             }
-          ]
-        },
-{
-          "name" : "LTBCC",
-          "info" : "Last Transferred Buffer to Communication Controller",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "01C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "7",
-               "bit_Field_Name" : "BN[6:0]",
-               "info" : "Buffer number."
-             }
-          ]
-        },
-{
-          "name" : "LTBSM",
-          "info" : "Last Transferred Buffer to System Memory",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "020",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "7",
-               "bit_Field_Name" : "BN[6:0]",
-               "info" : "Buffer number."
-             }
-          ]
-        },
-{
-          "name" : "TBA",
-          "info" : "Transfer Base Address",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "024",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TBA(31-0)",
-               "info" : "Transfer Base Address."
-             }
-          ]
-        },
-{
-          "name" : "NTBA",
-          "info" : "Next Transfer Base Address",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "028",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "nTBA(31-0)",
-               "info" : "nTBA(31-0)"
-             }
-          ]
-        },
-{
-          "name" : "BAMS",
-          "info" : "Base Address of Mirrored Status",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "02C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "BAMS(31-0)",
-               "info" : "Base Address of Mirrored Status32-bit base pointer, 2 LSB are not significant (32-bit"
-             }
-          ]
-        },
-{
-          "name" : "SAMP",
-          "info" : "Start Address of Memory Protection",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "030",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "SAMP(31-0)",
-               "info" : "Start Address Memory Protection."
-             }
-          ]
-        },
-{
-          "name" : "EAMP",
-          "info" : "End Address of Memory Protection",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "34",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "EAMP(31-0)",
-               "info" : "End Address Memory Protection."
-             }
-          ]
-        },
-{
-          "name" : "TSMO1",
-          "info" : "Transfer to System Memory Occurred 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "040",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TSMO1(31-0)",
-               "info" : "Transfer to System Memory Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMO2",
-          "info" : "Transfer to System Memory Occurred 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "044",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TSMO1(31-0)",
-               "info" : "Transfer to System Memory Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMO3",
-          "info" : "Transfer to System Memory Occurred 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "048",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TSMO1(31-0)",
-               "info" : "Transfer to System Memory Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMO4",
-          "info" : "Transfer to System Memory Occurred 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "04C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TSMO1(31-0)",
-               "info" : "Transfer to System Memory Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCO1",
-          "info" : "Transfer to Communication Controller Occurred 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "050",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCO1(31-0)",
-               "info" : "Transfer to Communication Controller Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCO2",
-          "info" : "Transfer to Communication Controller Occurred 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "054",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCO1(31-0)",
-               "info" : "Transfer to Communication Controller Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCO3",
-          "info" : "Transfer to Communication Controller Occurred 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "058",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCO1(31-0)",
-               "info" : "Transfer to Communication Controller Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCO4",
-          "info" : "Transfer to Communication Controller Occurred 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "05C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCO1(31-0)",
-               "info" : "Transfer to Communication Controller Occurred Register 1."
-             }
-          ]
-        },
-{
-          "name" : "TOOFF",
-          "info" : "Transfer Occurred Offset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "060",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TDIR",
-               "info" : "Transfer Direction."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "OFF(7-0)",
-               "info" : "Offset Vector"
-             }
-          ]
-        },
-{
-          "name" : "PEADR",
-          "info" : "Parity Error Address",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "070",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "9",
-               "bit_Field_Name" : "ADR(8-0)",
-               "info" : "Address of failing TCR location."
-             }
-          ]
-        },
-{
-          "name" : "TEIF",
-          "info" : "Transfer Error Interrupt",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "074",
-          "fields" : [
-             {
-               "start_bit" : "17",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "MPV",
-               "info" : "Memory Protection Violation."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PE",
-               "info" : "Parity Error. The flag signals a parity error to the host."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "RSTAT(2-0)",
-               "info" : "Status of VBUS on read transfers."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "WSTAT(2-0)",
-               "info" : "Status of VBUS on write transfers.",
-               "values" : [
-                 {"value" : "0", "desc" : "Success."},
-                 {"value" : "1h", "desc" : "Addressing error."},
-                 {"value" : "2h", "desc" : "Protection error."},
-                 {"value" : "3h", "desc" : "Timeout error."},
-                 {"value" : "4h", "desc" : "Reserved."},
-                 {"value" : "5h", "desc" : "Unsupported addressing mode error."},
-                 {"value" : "6h", "desc" : "Reserved."},
-                 {"value" : "7h", "desc" : "Exclusive write failure."}
-                ]
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TNR",
-               "info" : "Transfer Not Ready."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FAC",
-               "info" : "Forbidden Access."
-             }
-          ]
-        },
-{
-          "name" : "TEIRES",
-          "info" : "Transfer Error Interrupt Enable Set",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "078",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "RSTATE(2-0)",
-               "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "WSTATE(2-0)",
-               "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TNRE",
-               "info" : "Transfer Not Ready Enable."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FACE",
-               "info" : "Forbidden Access Enable."
-             }
-          ]
-        },
-{
-          "name" : "TEIRER",
-          "info" : "Transfer Error Interrupt Enable Reset",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "07C",
-          "fields" : [
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "RSTATE(2-0)",
-               "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
-             },
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "3",
-               "bit_Field_Name" : "WSTATE(2-0)",
-               "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
-             },
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "TNRE",
-               "info" : "Transfer Not Ready Enable."
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FACE",
-               "info" : "Forbidden Access Enable."
-             }
-          ]
-        },
-{
-          "name" : "TTSMS1",
-          "info" : "Trigger Transfer to System Memory Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "080",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMR1",
-          "info" : "Trigger Transfer to System Memory Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "084",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMS2",
-          "info" : "Trigger Transfer to System Memory Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "088",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMR2",
-          "info" : "Trigger Transfer to System Memory Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "08C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMS3",
-          "info" : "Trigger Transfer to System Memory Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "090",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMR3",
-          "info" : "Trigger Transfer to System Memory Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "094",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMS4",
-          "info" : "Trigger Transfer to System Memory Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "098",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTSMR4",
-          "info" : "Trigger Transfer to System Memory Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "09C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMS1(31-0)",
-               "info" : "Trigger Transfer to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCS1",
-          "info" : "Trigger Transfer to Communication Controller Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0A0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCR1",
-          "info" : "Trigger Transfer to Communication Controller Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0A4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCS2",
-          "info" : "Trigger Transfer to Communication Controller Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0A8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCR2",
-          "info" : "Trigger Transfer to Communication Controller Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0AC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCS3",
-          "info" : "Trigger Transfer to Communication Controller Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0B0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCR3",
-          "info" : "Trigger Transfer to Communication Controller Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0B4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCS4",
-          "info" : "Trigger Transfer to Communication Controller Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0B8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TTCCR4",
-          "info" : "Trigger Transfer to Communication Controller Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0BC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTCCS1(31-0)",
-               "info" : "Trigger Transfer to Communication Controller Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMS1",
-          "info" : "Enable Transfer on Event to System Memory Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMR1",
-          "info" : "Enable Transfer on Event to System Memory Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMS2",
-          "info" : "Enable Transfer on Event to System Memory Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0C8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMR2",
-          "info" : "Enable Transfer on Event to System Memory Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0CC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "message buffers 0 to 31."
-             }
-          ]
-        },
-{
-          "name" : "ETESMS3",
-          "info" : "Enable Transfer on Event to System Memory Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0D0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMR3",
-          "info" : "Enable Transfer on Event to System Memory Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0D4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMS4",
-          "info" : "Enable Transfer on Event to System Memory Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0D8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "Enable Transfer on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "ETESMR4",
-          "info" : "Enable Transfer on Event to System Memory Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0DC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ETESMS1(31-0)",
-               "info" : "message buffers 0 to 31."
-             }
-          ]
-        },
-{
-          "name" : "CESMS1",
-          "info" : "Clear on Event to System Memory Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0E0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMR1",
-          "info" : "Clear on Event to System Memory Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0E4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMS2",
-          "info" : "Clear on Event to System Memory Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0E8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMR2",
-          "info" : "Clear on Event to System Memory Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0EC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMS3",
-          "info" : "Clear on Event to System Memory Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0F0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMR3",
-          "info" : "Clear on Event to System Memory Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0F4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "CESMS1(31-0)"
-             }
-          ]
-        },
-{
-          "name" : "CESMS4",
-          "info" : "Clear on Event to System Memory Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0F8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "CESMR4",
-          "info" : "Clear on Event to System Memory Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0FC",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "CESMS1(31-0)",
-               "info" : "Clear on Event to System Memory Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIES1",
-          "info" : "Transfer to System Memory Interrupt Enable Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "100",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIER1",
-          "info" : "Transfer to System Memory Interrupt Enable Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "104",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIES2",
-          "info" : "Transfer to System Memory Interrupt Enable Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "108",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIER2",
-          "info" : "Transfer to System Memory Interrupt Enable Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "10C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIES3",
-          "info" : "Transfer to System Memory Interrupt Enable Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "110",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIER3",
-          "info" : "Transfer to System Memory Interrupt Enable Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "114",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIES4",
-          "info" : "Transfer to System Memory Interrupt Enable Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "118",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TSMIER4",
-          "info" : "Transfer to System Memory Interrupt Enable Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "11C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TTSMIES1(31-0)",
-               "info" : "Transfer to System Memory Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIES1",
-          "info" : "Transfer to Communication Controller Interrupt Enable Set 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "120",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIER1",
-          "info" : "Transfer to Communication Controller Interrupt Enable Reset 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "124",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIES2",
-          "info" : "Transfer to Communication Controller Interrupt Enable Set 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "128",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIER2",
-          "info" : "Transfer to Communication Controller Interrupt Enable Reset 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "12C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "to message buffers 0 to 31."
-             }
-          ]
-        },
-{
-          "name" : "TCCIES3",
-          "info" : "Transfer to Communication Controller Interrupt Enable Set 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "130",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIER3",
-          "info" : "Transfer to Communication Controller Interrupt Enable Reset 3",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "134",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIES4",
-          "info" : "Transfer to Communication Controller Interrupt Enable Set 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "138",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        },
-{
-          "name" : "TCCIER4",
-          "info" : "Transfer to Communication Controller Interrupt Enable Reset 4",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "13C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "TCCIES1(31-0)",
-               "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
-             }
-          ]
-        }
-      ]    
-    }
-  ] 
-}
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "FLEX_RAY",
+     "full name" : "FlexRay Module",
+     "offset" : ["0xFFF7C800"],
+     "registers" : [
+       {
+       "name" : "GSN0",
+       "info" : "Global Static Number 0",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "Data_A(15_0)",
+         "info" : "Data_A(15-0)"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "Data_B(15_0)",
+         "info" : "(complement of Data_A(15-0))"
+         }
+        ]
+       },
+       {
+       "name" : "GSN1",
+       "info" : "Global Static Number 1",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "Data_C(15_0)",
+         "info" : "Data_C(15-0)"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "Data_D(15_0)",
+         "info" : "(complement of Data_C(15-0))"
+         }
+        ]
+       },
+       {
+       "name" : "GCS",
+       "info" : "Global Control Set",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENDVBM",
+         "info" : "Endianness Correction on VBusp Master"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENDVBS",
+         "info" : "Endianness correction on VBusp Slave"
+         },
+         {
+         "start_bit" : "28",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDRx",
+         "info" : "Endianness Correction for No (header or payload) Data Sink Access"
+         },
+         {
+         "start_bit" : "26",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDHx",
+         "info" : "Endianness Correction for Header"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDPx",
+         "info" : "Endianness Correction for Payload"
+         },
+         {
+         "start_bit" : "21",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PRIO",
+         "info" : "Transfer Priority"
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PEFT",
+         "info" : "Parity for Test"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PELx",
+         "info" : "Parity Lock"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CETESM",
+         "info" : "Clear ETESM Register"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CTTCC",
+         "info" : "Clear TTCC Register"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CTTSM",
+         "info" : "Clear TTSM Register"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ETSM",
+         "info" : "Enable Transfer Status Mirrored"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SILE",
+         "info" : "Status Interrupt Line Enable"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EILE",
+         "info" : "Error Interrupt Line Enable"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TUH",
+         "info" : "Transfer Unit Halted"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TUE",
+         "info" : "Transfer Unit Enabled"
+         }
+        ]
+       },
+       {
+       "name" : "GCR",
+       "info" : "Global Control Reset",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "31",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENDVBM",
+         "info" : "Endianness Correction on VBusp Master"
+         },
+         {
+         "start_bit" : "30",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ENDVBS",
+         "info" : "Endianness correction on VBusp Slave"
+         },
+         {
+         "start_bit" : "28",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDRx",
+         "info" : "Endianness Correction for No (header or payload) Data Sink Access"
+         },
+         {
+         "start_bit" : "26",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDHx",
+         "info" : "Endianness Correction for Header"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ENDPx",
+         "info" : "Endianness Correction for Payload"
+         },
+         {
+         "start_bit" : "21",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PRIO",
+         "info" : "Transfer Priority"
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PEFT",
+         "info" : "Parity for Test"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PELx",
+         "info" : "Parity Lock"
+         },
+         {
+         "start_bit" : "14",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CETESM",
+         "info" : "Clear ETESM Register"
+         },
+         {
+         "start_bit" : "13",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CTTCC",
+         "info" : "Clear TTCC Register"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "CTTSM",
+         "info" : "Clear TTSM Register"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ETSM",
+         "info" : "Enable Transfer Status Mirrored"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "SILE",
+         "info" : "Status Interrupt Line Enable"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "EILE",
+         "info" : "Error Interrupt Line Enable"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TUH",
+         "info" : "Transfer Unit Halted"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TUE",
+         "info" : "Transfer Unit Enabled"
+         }
+        ]
+       },
+       {
+       "name" : "TSCB",
+       "info" : "Transfer Status Current Buffer",
+       "lenght" : "32",
+       "adress" : "0x18",
+       "fields" : [
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "TSMS4:0",
+         "info" : "Transfer State Machine Status"
+         },
+         {
+         "start_bit" : "12",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "STUH",
+         "info" : "Status of Transfer Unit State Machine for Halt Detection"
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "IDLE",
+         "info" : "Detects Transfer State Machine State IDLE"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "7",
+         "bit_Field_Name" : "BN6:0",
+         "info" : "Buffer Number"
+         }
+        ]
+       },
+       {
+       "name" : "LTBCC",
+       "info" : "Last Transferred Buffer to Communication Controller",
+       "lenght" : "32",
+       "adress" : "0x1c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "7",
+         "bit_Field_Name" : "BN6:0",
+         "info" : "Buffer number."
+         }
+        ]
+       },
+       {
+       "name" : "LTBSM",
+       "info" : "Last Transferred Buffer to System Memory",
+       "lenght" : "32",
+       "adress" : "0x20",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "7",
+         "bit_Field_Name" : "BN6:0",
+         "info" : "Buffer number."
+         }
+        ]
+       },
+       {
+       "name" : "TBA",
+       "info" : "Transfer Base Address",
+       "lenght" : "32",
+       "adress" : "0x24",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TBA(31_0)",
+         "info" : "Transfer Base Address."
+         }
+        ]
+       },
+       {
+       "name" : "NTBA",
+       "info" : "Next Transfer Base Address",
+       "lenght" : "32",
+       "adress" : "0x28",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "nTBA(31_0)",
+         "info" : "nTBA(31-0)"
+         }
+        ]
+       },
+       {
+       "name" : "BAMS",
+       "info" : "Base Address of Mirrored Status",
+       "lenght" : "32",
+       "adress" : "0x2c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "BAMS(31_0)",
+         "info" : "Base Address of Mirrored Status32-bit base pointer, 2 LSB are not significant (32-bit"
+         }
+        ]
+       },
+       {
+       "name" : "SAMP",
+       "info" : "Start Address of Memory Protection",
+       "lenght" : "32",
+       "adress" : "0x30",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "SAMP(31_0)",
+         "info" : "Start Address Memory Protection."
+         }
+        ]
+       },
+       {
+       "name" : "EAMP",
+       "info" : "End Address of Memory Protection",
+       "lenght" : "32",
+       "adress" : "0x34",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "EAMP(31_0)",
+         "info" : "End Address Memory Protection."
+         }
+        ]
+       },
+       {
+       "name" : "TSMO1",
+       "info" : "Transfer to System Memory Occurred 1",
+       "lenght" : "32",
+       "adress" : "0x40",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TSMO1(31_0)",
+         "info" : "Transfer to System Memory Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMO2",
+       "info" : "Transfer to System Memory Occurred 2",
+       "lenght" : "32",
+       "adress" : "0x44",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TSMO1(31_0)",
+         "info" : "Transfer to System Memory Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMO3",
+       "info" : "Transfer to System Memory Occurred 3",
+       "lenght" : "32",
+       "adress" : "0x48",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TSMO1(31_0)",
+         "info" : "Transfer to System Memory Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMO4",
+       "info" : "Transfer to System Memory Occurred 4",
+       "lenght" : "32",
+       "adress" : "0x4c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TSMO1(31_0)",
+         "info" : "Transfer to System Memory Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCO1",
+       "info" : "Transfer to Communication Controller Occurred 1",
+       "lenght" : "32",
+       "adress" : "0x50",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCO1(31_0)",
+         "info" : "Transfer to Communication Controller Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCO2",
+       "info" : "Transfer to Communication Controller Occurred 2",
+       "lenght" : "32",
+       "adress" : "0x54",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCO1(31_0)",
+         "info" : "Transfer to Communication Controller Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCO3",
+       "info" : "Transfer to Communication Controller Occurred 3",
+       "lenght" : "32",
+       "adress" : "0x58",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCO1(31_0)",
+         "info" : "Transfer to Communication Controller Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCO4",
+       "info" : "Transfer to Communication Controller Occurred 4",
+       "lenght" : "32",
+       "adress" : "0x5c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCO1(31_0)",
+         "info" : "Transfer to Communication Controller Occurred Register 1."
+         }
+        ]
+       },
+       {
+       "name" : "TOOFF",
+       "info" : "Transfer Occurred Offset",
+       "lenght" : "32",
+       "adress" : "0x60",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TDIR",
+         "info" : "Transfer Direction."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "OFF(7_0)",
+         "info" : "Offset Vector"
+         }
+        ]
+       },
+       {
+       "name" : "PEADR",
+       "info" : "Parity Error Address",
+       "lenght" : "32",
+       "adress" : "0x70",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "9",
+         "bit_Field_Name" : "ADR(8_0)",
+         "info" : "Address of failing TCR location."
+         }
+        ]
+       },
+       {
+       "name" : "TEIF",
+       "info" : "Transfer Error Interrupt",
+       "lenght" : "32",
+       "adress" : "0x74",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "MPV",
+         "info" : "Memory Protection Violation."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PE",
+         "info" : "Parity Error. The flag signals a parity error to the host."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "RSTAT(2_0)",
+         "info" : "Status of VBUS on read transfers."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "WSTAT(2_0)",
+         "info" : "Status of VBUS on write transfers."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TNR",
+         "info" : "Transfer Not Ready."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FAC",
+         "info" : "Forbidden Access."
+         }
+        ]
+       },
+       {
+       "name" : "TEIRES",
+       "info" : "Transfer Error Interrupt Enable Set",
+       "lenght" : "32",
+       "adress" : "0x78",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "RSTATE(2_0)",
+         "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "WSTATE(2_0)",
+         "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TNRE",
+         "info" : "Transfer Not Ready Enable."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FACE",
+         "info" : "Forbidden Access Enable."
+         }
+        ]
+       },
+       {
+       "name" : "TEIRER",
+       "info" : "Transfer Error Interrupt Enable Reset",
+       "lenght" : "32",
+       "adress" : "0x7c",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "RSTATE(2_0)",
+         "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "WSTATE(2_0)",
+         "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TNRE",
+         "info" : "Transfer Not Ready Enable."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FACE",
+         "info" : "Forbidden Access Enable."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMS1",
+       "info" : "Trigger Transfer to System Memory Set 1",
+       "lenght" : "32",
+       "adress" : "0x80",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMR1",
+       "info" : "Trigger Transfer to System Memory Reset 1",
+       "lenght" : "32",
+       "adress" : "0x84",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMS2",
+       "info" : "Trigger Transfer to System Memory Set 2",
+       "lenght" : "32",
+       "adress" : "0x88",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMR2",
+       "info" : "Trigger Transfer to System Memory Reset 2",
+       "lenght" : "32",
+       "adress" : "0x8c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMS3",
+       "info" : "Trigger Transfer to System Memory Set 3",
+       "lenght" : "32",
+       "adress" : "0x90",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMR3",
+       "info" : "Trigger Transfer to System Memory Reset 3",
+       "lenght" : "32",
+       "adress" : "0x94",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMS4",
+       "info" : "Trigger Transfer to System Memory Set 4",
+       "lenght" : "32",
+       "adress" : "0x98",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTSMR4",
+       "info" : "Trigger Transfer to System Memory Reset 4",
+       "lenght" : "32",
+       "adress" : "0x9c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMS1(31_0)",
+         "info" : "Trigger Transfer to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCS1",
+       "info" : "Trigger Transfer to Communication Controller Set 1",
+       "lenght" : "32",
+       "adress" : "0xa0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCR1",
+       "info" : "Trigger Transfer to Communication Controller Reset 1",
+       "lenght" : "32",
+       "adress" : "0xa4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCS2",
+       "info" : "Trigger Transfer to Communication Controller Set 2",
+       "lenght" : "32",
+       "adress" : "0xa8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCR2",
+       "info" : "Trigger Transfer to Communication Controller Reset 2",
+       "lenght" : "32",
+       "adress" : "0xac",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCS3",
+       "info" : "Trigger Transfer to Communication Controller Set 3",
+       "lenght" : "32",
+       "adress" : "0xb0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCR3",
+       "info" : "Trigger Transfer to Communication Controller Reset 3",
+       "lenght" : "32",
+       "adress" : "0xb4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCS4",
+       "info" : "Trigger Transfer to Communication Controller Set 4",
+       "lenght" : "32",
+       "adress" : "0xb8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TTCCR4",
+       "info" : "Trigger Transfer to Communication Controller Reset 4",
+       "lenght" : "32",
+       "adress" : "0xbc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTCCS1(31_0)",
+         "info" : "Trigger Transfer to Communication Controller Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMS1",
+       "info" : "Enable Transfer on Event to System Memory Set 1",
+       "lenght" : "32",
+       "adress" : "0xc0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMR1",
+       "info" : "Enable Transfer on Event to System Memory Reset 1",
+       "lenght" : "32",
+       "adress" : "0xc4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMS2",
+       "info" : "Enable Transfer on Event to System Memory Set 2",
+       "lenght" : "32",
+       "adress" : "0xc8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMR2",
+       "info" : "Enable Transfer on Event to System Memory Reset 2",
+       "lenght" : "32",
+       "adress" : "0xcc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "message buffers 0 to 31."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMS3",
+       "info" : "Enable Transfer on Event to System Memory Set 3",
+       "lenght" : "32",
+       "adress" : "0xd0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMR3",
+       "info" : "Enable Transfer on Event to System Memory Reset 3",
+       "lenght" : "32",
+       "adress" : "0xd4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMS4",
+       "info" : "Enable Transfer on Event to System Memory Set 4",
+       "lenght" : "32",
+       "adress" : "0xd8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "Enable Transfer on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "ETESMR4",
+       "info" : "Enable Transfer on Event to System Memory Reset 4",
+       "lenght" : "32",
+       "adress" : "0xdc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ETESMS1(31_0)",
+         "info" : "message buffers 0 to 31."
+         }
+        ]
+       },
+       {
+       "name" : "CESMS1",
+       "info" : "Clear on Event to System Memory Set 1",
+       "lenght" : "32",
+       "adress" : "0xe0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMR1",
+       "info" : "Clear on Event to System Memory Reset 1",
+       "lenght" : "32",
+       "adress" : "0xe4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMS2",
+       "info" : "Clear on Event to System Memory Set 2",
+       "lenght" : "32",
+       "adress" : "0xe8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMR2",
+       "info" : "Clear on Event to System Memory Reset 2",
+       "lenght" : "32",
+       "adress" : "0xec",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMS3",
+       "info" : "Clear on Event to System Memory Set 3",
+       "lenght" : "32",
+       "adress" : "0xf0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMR3",
+       "info" : "Clear on Event to System Memory Reset 3",
+       "lenght" : "32",
+       "adress" : "0xf4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "CESMS1(31-0)"
+         }
+        ]
+       },
+       {
+       "name" : "CESMS4",
+       "info" : "Clear on Event to System Memory Set 4",
+       "lenght" : "32",
+       "adress" : "0xf8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "CESMR4",
+       "info" : "Clear on Event to System Memory Reset 4",
+       "lenght" : "32",
+       "adress" : "0xfc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CESMS1(31_0)",
+         "info" : "Clear on Event to System Memory Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIES1",
+       "info" : "Transfer to System Memory Interrupt Enable Set 1",
+       "lenght" : "32",
+       "adress" : "0x100",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIER1",
+       "info" : "Transfer to System Memory Interrupt Enable Reset 1",
+       "lenght" : "32",
+       "adress" : "0x104",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIES2",
+       "info" : "Transfer to System Memory Interrupt Enable Set 2",
+       "lenght" : "32",
+       "adress" : "0x108",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIER2",
+       "info" : "Transfer to System Memory Interrupt Enable Reset 2",
+       "lenght" : "32",
+       "adress" : "0x10c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIES3",
+       "info" : "Transfer to System Memory Interrupt Enable Set 3",
+       "lenght" : "32",
+       "adress" : "0x110",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIER3",
+       "info" : "Transfer to System Memory Interrupt Enable Reset 3",
+       "lenght" : "32",
+       "adress" : "0x114",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIES4",
+       "info" : "Transfer to System Memory Interrupt Enable Set 4",
+       "lenght" : "32",
+       "adress" : "0x118",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TSMIER4",
+       "info" : "Transfer to System Memory Interrupt Enable Reset 4",
+       "lenght" : "32",
+       "adress" : "0x11c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "info" : "Transfer to System Memory Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIES1",
+       "info" : "Transfer to Communication Controller Interrupt Enable Set 1",
+       "lenght" : "32",
+       "adress" : "0x120",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIER1",
+       "info" : "Transfer to Communication Controller Interrupt Enable Reset 1",
+       "lenght" : "32",
+       "adress" : "0x124",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIES2",
+       "info" : "Transfer to Communication Controller Interrupt Enable Set 2",
+       "lenght" : "32",
+       "adress" : "0x128",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIER2",
+       "info" : "Transfer to Communication Controller Interrupt Enable Reset 2",
+       "lenght" : "32",
+       "adress" : "0x12c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "to message buffers 0 to 31."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIES3",
+       "info" : "Transfer to Communication Controller Interrupt Enable Set 3",
+       "lenght" : "32",
+       "adress" : "0x130",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIER3",
+       "info" : "Transfer to Communication Controller Interrupt Enable Reset 3",
+       "lenght" : "32",
+       "adress" : "0x134",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIES4",
+       "info" : "Transfer to Communication Controller Interrupt Enable Set 4",
+       "lenght" : "32",
+       "adress" : "0x138",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       },
+       {
+       "name" : "TCCIER4",
+       "info" : "Transfer to Communication Controller Interrupt Enable Reset 4",
+       "lenght" : "32",
+       "adress" : "0x13c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "TCCIES1(31_0)",
+         "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

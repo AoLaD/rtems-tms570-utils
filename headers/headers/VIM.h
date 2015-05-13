@@ -1,20 +1,39 @@
 /*
- * Copyright (c) 2014 Premysl Houdek <kom541000@gmail.com>
+ * Copyright (c) 2014-2015, Premysl Houdek <kom541000@gmail.com>
  *
- * Google Summer of Code 2014 at
  * Czech Technical University in Prague
  * Zikova 1903/4
  * 166 36 Praha 6
  * Czech Republic
  *
- * Based on LPC24xx and LPC1768 BSP
+ * All rights reserved.
  *
- * The license and distribution terms for this file may be
- * found in the file LICENSE in this distribution or at
- * http://www.rtems.org/license/LICENSE.
- */
-#ifndef LIBBSP_ARM_tms570_VIM.H
-#define LIBBSP_ARM_tms570_VIM.H
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * The views and conclusions contained in the software and documentation are those
+ * of the authors and should not be interpreted as representing official policies,
+ * either expressed or implied, of the FreeBSD Project.
+*/
+#ifndef LIBBSP_ARM_tms570_VIM
+#define LIBBSP_ARM_tms570_VIM
 
 #include <bsp/utility.h>
 
@@ -56,234 +75,234 @@ typedef struct{
   uint32_t CAPEVT;            /*Capture Event Register*/
   uint8_t reserved9 [4];
   uint32_t CHANCTRL[24];      /*VIM Interrupt Control Register*/
-} VIM_struct;
+} tms570_vim_t;
 
-/*---------------------tms570_VIM_PARFLG---------------------*/
+/*-----------------------TMS570_PARFLG-----------------------*/
 /* field: PARFLG - The PARFLG indicates that a parity error has been found and that theInterrupt Vector Table is */
-#define tms570_VIM_PARFLG_PARFLG BSP_FLD32(0)
+#define TMS570_PARFLG_PARFLG BSP_FLD32(0)
 
 
-/*---------------------tms570_VIM_PARCTL---------------------*/
+/*-----------------------TMS570_PARCTL-----------------------*/
 /* field: TEST - This bit maps the parity bits into the Interrupt Vector Table frame to make them accessible by the */
-#define tms570_VIM_PARCTL_TEST BSP_FLD32(8)
+#define TMS570_PARCTL_TEST BSP_FLD32(8)
 
 /* field: PARENA - VIM parity enable. */
-#define tms570_VIM_PARCTL_PARENA(val) BSP_FLD32(val,0, 3)
-#define tms570_VIM_PARCTL_PARENA_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define tms570_VIM_PARCTL_PARENA_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_PARCTL_PARENA(val) BSP_FLD32(val,0, 3)
+#define TMS570_PARCTL_PARENA_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_PARCTL_PARENA_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*---------------------tms570_VIM_ADDERR---------------------*/
+/*-----------------------TMS570_ADDERR-----------------------*/
 /* field: Interrupt_Vector_Table - Interrupt Vector Table offset. */
-#define tms570_VIM_ADDERR_Interrupt_Vector_Table(val) BSP_FLD32(val,9, 31)
-#define tms570_VIM_ADDERR_Interrupt_Vector_Table_GET(reg) BSP_FLD32GET(reg,9, 31)
-#define tms570_VIM_ADDERR_Interrupt_Vector_Table_SET(reg,val) BSP_FLD32SET(reg, val,9, 31)
+#define TMS570_ADDERR_Interrupt_Vector_Table(val) BSP_FLD32(val,9, 31)
+#define TMS570_ADDERR_Interrupt_Vector_Table_GET(reg) BSP_FLD32GET(reg,9, 31)
+#define TMS570_ADDERR_Interrupt_Vector_Table_SET(reg,val) BSP_FLD32SET(reg, val,9, 31)
 
 /* field: ADDERR - Address parity error register. */
-#define tms570_VIM_ADDERR_ADDERR(val) BSP_FLD32(val,2, 8)
-#define tms570_VIM_ADDERR_ADDERR_GET(reg) BSP_FLD32GET(reg,2, 8)
-#define tms570_VIM_ADDERR_ADDERR_SET(reg,val) BSP_FLD32SET(reg, val,2, 8)
+#define TMS570_ADDERR_ADDERR(val) BSP_FLD32(val,2, 8)
+#define TMS570_ADDERR_ADDERR_GET(reg) BSP_FLD32GET(reg,2, 8)
+#define TMS570_ADDERR_ADDERR_SET(reg,val) BSP_FLD32SET(reg, val,2, 8)
 
 /* field: Word_offset - Word offset. Reads are always 0; writes have no effect. */
-#define tms570_VIM_ADDERR_Word_offset(val) BSP_FLD32(val,0, 1)
-#define tms570_VIM_ADDERR_Word_offset_GET(reg) BSP_FLD32GET(reg,0, 1)
-#define tms570_VIM_ADDERR_Word_offset_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
+#define TMS570_ADDERR_Word_offset(val) BSP_FLD32(val,0, 1)
+#define TMS570_ADDERR_Word_offset_GET(reg) BSP_FLD32GET(reg,0, 1)
+#define TMS570_ADDERR_Word_offset_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
-/*--------------------tms570_VIM_FBPARERR--------------------*/
+/*----------------------TMS570_FBPARERR----------------------*/
 /* field: FBPARERR - Fall back address parity error. */
-#define tms570_VIM_FBPARERR_FBPARERR(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_FBPARERR_FBPARERR_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_FBPARERR_FBPARERR_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_FBPARERR_FBPARERR(val) BSP_FLD32(val,0, 31)
+#define TMS570_FBPARERR_FBPARERR_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_FBPARERR_FBPARERR_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------tms570_VIM_IRQINDEX--------------------*/
+/*----------------------TMS570_IRQINDEX----------------------*/
 /* field: IRQINDEX - IRQ index vector. */
-#define tms570_VIM_IRQINDEX_IRQINDEX(val) BSP_FLD32(val,0, 7)
-#define tms570_VIM_IRQINDEX_IRQINDEX_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_VIM_IRQINDEX_IRQINDEX_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_IRQINDEX_IRQINDEX(val) BSP_FLD32(val,0, 7)
+#define TMS570_IRQINDEX_IRQINDEX_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_IRQINDEX_IRQINDEX_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*--------------------tms570_VIM_FIQINDEX--------------------*/
+/*----------------------TMS570_FIQINDEX----------------------*/
 /* field: FIQINDEX - FIQ index offset vector. */
-#define tms570_VIM_FIQINDEX_FIQINDEX(val) BSP_FLD32(val,0, 7)
-#define tms570_VIM_FIQINDEX_FIQINDEX_GET(reg) BSP_FLD32GET(reg,0, 7)
-#define tms570_VIM_FIQINDEX_FIQINDEX_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
+#define TMS570_FIQINDEX_FIQINDEX(val) BSP_FLD32(val,0, 7)
+#define TMS570_FIQINDEX_FIQINDEX_GET(reg) BSP_FLD32GET(reg,0, 7)
+#define TMS570_FIQINDEX_FIQINDEX_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------tms570_VIM_FIRQPR0---------------------*/
+/*-----------------------TMS570_FIRQPR0-----------------------*/
 /* field: FIRQPR2To31 - FIQ/IRQ program control bits. */
-#define tms570_VIM_FIRQPR0_FIRQPR2To31(val) BSP_FLD32(val,2, 31)
-#define tms570_VIM_FIRQPR0_FIRQPR2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
-#define tms570_VIM_FIRQPR0_FIRQPR2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
+#define TMS570_FIRQPR0_FIRQPR2To31(val) BSP_FLD32(val,2, 31)
+#define TMS570_FIRQPR0_FIRQPR2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
+#define TMS570_FIRQPR0_FIRQPR2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
 
 
-/*---------------------tms570_VIM_FIRQPR1---------------------*/
+/*-----------------------TMS570_FIRQPR1-----------------------*/
 /* field: FIRQPR32To63 - FIQ/IRQ program control bits. */
-#define tms570_VIM_FIRQPR1_FIRQPR32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_FIRQPR1_FIRQPR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_FIRQPR1_FIRQPR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_FIRQPR1_FIRQPR32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_FIRQPR1_FIRQPR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_FIRQPR1_FIRQPR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------tms570_VIM_FIRQPR2---------------------*/
+/*-----------------------TMS570_FIRQPR2-----------------------*/
 /* field: FIRQPR64To95 - FIQ/IRQ program control bits. */
-#define tms570_VIM_FIRQPR2_FIRQPR64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_FIRQPR2_FIRQPR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_FIRQPR2_FIRQPR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_FIRQPR2_FIRQPR64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_FIRQPR2_FIRQPR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_FIRQPR2_FIRQPR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------tms570_VIM_INTREQ0---------------------*/
+/*-----------------------TMS570_INTREQ0-----------------------*/
 /* field: INTREQ0To31 - Pending interrupt bits. */
-#define tms570_VIM_INTREQ0_INTREQ0To31(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_INTREQ0_INTREQ0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_INTREQ0_INTREQ0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_INTREQ0_INTREQ0To31(val) BSP_FLD32(val,0, 31)
+#define TMS570_INTREQ0_INTREQ0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_INTREQ0_INTREQ0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------tms570_VIM_INTREQ1---------------------*/
+/*-----------------------TMS570_INTREQ1-----------------------*/
 /* field: INTREQ32To63 - Pending interrupt bits. */
-#define tms570_VIM_INTREQ1_INTREQ32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_INTREQ1_INTREQ32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_INTREQ1_INTREQ32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_INTREQ1_INTREQ32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_INTREQ1_INTREQ32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_INTREQ1_INTREQ32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------tms570_VIM_INTREQ2---------------------*/
+/*-----------------------TMS570_INTREQ2-----------------------*/
 /* field: INTREQ64To95 - Pending interrupt bits. */
-#define tms570_VIM_INTREQ2_INTREQ64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_INTREQ2_INTREQ64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_INTREQ2_INTREQ64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_INTREQ2_INTREQ64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_INTREQ2_INTREQ64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_INTREQ2_INTREQ64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_REQENASET0-------------------*/
+/*---------------------TMS570_REQENASET0---------------------*/
 /* field: REQENASET2To31 - Request enable set bits. */
-#define tms570_VIM_REQENASET0_REQENASET2To31(val) BSP_FLD32(val,2, 31)
-#define tms570_VIM_REQENASET0_REQENASET2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
-#define tms570_VIM_REQENASET0_REQENASET2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
+#define TMS570_REQENASET0_REQENASET2To31(val) BSP_FLD32(val,2, 31)
+#define TMS570_REQENASET0_REQENASET2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
+#define TMS570_REQENASET0_REQENASET2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
 
 
-/*-------------------tms570_VIM_REQENASET1-------------------*/
+/*---------------------TMS570_REQENASET1---------------------*/
 /* field: REQENASET32To63 - Request enable set bits. */
-#define tms570_VIM_REQENASET1_REQENASET32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_REQENASET1_REQENASET32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_REQENASET1_REQENASET32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_REQENASET1_REQENASET32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_REQENASET1_REQENASET32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_REQENASET1_REQENASET32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_REQENASET2-------------------*/
+/*---------------------TMS570_REQENASET2---------------------*/
 /* field: REQENASET64To95 - Request enable set bits. */
-#define tms570_VIM_REQENASET2_REQENASET64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_REQENASET2_REQENASET64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_REQENASET2_REQENASET64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_REQENASET2_REQENASET64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_REQENASET2_REQENASET64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_REQENASET2_REQENASET64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_REQENACLR0-------------------*/
+/*---------------------TMS570_REQENACLR0---------------------*/
 /* field: REQENACLR2To31 - Request enable clear bits.This vector determines whether the interrupt request channel is enabled. */
-#define tms570_VIM_REQENACLR0_REQENACLR2To31(val) BSP_FLD32(val,2, 31)
-#define tms570_VIM_REQENACLR0_REQENACLR2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
-#define tms570_VIM_REQENACLR0_REQENACLR2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
+#define TMS570_REQENACLR0_REQENACLR2To31(val) BSP_FLD32(val,2, 31)
+#define TMS570_REQENACLR0_REQENACLR2To31_GET(reg) BSP_FLD32GET(reg,2, 31)
+#define TMS570_REQENACLR0_REQENACLR2To31_SET(reg,val) BSP_FLD32SET(reg, val,2, 31)
 
 
-/*-------------------tms570_VIM_REQENACLR1-------------------*/
+/*---------------------TMS570_REQENACLR1---------------------*/
 /* field: REQENACLR32To63 - Request enable clear bits.This vector determines whether the interrupt request channel is enabled. */
-#define tms570_VIM_REQENACLR1_REQENACLR32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_REQENACLR1_REQENACLR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_REQENACLR1_REQENACLR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_REQENACLR1_REQENACLR32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_REQENACLR1_REQENACLR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_REQENACLR1_REQENACLR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_REQENACLR2-------------------*/
+/*---------------------TMS570_REQENACLR2---------------------*/
 /* field: REQENACLR64To95 - Request enable clear bits.This vector determines whether the interrupt request channel is enabled. */
-#define tms570_VIM_REQENACLR2_REQENACLR64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_REQENACLR2_REQENACLR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_REQENACLR2_REQENACLR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_REQENACLR2_REQENACLR64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_REQENACLR2_REQENACLR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_REQENACLR2_REQENACLR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENASET0-------------------*/
+/*---------------------TMS570_WAKEENASET0---------------------*/
 /* field: WAKEENASET0To31 - Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENASET0_WAKEENASET0To31(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENASET0_WAKEENASET0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENASET0_WAKEENASET0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENASET0_WAKEENASET0To31(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENASET0_WAKEENASET0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENASET0_WAKEENASET0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENASET1-------------------*/
+/*---------------------TMS570_WAKEENASET1---------------------*/
 /* field: WAKEENASET32To63 - Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENASET1_WAKEENASET32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENASET1_WAKEENASET32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENASET1_WAKEENASET32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENASET1_WAKEENASET32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENASET1_WAKEENASET32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENASET1_WAKEENASET32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENASET2-------------------*/
+/*---------------------TMS570_WAKEENASET2---------------------*/
 /* field: WAKEENASET64To95 - Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENASET2_WAKEENASET64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENASET2_WAKEENASET64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENASET2_WAKEENASET64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENASET2_WAKEENASET64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENASET2_WAKEENASET64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENASET2_WAKEENASET64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENACLR0-------------------*/
+/*---------------------TMS570_WAKEENACLR0---------------------*/
 /* field: WAKEENACLR0To31 - Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENACLR0_WAKEENACLR0To31(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENACLR0_WAKEENACLR0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENACLR0_WAKEENACLR0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENACLR0_WAKEENACLR0To31(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENACLR0_WAKEENACLR0To31_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENACLR0_WAKEENACLR0To31_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENACLR1-------------------*/
+/*---------------------TMS570_WAKEENACLR1---------------------*/
 /* field: WAKEENACLR32To63 - Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENACLR1_WAKEENACLR32To63(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENACLR1_WAKEENACLR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENACLR1_WAKEENACLR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENACLR1_WAKEENACLR32To63(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENACLR1_WAKEENACLR32To63_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENACLR1_WAKEENACLR32To63_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-------------------tms570_VIM_WAKEENACLR2-------------------*/
+/*---------------------TMS570_WAKEENACLR2---------------------*/
 /* field: WAKEENACLR64To95 - Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled. */
-#define tms570_VIM_WAKEENACLR2_WAKEENACLR64To95(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_WAKEENACLR2_WAKEENACLR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_WAKEENACLR2_WAKEENACLR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_WAKEENACLR2_WAKEENACLR64To95(val) BSP_FLD32(val,0, 31)
+#define TMS570_WAKEENACLR2_WAKEENACLR64To95_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_WAKEENACLR2_WAKEENACLR64To95_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------tms570_VIM_IRQVECREG--------------------*/
+/*----------------------TMS570_IRQVECREG----------------------*/
 /* field: IRQVECREG - IRQ interrupt vector register. */
-#define tms570_VIM_IRQVECREG_IRQVECREG(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_IRQVECREG_IRQVECREG_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_IRQVECREG_IRQVECREG_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_IRQVECREG_IRQVECREG(val) BSP_FLD32(val,0, 31)
+#define TMS570_IRQVECREG_IRQVECREG_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_IRQVECREG_IRQVECREG_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------tms570_VIM_FIQVECREG--------------------*/
+/*----------------------TMS570_FIQVECREG----------------------*/
 /* field: FIQVECREG - FIQ interrupt vector register. */
-#define tms570_VIM_FIQVECREG_FIQVECREG(val) BSP_FLD32(val,0, 31)
-#define tms570_VIM_FIQVECREG_FIQVECREG_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define tms570_VIM_FIQVECREG_FIQVECREG_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_FIQVECREG_FIQVECREG(val) BSP_FLD32(val,0, 31)
+#define TMS570_FIQVECREG_FIQVECREG_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_FIQVECREG_FIQVECREG_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------tms570_VIM_CAPEVT---------------------*/
+/*-----------------------TMS570_CAPEVT-----------------------*/
 /* field: CAPEVTSRC1 - Capture event source 1 mapping control. */
-#define tms570_VIM_CAPEVT_CAPEVTSRC1(val) BSP_FLD32(val,16, 22)
-#define tms570_VIM_CAPEVT_CAPEVTSRC1_GET(reg) BSP_FLD32GET(reg,16, 22)
-#define tms570_VIM_CAPEVT_CAPEVTSRC1_SET(reg,val) BSP_FLD32SET(reg, val,16, 22)
+#define TMS570_CAPEVT_CAPEVTSRC1(val) BSP_FLD32(val,16, 22)
+#define TMS570_CAPEVT_CAPEVTSRC1_GET(reg) BSP_FLD32GET(reg,16, 22)
+#define TMS570_CAPEVT_CAPEVTSRC1_SET(reg,val) BSP_FLD32SET(reg, val,16, 22)
 
 /* field: CAPEVTSRC0 - the capture event source 0 of the RTI: */
-#define tms570_VIM_CAPEVT_CAPEVTSRC0(val) BSP_FLD32(val,0, 6)
-#define tms570_VIM_CAPEVT_CAPEVTSRC0_GET(reg) BSP_FLD32GET(reg,0, 6)
-#define tms570_VIM_CAPEVT_CAPEVTSRC0_SET(reg,val) BSP_FLD32SET(reg, val,0, 6)
+#define TMS570_CAPEVT_CAPEVTSRC0(val) BSP_FLD32(val,0, 6)
+#define TMS570_CAPEVT_CAPEVTSRC0_GET(reg) BSP_FLD32GET(reg,0, 6)
+#define TMS570_CAPEVT_CAPEVTSRC0_SET(reg,val) BSP_FLD32SET(reg, val,0, 6)
 
 
-/*--------------------tms570_VIM_CHANCTRL--------------------*/
+/*----------------------TMS570_CHANCTRL----------------------*/
 /* field: CHANMAPx0 - CHANMAPx 0(6-0). Interrupt CHANx 0 mapping control. */
-#define tms570_VIM_CHANCTRL_CHANMAPx0(val) BSP_FLD32(val,24, 30)
-#define tms570_VIM_CHANCTRL_CHANMAPx0_GET(reg) BSP_FLD32GET(reg,24, 30)
-#define tms570_VIM_CHANCTRL_CHANMAPx0_SET(reg,val) BSP_FLD32SET(reg, val,24, 30)
+#define TMS570_CHANCTRL_CHANMAPx0(val) BSP_FLD32(val,24, 30)
+#define TMS570_CHANCTRL_CHANMAPx0_GET(reg) BSP_FLD32GET(reg,24, 30)
+#define TMS570_CHANCTRL_CHANMAPx0_SET(reg,val) BSP_FLD32SET(reg, val,24, 30)
 
 /* field: CHANMAPx1 - CHANMAPx 1(6-0). Interrupt CHANx 1 mapping control. */
-#define tms570_VIM_CHANCTRL_CHANMAPx1(val) BSP_FLD32(val,16, 22)
-#define tms570_VIM_CHANCTRL_CHANMAPx1_GET(reg) BSP_FLD32GET(reg,16, 22)
-#define tms570_VIM_CHANCTRL_CHANMAPx1_SET(reg,val) BSP_FLD32SET(reg, val,16, 22)
+#define TMS570_CHANCTRL_CHANMAPx1(val) BSP_FLD32(val,16, 22)
+#define TMS570_CHANCTRL_CHANMAPx1_GET(reg) BSP_FLD32GET(reg,16, 22)
+#define TMS570_CHANCTRL_CHANMAPx1_SET(reg,val) BSP_FLD32SET(reg, val,16, 22)
 
 /* field: CHANMAPx2 - CHANMAPx 2(6-0). Interrupt CHANx 2 mapping control. */
-#define tms570_VIM_CHANCTRL_CHANMAPx2(val) BSP_FLD32(val,8, 14)
-#define tms570_VIM_CHANCTRL_CHANMAPx2_GET(reg) BSP_FLD32GET(reg,8, 14)
-#define tms570_VIM_CHANCTRL_CHANMAPx2_SET(reg,val) BSP_FLD32SET(reg, val,8, 14)
+#define TMS570_CHANCTRL_CHANMAPx2(val) BSP_FLD32(val,8, 14)
+#define TMS570_CHANCTRL_CHANMAPx2_GET(reg) BSP_FLD32GET(reg,8, 14)
+#define TMS570_CHANCTRL_CHANMAPx2_SET(reg,val) BSP_FLD32SET(reg, val,8, 14)
 
 /* field: CHANMAPx3 - CHANMAPx 3(6-0). Interrupt CHANx 3 mapping control. */
-#define tms570_VIM_CHANCTRL_CHANMAPx3(val) BSP_FLD32(val,0, 6)
-#define tms570_VIM_CHANCTRL_CHANMAPx3_GET(reg) BSP_FLD32GET(reg,0, 6)
-#define tms570_VIM_CHANCTRL_CHANMAPx3_SET(reg,val) BSP_FLD32SET(reg, val,0, 6)
+#define TMS570_CHANCTRL_CHANMAPx3(val) BSP_FLD32(val,0, 6)
+#define TMS570_CHANCTRL_CHANMAPx3_GET(reg) BSP_FLD32GET(reg,0, 6)
+#define TMS570_CHANCTRL_CHANMAPx3_SET(reg,val) BSP_FLD32SET(reg, val,0, 6)
 
 
 
-#endif /* LIBBSP_ARM_tms570_VIM.H */
+#endif /* LIBBSP_ARM_tms570_VIM */

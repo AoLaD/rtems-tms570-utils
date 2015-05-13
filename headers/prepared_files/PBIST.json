@@ -1,334 +1,295 @@
-{
-  "name" : "tms570",
-  "peripherals" :
-  [
-    {
-      "name" : "PBIST",
-      "registers" :
-      [
-{
-          "name" : "DNW",
-          "info" : "Reserved DO NOT WRITE",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "0",
-          "array" : "88",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "Reserved",
-               "info" : "Do not write"
-             }
-          ]
-        },
-{
-          "name" : "RAMT",
-          "info" : "RAM Configuration Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "160",
-          "fields" : [
-             {
-               "start_bit" : "24",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "RGS",
-               "info" : "Ram Group Select. Refer Table 2-5 for information on the RGS value for each memory."
-             },
-             {
-               "start_bit" : "16",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "RDS",
-               "info" : "Return Data Select. Refer Table 2-5 for information on the RDS values for each memory."
-             },
-             {
-               "start_bit" : "8",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "DWR",
-               "info" : "Data Width Register"
-             },
-             {
-               "start_bit" : "6",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "SMS",
-               "info" : "Sense Margin Select Register"
-             },
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "4",
-               "bit_Field_Name" : "PLS",
-               "info" : "Pipeline Latency Select"
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "RLS",
-               "info" : "RAM Latency Select"
-             }
-          ]
-        },
-{
-          "name" : "DLR",
-          "info" : "Datalogger Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "164",
-          "fields" : [
-             {
-               "start_bit" : "4",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DLR4",
-               "info" : "Config access: setting this bit allows the host processor to configure the PBIST controller registers"
-             },             
-             {
-               "start_bit" : "2",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "DLR2",
-               "info" : "ROM-based testing: setting this bit enables the PBIST controller to execute test algorithms that are"
-             }
-          ]
-        },
-{
-          "name" : "PACT",
-          "info" : "PBIST Activate/ROM Clock Enable Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "180",
-          "fields" : [
-             {
-               "start_bit" : "1",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACT1",
-               "info" : "PBIST Activate",
-               "values" : [
-                 {"value" : "0", "desc" : "Clock to on chip ROM is disabled"},
-                 {"value" : "1", "desc" : "Normal PBIST operation for ROM based testing"}
-                ]
-             },
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "PACT0",
-               "info" : "ROM Clock Enable Register",
-               "values" : [
-                 {"value" : "0", "desc" : "Disable internal PBIST clocks"},
-                 {"value" : "1", "desc" : "Enable internal PBIST clocks"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "PBISTID",
-          "info" : "PBIST ID Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "184",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "PBIST ID",
-               "info" : "This is a unique ID assigned to each PBIST controller in a device with multiple PBIST controllers."
-             }
-          ]
-        },
-{
-          "name" : "OVER",
-          "info" : "Override Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "188",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "OVER0",
-               "info" : "RINFO Override Bit",
-               "values" : [
-                 {"value" : "0", "desc" : "The RAM info registers RINFOL and RINFOU are used to select the memories for test"},
-                 {"value" : "1", "desc" : "The memory information available from ROM will override the RAM selection from the RAM info"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "FSRF0",
-          "info" : "Fail Status Fail Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "190",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "1",
-               "bit_Field_Name" : "FSRF0",
-               "info" : "Fail Status 0.",
-               "values" : [
-                 {"value" : "0", "desc" : "No Failure Occurred"},
-                 {"value" : "1", "desc" : "Indicates a failure on Port 0"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "FSRC0",
-          "info" : "Fail Status Count Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "198",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "FSRC0",
-               "info" : "Fail Status Count 0. Indicates the number of failures on port 0."
-             }
-          ]
-        },
-         {
-          "name" : "FSRC1",
-          "info" : "Fail Status Count Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "19C",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "8",
-               "bit_Field_Name" : "FSRC1",
-               "info" : "Fail Status Count 1. Indicates the number of failures on port 1."
-             }
-          ]
-        },
-{
-          "name" : "FSRA0",
-          "info" : "Fail Status Address 0 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1A0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FSRA0",
-               "info" : "Fail Status Address 0. Contains the address of the first failure."
-             }
-          ]
-        },
-{
-          "name" : "FSRA1",
-          "info" : "Fail Status Address 1 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1A4",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "16",
-               "bit_Field_Name" : "FSRA1",
-               "info" : "Fail Status Address 1. Contains the address of the first failure."
-             }
-          ]
-        },
-{
-          "name" : "FSRDL0",
-          "info" : "Fail Status Data Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1A8",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "FSRDL1",
-               "info" : "Failure data on port 1"
-             }
-          ]
-        },
-{
-          "name" : "FSRDL1",
-          "info" : "Fail Status Data Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1B0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "FSRDL1",
-               "info" : "Failure data on port 1"
-             }
-          ]
-        },
-{
-          "name" : "ROM",
-          "info" : "ROM Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C0",
-          "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "2",
-               "bit_Field_Name" : "ROM",
-               "info" : "ROM Mask",
-               "values" : [
-                 {"value" : "0", "desc" : "No information is used from ROM"},
-                 {"value" : "1h", "desc" : "Only RAM Group information from ROM"},
-                 {"value" : "2h", "desc" : "Only Algorithm information from ROM"},
-                 {"value" : "3h", "desc" : "Both Algorithm and RAM information from ROM."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "ALGO",
-          "info" : "ROM Algorithm Mask Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C4",  
-	  "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "ROM_ALG_MASK",
-               "info" : "Each bit corresponds to a specific algorithm"               
-             }
-          ]        
-        },
-{
-          "name" : "RINFOL",
-          "info" : "RAM Info Mask Lower Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1C8",
-	  "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "RAM_ALG_MASK_LOW",
-               "info" : "Each bit corresponds to a specific algorithm"               
-             }
-          ]          
-        },
-{
-          "name" : "RINFOUL",
-          "info" : "RAM Info Mask Lower Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "1CC",
-	  "fields" : [
-             {
-               "start_bit" : "0",
-               "bit_lenght" : "32",
-               "bit_Field_Name" : "RAM_ALG_MASK_UP",
-               "info" : "Each bit corresponds to a specific algorithm"               
-             }
-          ]          
-        }
-
-
-      ]    
-    }
-  ] 
-}
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "PBIST",
+     "full name" : "Programmable Built-In Self-Test",
+     "offset" : ["0xFFFFE400"],
+     "registers" : [
+       {
+       "name" : "DNW",
+       "info" : "Reserved DO NOT WRITE",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "array" : "88",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "Reserved",
+         "info" : "Do not write"
+         }
+        ]
+       },
+       {
+       "name" : "RAMT",
+       "info" : "RAM Configuration Register",
+       "lenght" : "32",
+       "adress" : "0x160",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "RGS",
+         "info" : "Ram Group Select. Refer Table 2-5 for information on the RGS value for each memory."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "RDS",
+         "info" : "Return Data Select. Refer Table 2-5 for information on the RDS values for each memory."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "DWR",
+         "info" : "Data Width Register"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "SMS",
+         "info" : "Sense Margin Select Register"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PLS",
+         "info" : "Pipeline Latency Select"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "RLS",
+         "info" : "RAM Latency Select"
+         }
+        ]
+       },
+       {
+       "name" : "DLR",
+       "info" : "Datalogger Register",
+       "lenght" : "32",
+       "adress" : "0x164",
+       "fields" : [
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DLR4",
+         "info" : "Config access: setting this bit allows the host processor to configure the PBIST controller registers"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "DLR2",
+         "info" : "ROM-based testing: setting this bit enables the PBIST controller to execute test algorithms that are"
+         }
+        ]
+       },
+       {
+       "name" : "PACT",
+       "info" : "PBIST Activate/ROM Clock Enable Register",
+       "lenght" : "32",
+       "adress" : "0x180",
+       "fields" : [
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACT1",
+         "info" : "PBIST Activate"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "PACT0",
+         "info" : "ROM Clock Enable Register"
+         }
+        ]
+       },
+       {
+       "name" : "PBISTID",
+       "info" : "PBIST ID Register",
+       "lenght" : "32",
+       "adress" : "0x184",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "PBIST_ID",
+         "info" : "This is a unique ID assigned to each PBIST controller in a device with multiple PBIST controllers."
+         }
+        ]
+       },
+       {
+       "name" : "OVER",
+       "info" : "Override Register",
+       "lenght" : "32",
+       "adress" : "0x188",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "OVER0",
+         "info" : "RINFO Override Bit"
+         }
+        ]
+       },
+       {
+       "name" : "FSRF0",
+       "info" : "Fail Status Fail Register 0",
+       "lenght" : "32",
+       "adress" : "0x190",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FSRF0",
+         "info" : "Fail Status 0."
+         }
+        ]
+       },
+       {
+       "name" : "FSRC0",
+       "info" : "Fail Status Count Register 0",
+       "lenght" : "32",
+       "adress" : "0x198",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "FSRC0",
+         "info" : "Fail Status Count 0. Indicates the number of failures on port 0."
+         }
+        ]
+       },
+       {
+       "name" : "FSRC1",
+       "info" : "Fail Status Count Register 1",
+       "lenght" : "32",
+       "adress" : "0x19c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "8",
+         "bit_Field_Name" : "FSRC1",
+         "info" : "Fail Status Count 1. Indicates the number of failures on port 1."
+         }
+        ]
+       },
+       {
+       "name" : "FSRA0",
+       "info" : "Fail Status Address 0 Register",
+       "lenght" : "32",
+       "adress" : "0x1a0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FSRA0",
+         "info" : "Fail Status Address 0. Contains the address of the first failure."
+         }
+        ]
+       },
+       {
+       "name" : "FSRA1",
+       "info" : "Fail Status Address 1 Register",
+       "lenght" : "32",
+       "adress" : "0x1a4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "FSRA1",
+         "info" : "Fail Status Address 1. Contains the address of the first failure."
+         }
+        ]
+       },
+       {
+       "name" : "FSRDL0",
+       "info" : "Fail Status Data Register 0",
+       "lenght" : "32",
+       "adress" : "0x1a8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "FSRDL1",
+         "info" : "Failure data on port 1"
+         }
+        ]
+       },
+       {
+       "name" : "FSRDL1",
+       "info" : "Fail Status Data Register 1",
+       "lenght" : "32",
+       "adress" : "0x1b0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "FSRDL1",
+         "info" : "Failure data on port 1"
+         }
+        ]
+       },
+       {
+       "name" : "ROM",
+       "info" : "ROM Mask Register",
+       "lenght" : "32",
+       "adress" : "0x1c0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "2",
+         "bit_Field_Name" : "ROM",
+         "info" : "ROM Mask"
+         }
+        ]
+       },
+       {
+       "name" : "ALGO",
+       "info" : "ROM Algorithm Mask Register",
+       "lenght" : "32",
+       "adress" : "0x1c4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "ROM_ALG_MASK",
+         "info" : "Each bit corresponds to a specific algorithm"
+         }
+        ]
+       },
+       {
+       "name" : "RINFOL",
+       "info" : "RAM Info Mask Lower Register",
+       "lenght" : "32",
+       "adress" : "0x1c8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "RAM_ALG_MASK_LOW",
+         "info" : "Each bit corresponds to a specific algorithm"
+         }
+        ]
+       },
+       {
+       "name" : "RINFOUL",
+       "info" : "RAM Info Mask Lower Register",
+       "lenght" : "32",
+       "adress" : "0x1cc",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "RAM_ALG_MASK_UP",
+         "info" : "Each bit corresponds to a specific algorithm"
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}
