@@ -2,7 +2,7 @@
 import re
 import sys
 import codecs
-import msvcrt
+#import msvcrt
 import json
 
 class MCU(object):
@@ -25,7 +25,7 @@ class Register(object):
         self.name = name
         self.info = info
         self.lenght = lenght
-        self.adress = adress
+        self.adress = int(adress,16)
         self.offset = offset
         self.fields = fields
         self.group_pos = group_pos
@@ -70,6 +70,15 @@ def printInclude(file):
     print ('#include <bsp/'+file+'.h>')
     #print ('#include "'+file+'.h"')
 
+def findMinReg(regs):
+	local_min = 0xFFFFFFFF
+	ret = regs[0]
+	for r in regs:
+		if(r.adress<local_min):			
+			local_min = r.adress
+			ret = r	
+	return ret
+
 def printAdress(file):    
     data = json.loads(codecs.open(file, "r", "utf-8").read(), object_hook=object_decoder)
     for p in data.peripherals:
@@ -80,15 +89,13 @@ def printAdress(file):
             if(len(p.offset)>1):
                 name += str(index+1)
             if(adr == "REAL"):
-                return
+                adress = hex(findMinReg(p.registers).adress).upper()
             print("#define "+name+" (*(volatile "+structName+'*)'+adress+')')
     
 import getopt,os
 
 inputfile = ''
 outputfile = ''
-directory = os.path.dirname(os.path.realpath(__file__))
-directory = directory.replace("\\python", "")
 hdir = ""
 files = ""
 licence = ""

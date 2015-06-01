@@ -2,7 +2,7 @@
 import re
 import sys
 import codecs
-import msvcrt
+#import msvcrt
 import json
 
 class MCU(object):
