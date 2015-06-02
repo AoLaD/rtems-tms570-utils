@@ -90,6 +90,8 @@ def printAdress(file):
                 name += str(index+1)
             if(adr == "REAL"):
                 adress = hex(findMinReg(p.registers).adress).upper()
+            elif(adr == "NONE"):
+                continue
             print("#define "+name+" (*(volatile "+structName+'*)'+adress+')')
     
 import getopt,os

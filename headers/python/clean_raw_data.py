@@ -21,7 +21,7 @@ class Peripheral(object):
         self.used = 0
 
 class Register(object):
-    def __init__(self, name, info,lenght, adress,offset,fields,array,group_pos,group_name):
+    def __init__(self, name, info,lenght, adress,offset,fields,array,reg_type,group_pos,group_name):
         self.name = name
         self.info = info
         self.lenght = lenght
@@ -30,7 +30,8 @@ class Register(object):
         self.fields = fields
         self.group_pos = group_pos
         self.group_name = group_name
-        self.group_name_actual = None        
+        self.group_name_actual = None
+        self.reg_type = reg_type
         self.array = array        
         self.used = 0
 
@@ -49,17 +50,23 @@ def object_decoder(obj):
         temporal_array = None
         temporal_group_pos = None
         temporal_group_name = None
+        temporal_fields = None
+        temporal_type = None
         if('array' in obj):
             temporal_array = obj['array']
         if('group_position' in obj):
             temporal_group_pos = obj['group_position']
         if('group_names' in obj):
             temporal_group_name = obj['group_names']
-        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], obj['fields'],temporal_array,temporal_group_pos,temporal_group_name)
+        if('fields' in obj):
+            temporal_fields = obj['fields']
+        if('type' in obj):
+            temporal_type = obj['type']
+        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], temporal_fields,temporal_array,temporal_type, temporal_group_pos,temporal_group_name)
     elif 'bit_Field_Name' in obj:
         temporal_values = None        
         if('values' in obj):
-            temporal_values = obj['values']        
+            temporal_values = obj['values']
         return Fields(obj['bit_number'], None, obj['bit_Field_Name'], obj['info'],temporal_values)                    
     elif 'registers' in obj:
         return Peripheral(obj['name'], obj['full name'],obj['offset'],obj['registers'])
@@ -104,17 +111,20 @@ def printAll(obj):
                         print(spaces(8)+"\"group_names\" : "+listToString(r.group_name)+",")
                   if(r.array != None):
                         print(spaces(8)+"\"array\" : \""+str(r.array)+"\",")
+                  if(r.reg_type != None):
+                        print(spaces(8)+"\"type\" : \""+str(r.reg_type)+"\",")
                   print(spaces(8)+"\"fields\" : [")
-                  for indexF,f in enumerate(r.fields):
-                        print(spaces(10)+"{")
-                        print(spaces(10)+"\"start_bit\" : \""+f.start_bit+"\",")
-                        print(spaces(10)+"\"bit_lenght\" : \""+f.lenght+"\",")
-                        print(spaces(10)+"\"bit_Field_Name\" : \""+f.bit_Field_Name+"\",")
-                        print(spaces(10)+"\"info\" : \""+f.info+"\"")
-                        if(indexF==len(r.fields)-1):
-                              print(spaces(10)+"}")
-                        else:
-                              print(spaces(10)+"},")
+                  if(r.fields != None):
+                      for indexF,f in enumerate(r.fields):
+                            print(spaces(10)+"{")
+                            print(spaces(10)+"\"start_bit\" : \""+f.start_bit+"\",")
+                            print(spaces(10)+"\"bit_lenght\" : \""+f.lenght+"\",")
+                            print(spaces(10)+"\"bit_Field_Name\" : \""+f.bit_Field_Name+"\",")
+                            print(spaces(10)+"\"info\" : \""+f.info+"\"")
+                            if(indexF==len(r.fields)-1):
+                                  print(spaces(10)+"}")
+                            else:
+                                  print(spaces(10)+"},")
                   print(spaces(9)+"]")
                   if(indexR==len(p.registers)-1):
                         print(spaces(8)+"}")
@@ -168,8 +178,9 @@ def refactor_perip(p):
 def refactor(obj):
       for p in obj.peripherals: 
             for r in p.registers:
-                  for f in r.fields:
-                        refactor_field(f)
+                  if(r.fields != None):
+                      for f in r.fields:
+                            refactor_field(f)
                   refactor_reg(r)
             refactor_perip(p)
       

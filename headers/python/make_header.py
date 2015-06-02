@@ -16,7 +16,7 @@ class Peripheral(object):
         self.registers = registers
 
 class Register(object):
-    def __init__(self, name, info,lenght, adress,fields,array,temporal_group_pos,temporal_group_name):
+    def __init__(self, name, info,lenght, adress,fields,array,reg_type,temporal_group_pos,temporal_group_name):
         self.name = name
         self.info = info
         self.lenght = int(lenght)
@@ -30,6 +30,7 @@ class Register(object):
         self.group_name = temporal_group_name
         self.group_name_actual = None
         self.used = 0
+        self.reg_type = reg_type
         if(array != None):
             self.array = int(array)
         else:
@@ -52,13 +53,19 @@ def object_decoder(obj):
         temporal_array = None
         temporal_group_pos = None
         temporal_group_name = None
+        temporal_fields = None
+        temporal_type = None
         if('array' in obj):
             temporal_array = obj['array']
         if('group_position' in obj):
             temporal_group_pos = obj['group_position']
         if('group_names' in obj):
             temporal_group_name = obj['group_names']
-        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['fields'],temporal_array,temporal_group_pos,temporal_group_name)
+        if('fields' in obj):
+            temporal_fields = obj['fields']
+        if('type' in obj):
+            temporal_type = obj['type']
+        return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], temporal_fields,temporal_array,temporal_type, temporal_group_pos,temporal_group_name)
     elif 'bit_Field_Name' in obj:
         temporal_values = None        
         if('values' in obj):
@@ -118,9 +125,12 @@ def printRegInfo(reg):
     if(lastAdress != reg.adress):
       reserved = makeReserved(lastAdress,reg.adress)    
     lastAdress = reg.adress+int((reg.lenght/8*reg.array))
-        
-    if(reg.lenght == 32):
-        regType = 'uint32_t '
+
+    if(reg.reg_type == None):
+        if(reg.lenght == 32):
+            regType = 'uint32_t '
+    else:
+        regType = reg.reg_type+' '
         
     regName = reg.name
     if(int(reg.array) > 1):
@@ -139,7 +149,7 @@ def printRegInfo(reg):
 
 def countRegs(data):
     count = 0
-    for reg in data.peripherals[0].registers:
+    for reg in data.registers:
         if(reg.group_pos != None):
             count += len(reg.group_pos)
         else:
@@ -147,18 +157,20 @@ def countRegs(data):
     return count
 
 def makeStruct(data):
-    for r in data.peripherals[0].registers:
-        prepareReg(r)
-    numberOfRegs = countRegs(data)    
-    print ('typedef struct{')        
-    for i in range(0,numberOfRegs):
-        #print(data.peripherals[0].registers[0].used)
-        reg = findLowestAdress(data.peripherals[0])
-        printRegInfo(reg)
-        makeRegUsed(reg)
-        prepareReg(reg)
-        
-    print ('} '+data.name+'_'+data.peripherals[0].name.lower()+"_t;")    
+    global lastAdress
+    for p in reversed(data.peripherals):
+        lastAdress = 0
+        for r in p.registers:
+            prepareReg(r)
+        numberOfRegs = countRegs(p)    
+        print ('typedef struct{')        
+        for i in range(0,numberOfRegs):
+            #print(data.peripherals[0].registers[0].used)
+            reg = findLowestAdress(p)
+            printRegInfo(reg)
+            makeRegUsed(reg)
+            prepareReg(reg)            
+        print ('} '+data.name+'_'+p.name.lower()+"_t;\n")    
 
 def makeFirstLine(reg,prefix):
     block = prefix+reg.name
@@ -178,7 +190,7 @@ def makeBlock(reg,prefix):
         fieldName = reg.fields[i].bit_Field_Name.replace(" ", "_")
         lenght = int(reg.fields[i].lenght)
         block += '/* field: '+fieldName + ' - '+reg.fields[i].info+' */\n'
-        macroName = prefix+reg.name+'_'+fieldName
+        macroName = prefix+'_'+reg.name+'_'+fieldName
         #peripheral = prefix.split('_')[-2]
         #sys.stderr.write(peripheral+'\n')
         #sys.stderr.write(reg.name+'\n\n')
@@ -229,16 +241,18 @@ def prepareReg(reg):
             
 
 def makeRegs(data):
-    #prefix = data.name.upper() + '_' + data.peripherals[0].name+'_'
-    prefix = data.name.upper() + '_'
-    numberOfRegs = countRegs(data)                
-    for i in range(0,numberOfRegs):
-        reg = findLowestAdress(data.peripherals[0])
-        if(reg == None):
-            return
-        print(makeFirstLine(reg,prefix))
-        print(makeBlock(reg,prefix))
-        reg.used = 1
+    prefix = data.name.upper() + '_' + data.peripherals[0].name
+    #prefix = data.name.upper()
+    for p in reversed(data.peripherals):
+        numberOfRegs = countRegs(p)
+        for i in range(0,numberOfRegs):
+            reg = findLowestAdress(p)
+            if(reg == None):
+                return
+            if(len(reg.fields) > 0):                
+                print(makeFirstLine(reg,prefix))
+                print(makeBlock(reg,prefix))
+            reg.used = 1
 
 import getopt,os
 inputfile = ''
