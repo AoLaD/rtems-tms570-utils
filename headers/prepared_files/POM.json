@@ -4,12 +4,12 @@
  "name" : "tms570",
  "peripherals" : [
    {
-     "name" : "POP",
+     "name" : "POM",
      "full name" : "Parameter Overlay Module",
      "offset" : ["REAL"],
      "registers" : [
        {
-       "name" : "POMGLBCTRL",
+       "name" : "GLBCTRL",
        "info" : "POM Global Control Register",
        "lenght" : "32",
        "adress" : "0xffa04000",
@@ -35,7 +35,7 @@
         ]
        },
        {
-       "name" : "POMREV",
+       "name" : "REV",
        "info" : "POM Revision ID",
        "lenght" : "32",
        "adress" : "0xffa04004",
@@ -79,7 +79,7 @@
         ]
        },
        {
-       "name" : "POMCLKCTRL",
+       "name" : "CLKCTRL",
        "info" : "POM Clock Gate Control Register",
        "lenght" : "32",
        "adress" : "0xffa04008",
@@ -93,7 +93,7 @@
         ]
        },
        {
-       "name" : "POMFLG",
+       "name" : "FLG",
        "info" : "POM Status Register",
        "lenght" : "32",
        "adress" : "0xffa0400c",
@@ -107,55 +107,7 @@
         ]
        },
        {
-       "name" : "POMPROGSTART{}",
-       "info" : "POM Program Region Start Address Register {}",
-       "lenght" : "32",
-       "adress" : "0xffa04200",
-       "group_position" : ["0xFFA04200", "0xFFA04210", "0xFFA04220", "0xFFA04230", "0xFFA04240", "0xFFA04250", "0xFFA04260", "0xFFA04270", "0xFFA04280", "0xFFA04290", "0xFFA042A0", "0xFFA042B0", "0xFFA042C0", "0xFFA042D0", "0xFFA042E0", "0xFFA042F0", "0xFFA04300", "0xFFA04310", "0xFFA04320", "0xFFA04330", "0xFFA04340", "0xFFA04350", "0xFFA04360", "0xFFA04370", "0xFFA04380", "0xFFA04390", "0xFFA043A0", "0xFFA043B0", "0xFFA043C0", "0xFFA043D0", "0xFFA043E0", "0xFFA043F0"],
-       "group_names" : ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "23",
-         "bit_Field_Name" : "STARTADDRESS",
-         "info" : "Defines the start address of the program memory region."
-         }
-        ]
-       },
-       {
-       "name" : "POMOVLSTART{}",
-       "info" : "POM Overlay Region Start Address Register {}",
-       "lenght" : "32",
-       "adress" : "0xffa04204",
-       "group_position" : ["0xFFA04204", "0xFFA04214", "0xFFA04224", "0xFFA04234", "0xFFA04244", "0xFFA04254", "0xFFA04264", "0xFFA04274", "0xFFA04284", "0xFFA04294", "0xFFA042A4", "0xFFA042B4", "0xFFA042C4", "0xFFA042D4", "0xFFA042E4", "0xFFA042F4", "0xFFA04304", "0xFFA04314", "0xFFA04324", "0xFFA04334", "0xFFA04344", "0xFFA04354", "0xFFA04364", "0xFFA04374", "0xFFA04384", "0xFFA04394", "0xFFA043A4", "0xFFA043B4", "0xFFA043C4", "0xFFA043D4", "0xFFA043E4", "0xFFA043F4"],
-       "group_names" : ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "23",
-         "bit_Field_Name" : "STARTADDRESS",
-         "info" : "Defines the start address of the overlay memory region."
-         }
-        ]
-       },
-       {
-       "name" : "POMREGSIZE{}",
-       "info" : "POM Region Size Register {}",
-       "lenght" : "32",
-       "adress" : "0xffa04208",
-       "group_position" : ["0xFFA04208", "0xFFA04218", "0xFFA04228", "0xFFA04238", "0xFFA04248", "0xFFA04258", "0xFFA04268", "0xFFA04278", "0xFFA04288", "0xFFA04298", "0xFFA042A8", "0xFFA042B8", "0xFFA042C8", "0xFFA042D8", "0xFFA042E8", "0xFFA042F8", "0xFFA04308", "0xFFA04318", "0xFFA04328", "0xFFA04338", "0xFFA04348", "0xFFA04358", "0xFFA04368", "0xFFA04378", "0xFFA04388", "0xFFA04398", "0xFFA043A8", "0xFFA043B8", "0xFFA043C8", "0xFFA043D8", "0xFFA043E8", "0xFFA043F8"],
-       "group_names" : ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "4",
-         "bit_Field_Name" : "SIZE",
-         "info" : "Region size"
-         }
-        ]
-       },
-       {
-       "name" : "POMITCTRL",
+       "name" : "ITCTRL",
        "info" : "POM Integration Control Register",
        "lenght" : "32",
        "adress" : "0xffa04f00",
@@ -169,7 +121,7 @@
         ]
        },
        {
-       "name" : "POMCLAIMSET",
+       "name" : "CLAIMSET",
        "info" : "POM Claim Set Register",
        "lenght" : "32",
        "adress" : "0xffa04fa0",
@@ -189,7 +141,7 @@
         ]
        },
        {
-       "name" : "POMCLAIMCLR",
+       "name" : "CLAIMCLR",
        "info" : "POM Claim Clear Register",
        "lenght" : "32",
        "adress" : "0xffa04fa4",
@@ -209,7 +161,7 @@
         ]
        },
        {
-       "name" : "POMLOCKACCESS",
+       "name" : "LOCKACCESS",
        "info" : "POM Lock Access Register",
        "lenght" : "32",
        "adress" : "0xffa04fb0",
@@ -223,7 +175,7 @@
         ]
        },
        {
-       "name" : "POMLOCKSTATUS",
+       "name" : "LOCKSTATUS",
        "info" : "POM Lock Status Register",
        "lenght" : "32",
        "adress" : "0xffa04fb4",
@@ -237,7 +189,7 @@
         ]
        },
        {
-       "name" : "POMAUTHSTATUS",
+       "name" : "AUTHSTATUS",
        "info" : "POM Authentication Status Register",
        "lenght" : "32",
        "adress" : "0xffa04fb8",
@@ -251,7 +203,7 @@
         ]
        },
        {
-       "name" : "POMDEVID",
+       "name" : "DEVID",
        "info" : "POM Device ID Register",
        "lenght" : "32",
        "adress" : "0xffa04fc8",
@@ -265,7 +217,7 @@
         ]
        },
        {
-       "name" : "POMDEVTYPE",
+       "name" : "DEVTYPE",
        "info" : "POM Device Type Register",
        "lenght" : "32",
        "adress" : "0xffa04fcc",
@@ -285,7 +237,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID4",
+       "name" : "PERIPHERALID4",
        "info" : "POM Peripheral ID 4 Register",
        "lenght" : "32",
        "adress" : "0xffa04fd0",
@@ -305,7 +257,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID5",
+       "name" : "PERIPHERALID5",
        "info" : "POM Peripheral ID 5 Register",
        "lenght" : "32",
        "adress" : "0xffa04fd4",
@@ -319,7 +271,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID6",
+       "name" : "PERIPHERALID6",
        "info" : "POM Peripheral ID 6 Register",
        "lenght" : "32",
        "adress" : "0xffa04fd8",
@@ -333,7 +285,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID7",
+       "name" : "PERIPHERALID7",
        "info" : "POM Peripheral ID 7 Register",
        "lenght" : "32",
        "adress" : "0xffa04fdc",
@@ -347,7 +299,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID0",
+       "name" : "PERIPHERALID0",
        "info" : "POM Peripheral ID 0 Register",
        "lenght" : "32",
        "adress" : "0xffa04fe0",
@@ -361,7 +313,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID1",
+       "name" : "PERIPHERALID1",
        "info" : "POM Peripheral ID 1 Register",
        "lenght" : "32",
        "adress" : "0xffa04fe4",
@@ -381,7 +333,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID2",
+       "name" : "PERIPHERALID2",
        "info" : "POM Peripheral ID 2 Register",
        "lenght" : "32",
        "adress" : "0xffa04fe8",
@@ -407,7 +359,7 @@
         ]
        },
        {
-       "name" : "POMPERIPHERALID3",
+       "name" : "PERIPHERALID3",
        "info" : "POM Peripheral ID 3 Register",
        "lenght" : "32",
        "adress" : "0xffa04fec",
@@ -421,7 +373,7 @@
         ]
        },
        {
-       "name" : "POMCOMPONENTID0",
+       "name" : "COMPONENTID0",
        "info" : "POM Component ID 0 Register",
        "lenght" : "32",
        "adress" : "0xffa04ff0",
@@ -435,7 +387,7 @@
         ]
        },
        {
-       "name" : "POMCOMPONENTID1",
+       "name" : "COMPONENTID1",
        "info" : "POM Component ID 1 Register",
        "lenght" : "32",
        "adress" : "0xffa04ff4",
@@ -455,7 +407,7 @@
         ]
        },
        {
-       "name" : "POMCOMPONENTID2",
+       "name" : "COMPONENTID2",
        "info" : "POM Component ID 2 Register",
        "lenght" : "32",
        "adress" : "0xffa04ff8",
@@ -469,7 +421,7 @@
         ]
        },
        {
-       "name" : "POMCOMPONENTID3",
+       "name" : "COMPONENTID3",
        "info" : "POM Component ID 3 Register",
        "lenght" : "32",
        "adress" : "0xffa04ffc",
@@ -480,6 +432,73 @@
          "bit_Field_Name" : "Preamble",
          "info" : "Preamble"
          }
+        ]
+       },
+       {
+       "name" : "REG",
+       "info" : "Program Regions",
+       "lenght" : "128",
+       "adress" : "0xffa04200",
+       "array" : "32",
+       "type" : "tms570_pom_region_t",
+       "fields" : [
+        ]
+       }
+     ]
+   },
+   {
+     "name" : "pom_region",
+     "full name" : "Parameter Overlay Module",
+     "offset" : ["NONE"],
+     "registers" : [
+       {
+       "name" : "PROGSTART",
+       "info" : "POM Program Region Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "23",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Defines the start address of the program memory region."
+         }
+        ]
+       },
+       {
+       "name" : "OVLSTART",
+       "info" : "POM Overlay Region Start Address Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "23",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Defines the start address of the overlay memory region."
+         }
+        ]
+       },
+       {
+       "name" : "REGSIZE",
+       "info" : "POM Region Size Register ",
+       "lenght" : "32",
+       "adress" : "0x8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "SIZE",
+         "info" : "Region size"
+         }
+        ]
+       },
+       {
+       "name" : "Reser",
+       "info" : "Reserved",
+       "lenght" : "32",
+       "adress" : "0xc",
+       "fields" : [
         ]
        }
      ]

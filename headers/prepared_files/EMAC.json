@@ -6,7 +6,7 @@
    {
      "name" : "EMAC",
      "full name" : "EMAC Control Module Registers",
-     "offset" : ["FCF78900"],
+     "offset" : ["0xFCF78900"],
      "registers" : [
        {
        "name" : "REVID",

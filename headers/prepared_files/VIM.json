@@ -111,253 +111,91 @@
         ]
        },
        {
-       "name" : "FIRQPR0",
-       "info" : "FIQ/IRQ Program Control Register 0",
+       "name" : "FIRQPR",
+       "info" : "FIQ/IRQ Program Control Register",
        "lenght" : "32",
        "adress" : "0xfffffe10",
-       "fields" : [
-         {
-         "start_bit" : "2",
-         "bit_lenght" : "30",
-         "bit_Field_Name" : "FIRQPR2To31",
-         "info" : "FIQ/IRQ program control bits."
-         }
-        ]
-       },
-       {
-       "name" : "FIRQPR1",
-       "info" : "FIQ/IRQ Program Control Register 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe14",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "FIRQPR32To63",
-         "info" : "FIQ/IRQ program control bits."
+         "bit_Field_Name" : "FIRQPRx",
+         "info" : "FIQ/IRQ program control bits. 96 bit register. 0-1 bits reserved."
          }
         ]
        },
        {
-       "name" : "FIRQPR2",
-       "info" : "FIQ/IRQ Program Control Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe18",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "FIRQPR64To95",
-         "info" : "FIQ/IRQ program control bits."
-         }
-        ]
-       },
-       {
-       "name" : "INTREQ0",
-       "info" : "Pending Interrupt Read Location Register 0",
+       "name" : "INTREQ",
+       "info" : "Pending Interrupt Read Location Register",
        "lenght" : "32",
        "adress" : "0xfffffe20",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "INTREQ0To31",
-         "info" : "Pending interrupt bits."
+         "bit_Field_Name" : "INTREQx",
+         "info" : "Pending interrupt bits. 96 bit register."
          }
         ]
        },
        {
-       "name" : "INTREQ1",
-       "info" : "Pending Interrupt Read Location Register 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe24",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "INTREQ32To63",
-         "info" : "Pending interrupt bits."
-         }
-        ]
-       },
-       {
-       "name" : "INTREQ2",
-       "info" : "Pending Interrupt Read Location Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe28",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "INTREQ64To95",
-         "info" : "Pending interrupt bits."
-         }
-        ]
-       },
-       {
-       "name" : "REQENASET0",
-       "info" : "Interrupt Enable Set Register 0",
+       "name" : "REQENASET",
+       "info" : "Interrupt Enable Set Register ",
        "lenght" : "32",
        "adress" : "0xfffffe30",
-       "fields" : [
-         {
-         "start_bit" : "2",
-         "bit_lenght" : "30",
-         "bit_Field_Name" : "REQENASET2To31",
-         "info" : "Request enable set bits."
-         }
-        ]
-       },
-       {
-       "name" : "REQENASET1",
-       "info" : "Interrupt Enable Set Register 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe34",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "REQENASET32To63",
-         "info" : "Request enable set bits."
+         "bit_Field_Name" : "REQENASETx",
+         "info" : "Request enable set bits. 96 bit register. 0-1 bits reserved."
          }
         ]
        },
        {
-       "name" : "REQENASET2",
-       "info" : "Interrupt Enable Set Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe38",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "REQENASET64To95",
-         "info" : "Request enable set bits."
-         }
-        ]
-       },
-       {
-       "name" : "REQENACLR0",
-       "info" : "Interrupt Enable Clear Register 0",
+       "name" : "REQENACLR",
+       "info" : "Interrupt Enable Clear Register ",
        "lenght" : "32",
        "adress" : "0xfffffe40",
-       "fields" : [
-         {
-         "start_bit" : "2",
-         "bit_lenght" : "30",
-         "bit_Field_Name" : "REQENACLR2To31",
-         "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "REQENACLR1",
-       "info" : "Interrupt Enable Clear Register 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe44",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "REQENACLR32To63",
-         "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
+         "bit_Field_Name" : "REQENACLRx",
+         "info" : "Request enable clear bits. 96 bit register. 0-1 bits reserved."
          }
         ]
        },
        {
-       "name" : "REQENACLR2",
-       "info" : "Interrupt Enable Clear Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe48",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "REQENACLR64To95",
-         "info" : "Request enable clear bits.This vector determines whether the interrupt request channel is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "WAKEENASET0",
-       "info" : "Wake-Up Enable Set Register 0",
+       "name" : "WAKEENASET",
+       "info" : "Wake-Up Enable Set Register",
        "lenght" : "32",
        "adress" : "0xfffffe50",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENASET0To31",
+         "bit_Field_Name" : "WAKEENASETx",
          "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
          }
         ]
        },
        {
-       "name" : "WAKEENASET1",
-       "info" : "Wake-Up Enable Set Register 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe54",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENASET32To63",
-         "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "WAKEENASET2",
-       "info" : "Wake-Up Enable Set Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe58",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENASET64To95",
-         "info" : "Wake-up enable set bits. This vector determines whether the wake-up interrupt line is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "WAKEENACLR0",
-       "info" : "Wake-Up Enable Clear Registers 0",
+       "name" : "WAKEENACLR",
+       "info" : "Wake-Up Enable Clear Registers",
        "lenght" : "32",
        "adress" : "0xfffffe60",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENACLR0To31",
-         "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "WAKEENACLR1",
-       "info" : "Wake-Up Enable Clear Registers 1",
-       "lenght" : "32",
-       "adress" : "0xfffffe64",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENACLR32To63",
-         "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
-         }
-        ]
-       },
-       {
-       "name" : "WAKEENACLR2",
-       "info" : "Wake-Up Enable Clear Registers 2",
-       "lenght" : "32",
-       "adress" : "0xfffffe68",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "WAKEENACLR64To95",
+         "bit_Field_Name" : "WAKEENACLRx",
          "info" : "Wake-up enable clear bits. This vector determines whether the wake-up interrupt line is enabled."
          }
         ]

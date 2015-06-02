@@ -17,13 +17,13 @@
          {
          "start_bit" : "16",
          "bit_lenght" : "16",
-         "bit_Field_Name" : "Data_A(15_0)",
+         "bit_Field_Name" : "Data_A",
          "info" : "Data_A(15-0)"
          },
          {
          "start_bit" : "0",
          "bit_lenght" : "16",
-         "bit_Field_Name" : "Data_B(15_0)",
+         "bit_Field_Name" : "Data_B",
          "info" : "(complement of Data_A(15-0))"
          }
         ]
@@ -37,13 +37,13 @@
          {
          "start_bit" : "16",
          "bit_lenght" : "16",
-         "bit_Field_Name" : "Data_C(15_0)",
+         "bit_Field_Name" : "Data_C",
          "info" : "Data_C(15-0)"
          },
          {
          "start_bit" : "0",
          "bit_lenght" : "16",
-         "bit_Field_Name" : "Data_D(15_0)",
+         "bit_Field_Name" : "Data_D",
          "info" : "(complement of Data_C(15-0))"
          }
         ]
@@ -265,7 +265,7 @@
          {
          "start_bit" : "16",
          "bit_lenght" : "5",
-         "bit_Field_Name" : "TSMS4:0",
+         "bit_Field_Name" : "TSMS",
          "info" : "Transfer State Machine Status"
          },
          {
@@ -283,7 +283,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "7",
-         "bit_Field_Name" : "BN6:0",
+         "bit_Field_Name" : "BN",
          "info" : "Buffer Number"
          }
         ]
@@ -297,7 +297,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "7",
-         "bit_Field_Name" : "BN6:0",
+         "bit_Field_Name" : "BN",
          "info" : "Buffer number."
          }
         ]
@@ -311,7 +311,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "7",
-         "bit_Field_Name" : "BN6:0",
+         "bit_Field_Name" : "BN",
          "info" : "Buffer number."
          }
         ]
@@ -325,7 +325,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TBA(31_0)",
+         "bit_Field_Name" : "TBA",
          "info" : "Transfer Base Address."
          }
         ]
@@ -339,7 +339,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "nTBA(31_0)",
+         "bit_Field_Name" : "nTBA",
          "info" : "nTBA(31-0)"
          }
         ]
@@ -353,7 +353,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "BAMS(31_0)",
+         "bit_Field_Name" : "BAMS",
          "info" : "Base Address of Mirrored Status32-bit base pointer, 2 LSB are not significant (32-bit"
          }
         ]
@@ -367,7 +367,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "SAMP(31_0)",
+         "bit_Field_Name" : "SAMP",
          "info" : "Start Address Memory Protection."
          }
         ]
@@ -381,7 +381,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "EAMP(31_0)",
+         "bit_Field_Name" : "EAMP",
          "info" : "End Address Memory Protection."
          }
         ]
@@ -395,7 +395,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TSMO1(31_0)",
+         "bit_Field_Name" : "TSMO1",
          "info" : "Transfer to System Memory Occurred Register 1."
          }
         ]
@@ -409,7 +409,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TSMO1(31_0)",
+         "bit_Field_Name" : "TSMO1",
          "info" : "Transfer to System Memory Occurred Register 1."
          }
         ]
@@ -423,7 +423,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TSMO1(31_0)",
+         "bit_Field_Name" : "TSMO1",
          "info" : "Transfer to System Memory Occurred Register 1."
          }
         ]
@@ -437,7 +437,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TSMO1(31_0)",
+         "bit_Field_Name" : "TSMO1",
          "info" : "Transfer to System Memory Occurred Register 1."
          }
         ]
@@ -451,7 +451,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCO1(31_0)",
+         "bit_Field_Name" : "TCCO1",
          "info" : "Transfer to Communication Controller Occurred Register 1."
          }
         ]
@@ -465,7 +465,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCO1(31_0)",
+         "bit_Field_Name" : "TCCO1",
          "info" : "Transfer to Communication Controller Occurred Register 1."
          }
         ]
@@ -479,7 +479,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCO1(31_0)",
+         "bit_Field_Name" : "TCCO1",
          "info" : "Transfer to Communication Controller Occurred Register 1."
          }
         ]
@@ -493,7 +493,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCO1(31_0)",
+         "bit_Field_Name" : "TCCO1",
          "info" : "Transfer to Communication Controller Occurred Register 1."
          }
         ]
@@ -513,7 +513,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "8",
-         "bit_Field_Name" : "OFF(7_0)",
+         "bit_Field_Name" : "OFF",
          "info" : "Offset Vector"
          }
         ]
@@ -527,7 +527,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "9",
-         "bit_Field_Name" : "ADR(8_0)",
+         "bit_Field_Name" : "ADR",
          "info" : "Address of failing TCR location."
          }
         ]
@@ -553,13 +553,13 @@
          {
          "start_bit" : "8",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "RSTAT(2_0)",
+         "bit_Field_Name" : "RSTAT",
          "info" : "Status of VBUS on read transfers."
          },
          {
          "start_bit" : "4",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "WSTAT(2_0)",
+         "bit_Field_Name" : "WSTAT",
          "info" : "Status of VBUS on write transfers."
          },
          {
@@ -585,13 +585,13 @@
          {
          "start_bit" : "8",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "RSTATE(2_0)",
+         "bit_Field_Name" : "RSTATE",
          "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
          },
          {
          "start_bit" : "4",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "WSTATE(2_0)",
+         "bit_Field_Name" : "WSTATE",
          "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
          },
          {
@@ -617,13 +617,13 @@
          {
          "start_bit" : "8",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "RSTATE(2_0)",
+         "bit_Field_Name" : "RSTATE",
          "info" : "Read Error Interrupt Generation (interrupt generation on VBUS read transfer errors)."
          },
          {
          "start_bit" : "4",
          "bit_lenght" : "3",
-         "bit_Field_Name" : "WSTATE(2_0)",
+         "bit_Field_Name" : "WSTATE",
          "info" : "Write Error Interrupt Generation (interrupt generation on VBUS write transfer errors)."
          },
          {
@@ -649,7 +649,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -663,7 +663,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -677,7 +677,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -691,7 +691,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -705,7 +705,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -719,7 +719,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -733,7 +733,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -747,7 +747,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMS1(31_0)",
+         "bit_Field_Name" : "TTSMS1",
          "info" : "Trigger Transfer to System Memory Set 1."
          }
         ]
@@ -761,7 +761,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -775,7 +775,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -789,7 +789,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -803,7 +803,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -817,7 +817,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -831,7 +831,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -845,7 +845,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -859,7 +859,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTCCS1(31_0)",
+         "bit_Field_Name" : "TTCCS1",
          "info" : "Trigger Transfer to Communication Controller Set 1."
          }
         ]
@@ -873,7 +873,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -887,7 +887,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -901,7 +901,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -915,7 +915,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "message buffers 0 to 31."
          }
         ]
@@ -929,7 +929,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -943,7 +943,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -957,7 +957,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "Enable Transfer on Event to System Memory Set 1."
          }
         ]
@@ -971,7 +971,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "ETESMS1(31_0)",
+         "bit_Field_Name" : "ETESMS1",
          "info" : "message buffers 0 to 31."
          }
         ]
@@ -985,7 +985,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -999,7 +999,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1013,7 +1013,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1027,7 +1027,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1041,7 +1041,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1055,7 +1055,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "CESMS1(31-0)"
          }
         ]
@@ -1069,7 +1069,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1083,7 +1083,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "CESMS1(31_0)",
+         "bit_Field_Name" : "CESMS1",
          "info" : "Clear on Event to System Memory Set 1."
          }
         ]
@@ -1097,7 +1097,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1111,7 +1111,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1125,7 +1125,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1139,7 +1139,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1153,7 +1153,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1167,7 +1167,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1181,7 +1181,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1195,7 +1195,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TTSMIES1(31_0)",
+         "bit_Field_Name" : "TTSMIES1",
          "info" : "Transfer to System Memory Interrupt Enable Set 1."
          }
         ]
@@ -1209,7 +1209,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1223,7 +1223,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1237,7 +1237,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1251,7 +1251,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "to message buffers 0 to 31."
          }
         ]
@@ -1265,7 +1265,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1279,7 +1279,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1293,7 +1293,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
@@ -1307,7 +1307,7 @@
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TCCIES1(31_0)",
+         "bit_Field_Name" : "TCCIES1",
          "info" : "Transfer to Communication Controller Interrupt Enable Set 1."
          }
         ]
