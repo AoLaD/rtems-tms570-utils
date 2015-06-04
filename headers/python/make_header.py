@@ -162,15 +162,15 @@ def makeStruct(data):
         lastAdress = 0
         for r in p.registers:
             prepareReg(r)
-        numberOfRegs = countRegs(p)    
-        print ('typedef struct{')        
+        numberOfRegs = countRegs(p)
+        print ('typedef struct{')
         for i in range(0,numberOfRegs):
             #print(data.peripherals[0].registers[0].used)
             reg = findLowestAdress(p)
             printRegInfo(reg)
             makeRegUsed(reg)
-            prepareReg(reg)            
-        print ('} '+data.name+'_'+p.name.lower()+"_t;\n")    
+            prepareReg(reg)
+        print ('} '+data.name+'_'+p.name.lower()+"_t;\n")
 
 def makeFirstLine(reg,prefix):
     block = prefix+reg.name
@@ -249,7 +249,7 @@ def makeRegs(data):
             reg = findLowestAdress(p)
             if(reg == None):
                 return
-            if(len(reg.fields) > 0):                
+            if(len(reg.fields) > 0):
                 print(makeFirstLine(reg,prefix))
                 print(makeBlock(reg,prefix))
             reg.used = 1
