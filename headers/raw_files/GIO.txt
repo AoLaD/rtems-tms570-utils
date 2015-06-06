@@ -11,7 +11,7 @@
       "registers" :
       [
          {
-          "name" : "GIOGCR0",
+          "name" : "GCR0",
           "info" : "GIO Global Control Register",
           "lenght" : "32",
           "adress" : "FFF7BC00",
@@ -29,7 +29,7 @@
           ]
         },
         {
-          "name" : "GIOINTDET",
+          "name" : "INTDET",
           "info" : "GIO Interrupt Detect Register",
           "lenght" : "32",
           "adress" : "FFF7BC08",
@@ -74,7 +74,7 @@
           ]
         },
         {
-          "name" : "GIOENASET",
+          "name" : "ENASET",
           "info" : "GIO Interrupt Enable Set Register",
           "lenght" : "32",
           "adress" : "FFF7BC10",
@@ -119,7 +119,7 @@
           ]
         },
         {
-          "name" : "GIOPOL",
+          "name" : "POL",
           "info" : "GIO Interrupt Polarity Register",
           "lenght" : "32",
           "adress" : "FFF7BC0C",
@@ -148,7 +148,7 @@
           ]
         },
         {
-          "name" : "GIOENACLR",
+          "name" : "ENACLR",
           "info" : "GIO Interrupt Enable Clear Register",
           "lenght" : "32",
           "adress" : "FFF7BC14",
@@ -193,7 +193,7 @@
           ]
         },
         {
-          "name" : "GIOLVLSET",
+          "name" : "LVLSET",
           "info" : "GIO Interrupt Priority Set Register",
           "lenght" : "32",
           "adress" : "FFF7BC18",
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "name" : "GIOLVLCLR",
+          "name" : "LVLCLR",
           "info" : "GIO Interrupt Priority Clear Register",
           "lenght" : "32",
           "adress" : "FFF7BC1C",
@@ -283,7 +283,7 @@
           ]
         },
         {
-          "name" : "GIOFLG",
+          "name" : "FLG",
           "info" : "GIO Interrupt Flag Register",
           "lenght" : "32",
           "adress" : "FFF7BC20",
@@ -328,7 +328,7 @@
           ]
         },
         {
-          "name" : "GIOOFF1",
+          "name" : "OFF1",
           "info" : "GIO Offset 1 Register",
           "lenght" : "32",
           "adress" : "FFF7BC24",
@@ -350,7 +350,7 @@
           ]
         },
         {
-          "name" : "GIOOFF2",
+          "name" : "OFF2",
           "info" : "GIO Offset 2 Register",
           "lenght" : "32",
           "adress" : "FFF7BC28",
@@ -372,7 +372,7 @@
           ]
         },
         {
-          "name" : "GIOEMU1",
+          "name" : "EMU1",
           "info" : "GIO Emulation 1 Register",
           "lenght" : "32",
           "adress" : "FFF7BC2C",
@@ -394,7 +394,7 @@
           ]
         },
         {
-          "name" : "GIOEMU2",
+          "name" : "EMU2",
           "info" : "GIO Emulation 2 Register",
           "lenght" : "32",
           "adress" : "FFF7BC30",
@@ -416,1158 +416,184 @@
           ]
         },
         {
-          "name" : "GIODIRA",
-          "info" : "GIO Data Direction Register A",
+          "name" : "ports",
+          "info" : "GIO ports",
           "lenght" : "32",
-          "adress" : "FFF7BC34h",
+          "adress" : "FFF7BC34",
           "offset" : "0",
+          "type" : "tms570_gio_port_t",
+          "array" : "8",
           "fields" : [
              {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIR A",
-               "info" : "GIO data direction of port A, pins [7:0]",
+               "bit_number" : "5-0",
+               "bit_Field_Name" : "GIOEMU2",
+               "info" : "GIO offset emulation 2. These bits index the currently pending low-priority interrupt. No register",
                "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRB",
-          "info" : "GIO Data Direction Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC54h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRB",
-               "info" : "GIO data direction of port B, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRC",
-          "info" : "GIO Data Direction Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC74h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRC",
-               "info" : "GIO data direction of port C, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRD",
-          "info" : "GIO Data Direction Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BC94h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRD",
-               "info" : "GIO data direction of port D, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRE",
-          "info" : "GIO Data Direction Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCB4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRE",
-               "info" : "GIO data direction of port E, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRF",
-          "info" : "GIO Data Direction Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCD4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRF",
-               "info" : "GIO data direction of port E, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRG",
-          "info" : "GIO Data Direction Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BCF4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRG",
-               "info" : "GIO data direction of port G, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIRH",
-          "info" : "GIO Data Direction Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD14h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIRH",
-               "info" : "GIO data direction of port H, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is an input."},
-                 {"value" : "1", "desc" : "The GIO pin is an output."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINA",
-          "info" : "GIO Data Input Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC38h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINA",
-               "info" : "GIO data input for port A, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINB",
-          "info" : "GIO Data Input Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC58h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINB",
-               "info" : "GIO data input for port B, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINC",
-          "info" : "GIO Data Input Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC78h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINC",
-               "info" : "GIO data input for port C, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODIND",
-          "info" : "GIO Data Input Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BC98h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODIND",
-               "info" : "GIO data input for port D, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINE",
-          "info" : "GIO Data Input Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCB8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINE",
-               "info" : "GIO data input for port E, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINF",
-          "info" : "GIO Data Input Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCD8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINF",
-               "info" : "GIO data input for port F, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODING",
-          "info" : "GIO Data Input Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BCF8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODING",
-               "info" : "GIO data input for port G, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIODINH",
-          "info" : "GIO Data Input Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD18h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODINH",
-               "info" : "GIO data input for port H, pins [7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTA",
-          "info" : "GIO Data Output Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC3Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTA",
-               "info" : "IO data output of port A, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTB",
-          "info" : "GIO Data Output Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC5Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTB",
-               "info" : "IO data output of port B, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTC",
-          "info" : "GIO Data Output Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC7Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTC",
-               "info" : "IO data output of port C, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTD",
-          "info" : "GIO Data Output Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BC9Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTD",
-               "info" : "IO data output of port D, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTE",
-          "info" : "GIO Data Output Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCBCh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTE",
-               "info" : "IO data output of port E, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTF",
-          "info" : "GIO Data Output Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCDCh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTF",
-               "info" : "IO data output of port F, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTG",
-          "info" : "GIO Data Output Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BCFCh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTG",
-               "info" : "IO data output of port G, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODOUTH",
-          "info" : "GIO Data Output Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD1Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODOUTH",
-               "info" : "IO data output of port H, pins[7:0].",
-               "values" : [
-                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
-                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETA",
-          "info" : "GIO Data Set Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC40h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETA",
-               "info" : "GIO data set for port A, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETB",
-          "info" : "GIO Data Set Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC60h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETB",
-               "info" : "GIO data set for port B, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETC",
-          "info" : "GIO Data Set Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC80h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETC",
-               "info" : "GIO data set for port C, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETD",
-          "info" : "GIO Data Set Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BCA0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETD",
-               "info" : "GIO data set for port D, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETE",
-          "info" : "GIO Data Set Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCC0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETE",
-               "info" : "GIO data set for port E, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETF",
-          "info" : "GIO Data Set Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCE0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETF",
-               "info" : "GIO data set for port F, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETG",
-          "info" : "GIO Data Set Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BD00h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETG",
-               "info" : "GIO data set for port G, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIODSETH",
-          "info" : "GIO Data Set Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD20h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODSETH",
-               "info" : "GIO data set for port H, pins[7:0]. This bit drives the output of GIO pin high.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRA",
-          "info" : "GIO Data Clear Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC44h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRA",
-               "info" : "GIO data clear for port A, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRB",
-          "info" : "GIO Data Clear Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC64h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRB",
-               "info" : "GIO data clear for port B, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRC",
-          "info" : "GIO Data Clear Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC84h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRC",
-               "info" : "GIO data clear for port C, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRD",
-          "info" : "GIO Data Clear Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BCA4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRD",
-               "info" : "GIO data clear for port D, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRE",
-          "info" : "GIO Data Clear Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCC4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRE",
-               "info" : "GIO data clear for port E, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRF",
-          "info" : "GIO Data Clear Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCE4h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRF",
-               "info" : "GIO data clear for port F, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRG",
-          "info" : "GIO Data Clear Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BD04h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRG",
-               "info" : "GIO data clear for port G, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "GIODCLRH",
-          "info" : "GIO Data Clear Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD24h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIODCLRH",
-               "info" : "GIO data clear for port H, pins[7:0]. This bit drives the output of GIO pin low.",
-               "values" : [
-                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
-                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRA",
-          "info" : "GIO Open Drain Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC48h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRA GIO open drain for port A, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRB",
-          "info" : "GIO Open Drain Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC68h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRB GIO open drain for port B, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRC",
-          "info" : "GIO Open Drain Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC88h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRC GIO open drain for port C, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRD",
-          "info" : "GIO Open Drain Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BCA8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRD GIO open drain for port D, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRE",
-          "info" : "GIO Open Drain Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCC8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRE GIO open drain for port E, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRF",
-          "info" : "GIO Open Drain Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCE8h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRF GIO open drain for port F, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRG",
-          "info" : "GIO Open Drain Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BD08h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRG GIO open drain for port G, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPDRH",
-          "info" : "GIO Open Drain Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD28h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "7-0",
-               "info" : "GIOPDRH GIO open drain for port H, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
-                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISA",
-          "info" : "GIO Pull Disable Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC4Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISA",
-               "info" : "GIO pull disable for port A, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISB",
-          "info" : "GIO Pull Disable Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC6Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISB",
-               "info" : "GIO pull disable for port B, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISC",
-          "info" : "GIO Pull Disable Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC8Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISC",
-               "info" : "GIO pull disable for port C, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISD",
-          "info" : "GIO Pull Disable Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BCACh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISD",
-               "info" : "GIO pull disable for port D, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISE",
-          "info" : "GIO Pull Disable Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCCCh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISE",
-               "info" : "GIO pull disable for port E, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISF",
-          "info" : "GIO Pull Disable Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCECh",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISF",
-               "info" : "GIO pull disable for port F, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISG",
-          "info" : "GIO Pull Disable Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BD0Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISG",
-               "info" : "GIO pull disable for port G, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-         {
-          "name" : "GIOPULDISH",
-          "info" : "GIO Pull Disable Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD2Ch",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPULDISH",
-               "info" : "GIO pull disable for port H, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull functionality is enabled."},
-                 {"value" : "1", "desc" : "The pull functionality is disabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLA",
-          "info" : "GIO Pull Select Register A",
-          "lenght" : "32",
-          "adress" : "FFF7BC50h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLA",
-               "info" : "GIO pull select for port A, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLB",
-          "info" : "GIO Pull Select Register B",
-          "lenght" : "32",
-          "adress" : "FFF7BC70h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLB",
-               "info" : "GIO pull select for port B, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLC",
-          "info" : "GIO Pull Select Register C",
-          "lenght" : "32",
-          "adress" : "FFF7BC90h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLC",
-               "info" : "GIO pull select for port C, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLD",
-          "info" : "GIO Pull Select Register D",
-          "lenght" : "32",
-          "adress" : "FFF7BCB0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLD",
-               "info" : "GIO pull select for port D, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLE",
-          "info" : "GIO Pull Select Register E",
-          "lenght" : "32",
-          "adress" : "FFF7BCD0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLE",
-               "info" : "GIO pull select for port E, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLF",
-          "info" : "GIO Pull Select Register F",
-          "lenght" : "32",
-          "adress" : "FFF7BCF0h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLF",
-               "info" : "GIO pull select for port F, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLG",
-          "info" : "GIO Pull Select Register G",
-          "lenght" : "32",
-          "adress" : "FFF7BD10h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLG",
-               "info" : "GIO pull select for port G, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
-                ]
-             }
-          ]
-        },
-        {
-          "name" : "GIOPSLH",
-          "info" : "GIO Pull Select Register H",
-          "lenght" : "32",
-          "adress" : "FFF7BD30h",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "7-0",
-               "bit_Field_Name" : "GIOPSLH",
-               "info" : "GIO pull select for port H, pins[7:0]",
-               "values" : [
-                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
-                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
+                 {"value" : "0", "desc" : "No interrupt is pending."},
+                 {"value" : "1h", "desc" : "Interrupt 0 (corresponding to GIOA0) is pending with a low priority."},
+                 {"value" : "8h", "desc" : "Interrupt 7 (corresponding to GIOA7) is pending with a low priority."},
+                 {"value" : "9h", "desc" : "Interrupt 8 (corresponding to GIOB0) is pending with a low priority"},
+                 {"value" : "10h", "desc" : "Interrupt 16 (corresponding to GIOB7) is pending with a low priority"},
+                 {"value" : "20h", "desc" : "Interrupt 32 (corresponding to GIOD7) is pending with a low priority"}
                 ]
              }
           ]
         }
-      ]    
-    }
+      ]
+    },
+	{
+      "name" : "gio_port",
+      "full name" : "Parameter Overlay Module",
+      "offset" : ["0xFFF7BC34","0xFFF7BC54","0xFFF7BC74","0xFFF7BC94","0xFFF7BCB4","0xFFF7BCD4","0xFFF7BCF4","0xFFF7BD14"],
+      "sulfixes" : ["A","B","C","D","E","F","G","H"],
+      "registers" :
+      [
+		        {
+          "name" : "PSL",
+          "info" : "GIO Pull Select Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1C",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIOPSL",
+               "info" : "GIO pull select, pins[7:0]",
+               "values" : [
+                 {"value" : "0", "desc" : "The pull down functionality is select, when pull up/pull down logic is enabled."},
+                 {"value" : "1", "desc" : "The pull up functionality is select, when pull up/pull down logic is enabled."}
+                ]
+             }
+          ]
+        },
+                 {
+          "name" : "PULDIS",
+          "info" : "GIO Pull Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIOPULDIS",
+               "info" : "GIO pull disable, pins[7:0]. Writes to this bit will only take effect when the GIO pin",
+               "values" : [
+                 {"value" : "0", "desc" : "The pull functionality is enabled."},
+                 {"value" : "1", "desc" : "The pull functionality is disabled."}
+                ]
+             }
+          ]
+        },
+                 {
+          "name" : "PDR",
+          "info" : "GIO Open Drain Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "7-0",
+               "info" : "GIOPDRH GIO open drain, pins[7:0]",
+               "values" : [
+                 {"value" : "0", "desc" : "The GIO pin is configured in push/pull (normal GIO) mode.The output voltage is V OLor lower if"},
+                 {"value" : "1", "desc" : "The GIO pin is configured in open drain mode. The GIODOUTx bit controls the state of the GIO"}
+                ]
+             }
+          ]
+        },
+        {
+          "name" : "DCLR",
+          "info" : "GIO Data Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIODCLR",
+               "info" : "GIO data clear, pins[7:0]. This bit drives the output of GIO pin low.",
+               "values" : [
+                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
+                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic low (0)."}
+                ]
+             }
+          ]
+        },
+                 {
+          "name" : "DSET",
+          "info" : "GIO Data Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "C",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIODSET",
+               "info" : "GIO data set, pins[7:0]. This bit drives the output of GIO pin high.",
+               "values" : [
+                 {"value" : "0", "desc" : "Write: Writing a zero has no effect."},
+                 {"value" : "1", "desc" : "Write: The corresponding GIO pin is driven to logic high (1)."}
+                ]
+             }
+          ]
+        },
+                 {
+          "name" : "DOUT",
+          "info" : "GIO Data Output Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIODOUT",
+               "info" : "IO data output, pins[7:0].",
+               "values" : [
+                 {"value" : "0", "desc" : "The pin is driven to logic low (0)."},
+                 {"value" : "1", "desc" : "The pin is driven to logic high (1)."}
+                ]
+             }
+          ]
+        },
+                {
+          "name" : "DIN",
+          "info" : "GIO Data Input Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIODIN",
+               "info" : "GIO data input, pins [7:0]",
+               "values" : [
+                 {"value" : "0", "desc" : "The pin is at logic low (0)."},
+                 {"value" : "1", "desc" : "The pin is at logic high (1)."}
+                ]
+             }
+          ]
+        },
+                {
+          "name" : "DIR",
+          "info" : "GIO Data Direction Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "GIODIR",
+               "info" : "GIO data direction, pins [7:0]",
+               "values" : [
+                 {"value" : "0", "desc" : "The GIO pin is an input."},
+                 {"value" : "1", "desc" : "The GIO pin is an output."}
+                ]
+             }
+          ]
+        }
+        
+      ]
+	}
   ] 
 }         

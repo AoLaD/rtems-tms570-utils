@@ -11,7 +11,7 @@
       "registers" :
       [
 {
-          "name" : "RTPGLBCTRL",
+          "name" : "GLBCTRL",
           "info" : "RTP Global Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -75,7 +75,7 @@
           ]
         },
 {
-          "name" : "RTPTRENA",
+          "name" : "TRENA",
           "info" : "RTP Trace Enable Register",
           "lenght" : "32",
           "adress" : "0",
@@ -99,7 +99,7 @@
           ]
         },
 {
-          "name" : "RTPGSR",
+          "name" : "GSR",
           "info" : "RTP Global Status Register",
           "lenght" : "32",
           "adress" : "0",
@@ -143,7 +143,7 @@
           ]
         },
 {
-          "name" : "RTPDDMW",
+          "name" : "DDMW",
           "info" : "RTP Direct Data Mode Write Register",
           "lenght" : "32",
           "adress" : "0",
@@ -157,11 +157,13 @@
           ]
         },
 {
-          "name" : "RTPPC0",
-          "info" : "RTP Pin Control 0 Register",
+          "name" : "PC{}",
+          "info" : "RTP Pin Control {} Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "34",
+          "group_position" : ["34","38","3C","40","44","48","4C","50","54"],
+          "group_names" : ["0","1","2","3","4","5","6","7","8"],
           "fields" : [
              {
                "bit_number" : "18",
@@ -183,247 +185,16 @@
                "bit_Field_Name" : "DATAFUNC",
                "info" : "Functional mode of RTPDATA[15:0] pins. These bits define whether the pins are used in"
              }
-          ]
+          ]        
         },
 {
-          "name" : "RTPPC1",
-          "info" : "RTP Pin Control 1 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "38",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENADIR",
-               "info" : "Direction of RTPENA pin. This bit defines whether the pin is used as input or output in GIO"
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKDIR",
-               "info" : "Direction of RTPCLK pin. This bit defines whether the pin is used as input or output in GIO"
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCDIR",
-               "info" : "Direction of RTPSYNC pin. This bit defines whether the pin is used as input or output in GIO"
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATADIR",
-               "info" : "Direction of RTPDATA[15:0] pins. These bits define whether the pins are used as input or output"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC2",
-          "info" : "RTP Pin Control 2 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "3C",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENAIN",
-               "info" : "RTPENA input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKIN",
-               "info" : "RTPCLK input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCIN",
-               "info" : "RTPSYNC input. This bit reflects the state of the pin in all modes. Writes to this bit have no effect."
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATAIN",
-               "info" : "RTPDATA[15:0] input. These bits reflect the state of the pins in all modes. Each bit represents a"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC3",
-          "info" : "RTP Pin Control 3 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "40",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENAOUT",
-               "info" : "RTPENA output. This pin sets the output state of the RTPENA pin."
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKOUT",
-               "info" : "RTPCLK output. This pin sets the output state of the RTPCLK pin."
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCOUT",
-               "info" : "RTPSYNC output. This pin sets the output state of the RTPSYNC pin."
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATAOUT",
-               "info" : "RTPDATA[15:0] output. These bits set the output state of the RTPDATA[15:0] pins. Each bit"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC4",
-          "info" : "RTP Pin Control 4 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENASET",
-               "info" : "Sets the output state of RTPENA pin to logic high. Value in the ENASET bit sets the data"
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKSET",
-               "info" : "Sets the output state of RTPCLK pin to logic high. Value in the CLKSET bit sets the data"
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCSET",
-               "info" : "Sets output state of RTPSYNC pin logic high. Value in the SYNCSET bit sets the data output"
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATASET",
-               "info" : "Sets output state of RTPDATA[15:0] pins to logic high. Value in the DATAxSET bit sets the"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC5",
-          "info" : "RTP Pin Control 5 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "48",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENACLR",
-               "info" : "Sets the output state of RTPENA pin to logic high. Value in the ENASET bit sets the data"
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKCLR",
-               "info" : "Sets output state of RTPCLK pin to logic low. Value in the CLKCLR bit sets the data output"
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCCLR",
-               "info" : "Sets output state of RTPSYNC pin logic low. Value in the SYNCCLR bit clears the data output"
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATACLR",
-               "info" : "Sets output state of RTPDATA[15:0] pins to logic low. Value in the DATAxCLR bit clears the"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC6",
-          "info" : "RTP Pin Control 6 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4C",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENAPDR",
-               "info" : "RTPENA Open drain enable. This bit enables open drain functionality on the pin if it is configured"
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKPDR",
-               "info" : "CLKPDR RTPCLK Open drain enable. This bit enables open drain functionality on the pin if it is configured"
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCPDR",
-               "info" : "RTPSYNC Open drain enable. This bit enables open drain functionality on the pin if it is"
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATAPDR",
-               "info" : "RTPDATA[15:0] Open drain enable. These bits enable open drain functionality on the pins if they"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC7",
-          "info" : "RTP Pin Control 7 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "50",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENADIS",
-               "info" : "RTPENA Pull disable. This bit removes internal pullup/pulldown functionality from the pin when it"
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKDIS",
-               "info" : "RTPCLK Pull disable. This bit removes the internal pullup/pulldown functionality from the pin"
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCDIS",
-               "info" : "RTPSYNC Pull disable. Removes internal pullup/pulldown functionality from the pin when"
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATADIS",
-               "info" : "RTPDATA[15:0] Pull disable. Removes internal pullup/pulldown functionality from the pins when"
-             }
-          ]
-        },
-{
-          "name" : "RTPPC8",
-          "info" : "RTP Pin Control 8 Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "54",
-          "fields" : [
-             {
-               "bit_number" : "18",
-               "bit_Field_Name" : "ENAPSEL",
-               "info" : "RTPENA Pull select. This bit configures pullup or pulldown functionality if RTPPC7[18]=0."
-             },
-             {
-               "bit_number" : "17",
-               "bit_Field_Name" : "CLKPSEL",
-               "info" : "RTPCLK Pull select. This bit configures pullup or pulldown functionality if RTPPC7[17]=0."
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "SYNCPSEL",
-               "info" : "RTPSYNC Pull select. This bit configures pullup or pulldown functionality if RTPPC7[16]=0."
-             },
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "DATAPSEL",
-               "info" : "RTPDATA[15:0] Pull select. These bits configure pullup or pulldown functionality if"
-             }
-          ]
-        },
-{
-          "name" : "RTPRAM1REG",
-          "info" : "RTP RAM 1 Trace Region Register",
+          "name" : "RAM1REG{}",
+          "info" : "RTP RAM 1 Trace Region {} Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "0C",
-          "array" : "2",
+          "group_position" : ["0C","10"],
+          "group_names" : ["1","2"],
           "fields" : [
              {
                "bit_number" : "30-29",
@@ -448,12 +219,13 @@
           ]
         },
 {
-          "name" : "RTPRAM2REG",
-          "info" : "RTP RAM 2 Trace Region Register",
+          "name" : "RAM2REG{}",
+          "info" : "RTP RAM 2 Trace Region {} Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "14",
-          "array" : "2",
+          "group_position" : ["14","18"],
+          "group_names" : ["1","2"],
           "fields" : [
              {
                "bit_number" : "30-29",
@@ -478,12 +250,13 @@
           ]
         },
 {
-          "name" : "RTPPERREG",
-          "info" : "RTP Peripheral Trace Region Register",
+          "name" : "PERREG{}",
+          "info" : "RTP Peripheral Trace Region {} Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "24",
-          "array" : "2",
+          "group_position" : ["24","28"],
+          "group_names" : ["1","2"],
           "fields" : [
              {
                "bit_number" : "30-29",

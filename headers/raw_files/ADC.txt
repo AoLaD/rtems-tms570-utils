@@ -8,10 +8,11 @@
       "name" : "ADC",
       "full name" : "Analog To Digital Converter",
       "offset" : ["0xFFF7C000","0xFFF7C200"],
+      "sulfixes" : ["1","2"],
       "registers" :
       [
 {
-          "name" : "ADRSTCR",
+          "name" : "RSTCR",
           "info" : "ADC Reset Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -25,7 +26,7 @@
           ]
         },
 {
-          "name" : "ADOPMODECR",
+          "name" : "OPMODECR",
           "info" : "ADC Operating Mode Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -39,7 +40,7 @@
           ]
         },
 {
-          "name" : "ADCLOCKCR",
+          "name" : "CLOCKCR",
           "info" : "ADC Clock Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -53,7 +54,7 @@
           ]
         },
 {
-          "name" : "ADCALCR",
+          "name" : "CALCR",
           "info" : "ADC Calibration Mode Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -87,11 +88,12 @@
           ]
         },
 {
-          "name" : "ADEVMODECR",
+          "name" : "GxMODECR",
           "info" : "ADC Event Group Operating Mode Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "10",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "16",
@@ -106,45 +108,7 @@
           ]
         },
 {
-          "name" : "ADG1MODECR",
-          "info" : "ADC Group1 Operating Mode Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "14",
-          "fields" : [
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "No Reset on ChnSel",
-               "info" : "No Group1 Results Memory Reset on New Channel Select."
-             },
-             {
-               "bit_number" : "9-8",
-               "bit_Field_Name" : "G1 DATA FMT",
-               "info" : "Group1 Read Data Format."
-             }
-          ]
-        },
-{
-          "name" : "ADG2MODECR",
-          "info" : "ADC Group2 Operating Mode Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "18",
-          "fields" : [
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "No Reset on ChnSel",
-               "info" : "No Group2 Results Memory Reset on New Channel Select."
-             },
-             {
-               "bit_number" : "9-8",
-               "bit_Field_Name" : "G2 DATA FMT",
-               "info" : "Group2 Read Data Format."
-             }
-          ]
-        },
-{
-          "name" : "ADEVSRC",
+          "name" : "EVSRC",
           "info" : "ADC Trigger Source Select Register",
           "lenght" : "32",
           "adress" : "0",
@@ -168,7 +132,7 @@
           ]
         },
 {
-          "name" : "ADG1SRC",
+          "name" : "G1SRC",
           "info" : "ADC Group1 Trigger Source Select Register",
           "lenght" : "32",
           "adress" : "0",
@@ -192,7 +156,7 @@
           ]
         },
 {
-          "name" : "ADG2SRC",
+          "name" : "G2SRC",
           "info" : "ADC Group2 Trigger Source Select Register",
           "lenght" : "32",
           "adress" : "0",
@@ -216,11 +180,12 @@
           ]
         },
 {
-          "name" : "ADEVINTENA",
+          "name" : "GxINTENA",
           "info" : "ADC Event Interrupt Enable Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "28",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "3",
@@ -240,174 +205,42 @@
           ]
         },
 {
-          "name" : "ADG1INTENA",
-          "info" : "ADC Group1 Interrupt Enable Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "2C",
-          "fields" : [
-             {
-               "bit_number" : "3",
-               "bit_Field_Name" : "G1 END INT EN",
-               "info" : "Group1 Conversion End Interrupt Enable. Please refer to Section 19.5.1 for more details on the"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "G1 OVR INT EN",
-               "info" : "Group1 Memory Overrun Interrupt Enable. A memory overrun occurs when the ADC tries to write a"
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G1 THR INT EN",
-               "info" : "Group1 Threshold Interrupt Enable. A Group1 threshold interrupt occurs when the programmed"
-             }
-          ]
-        },
-{
-          "name" : "ADG2INTENA",
-          "info" : "ADC Group2 Interrupt Enable Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "30",
-          "fields" : [
-             {
-               "bit_number" : "3",
-               "bit_Field_Name" : "G2 END INT EN",
-               "info" : "Group2 Conversion End Interrupt Enable. Please refer to Section 19.5.1 for more details on the"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "G2 OVR INT EN",
-               "info" : "Group2 Memory Overrun Interrupt Enable. A memory overrun occurs when the ADC tries to write a"
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G2 THR INT EN",
-               "info" : "Group2 Threshold Interrupt Enable. A Group2 threshold interrupt occurs when the programmed"
-             }
-          ]
-        },
-{
-          "name" : "ADEVINTFLG",
-
+          "name" : "GxINTFLG",
           "info" : "ADC Event Group Interrupt Flag Register",
-
           "lenght" : "32",
-
           "adress" : "0",
-
           "offset" : "34",
-
+          "array" : "3",
           "fields" : [
-
              {
-
                "bit_number" : "3",
-
                "bit_Field_Name" : "EV END",
-
                "info" : "Event Group Conversion End. This bit will be set only if the Event Group conversions are"
-
              },
-
              {
-
                "bit_number" : "2",
-
                "bit_Field_Name" : "EV MEM EMPTY",
-
                "info" : "Event Group Results Memory Empty. This is a read-only bit; writes have no effect. It is not asource of an interrupt from the ADC module."
-
              },
-
              {
-
                "bit_number" : "1",
-
                "bit_Field_Name" : "EV MEM OVERRUN",
-
                "info" : "Event Group Memory Overrun. This is a read-only bit; writes have no effect."
-
              },
-
              {
-
                "bit_number" : "0",
-
                "bit_Field_Name" : "EV THR INT FLG",
-
                "info" : "Event Group Threshold Interrupt Flag."
-
-             }
-
-          ]
-
-        },
-
-{
-          "name" : "ADG1INTFLG",
-          "info" : "ADC Group1 Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "38",
-          "fields" : [
-             {
-               "bit_number" : "3",
-               "bit_Field_Name" : "G1 END",
-               "info" : "Group1 Conversion End. This bit will be set only if the Group1 conversions are configured to be"
-             },
-             {
-               "bit_number" : "2",
-               "bit_Field_Name" : "G1 MEM EMPTY",
-               "info" : "Group1 Results Memory Empty. This is a read-only bit; writes have no effect. It is not a source"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "G1 MEM OVERRUN",
-               "info" : "Group1 Memory Overrun. This is a read-only bit; writes have no effect."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G1 THR INT FLG",
-               "info" : "Group1 Threshold Interrupt Flag."
              }
           ]
         },
 {
-          "name" : "ADG2INTFLG",
-          "info" : "ADC Group2 Interrupt Flag Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "3C",
-          "fields" : [
-             {
-               "bit_number" : "3",
-               "bit_Field_Name" : "G2 END",
-               "info" : "Group2 Conversion End. This bit will be set only if the Group2 conversions are configured to be"
-             },
-             {
-               "bit_number" : "2",
-               "bit_Field_Name" : "G2 MEM EMPTY",
-               "info" : "Group2 Results Memory Empty. This is a read-only bit; writes have no effect. It is not a source"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "G2 MEM OVERRUN",
-               "info" : "Group2 Memory Overrun. This is a read-only bit; writes have no effect."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G2 THR INT FLG",
-               "info" : "Group2 Threshold Interrupt Flag."
-             }
-          ]
-        },
-{
-          "name" : "ADEVTHRINTCR",
+          "name" : "GxINTCR",
           "info" : "ADC Event Group Threshold Interrupt Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "40",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "15-9",
@@ -422,45 +255,7 @@
           ]
         },
 {
-          "name" : "ADG1THRINTCR",
-          "info" : "ADC Group1 Threshold Interrupt Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "bit_number" : "15-9",
-               "bit_Field_Name" : "Sign Extension",
-               "info" : "These bits always read the same as the bit 8 of this register."
-             },
-             {
-               "bit_number" : "8-0",
-               "bit_Field_Name" : "G1 THR",
-               "info" : "Group1 Threshold Counter."
-             }
-          ]
-        },
-{
-          "name" : "ADG2THRINTCR",
-          "info" : "ADC Group2 Threshold Interrupt Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "48",
-          "fields" : [
-             {
-               "bit_number" : "15-9",
-               "bit_Field_Name" : "Sign Extension",
-               "info" : "These bits always read the same as the bit 8 of this register."
-             },
-             {
-               "bit_number" : "8-0",
-               "bit_Field_Name" : "G2 THR",
-               "info" : "Group2 Threshold Counter."
-             }
-          ]
-        },
-{
-          "name" : "ADEVDMACR",
+          "name" : "EVDMACR",
           "info" : "ADC Event Group DMA Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -489,7 +284,7 @@
           ]
         },
 {
-          "name" : "ADG1DMACR",
+          "name" : "G1DMACR",
           "info" : "ADC Group1 DMA Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -518,7 +313,7 @@
           ]
         },
 {
-          "name" : "ADG2DMACR",
+          "name" : "G2DMACR",
           "info" : "ADC Group2 DMA Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -547,7 +342,7 @@
           ]
         },
 {
-          "name" : "ADBNDCR",
+          "name" : "BNDCR",
           "info" : "ADC Results Memory Configuration Register",
           "lenght" : "32",
           "adress" : "0",
@@ -566,7 +361,7 @@
           ]
         },
 {
-          "name" : "ADBNDEND",
+          "name" : "BNDEND",
           "info" : "ADC Results Memory Size Configuration Register",
           "lenght" : "32",
           "adress" : "0",
@@ -585,7 +380,7 @@
           ]
         },
 {
-          "name" : "ADEVSAMP",
+          "name" : "EVSAMP",
           "info" : "ADC Event Group Sampling Time Configuration Register",
           "lenght" : "32",
           "adress" : "0",
@@ -599,7 +394,7 @@
           ]
         },
 {
-          "name" : "ADG1SAMP",
+          "name" : "G1SAMP",
           "info" : "ADC Group1 Sampling Time Configuration Register()",
           "lenght" : "32",
           "adress" : "0",
@@ -613,7 +408,7 @@
           ]
         },
 {
-          "name" : "ADG2SAMP",
+          "name" : "G2SAMP",
           "info" : "ADC Group2 Sampling Time Configuration Register",
           "lenght" : "32",
           "adress" : "0",
@@ -627,7 +422,7 @@
           ]
         },
 {
-          "name" : "ADEVSR",
+          "name" : "EVSR",
           "info" : "ADC Event Group Status Register",
           "lenght" : "32",
           "adress" : "0",
@@ -656,7 +451,7 @@
           ]
         },
 {
-          "name" : "ADG1SR",
+          "name" : "G1SR",
           "info" : "ADC Group1 Status Register",
           "lenght" : "32",
           "adress" : "0",
@@ -685,7 +480,7 @@
           ]
         },
 {
-          "name" : "ADG2SR",
+          "name" : "G2SR",
           "info" : "ADC Group2 Status Register",
           "lenght" : "32",
           "adress" : "0",
@@ -714,11 +509,12 @@
           ]
         },
 {
-          "name" : "ADEVSEL",
+          "name" : "GxSEL",
           "info" : "ADC Event Group Channel Select Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "78",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "15-0",
@@ -728,35 +524,7 @@
           ]
         },
 {
-          "name" : "ADG1SEL",
-          "info" : "ADC Group1 Channel Select Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "7C",
-          "fields" : [
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "G1 SEL",
-               "info" : "Group1 channels selected."
-             }
-          ]
-        },
-{
-          "name" : "ADG2SEL",
-          "info" : "ADC Group2 Channel Select Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "80",
-          "fields" : [
-             {
-               "bit_number" : "15-0",
-               "bit_Field_Name" : "G2 SEL",
-               "info" : "Group2 channels selected."
-             }
-          ]
-        },
-{
-          "name" : "ADCALR",
+          "name" : "CALR",
           "info" : "ADC Calibration and Error Offset Correction Register",
           "lenght" : "32",
           "adress" : "0",
@@ -770,7 +538,7 @@
           ]
         },
 {
-          "name" : "ADSMSTATE",
+          "name" : "SMSTATE",
           "info" : "ADC State Machine Status Register",
           "lenght" : "32",
           "adress" : "0",
@@ -784,7 +552,7 @@
           ]
         },
 {
-          "name" : "ADLASTCONV",
+          "name" : "LASTCONV",
           "info" : "ADC Channel Last Conversion Value Register",
           "lenght" : "32",
           "adress" : "0",
@@ -797,8 +565,24 @@
              }
           ]
         },
+        {
+          "name" : "GxBUF",
+          "info" : "ADC Event Group Results Emulation FIFO Register",
+          "lenght" : "32",
+          "type" : "tms570_pom_region_t",
+          "adress" : "0",
+          "offset" : "90",
+          "array" : "3",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ADEVT DIR",
+               "info" : "ADEVT Pin Direction."
+             }
+          ]
+        },
 {
-          "name" : "ADEVEMUBUFFER",
+          "name" : "EVEMUBUFFER",
           "info" : "ADC Event Group Results Emulation FIFO Register",
           "lenght" : "32",
           "adress" : "0",
@@ -812,7 +596,7 @@
           ]
         },
 {
-          "name" : "ADG1EMUBUFFER",
+          "name" : "G1EMUBUFFER",
           "info" : "ADC Group1 Results Emulation FIFO Register",
           "lenght" : "32",
           "adress" : "0",
@@ -826,7 +610,7 @@
           ]
         },
 {
-          "name" : "ADG2EMUBUFFER",
+          "name" : "G2EMUBUFFER",
           "info" : "ADC Group2 Results Emulation FIFO Register",
           "lenght" : "32",
           "adress" : "0",
@@ -840,7 +624,7 @@
           ]
         },
 {
-          "name" : "ADEVTDIR",
+          "name" : "EVTDIR",
           "info" : "ADC ADEVT Pin Direction Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -854,7 +638,7 @@
           ]
         },
 {
-          "name" : "ADEVTOUT",
+          "name" : "EVTOUT",
           "info" : "ADC ADEVT Pin Output Value Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -868,7 +652,7 @@
           ]
         },
 {
-          "name" : "ADEVTIN",
+          "name" : "EVTIN",
           "info" : "ADC ADEVT Pin Input Value Register",
           "lenght" : "32",
           "adress" : "0",
@@ -882,7 +666,7 @@
           ]
         },
 {
-          "name" : "ADEVTSET",
+          "name" : "EVTSET",
           "info" : "ADC ADEVT Pin Set Register",
           "lenght" : "32",
           "adress" : "0",
@@ -896,7 +680,7 @@
           ]
         },
 {
-          "name" : "ADEVTCLR",
+          "name" : "EVTCLR",
           "info" : "ADC ADEVT Pin Clear Register",
           "lenght" : "32",
           "adress" : "0",
@@ -910,7 +694,7 @@
           ]
         },
 {
-          "name" : "ADEVTPDR",
+          "name" : "EVTPDR",
           "info" : "ADC ADEVT Pin Open Drain Enable Register",
           "lenght" : "32",
           "adress" : "0",
@@ -924,7 +708,7 @@
           ]
         },
 {
-          "name" : "ADEVTPDIS",
+          "name" : "EVTPDIS",
           "info" : "ADC ADEVT Pin Pull Control Disable Register",
           "lenght" : "32",
           "adress" : "0",
@@ -938,7 +722,7 @@
           ]
         },
 {
-          "name" : "ADEVTPSEL",
+          "name" : "EVTPSEL",
           "info" : "ADC ADEVT Pin Pull Control Select Register",
           "lenght" : "32",
           "adress" : "0",
@@ -952,7 +736,7 @@
           ]
         },
 {
-          "name" : "ADEVSAMPDISEN",
+          "name" : "EVSAMPDISEN",
           "info" : "ADC Event Group Sample Cap Discharge Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -971,7 +755,7 @@
           ]
         },
 {
-          "name" : "ADG1SAMPDISEN",
+          "name" : "G1SAMPDISEN",
           "info" : "ADC Group1 Sample Cap Discharge Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -990,7 +774,7 @@
           ]
         },
 {
-          "name" : "ADG2SAMPDISEN",
+          "name" : "G2SAMPDISEN",
           "info" : "ADC Group2 Sample Cap Discharge Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1009,7 +793,7 @@
           ]
         },
 {
-          "name" : "ADMAGINTENASET",
+          "name" : "MAGTHRINTENASET",
           "info" : "ADC Magnitude Compare Interrupt Enable Set Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1023,7 +807,7 @@
           ]
         },
 {
-          "name" : "ADMAGINTENACLR",
+          "name" : "MAGTHRINTENACLR",
           "info" : "ADC Magnitude Compare Interrupt Enable Clear Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1037,7 +821,7 @@
           ]
         },
 {
-          "name" : "ADMAGINTFLG",
+          "name" : "MAGTHRINTFLG",
           "info" : "ADC Magnitude Compare Interrupt Flag Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1051,7 +835,7 @@
           ]
         },
 {
-          "name" : "ADMAGINTOFF",
+          "name" : "MAGTHRINTOFFSET",
           "info" : "ADC Magnitude Compare Interrupt Offset Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1065,11 +849,12 @@
           ]
         },
 {
-          "name" : "ADEVFIFORESETCR",
+          "name" : "GxFIFORESETCR",
           "info" : "ADC Event Group FIFO Reset Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "168",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "0",
@@ -1079,35 +864,7 @@
           ]
         },
 {
-          "name" : "ADG1FIFORESETCR",
-          "info" : "ADC Group1 FIFO Reset Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "16C",
-          "fields" : [
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G1 FIFO RESET",
-               "info" : "ADC Group1 FIFO Reset. The application can set this bit in case of an overrun condition. This"
-             }
-          ]
-        },
-{
-          "name" : "ADG2FIFORESETCR",
-          "info" : "ADC Group2 FIFO Reset Control Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "170",
-          "fields" : [
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "G2 FIFO RESET",
-               "info" : "ADC Group2 FIFO Reset. The application can set this bit in case of an overrun condition. This"
-             }
-          ]
-        },
-{
-          "name" : "ADEVRAMWRADDR",
+          "name" : "EVRAMWRADDR",
           "info" : "ADC Event Group RAM Write Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1121,7 +878,7 @@
           ]
         },
 {
-          "name" : "ADG1RAMWRADDR",
+          "name" : "G1RAMWRADDR",
           "info" : "ADC Group1 RAM Write Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1135,7 +892,7 @@
           ]
         },
 {
-          "name" : "ADG2RAMWRADDR",
+          "name" : "G2RAMWRADDR",
           "info" : "ADC Group2 RAM Write Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1149,7 +906,7 @@
           ]
         },
 {
-          "name" : "ADPARCR",
+          "name" : "PARCR",
           "info" : "ADC Parity Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1168,7 +925,7 @@
           ]
         },
 {
-          "name" : "ADPARADDR",
+          "name" : "PARADDR",
           "info" : "ADC Parity Error Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1182,7 +939,7 @@
           ]
         },
 {
-          "name" : "ADPWRUPDLYCTRL",
+          "name" : "PWRUPDLYCTRL",
           "info" : "ADC Power-Up Delay Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1196,92 +953,73 @@
           ]
         },
 {
-          "name" : "ADEVBUFFER",
-          "info" : "ADC Event Group Results FIFO Register",
+          "name" : "MAGINTCR{}",
+          "info" : "ADC Magnitude Compare Interrupt Control Register 2",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "90",
-          "array" : "8",
+          "offset" : "128",
+          "group_position" : ["128","130","138"],
+          "group_names" : ["1","2","3"],
           "fields" : [
              {
-               "bit_number" : "15",
-               "bit_Field_Name" : "EV EMPTY 10bit mode",
-               "info" : "Event Group FIFO Empty."
+               "bit_number" : "30-26",
+               "bit_Field_Name" : "MAG CHID2",
+               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
              },
              {
-               "bit_number" : "10-14",
-               "bit_Field_Name" : "EV CHID 10bit mode",
-               "info" : "Event Group Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
+               "bit_number" : "25-16",
+               "bit_Field_Name" : "MAG THR2",
+               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
              },
              {
-               "bit_number" : "0-9",
-               "bit_Field_Name" : "EV DR 10bit mode",
-               "info" : "Event Group Digital Conversion Result."
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "COMP CHID2",
+               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
              },
              {
-               "bit_number" : "31",
-               "bit_Field_Name" : "EV EMPTY 12bit mode",
-               "info" : "Event Group FIFO Empty."
+               "bit_number" : "1",
+               "bit_Field_Name" : "CHN/THR COMP2",
+               "info" : "Channel OR Threshold comparison."
              },
              {
-               "bit_number" : "20-16",
-               "bit_Field_Name" : "EV CHID 12bit mode",
-               "info" : "Event Group Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
-             },
-             {
-               "bit_number" : "0-11",
-               "bit_Field_Name" : "EV DR 12bit mode",
-               "info" : "Event Group Digital Conversion Result."
+               "bit_number" : "0",
+               "bit_Field_Name" : "CMP GE/LT2",
+               "info" : "Greater than or equal to OR Less than comparison operator."
              }
           ]
         },
 {
-          "name" : "ADG1BUFFER",
-          "info" : "ADC Group1 Results FIFO Register",
+          "name" : "MAGINT{}MASK",
+          "info" : "ADC Magnitude Compare Mask Register 0",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "B0",
-          "array" : "8",
+          "offset" : "12C",
+          "group_position" : ["12C","134","13C"],
+          "group_names" : ["1","2","3"],
           "fields" : [
              {
-               "bit_number" : "15",
-               "bit_Field_Name" : "G1 EMPTY 10bit mode",
-               "info" : "Group1 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
-             },
-             {
-               "bit_number" : "10-14",
-               "bit_Field_Name" : "G1 CHID 10bit mode",
-               "info" : "Group1 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
-             },
-             {
-               "bit_number" : "0-9",
-               "bit_Field_Name" : "G1 DR 10bit mode",
-               "info" : "Group1 Digital Conversion Result."
-             },
-             {
-               "bit_number" : "31",
-               "bit_Field_Name" : "G1 EMPTY 12bit mode",
-               "info" : "Group1 FIFO Empty. This bit is applicable only when the read from FIFO mode is used for reading the"
-             },
-             {
-               "bit_number" : "16-20",
-               "bit_Field_Name" : "G1 CHID 12bit mode",
-               "info" : "Group1 Channel Id. These bits are also applicable only when the read from FIFO mode is used for"
-             },
-             {
-               "bit_number" : "0-11",
-               "bit_Field_Name" : "G1 DR 12bit mode",
-               "info" : "Group1 Digital Conversion Result."
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "MAG INT0 MASK",
+               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
              }
           ]
-        },
-{
-          "name" : "ADG2BUFFER",
-          "info" : "ADC Group2 Results FIFO Register",
+        }
+      ]    
+    },
+	{
+      "name" : "GxBUF",
+      "full name" : "GxBuffer",
+      "offset" : ["NONE"],
+      "registers" :
+      [
+		{
+          "name" : "BUF{}",
+          "info" : "Group 0-2 result buffer {} register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "D0",
-          "array" : "8",
+          "offset" : "0",
+          "group_position" : ["0","4","8","C","10","14","18","1C"],
+          "group_names" : ["0","1","2","3","4","5","6","7"],
           "fields" : [
              {
                "bit_number" : "15",
@@ -1314,153 +1052,9 @@
                "info" : "Group2 Digital Conversion Result."
              }
           ]
-        },
-{
-          "name" : "ADMAGINT0CR",
-          "info" : "ADC Magnitude Compare Interrupt Control Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "128",
-          "fields" : [
-             {
-               "bit_number" : "30-26",
-               "bit_Field_Name" : "MAG CHID0",
-               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
-             },
-             {
-               "bit_number" : "25-16",
-               "bit_Field_Name" : "MAG THR0",
-               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
-             },
-             {
-               "bit_number" : "12-8",
-               "bit_Field_Name" : "COMP CHID0",
-               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "CHN/THR COMP0",
-               "info" : "Channel OR Threshold comparison."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "CMP GE/LT0",
-               "info" : "Greater than or equal to OR Less than comparison operator."
-             }
-          ]
-        },
-{
-          "name" : "ADMAGINT1CR",
-          "info" : "ADC Magnitude Compare Interrupt Control Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "130",
-          "fields" : [
-             {
-               "bit_number" : "30-26",
-               "bit_Field_Name" : "MAG CHID1",
-               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
-             },
-             {
-               "bit_number" : "25-16",
-               "bit_Field_Name" : "MAG THR1",
-               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
-             },
-             {
-               "bit_number" : "12-8",
-               "bit_Field_Name" : "COMP CHID1",
-               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "CHN/THR COMP1",
-               "info" : "Channel OR Threshold comparison."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "CMP GE/LT1",
-               "info" : "Greater than or equal to OR Less than comparison operator."
-             }
-          ]
-        },
-{
-          "name" : "ADMAGINT2CR",
-          "info" : "ADC Magnitude Compare Interrupt Control Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "138",
-          "fields" : [
-             {
-               "bit_number" : "30-26",
-               "bit_Field_Name" : "MAG CHID2",
-               "info" : "These bits specify the channel number from 0 to 31 for which the conversion result needs to be"
-             },
-             {
-               "bit_number" : "25-16",
-               "bit_Field_Name" : "MAG THR2",
-               "info" : "These bits specify the 10-bit compare value which the ADC will use for the comparison with the"
-             },
-             {
-               "bit_number" : "12-8",
-               "bit_Field_Name" : "COMP CHID2",
-               "info" : "These bits specify the channel number from 0 to 31 whose last conversion result is compared"
-             },
-             {
-               "bit_number" : "1",
-               "bit_Field_Name" : "CHN/THR COMP2",
-               "info" : "Channel OR Threshold comparison."
-             },
-             {
-               "bit_number" : "0",
-               "bit_Field_Name" : "CMP GE/LT2",
-               "info" : "Greater than or equal to OR Less than comparison operator."
-             }
-          ]
-        },
-{
-          "name" : "ADMAG0MASK",
-          "info" : "ADC Magnitude Compare Mask Register 0",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "12C",
-          "fields" : [
-             {
-               "bit_number" : "9-0",
-               "bit_Field_Name" : "MAG INT0 MASK",
-               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
-             }
-          ]
-        },
-{
-          "name" : "ADMAG1MASK",
-          "info" : "ADC Magnitude Compare Mask Register 1",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "134",
-          "fields" : [
-             {
-               "bit_number" : "9-0",
-               "bit_Field_Name" : "MAG INT1 MASK",
-               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
-             }
-          ]
-        },
-{
-          "name" : "ADMAG2MASK",
-          "info" : "ADC Magnitude Compare Mask Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "13C",
-          "fields" : [
-             {
-               "bit_number" : "9-0",
-               "bit_Field_Name" : "MAG INT2 MASK",
-               "info" : "These bits specify the mask for the comparison in order to generate the magnitude compare"
-             }
-          ]
         }
-      ]    
-    }
+		]
+	}
   ] 
 } 
 

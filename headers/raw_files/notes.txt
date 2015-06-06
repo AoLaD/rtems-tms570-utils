@@ -1,6 +1,28 @@
-need to solve
-STC,DCAN, VIM multi regs (more than 64bits) ?
-
 missing 
 EMAC control, EMAC module
 
+PROGRESS - generated headers vs Ti headers
+
+CAN 8-bit registers and endianiess
+CRC BUS_SEL more - OK by pdf
+flast FCFG_BANK more - OK by pdf
+gio EMU1, EMU2 more - OK by pdf
+DMA missing PAACSADDR PAACDADDR PAACTC FBREG - not in pdf
+DMA wrong arrays lenght - not in pdf
+EFUSE(EFS) half missing - not in pdf
+ESM ESTATUS5EMU missing - not in pdf
+flash FLOCK missing - deleted from pdf
+SPI SRSEL missing - not in pdf
+pbist FSRF1 missing - not in pdf
+pbist base not 0xFFFFE560U - pdf say FFFF E400h
+PCR missing completly - cant find it in pdf
+HTU INTMAP missing - not in pdf
+VIM FIRQPR[3] should be 4? -not in pdf
+
+SCI GCR2 mistake in library
+
+LIN RDx and TDx differs 
+iomm (pinmux) kicker, revision, endian part of the structure
+POM structures merged, names not corresponds
+several libraries are merged into one "reg_system.h". Should I make it same?
+not checked TCR PLL FLEX EMAC CCMSR - i dont see library counterparts

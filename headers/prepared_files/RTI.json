@@ -9,7 +9,7 @@
      "offset" : ["0xFFFFFC00"],
      "registers" : [
        {
-       "name" : "RTIGCTRL",
+       "name" : "GCTRL",
        "info" : "RTI Global Control Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -41,7 +41,7 @@
         ]
        },
        {
-       "name" : "RTITBCTRL",
+       "name" : "TBCTRL",
        "info" : "RTI Timebase Control Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -61,7 +61,7 @@
         ]
        },
        {
-       "name" : "RTICAPCTRL",
+       "name" : "CAPCTRL",
        "info" : "RTI Capture Control Register",
        "lenght" : "32",
        "adress" : "0x8",
@@ -81,7 +81,7 @@
         ]
        },
        {
-       "name" : "RTICOMPCTRL",
+       "name" : "COMPCTRL",
        "info" : "RTI Compare Control Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -113,259 +113,7 @@
         ]
        },
        {
-       "name" : "RTIFRC0",
-       "info" : "RTI Free Running Counter 0 Register",
-       "lenght" : "32",
-       "adress" : "0x10",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "FRC0",
-         "info" : "FRC0"
-         }
-        ]
-       },
-       {
-       "name" : "RTIUC0",
-       "info" : "RTI Up Counter 0 Register",
-       "lenght" : "32",
-       "adress" : "0x14",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UC0",
-         "info" : "Up counter 0."
-         }
-        ]
-       },
-       {
-       "name" : "RTICPUC0",
-       "info" : "RTI Compare Up Counter 0 Register",
-       "lenght" : "32",
-       "adress" : "0x18",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CPUC0",
-         "info" : "Compare up counter 0. This register holds the value that is compared with the up counter 0."
-         }
-        ]
-       },
-       {
-       "name" : "RTICAFRC0",
-       "info" : "RTI Capture Free Running Counter 0 Register",
-       "lenght" : "32",
-       "adress" : "0x20",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CAFRC0",
-         "info" : "Capture free running counter 0."
-         }
-        ]
-       },
-       {
-       "name" : "RTICAUC0",
-       "info" : "RTI Capture Up Counter 0 Register",
-       "lenght" : "32",
-       "adress" : "0x24",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CAUC0",
-         "info" : "Capture up counter 0."
-         }
-        ]
-       },
-       {
-       "name" : "RTIFRC1",
-       "info" : "RTI Free Running Counter 1 Register",
-       "lenght" : "32",
-       "adress" : "0x30",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "FRC1",
-         "info" : "Free running counter 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTIUC1",
-       "info" : "RTI Up Counter 1 Register",
-       "lenght" : "32",
-       "adress" : "0x34",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UC1",
-         "info" : "Up counter 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTICPUC1",
-       "info" : "RTI Compare Up Counter 1 Register",
-       "lenght" : "32",
-       "adress" : "0x38",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CPUC1",
-         "info" : "Compare up counter 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTICAFRC1",
-       "info" : "RTI Capture Free Running Counter 1 Register",
-       "lenght" : "32",
-       "adress" : "0x40",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CAFRC1",
-         "info" : "Capture free running counter 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTICAUC1",
-       "info" : "RTI Capture Up Counter 1 Register",
-       "lenght" : "32",
-       "adress" : "0x44",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "CAUC1",
-         "info" : "Capture up counter 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTICOMP0",
-       "info" : "RTI Compare 0 Register",
-       "lenght" : "32",
-       "adress" : "0x50",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "COMP0",
-         "info" : "compare control logic."
-         }
-        ]
-       },
-       {
-       "name" : "RTIUDCP0",
-       "info" : "RTI Update Compare 0 Register",
-       "lenght" : "32",
-       "adress" : "0x54",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UDCP0",
-         "info" : "Update compare 0."
-         }
-        ]
-       },
-       {
-       "name" : "RTICOMP1",
-       "info" : "RTI Compare 1 Register",
-       "lenght" : "32",
-       "adress" : "0x58",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "COMP1",
-         "info" : "Compare 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTIUDCP1",
-       "info" : "RTI Update Compare 1 Register",
-       "lenght" : "32",
-       "adress" : "0x5c",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UDCP1",
-         "info" : "Update compare 1."
-         }
-        ]
-       },
-       {
-       "name" : "RTICOMP2",
-       "info" : "RTI Compare 2 Register",
-       "lenght" : "32",
-       "adress" : "0x60",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "COMP2",
-         "info" : "Compare 2."
-         }
-        ]
-       },
-       {
-       "name" : "RTIUDCP2",
-       "info" : "RTIUDCP2",
-       "lenght" : "32",
-       "adress" : "0x64",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UDCP2",
-         "info" : "Update compare 2."
-         }
-        ]
-       },
-       {
-       "name" : "RTICOMP3",
-       "info" : "RTI Compare 3 Register",
-       "lenght" : "32",
-       "adress" : "0x68",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "COMP3",
-         "info" : "Compare 3."
-         }
-        ]
-       },
-       {
-       "name" : "RTIUDCP3",
-       "info" : "RTI Update Compare 3 Register",
-       "lenght" : "32",
-       "adress" : "0x6c",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "UDCP3",
-         "info" : "Update compare 3."
-         }
-        ]
-       },
-       {
-       "name" : "RTITBLCOMP",
+       "name" : "TBLCOMP",
        "info" : "RTI Timebase Low Compare Register",
        "lenght" : "32",
        "adress" : "0x70",
@@ -379,7 +127,7 @@
         ]
        },
        {
-       "name" : "RTITBHCOMP",
+       "name" : "TBHCOMP",
        "info" : "RTI Timebase High Compare Register",
        "lenght" : "32",
        "adress" : "0x74",
@@ -393,7 +141,7 @@
         ]
        },
        {
-       "name" : "RTISETINTENA",
+       "name" : "SETINTENA",
        "info" : "RTI Set Interrupt Enable Register",
        "lenght" : "32",
        "adress" : "0x80",
@@ -467,7 +215,7 @@
         ]
        },
        {
-       "name" : "RTICLEARINTENA",
+       "name" : "CLEARINTENA",
        "info" : "RTI Clear Interrupt Enable Register",
        "lenght" : "32",
        "adress" : "0x84",
@@ -541,7 +289,7 @@
         ]
        },
        {
-       "name" : "RTIINTFLAG",
+       "name" : "INTFLAG",
        "info" : "RTI Interrupt Flag Register",
        "lenght" : "32",
        "adress" : "0x88",
@@ -591,7 +339,7 @@
         ]
        },
        {
-       "name" : "RTIDWDCTRL",
+       "name" : "DWDCTRL",
        "info" : "Digital Watchdog Control Register",
        "lenght" : "32",
        "adress" : "0x90",
@@ -605,7 +353,7 @@
         ]
        },
        {
-       "name" : "RTIDWDPRLD",
+       "name" : "DWDPRLD",
        "info" : "Digital Watchdog Preload Register",
        "lenght" : "32",
        "adress" : "0x94",
@@ -619,7 +367,7 @@
         ]
        },
        {
-       "name" : "RTIWDSTATUS",
+       "name" : "WDSTATUS",
        "info" : "Watchdog Status Register",
        "lenght" : "32",
        "adress" : "0x98",
@@ -657,7 +405,7 @@
         ]
        },
        {
-       "name" : "RTIWDKEY",
+       "name" : "WDKEY",
        "info" : "RTI Watchdog Key Register",
        "lenght" : "32",
        "adress" : "0x9c",
@@ -671,7 +419,7 @@
         ]
        },
        {
-       "name" : "RTIDWDCNTR",
+       "name" : "DWDCNTR",
        "info" : "RTI Digital Watchdog Down Counter Register",
        "lenght" : "32",
        "adress" : "0xa0",
@@ -685,7 +433,7 @@
         ]
        },
        {
-       "name" : "RTIWWDRXNCTRL",
+       "name" : "WWDRXNCTRL",
        "info" : "Digital Windowed Watchdog Reaction Control Register",
        "lenght" : "32",
        "adress" : "0xa4",
@@ -699,7 +447,7 @@
         ]
        },
        {
-       "name" : "RTIWWDSIZECTRL",
+       "name" : "WWDSIZECTRL",
        "info" : "Digital Windowed Watchdog Window Size Control Register",
        "lenght" : "32",
        "adress" : "0xa8",
@@ -713,7 +461,7 @@
         ]
        },
        {
-       "name" : "RTIINTCLRENABLE",
+       "name" : "INTCLRENABLE",
        "info" : "RTI Compare Interrupt Clear Enable Register",
        "lenght" : "32",
        "adress" : "0xac",
@@ -745,7 +493,7 @@
         ]
        },
        {
-       "name" : "RTICOMP0CLR",
+       "name" : "COMP0CLR",
        "info" : "RTI Compare 0 Clear Register",
        "lenght" : "32",
        "adress" : "0xb0",
@@ -759,7 +507,7 @@
         ]
        },
        {
-       "name" : "RTICOMP1CLR",
+       "name" : "COMP1CLR",
        "info" : "RTI Compare 1 Clear Register",
        "lenght" : "32",
        "adress" : "0xb4",
@@ -773,7 +521,7 @@
         ]
        },
        {
-       "name" : "RTICOMP2CLR",
+       "name" : "COMP2CLR",
        "info" : "RTI Compare 2 Clear Register",
        "lenght" : "32",
        "adress" : "0xb8",
@@ -787,7 +535,7 @@
         ]
        },
        {
-       "name" : "RTICOMP3CLR",
+       "name" : "COMP3CLR",
        "info" : "RTI Compare 3 Clear Register",
        "lenght" : "32",
        "adress" : "0xbc",
@@ -797,6 +545,153 @@
          "bit_lenght" : "32",
          "bit_Field_Name" : "CMP3CLR",
          "info" : "Compare 3 clear."
+         }
+        ]
+       },
+       {
+       "name" : "CNT",
+       "info" : "Counters",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "array" : "2",
+       "type" : "tms570_rti_counter_t",
+       "fields" : [
+        ]
+       },
+       {
+       "name" : "CMP",
+       "info" : "Compares",
+       "lenght" : "8",
+       "adress" : "0x50",
+       "array" : "4",
+       "type" : "tms570_rti_counter_t",
+       "fields" : [
+        ]
+       }
+     ]
+   },
+   {
+     "name" : "rti_counter",
+     "full name" : "rti_counter struct",
+     "offset" : ["NONE"],
+     "registers" : [
+       {
+       "name" : "FRCx",
+       "info" : "RTI Free Running Counter x Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "FRC0",
+         "info" : "FRC0"
+         }
+        ]
+       },
+       {
+       "name" : "UCx",
+       "info" : "RTI Up Counter x Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "UC0",
+         "info" : "Up counter 0."
+         }
+        ]
+       },
+       {
+       "name" : "CPUCx",
+       "info" : "RTI Compare Up Counter x Register",
+       "lenght" : "32",
+       "adress" : "0x8",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CPUC0",
+         "info" : "Compare up counter 0. This register holds the value that is compared with the up counter 0."
+         }
+        ]
+       },
+       {
+       "name" : "CAFRCx",
+       "info" : "RTI Capture Free Running Counter x Register",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CAFRC0",
+         "info" : "Capture free running counter 0."
+         }
+        ]
+       },
+       {
+       "name" : "CAUCx",
+       "info" : "RTI Capture Up Counter x Register",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CAUC0",
+         "info" : "Capture up counter 0."
+         }
+        ]
+       },
+       {
+       "name" : "rsvd",
+       "info" : "Reserved",
+       "lenght" : "32",
+       "adress" : "0x18",
+       "array" : "2",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "CAUC0",
+         "info" : "Capture up counter 0."
+         }
+        ]
+       }
+     ]
+   },
+   {
+     "name" : "rti_compare",
+     "full name" : "Compare selection struct",
+     "offset" : ["NONE"],
+     "registers" : [
+       {
+       "name" : "COMPx",
+       "info" : "RTI Compare x Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "COMPx",
+         "info" : "Compare x."
+         }
+        ]
+       },
+       {
+       "name" : "UDCPx",
+       "info" : "RTI Update Compare x Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "UDCPx",
+         "info" : "Update compare x."
          }
         ]
        }

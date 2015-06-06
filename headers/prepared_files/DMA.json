@@ -181,10 +181,11 @@
         ]
        },
        {
-       "name" : "DREQASI0",
+       "name" : "DREQASI",
        "info" : "DMA Request Assignment Register 0",
        "lenght" : "32",
        "adress" : "0x54",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "24",
@@ -209,102 +210,6 @@
          "bit_lenght" : "6",
          "bit_Field_Name" : "CH3ASI",
          "info" : "Channel 3 assignment. This bit field chooses the DMA request assignment for channel 3."
-         }
-        ]
-       },
-       {
-       "name" : "DREQASI1",
-       "info" : "DMA Request Assignment Register 1",
-       "lenght" : "32",
-       "adress" : "0x58",
-       "fields" : [
-         {
-         "start_bit" : "24",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH4ASI",
-         "info" : "Channel 4 assignment. This bit field chooses the DMA request assignment for channel 4."
-         },
-         {
-         "start_bit" : "21",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH5ASI",
-         "info" : "Channel 5 assignment. This bit field chooses the DMA request assignment for channel 5."
-         },
-         {
-         "start_bit" : "8",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH6ASI",
-         "info" : "Channel 6 assignment. This bit field chooses the DMA request assignment for channel 6."
-         },
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH7ASI",
-         "info" : "Channel 7 assignment. This bit field chooses the DMA request assignment for channel 7."
-         }
-        ]
-       },
-       {
-       "name" : "DREQASI2",
-       "info" : "DMA Request Assignment Register 2",
-       "lenght" : "32",
-       "adress" : "0x5c",
-       "fields" : [
-         {
-         "start_bit" : "24",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH8ASI",
-         "info" : "Channel 8 assignment. This bit field chooses the DMA request assignment for channel 8."
-         },
-         {
-         "start_bit" : "16",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH9ASI",
-         "info" : "Channel 9 assignment. This bit field chooses the DMA request assignment for channel 9."
-         },
-         {
-         "start_bit" : "8",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH10ASI",
-         "info" : "Channel 10 assignment. This bit field chooses the DMA request assignment for channel 10."
-         },
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH11ASI",
-         "info" : "Channel 11 assignment. This bit field chooses the DMA request assignment for channel 11."
-         }
-        ]
-       },
-       {
-       "name" : "DREQASI3",
-       "info" : "DMA Request Assignment Register 3",
-       "lenght" : "32",
-       "adress" : "0x60",
-       "fields" : [
-         {
-         "start_bit" : "24",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH12ASI",
-         "info" : "Channel 12 assignment. This bit field chooses the DMA request assignment for channel 12."
-         },
-         {
-         "start_bit" : "16",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH13ASI",
-         "info" : "Channel 13 assignment. This bit field chooses the DMA request assignment for channel 13."
-         },
-         {
-         "start_bit" : "8",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH14ASI",
-         "info" : "Channel 14 assignment. This bit field chooses the DMA request assignment for channel 14."
-         },
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "6",
-         "bit_Field_Name" : "CH15ASI",
-         "info" : "Channel 15 assignment. This bit field chooses the DMA request assignment for channel 15."
          }
         ]
        },
@@ -1164,9 +1069,32 @@
        },
        {
        "name" : "DMAMPROS",
-       "info" : "DMA Memory Protection Region 0 Start Address Register",
+       "info" : "DMA Memory Protection Regions",
        "lenght" : "32",
        "adress" : "0x1b8",
+       "array" : "4",
+       "type" : "tms570_memory_prot_t",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "STARTADDRESS",
+         "info" : "Start Address defines the address at which the region begins."
+         }
+        ]
+       }
+     ]
+   },
+   {
+     "name" : "memory_prot",
+     "full name" : "memory protection region",
+     "offset" : ["NONE"],
+     "registers" : [
+       {
+       "name" : "STARTADD",
+       "info" : "DMA Memory Protection Region start Address Register",
+       "lenght" : "32",
+       "adress" : "0x0",
        "fields" : [
          {
          "start_bit" : "0",
@@ -1177,94 +1105,10 @@
         ]
        },
        {
-       "name" : "DMAMPROE",
-       "info" : "DMA Memory Protection Region 0 End Address Register",
+       "name" : "ENDADD",
+       "info" : "DMA Memory Protection Region End Address Register",
        "lenght" : "32",
-       "adress" : "0x1bc",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "ENDADDRESS",
-         "info" : "End Address defines the address at which the region ends."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR1S",
-       "info" : "DMA Memory Protection Region 1 Start Address Register",
-       "lenght" : "32",
-       "adress" : "0x1c0",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "STARTADDRESS",
-         "info" : "Start Address defines the address at which the region begins."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR1E",
-       "info" : "DMA Memory Protection Region 1 End Address Register",
-       "lenght" : "32",
-       "adress" : "0x1c4",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "ENDADDRESS",
-         "info" : "End Address defines the address at which the region ends."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR2S",
-       "info" : "DMA Memory Protection Region 2 Start Address Register",
-       "lenght" : "32",
-       "adress" : "0x1c8",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "STARTADDRESS",
-         "info" : "Start Address defines the address at which the region begins."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR2E",
-       "info" : "DMA Memory Protection Region 2 End Address Register",
-       "lenght" : "32",
-       "adress" : "0x1cc",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "ENDADDRESS",
-         "info" : "End Address defines the address at which the region ends."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR3S",
-       "info" : "DMA Memory Protection Region 3 Start Address Register",
-       "lenght" : "32",
-       "adress" : "0x1d0",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "STARTADDRESS",
-         "info" : "Start Address defines the address at which the region begins."
-         }
-        ]
-       },
-       {
-       "name" : "DMAMPR3E",
-       "info" : "DMA Memory Protection Region 3 End Address Register",
-       "lenght" : "32",
-       "adress" : "0x1d4",
+       "adress" : "0x4",
        "fields" : [
          {
          "start_bit" : "0",

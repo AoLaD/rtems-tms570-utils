@@ -9,7 +9,7 @@
      "offset" : ["REAL"],
      "registers" : [
        {
-       "name" : "ESMEEPAPR1",
+       "name" : "EEPAPR1",
        "info" : "ESM Enable ERROR Pin Action/Response Register 1",
        "lenght" : "32",
        "adress" : "0xfffff500",
@@ -23,7 +23,7 @@
         ]
        },
        {
-       "name" : "ESMDEPAPR1",
+       "name" : "DEPAPR1",
        "info" : "ESM Disable ERROR Pin Action/Response Register 1",
        "lenght" : "32",
        "adress" : "0xfffff504",
@@ -37,7 +37,7 @@
         ]
        },
        {
-       "name" : "ESMIESR1",
+       "name" : "IESR1",
        "info" : "ESM Interrupt Enable Set/Status Register 1",
        "lenght" : "32",
        "adress" : "0xfffff508",
@@ -51,7 +51,7 @@
         ]
        },
        {
-       "name" : "ESMIECR1",
+       "name" : "IECR1",
        "info" : "ESM Interrupt Enable Clear/Status Register 1",
        "lenght" : "32",
        "adress" : "0xfffff50c",
@@ -65,7 +65,7 @@
         ]
        },
        {
-       "name" : "ESMILSR1",
+       "name" : "ILSR1",
        "info" : "Interrupt Level Set/Status Register 1",
        "lenght" : "32",
        "adress" : "0xfffff510",
@@ -79,7 +79,7 @@
         ]
        },
        {
-       "name" : "ESMILCR1",
+       "name" : "ILCR1",
        "info" : "Interrupt Level Clear/Status Register 1",
        "lenght" : "32",
        "adress" : "0xfffff514",
@@ -93,10 +93,11 @@
         ]
        },
        {
-       "name" : "ESMSR1",
+       "name" : "SR1",
        "info" : "ESM Status Register 1",
        "lenght" : "32",
        "adress" : "0xfffff518",
+       "array" : "3",
        "fields" : [
          {
          "start_bit" : "0",
@@ -107,35 +108,7 @@
         ]
        },
        {
-       "name" : "ESMSR2",
-       "info" : "ESM Status Register 2",
-       "lenght" : "32",
-       "adress" : "0xfffff51c",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "ESF",
-         "info" : "Error Status Flag. Provides status information on a pending error."
-         }
-        ]
-       },
-       {
-       "name" : "ESMSR3",
-       "info" : "ESM Status Register 3",
-       "lenght" : "32",
-       "adress" : "0xfffff520",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "ESF",
-         "info" : "Error Status Flag. Provides status information on a pending error."
-         }
-        ]
-       },
-       {
-       "name" : "ESMEPSR",
+       "name" : "EPSR",
        "info" : "ESM ERROR Pin Status Register",
        "lenght" : "32",
        "adress" : "0xfffff524",
@@ -149,7 +122,7 @@
         ]
        },
        {
-       "name" : "ESMIOFFHR",
+       "name" : "IOFFHR",
        "info" : "ESM Interrupt Offset High Register",
        "lenght" : "32",
        "adress" : "0xfffff528",
@@ -163,7 +136,7 @@
         ]
        },
        {
-       "name" : "ESMIOFFLR",
+       "name" : "IOFFLR",
        "info" : "ESM Interrupt Offset Low Register",
        "lenght" : "32",
        "adress" : "0xfffff52c",
@@ -177,7 +150,7 @@
         ]
        },
        {
-       "name" : "ESMLTCR",
+       "name" : "LTCR",
        "info" : "ESM Low-Time Counter Register",
        "lenght" : "32",
        "adress" : "0xfffff530",
@@ -191,7 +164,7 @@
         ]
        },
        {
-       "name" : "ESMLTCPR",
+       "name" : "LTCPR",
        "info" : "ESM Low-Time Counter Preload Register",
        "lenght" : "32",
        "adress" : "0xfffff534",
@@ -205,7 +178,7 @@
         ]
        },
        {
-       "name" : "ESMEKR",
+       "name" : "EKR",
        "info" : "ESM Error Key Register",
        "lenght" : "32",
        "adress" : "0xfffff538",
@@ -219,7 +192,7 @@
         ]
        },
        {
-       "name" : "ESMSSR2",
+       "name" : "SSR2",
        "info" : "ESM Status Shadow Register 2",
        "lenght" : "32",
        "adress" : "0xfffff53c",
@@ -233,7 +206,7 @@
         ]
        },
        {
-       "name" : "ESMIEPSR4",
+       "name" : "IEPSR4",
        "info" : "ESM Influence ERROR Pin Set/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff540",
@@ -247,7 +220,7 @@
         ]
        },
        {
-       "name" : "ESMIEPCR4",
+       "name" : "IEPCR4",
        "info" : "ESM Influence ERROR Pin Clear/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff544",
@@ -261,7 +234,7 @@
         ]
        },
        {
-       "name" : "ESMIESR4",
+       "name" : "IESR4",
        "info" : "ESM Interrupt Enable Set/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff548",
@@ -275,7 +248,7 @@
         ]
        },
        {
-       "name" : "ESMIECR4",
+       "name" : "IECR4",
        "info" : "ESM Interrupt Enable Clear/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff54c",
@@ -289,7 +262,7 @@
         ]
        },
        {
-       "name" : "ESMILSR4",
+       "name" : "ILSR4",
        "info" : "Interrupt Level Set/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff550",
@@ -303,7 +276,7 @@
         ]
        },
        {
-       "name" : "ESMILCR4",
+       "name" : "ILCR4",
        "info" : "Interrupt Level Clear/Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff554",
@@ -317,7 +290,7 @@
         ]
        },
        {
-       "name" : "ESMSR4",
+       "name" : "SR4",
        "info" : "ESM Status Register 4",
        "lenght" : "32",
        "adress" : "0xfffff558",
