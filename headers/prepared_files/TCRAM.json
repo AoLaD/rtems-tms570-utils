@@ -7,6 +7,7 @@
      "name" : "TCRAM",
      "full name" : "Tightly-Coupled RAM",
      "offset" : ["0xFFFFF800", "0xFFFFF900"],
+     "sulfixes" : ["1", "2"],
      "registers" : [
        {
        "name" : "RAMCTRL",

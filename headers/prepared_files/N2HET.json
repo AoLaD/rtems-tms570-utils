@@ -7,9 +7,10 @@
      "name" : "NHET",
      "full name" : "High-End Timer",
      "offset" : ["0xFFF7B800", "0xFFF7B900"],
+     "sulfixes" : ["1", "2"],
      "registers" : [
        {
-       "name" : "HETGCR",
+       "name" : "GCR",
        "info" : "Global Configuration Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -47,7 +48,7 @@
         ]
        },
        {
-       "name" : "HETPFR",
+       "name" : "PFR",
        "info" : "Prescale Factor Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -67,7 +68,7 @@
         ]
        },
        {
-       "name" : "HETADDR",
+       "name" : "ADDR",
        "info" : "NHET Current Address Register",
        "lenght" : "32",
        "adress" : "0x8",
@@ -81,7 +82,7 @@
         ]
        },
        {
-       "name" : "HETOFF1",
+       "name" : "OFF1",
        "info" : "Offset Index Priority Level 1 Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -95,7 +96,7 @@
         ]
        },
        {
-       "name" : "HETOFF2",
+       "name" : "OFF2",
        "info" : "Offset Index Priority Level 2 Register",
        "lenght" : "32",
        "adress" : "0x10",
@@ -109,7 +110,7 @@
         ]
        },
        {
-       "name" : "HETINTENAS",
+       "name" : "INTENAS",
        "info" : "Interrupt Enable Set Register",
        "lenght" : "32",
        "adress" : "0x14",
@@ -123,7 +124,7 @@
         ]
        },
        {
-       "name" : "HETINTENAC",
+       "name" : "INTENAC",
        "info" : "Interrupt Enable Clear Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -137,7 +138,7 @@
         ]
        },
        {
-       "name" : "HETEXC1",
+       "name" : "EXC1",
        "info" : "Exception Control Register 1",
        "lenght" : "32",
        "adress" : "0x1c",
@@ -181,7 +182,7 @@
         ]
        },
        {
-       "name" : "HETEXC2",
+       "name" : "EXC2",
        "info" : "Exception Control Register 2",
        "lenght" : "32",
        "adress" : "0x20",
@@ -213,7 +214,7 @@
         ]
        },
        {
-       "name" : "HETPRY",
+       "name" : "PRY",
        "info" : "Interrupt Priority Register",
        "lenght" : "32",
        "adress" : "0x24",
@@ -227,7 +228,7 @@
         ]
        },
        {
-       "name" : "HETFLG",
+       "name" : "FLG",
        "info" : "Interrupt Flag Register",
        "lenght" : "32",
        "adress" : "0x28",
@@ -241,7 +242,7 @@
         ]
        },
        {
-       "name" : "HETAND",
+       "name" : "AND",
        "info" : "AND Share Control Register",
        "lenght" : "32",
        "adress" : "0x2c",
@@ -255,7 +256,7 @@
         ]
        },
        {
-       "name" : "HETHRSH",
+       "name" : "HRSH",
        "info" : "HR Share Control Register",
        "lenght" : "32",
        "adress" : "0x34",
@@ -269,7 +270,7 @@
         ]
        },
        {
-       "name" : "HETXOR",
+       "name" : "XOR",
        "info" : "HR XOR-Share Control Register",
        "lenght" : "32",
        "adress" : "0x38",
@@ -283,7 +284,7 @@
         ]
        },
        {
-       "name" : "HETREQENS",
+       "name" : "REQENS",
        "info" : "Request Enable Set Register",
        "lenght" : "32",
        "adress" : "0x3c",
@@ -297,7 +298,7 @@
         ]
        },
        {
-       "name" : "HETREQENC",
+       "name" : "REQENC",
        "info" : "Request Enable Clear Register",
        "lenght" : "32",
        "adress" : "0x40",
@@ -311,7 +312,7 @@
         ]
        },
        {
-       "name" : "HETREQDS",
+       "name" : "REQDS",
        "info" : "Request Destination Select Register",
        "lenght" : "32",
        "adress" : "0x44",
@@ -331,7 +332,7 @@
         ]
        },
        {
-       "name" : "HETDIR",
+       "name" : "DIR",
        "info" : "NHET Direction Register",
        "lenght" : "32",
        "adress" : "0x4c",
@@ -345,7 +346,7 @@
         ]
        },
        {
-       "name" : "HETDIN",
+       "name" : "DIN",
        "info" : "NHET Data Input Register",
        "lenght" : "32",
        "adress" : "0x50",
@@ -359,7 +360,7 @@
         ]
        },
        {
-       "name" : "HETDOUT",
+       "name" : "DOUT",
        "info" : "NHET Data Output Register",
        "lenght" : "32",
        "adress" : "0x54",
@@ -373,7 +374,7 @@
         ]
        },
        {
-       "name" : "HETDSET",
+       "name" : "DSET",
        "info" : "NHET Data Set Register",
        "lenght" : "32",
        "adress" : "0x58",
@@ -387,7 +388,7 @@
         ]
        },
        {
-       "name" : "HETDCLR",
+       "name" : "DCLR",
        "info" : "NHET Data Clear Register",
        "lenght" : "32",
        "adress" : "0x5c",
@@ -401,7 +402,7 @@
         ]
        },
        {
-       "name" : "HETPDR",
+       "name" : "PDR",
        "info" : "NHET Open Drain Register",
        "lenght" : "32",
        "adress" : "0x60",
@@ -415,7 +416,7 @@
         ]
        },
        {
-       "name" : "HETPULDIS",
+       "name" : "PULDIS",
        "info" : "NHET Pull Disable Register",
        "lenght" : "32",
        "adress" : "0x64",
@@ -429,7 +430,7 @@
         ]
        },
        {
-       "name" : "HETPSL",
+       "name" : "PSL",
        "info" : "NHET Pull Select Register",
        "lenght" : "32",
        "adress" : "0x68",
@@ -443,7 +444,7 @@
         ]
        },
        {
-       "name" : "HETPCR",
+       "name" : "PCR",
        "info" : "Parity Control Register",
        "lenght" : "32",
        "adress" : "0x74",
@@ -463,7 +464,7 @@
         ]
        },
        {
-       "name" : "HETPAR",
+       "name" : "PAR",
        "info" : "Parity Address Register",
        "lenght" : "32",
        "adress" : "0x78",
@@ -477,7 +478,7 @@
         ]
        },
        {
-       "name" : "HETPPR",
+       "name" : "PPR",
        "info" : "Parity Pin Register",
        "lenght" : "32",
        "adress" : "0x7c",
@@ -491,7 +492,7 @@
         ]
        },
        {
-       "name" : "HETSFPRLD",
+       "name" : "SFPRLD",
        "info" : "Suppression Filter Preload Register",
        "lenght" : "32",
        "adress" : "0x80",
@@ -511,7 +512,7 @@
         ]
        },
        {
-       "name" : "HETSFENA",
+       "name" : "SFENA",
        "info" : "Suppression Filter Enable Register",
        "lenght" : "32",
        "adress" : "0x84",
@@ -525,7 +526,7 @@
         ]
        },
        {
-       "name" : "HETLBPSEL",
+       "name" : "LBPSEL",
        "info" : "Loop Back Pair Select Register",
        "lenght" : "32",
        "adress" : "0x8c",
@@ -545,7 +546,7 @@
         ]
        },
        {
-       "name" : "HETLBPDIR",
+       "name" : "LBPDIR",
        "info" : "Loop Back Pair Direction Register",
        "lenght" : "32",
        "adress" : "0x90",
@@ -565,7 +566,7 @@
         ]
        },
        {
-       "name" : "HETPINDIS",
+       "name" : "PINDIS",
        "info" : "NHET Pin Disable Register",
        "lenght" : "32",
        "adress" : "0x94",

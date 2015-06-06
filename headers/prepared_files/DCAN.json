@@ -7,9 +7,10 @@
      "name" : "DCAN",
      "full name" : "Controller Area Network",
      "offset" : ["0xFFF7DC00", "0xFFF7DE00", "0xFFF7E000"],
+     "sulfixes" : ["1", "2", "3"],
      "registers" : [
        {
-       "name" : "DCAN_CTL",
+       "name" : "CTL",
        "info" : "CAN Control Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -125,7 +126,7 @@
         ]
        },
        {
-       "name" : "DCAN_ES",
+       "name" : "ES",
        "info" : "Error and Status Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -187,7 +188,7 @@
         ]
        },
        {
-       "name" : "DCAN_ERRC",
+       "name" : "ERRC",
        "info" : "Error Counter Register",
        "lenght" : "32",
        "adress" : "0x8",
@@ -213,7 +214,7 @@
         ]
        },
        {
-       "name" : "DCAN_BTR",
+       "name" : "BTR",
        "info" : "Bit Timing Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -251,7 +252,7 @@
         ]
        },
        {
-       "name" : "DCAN_INT",
+       "name" : "INT",
        "info" : "Interrupt Register",
        "lenght" : "32",
        "adress" : "0x10",
@@ -271,7 +272,7 @@
         ]
        },
        {
-       "name" : "DCAN_TEST",
+       "name" : "TEST",
        "info" : "Test Register",
        "lenght" : "32",
        "adress" : "0x14",
@@ -315,7 +316,7 @@
         ]
        },
        {
-       "name" : "DCAN_PERR",
+       "name" : "PERR",
        "info" : "Parity Error Code Register",
        "lenght" : "32",
        "adress" : "0x1c",
@@ -335,7 +336,7 @@
         ]
        },
        {
-       "name" : "DCAN_ABOTR",
+       "name" : "ABOTR",
        "info" : "Auto-Bus-On Time Register",
        "lenght" : "32",
        "adress" : "0x80",
@@ -349,7 +350,7 @@
         ]
        },
        {
-       "name" : "DCAN_TXRQX",
+       "name" : "TXRQX",
        "info" : "Transmission Request X Register",
        "lenght" : "32",
        "adress" : "0x84",
@@ -405,63 +406,22 @@
         ]
        },
        {
-       "name" : "DCAN_TXRQ12",
-       "info" : "Transmission Request 12 Register",
+       "name" : "TXRQx",
+       "info" : "Transmission Request Register",
        "lenght" : "32",
        "adress" : "0x88",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "TxRqs1To32",
+         "bit_Field_Name" : "TxRqsX",
          "info" : "Transmission Request Bits (for all message objects)"
          }
         ]
        },
        {
-       "name" : "DCAN_TXRQ34",
-       "info" : "Transmission Request 34 Register",
-       "lenght" : "32",
-       "adress" : "0x8c",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "TxRqs33To64",
-         "info" : "Transmission Request Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_TXRQ56",
-       "info" : "Transmission Request 56 Register",
-       "lenght" : "32",
-       "adress" : "0x90",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "TxRqs65To96",
-         "info" : "Transmission Request Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_TXRQ78",
-       "info" : "Transmission Request 78 Register",
-       "lenght" : "32",
-       "adress" : "0x94",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "TxRqs97To128",
-         "info" : "Transmission Request Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_NWDATX",
+       "name" : "NWDATX",
        "info" : "New Data X Register",
        "lenght" : "32",
        "adress" : "0x98",
@@ -517,63 +477,22 @@
         ]
        },
        {
-       "name" : "DCAN_NWDAT12",
-       "info" : "New Data 12 Register",
+       "name" : "NWDATx",
+       "info" : "New Data  Register",
        "lenght" : "32",
        "adress" : "0x9c",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "NewDat1To32",
+         "bit_Field_Name" : "NewDatX",
          "info" : "New Data Bits (for all message objects)"
          }
         ]
        },
        {
-       "name" : "DCAN_NWDAT34",
-       "info" : "New Data 34 Register",
-       "lenght" : "32",
-       "adress" : "0xa0",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "NewDat33To64",
-         "info" : "New Data Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_NWDAT56",
-       "info" : "New Data 56 Register",
-       "lenght" : "32",
-       "adress" : "0xa4",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "NewDat65To96",
-         "info" : "New Data Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_NWDAT78",
-       "info" : "New Data 78 Register",
-       "lenght" : "32",
-       "adress" : "0xa8",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "NewDat97To128",
-         "info" : "New Data Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTPNDX",
+       "name" : "INTPNDX",
        "info" : "Interrupt Pending X Register",
        "lenght" : "32",
        "adress" : "0xac",
@@ -629,63 +548,22 @@
         ]
        },
        {
-       "name" : "DCAN_INTPND12",
-       "info" : "Interrupt Pending 12 Register",
+       "name" : "INTPNDx",
+       "info" : "Interrupt Pending Register",
        "lenght" : "32",
        "adress" : "0xb0",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "IntPnd1To32",
+         "bit_Field_Name" : "IntPndX",
          "info" : "Interrupt Pending Bits (for all message objects)"
          }
         ]
        },
        {
-       "name" : "DCAN_INTPND34",
-       "info" : "Interrupt Pending 34 Register",
-       "lenght" : "32",
-       "adress" : "0xb4",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntPnd33To64",
-         "info" : "Interrupt Pending Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTPND56",
-       "info" : "Interrupt Pending 56 Register",
-       "lenght" : "32",
-       "adress" : "0xb8",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntPnd65To96",
-         "info" : "Interrupt Pending Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTPND78",
-       "info" : "Interrupt Pending 78 Register",
-       "lenght" : "32",
-       "adress" : "0xbc",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntPnd97To128",
-         "info" : "Interrupt Pending Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_MSGVALX",
+       "name" : "MSGVALX",
        "info" : "Message Valid X Register",
        "lenght" : "32",
        "adress" : "0xc0",
@@ -741,10 +619,11 @@
         ]
        },
        {
-       "name" : "DCAN_MSGVAL12",
-       "info" : "Message Valid 12 Register",
+       "name" : "MSGVALx",
+       "info" : "Message Valid Register",
        "lenght" : "32",
        "adress" : "0xc4",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
@@ -755,52 +634,11 @@
         ]
        },
        {
-       "name" : "DCAN_MSGVAL34",
-       "info" : "Message Valid 34 Register",
-       "lenght" : "32",
-       "adress" : "0xc8",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "MsgVal33To64",
-         "info" : "Message Valid Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_MSGVAL56",
-       "info" : "Message Valid 56 Register",
-       "lenght" : "32",
-       "adress" : "0xcc",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "MsgVal65To96",
-         "info" : "Message Valid Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_MSGVAL78",
-       "info" : "Message Valid 78 Register",
-       "lenght" : "32",
-       "adress" : "0xd0",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "MsgVal97To128",
-         "info" : "Message Valid Bits (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTMUX12",
-       "info" : "Interrupt Multiplexer 12 Register",
+       "name" : "INTMUXx",
+       "info" : "Interrupt Multiplexer Register",
        "lenght" : "32",
        "adress" : "0xd8",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
@@ -811,49 +649,7 @@
         ]
        },
        {
-       "name" : "DCAN_INTMUX34",
-       "info" : "Interrupt Multiplexer 34 Register",
-       "lenght" : "32",
-       "adress" : "0xdc",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntMux33To64",
-         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTMUX56",
-       "info" : "Interrupt Multiplexer 56 Register",
-       "lenght" : "32",
-       "adress" : "0xe0",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntMux65To96",
-         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_INTMUX78",
-       "info" : "Interrupt Multiplexer 78 Register",
-       "lenght" : "32",
-       "adress" : "0xe4",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IntMux97To128",
-         "info" : "Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines."
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_IF1CMD",
+       "name" : "IF1CMD",
        "info" : "IF1 Command Register",
        "lenght" : "32",
        "adress" : "0x100",
@@ -927,7 +723,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2CMD",
+       "name" : "IF2CMD",
        "info" : "IF2 Command Register",
        "lenght" : "32",
        "adress" : "0x120",
@@ -1001,7 +797,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF1MSK",
+       "name" : "IF1MSK",
        "info" : "IF1 Mask Register",
        "lenght" : "32",
        "adress" : "0x104",
@@ -1027,7 +823,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2MSK",
+       "name" : "IF2MSK",
        "info" : "IF2 Mask Register",
        "lenght" : "32",
        "adress" : "0x124",
@@ -1053,7 +849,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF1ARB",
+       "name" : "IF1ARB",
        "info" : "IF1 Arbitration Register",
        "lenght" : "32",
        "adress" : "0x108",
@@ -1085,7 +881,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2ARB",
+       "name" : "IF2ARB",
        "info" : "IF2 Arbitration Register",
        "lenght" : "32",
        "adress" : "0x128",
@@ -1117,7 +913,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF1MCTL",
+       "name" : "IF1MCTL",
        "info" : "IF1 Message Control Register",
        "lenght" : "32",
        "adress" : "0x10c",
@@ -1185,7 +981,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2MCTL",
+       "name" : "IF2MCTL",
        "info" : "IF2 Message Control Register",
        "lenght" : "32",
        "adress" : "0x12c",
@@ -1253,7 +1049,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF1DATA",
+       "name" : "IF1DATA",
        "info" : "IF1 Data A Register",
        "lenght" : "32",
        "adress" : "0x110",
@@ -1285,7 +1081,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF1DATB",
+       "name" : "IF1DATB",
        "info" : "IF1 Data B Register",
        "lenght" : "32",
        "adress" : "0x114",
@@ -1317,7 +1113,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2DATA",
+       "name" : "IF2DATA",
        "info" : "IF2 Data A Register",
        "lenght" : "32",
        "adress" : "0x130",
@@ -1349,7 +1145,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF2DATB",
+       "name" : "IF2DATB",
        "info" : "IF2 Data B Register",
        "lenght" : "32",
        "adress" : "0x134",
@@ -1381,7 +1177,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3OBS",
+       "name" : "IF3OBS",
        "info" : "IF3 Observation Register",
        "lenght" : "32",
        "adress" : "0x140",
@@ -1455,7 +1251,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3MSK",
+       "name" : "IF3MSK",
        "info" : "IF3 Mask Register",
        "lenght" : "32",
        "adress" : "0x144",
@@ -1481,7 +1277,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3ARB",
+       "name" : "IF3ARB",
        "info" : "IF3 Arbitration Register",
        "lenght" : "32",
        "adress" : "0x148",
@@ -1513,7 +1309,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3MCTL",
+       "name" : "IF3MCTL",
        "info" : "IF3 Message Control Register",
        "lenght" : "32",
        "adress" : "0x14c",
@@ -1581,7 +1377,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3DATA",
+       "name" : "IF3DATA",
        "info" : "IF3 Data A Register",
        "lenght" : "32",
        "adress" : "0x150",
@@ -1613,7 +1409,7 @@
         ]
        },
        {
-       "name" : "DCAN_IF3DATB",
+       "name" : "IF3DATB",
        "info" : "IF3 Data B Register",
        "lenght" : "32",
        "adress" : "0x154",
@@ -1645,63 +1441,22 @@
         ]
        },
        {
-       "name" : "DCAN_IF3UPD12",
-       "info" : "IF3 Update Enable 12 Register",
+       "name" : "IF3UEy",
+       "info" : "IF3 Update Enable Register",
        "lenght" : "32",
        "adress" : "0x160",
+       "array" : "4",
        "fields" : [
          {
          "start_bit" : "0",
          "bit_lenght" : "32",
-         "bit_Field_Name" : "IF3UpdEn1To32",
+         "bit_Field_Name" : "IF3UpdEn",
          "info" : "IF3 Update Enabled (for all message objects)"
          }
         ]
        },
        {
-       "name" : "DCAN_IF3UPD34",
-       "info" : "IF3 Update Enable 34 Register",
-       "lenght" : "32",
-       "adress" : "0x164",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IF3UpdEn33To64",
-         "info" : "IF3 Update Enabled (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_IF3UPD56",
-       "info" : "IF3 Update Enable 56 Register",
-       "lenght" : "32",
-       "adress" : "0x168",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IF3UpdEn65To96",
-         "info" : "IF3 Update Enabled (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_IF3UPD78",
-       "info" : "IF3 Update Enable 78 Register",
-       "lenght" : "32",
-       "adress" : "0x16c",
-       "fields" : [
-         {
-         "start_bit" : "0",
-         "bit_lenght" : "32",
-         "bit_Field_Name" : "IF3UpdEn97To128",
-         "info" : "IF3 Update Enabled (for all message objects)"
-         }
-        ]
-       },
-       {
-       "name" : "DCAN_TIOC",
+       "name" : "TIOC",
        "info" : "CAN TX IO Control Register",
        "lenght" : "32",
        "adress" : "0x1e0",
@@ -1745,7 +1500,7 @@
         ]
        },
        {
-       "name" : "DCAN_RIOC",
+       "name" : "RIOC",
        "info" : "CAN RX IO Control Register",
        "lenght" : "32",
        "adress" : "0x1e4",

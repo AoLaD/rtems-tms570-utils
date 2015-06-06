@@ -120,7 +120,7 @@
           ]
         },
 {
-          "name" : "FCOR_ERR_CNT",
+          "name" : "FCORERRCNT",
           "info" : "Flash Correctable Error Count Register",
           "lenght" : "32",
           "adress" : "FFF8 7010",
@@ -134,7 +134,7 @@
           ]
         },
 {
-          "name" : "FCOR_ERR_ADD",
+          "name" : "FCORERRADD",
           "info" : "Flash Correctable Error Address Register",
           "lenght" : "32",
           "adress" : "FFF8 7014",
@@ -153,7 +153,7 @@
           ]
         },
 {
-          "name" : "FCOR_ERR_POS",
+          "name" : "FCORERRPOS",
           "info" : "Flash Correctable Error Position Register",
           "lenght" : "32",
           "adress" : "FFF8 7018",
@@ -304,7 +304,7 @@
           ]
         },
 {
-          "name" : "FUNC_ERR_ADD",
+          "name" : "FUNCERRADD",
           "info" : "Flash Un-Correctable Error Address Register",
           "lenght" : "32",
           "adress" : "FFF8 7020",
@@ -384,7 +384,7 @@
           ]
         },
 {
-          "name" : "FPRIM_ADD_TAG",
+          "name" : "FPRIMADDTAG",
           "info" : "Flash Primary Address Tag Register",
           "lenght" : "32",
           "adress" : "FFF8 7028",
@@ -403,7 +403,7 @@
           ]
         },
 {
-          "name" : "FDUP_ADD_TAG",
+          "name" : "FDUPADDTAG",
           "info" : "Flash Duplicate Address Tag Register",
           "lenght" : "32",
           "adress" : "FFF8 702C",
@@ -697,7 +697,7 @@
           ]
         },
 {
-          "name" : "FEMU_DMSW",
+          "name" : "FEMUDMSW",
           "info" : "EEPROM Emulation Data MSW Register",
           "lenght" : "32",
           "adress" : "FFF8 7058",
@@ -711,7 +711,7 @@
           ]
         },
 {
-          "name" : "FEMU_DLSW",
+          "name" : "FEMUDLSW",
           "info" : "EEPROM Emulation Data LSW Register",
           "lenght" : "32",
           "adress" : "FFF8 705C",
@@ -725,7 +725,7 @@
           ]
         },
 {
-          "name" : "FEMU_ECC",
+          "name" : "FEMUECC",
           "info" : "EEPROM Emulation ECC Register",
           "lenght" : "32",
           "adress" : "FFF8 7060",
@@ -739,7 +739,7 @@
           ]
         },
 {
-          "name" : "FEMU_ADDR",
+          "name" : "FEMUADDR",
           "info" : "EEPROM Emulation Address Register",
           "lenght" : "32",
           "adress" : "FFF8 7068",
@@ -790,7 +790,7 @@
           ]
         },
 {
-          "name" : "FRAW_DATAH",
+          "name" : "FRAWDATAH",
           "info" : "Uncorrected Raw Data High Register",
           "lenght" : "32",
           "adress" : "FFF8 7070",
@@ -804,7 +804,7 @@
           ]
         },
 {
-          "name" : "FRAW_DATAL",
+          "name" : "FRAWDATAL",
           "info" : "Uncorrected Raw Data Low Register",
           "lenght" : "32",
           "adress" : "FFF8 7074",
@@ -818,7 +818,7 @@
           ]
         },
 {
-          "name" : "FRAW_ECC",
+          "name" : "FRAWECC",
           "info" : "Uncorrected Raw ECC Register",
           "lenght" : "32",
           "adress" : "FFF8 7078",
@@ -837,7 +837,7 @@
           ]
         },
 {
-          "name" : "FPAR_OVR",
+          "name" : "FPAROVR",
           "info" : "Parity Override Register",
           "lenght" : "32",
           "adress" : "FFF8 707C",
@@ -932,7 +932,7 @@
           ]
         },
 {
-          "name" : "FSM_WR_ENA",
+          "name" : "FSMWRENA",
           "info" : "FSM Register Write Enable",
           "lenght" : "32",
           "adress" : "FFF8 7288",
@@ -950,7 +950,7 @@
           ]
         },
 {
-          "name" : "FSM_SECTOR",
+          "name" : "FSMSECTOR",
           "info" : "FSM Sector Register",
           "lenght" : "32",
           "adress" : "FFF8 72A4",
@@ -968,7 +968,7 @@
           ]
         },
 {
-          "name" : "EEPROM_CONFIG",
+          "name" : "EEPROMCONFIG",
           "info" : "EEPROM Emulation Configuration Register",
           "lenght" : "32",
           "adress" : "FFF8 72B8",
@@ -1000,7 +1000,7 @@
           ]
         },
 {
-          "name" : "EE_CTRL1",
+          "name" : "EECTRL1",
           "info" : "EEPROM Emulation Error Detection and Correction Control Register 1",
           "lenght" : "32",
           "adress" : "FFF8 7308",
@@ -1045,7 +1045,7 @@
           ]
         },
 {
-          "name" : "EE_CTRL2",
+          "name" : "EECTRL2",
           "info" : "EEPROM Emulation Error Detection and Correction Control Register 2",
           "lenght" : "32",
           "adress" : "FFF8 730C",
@@ -1059,7 +1059,7 @@
           ]
         },
 {
-          "name" : "EE_COR_ERR_CNT",
+          "name" : "EECORERRCNT",
           "info" : "EEPROM Emulation Correctable Error Count Register",
           "lenght" : "32",
           "adress" : "FFF8 7310",
@@ -1073,7 +1073,7 @@
           ]
         },
 {
-          "name" : "EE_COR_ERR_ADD",
+          "name" : "EECORERRADD",
           "info" : "EEPROM Emulation Correctable Error Address Register",
           "lenght" : "32",
           "adress" : "FFF8 7314",
@@ -1092,7 +1092,7 @@
           ]
         },
 {
-          "name" : "EE_COR_ERR_POS",
+          "name" : "EECORERRPOS",
           "info" : "EEPROM Emulation Correctable Error Bit Position Register",
           "lenght" : "32",
           "adress" : "FFF8 7318",
@@ -1115,7 +1115,7 @@
           ]
         },
 {
-          "name" : "EE_STATUS",
+          "name" : "EESTATUS",
           "info" : "EEPROM Emulation Error Status Register",
           "lenght" : "32",
           "adress" : "FFF8 731C",
@@ -1192,7 +1192,7 @@
           ]
         },
 {
-          "name" : "EE_UNC_ERR_ADD",
+          "name" : "EEUNCERRADD",
           "info" : "EEPROM Emulation Un-Correctable Error Address Register",
           "lenght" : "32",
           "adress" : "FFF8 7320",
@@ -1211,7 +1211,7 @@
           ]
         },
 {
-          "name" : "FCFG_BANK",
+          "name" : "FCFGBANK",
           "info" : "Flash Bank Configuration Register",
           "lenght" : "32",
           "adress" : "FFF8 7400",

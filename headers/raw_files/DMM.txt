@@ -11,7 +11,7 @@
       "registers" :
       [
 {
-          "name" : "DMMGLBCTRL",
+          "name" : "GLBCTRL",
           "info" : "DMM Global Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -55,7 +55,7 @@
           ]
         },
 {
-          "name" : "DMMINTSET",
+          "name" : "INTSET",
           "info" : "DMM Interrupt Set Register",
           "lenght" : "32",
           "adress" : "0",
@@ -154,7 +154,7 @@
           ]
         },
 {
-          "name" : "DMMINTCLR",
+          "name" : "INTCLR",
           "info" : "DMM Interrupt Clear Register",
           "lenght" : "32",
           "adress" : "0",
@@ -253,7 +253,7 @@
           ]
         },
 {
-          "name" : "DMMINTLVL",
+          "name" : "INTLVL",
           "info" : "DMM Interrupt Level Register",
           "lenght" : "32",
           "adress" : "0",
@@ -352,7 +352,7 @@
           ]
         },
 {
-          "name" : "DMMINTFLG",
+          "name" : "INTFLG",
           "info" : "DMM Interrupt Flag Register",
           "lenght" : "32",
           "adress" : "0",
@@ -451,7 +451,7 @@
           ]
         },
 {
-          "name" : "DMMOFF1",
+          "name" : "OFF1",
           "info" : "DMM Interrupt Offset 1 Register",
           "lenght" : "32",
           "adress" : "0",
@@ -465,7 +465,7 @@
           ]
         },
 {
-          "name" : "DMMOFF2",
+          "name" : "OFF2",
           "info" : "DMM Interrupt Offset 2 Register",
           "lenght" : "32",
           "adress" : "0",
@@ -479,7 +479,7 @@
           ]
         },
 {
-          "name" : "DMMDDMDEST",
+          "name" : "DDMDEST",
           "info" : "DMM Direct Data Mode Destination Register",
           "lenght" : "32",
           "adress" : "0",
@@ -493,7 +493,7 @@
           ]
         },
 {
-          "name" : "DMMDDMBL",
+          "name" : "DDMBL",
           "info" : "DMM Direct Data Mode Blocksize Register",
           "lenght" : "32",
           "adress" : "0",
@@ -507,7 +507,7 @@
           ]
         },
 {
-          "name" : "DMMDDMPT",
+          "name" : "DDMPT",
           "info" : "DMM Direct Data Mode Pointer Register",
           "lenght" : "32",
           "adress" : "0",
@@ -521,7 +521,7 @@
           ]
         },
 {
-          "name" : "DMMINTPT",
+          "name" : "INTPT",
           "info" : "DMM Direct Data Mode Interrupt Pointer Register",
           "lenght" : "32",
           "adress" : "0",
@@ -535,7 +535,7 @@
           ]
         },
 {
-          "name" : "DMMPC0",
+          "name" : "PC0",
           "info" : "DMM Pin Control 0",
           "lenght" : "32",
           "adress" : "0",
@@ -564,7 +564,7 @@
           ]
         },
 {
-          "name" : "DMMPC1",
+          "name" : "PC1",
           "info" : "DMM Pin Control 1",
           "lenght" : "32",
           "adress" : "0",
@@ -593,7 +593,7 @@
           ]
         },
 {
-          "name" : "DMMPC2",
+          "name" : "PC2",
           "info" : "DMM Pin Control 2",
           "lenght" : "32",
           "adress" : "0",
@@ -622,7 +622,7 @@
           ]
         },
 {
-          "name" : "DMMPC3",
+          "name" : "PC3",
           "info" : "DMM Pin Control 3",
           "lenght" : "32",
           "adress" : "0",
@@ -651,7 +651,7 @@
           ]
         },
 {
-          "name" : "DMMPC4",
+          "name" : "PC4",
           "info" : "DMM Pin Control 4",
           "lenght" : "32",
           "adress" : "0",
@@ -680,7 +680,7 @@
           ]
         },
 {
-          "name" : "DMMPC5",
+          "name" : "PC5",
           "info" : "DMM Pin Control 5",
           "lenght" : "32",
           "adress" : "0",
@@ -709,7 +709,7 @@
           ]
         },
 {
-          "name" : "DMMPC6",
+          "name" : "PC6",
           "info" : "DMM Pin Control 6",
           "lenght" : "32",
           "adress" : "0",
@@ -738,7 +738,7 @@
           ]
         },
 {
-          "name" : "DMMPC7",
+          "name" : "PC7",
           "info" : "DMM Pin Control 7",
           "lenght" : "32",
           "adress" : "0",
@@ -767,7 +767,7 @@
           ]
         },
 {
-          "name" : "DMMPC8",
+          "name" : "PC8",
           "info" : "DMM Pin Control 8",
           "lenght" : "32",
           "adress" : "0",
@@ -796,12 +796,12 @@
           ]
         },
 {
-          "name" : "DMMDEST{}REG1",
+          "name" : "DEST{}REG1",
           "info" : "DMM Destination {} Region 1",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "2C",
-          "group_position" : ["2C","3C","4C","5C"],
+          "group_position" : ["2C","3C","4C","5C"],
           "group_names" : ["0","1","2","3"],
           "fields" : [
              {
@@ -817,7 +817,7 @@
           ]
         },
 {
-          "name" : "DMMDEST{}BL1",
+          "name" : "DEST{}BL1",
           "info" : "DMM Destination {} Blocksize 1",
           "lenght" : "32",
 
@@ -844,7 +844,7 @@
         },
 
 {
-          "name" : "DMMDEST{}REG2",
+          "name" : "DEST{}REG2",
           "info" : "DMM Destination {} Region 2",
           "lenght" : "32",
           "adress" : "0",
@@ -865,7 +865,7 @@
           ]
         },
 {
-          "name" : "DMMDEST{}BL2",
+          "name" : "DEST{}BL2",
           "info" : "DMM Destination {} Blocksize 2",
           "lenght" : "32",
           "adress" : "0",
@@ -884,3 +884,4 @@
     }
   ] 
 }
+

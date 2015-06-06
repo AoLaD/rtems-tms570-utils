@@ -9,7 +9,7 @@
      "offset" : ["0xFE000000"],
      "registers" : [
        {
-       "name" : "CRC_CTRL0",
+       "name" : "CTRL0",
        "info" : "CRC Global Control Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -29,7 +29,7 @@
         ]
        },
        {
-       "name" : "CRC_CTRL1",
+       "name" : "CTRL1",
        "info" : "CRC Global Control Register 1",
        "lenght" : "32",
        "adress" : "0x8",
@@ -43,7 +43,7 @@
         ]
        },
        {
-       "name" : "CRC_CTRL2",
+       "name" : "CTRL2",
        "info" : "CRC Global Control Register 2",
        "lenght" : "32",
        "adress" : "0x10",
@@ -69,7 +69,7 @@
         ]
        },
        {
-       "name" : "CRC_INTS",
+       "name" : "INTS",
        "info" : "CRC Interrupt Enable Set Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -137,7 +137,7 @@
         ]
        },
        {
-       "name" : "CRC_INTR",
+       "name" : "INTR",
        "info" : "CRC Interrupt Enable Reset Register",
        "lenght" : "32",
        "adress" : "0x20",
@@ -205,7 +205,7 @@
         ]
        },
        {
-       "name" : "CRC_STATUS",
+       "name" : "STATUS",
        "info" : "CRC Interrupt Status Register",
        "lenght" : "32",
        "adress" : "0x28",
@@ -273,7 +273,7 @@
         ]
        },
        {
-       "name" : "CRC_INT_OFFS_ET_REG",
+       "name" : "INT_OFFS_REG",
        "info" : "CRC Interrupt Offset Register",
        "lenght" : "32",
        "adress" : "0x30",
@@ -287,7 +287,7 @@
         ]
        },
        {
-       "name" : "CRC_BUSY",
+       "name" : "BUSY",
        "info" : "CRC Busy Register",
        "lenght" : "32",
        "adress" : "0x38",
@@ -307,7 +307,7 @@
         ]
        },
        {
-       "name" : "CRC_PCOUNT_REG1",
+       "name" : "PCOUNT_REG1",
        "info" : "CRC Channel 1 Pattern Counter Preload Register",
        "lenght" : "32",
        "adress" : "0x40",
@@ -321,7 +321,7 @@
         ]
        },
        {
-       "name" : "CRC_SCOUNT_REG1",
+       "name" : "SCOUNT_REG1",
        "info" : "CRC Channel 1 Sector Counter Preload Register",
        "lenght" : "32",
        "adress" : "0x44",
@@ -335,7 +335,7 @@
         ]
        },
        {
-       "name" : "CRC_CURSEC_REG1",
+       "name" : "CURSEC_REG1",
        "info" : "CRC Channel 1 Current Sector Register",
        "lenght" : "32",
        "adress" : "0x48",
@@ -349,7 +349,7 @@
         ]
        },
        {
-       "name" : "CRC_BCTOPLD1",
+       "name" : "BCTOPLD1",
        "info" : "CRC Channel 1 Block Complete Timeout Preload Register",
        "lenght" : "32",
        "adress" : "0x50",
@@ -391,7 +391,7 @@
         ]
        },
        {
-       "name" : "CRC_REGL1",
+       "name" : "REGL1",
        "info" : "Channel 1 CRC Value Low Register",
        "lenght" : "32",
        "adress" : "0x68",
@@ -405,7 +405,7 @@
         ]
        },
        {
-       "name" : "CRC_REGH1",
+       "name" : "REGH1",
        "info" : "Channel 1 CRC Value High Register",
        "lenght" : "32",
        "adress" : "0x6c",
@@ -475,7 +475,7 @@
         ]
        },
        {
-       "name" : "CRC_PCOUNT_REG2",
+       "name" : "PCOUNT_REG2",
        "info" : "CRC Channel 2 Pattern Counter Preload Register",
        "lenght" : "32",
        "adress" : "0x80",
@@ -489,7 +489,7 @@
         ]
        },
        {
-       "name" : "CRC_SCOUNT_REG2",
+       "name" : "SCOUNT_REG2",
        "info" : "CRC Channel 2 Sector Counter Preload Register",
        "lenght" : "32",
        "adress" : "0x84",
@@ -503,7 +503,7 @@
         ]
        },
        {
-       "name" : "CRC_CURSEC_REG2",
+       "name" : "CURSEC_REG2",
        "info" : "CRC Current Sector Register 2",
        "lenght" : "32",
        "adress" : "0x88",
@@ -517,7 +517,7 @@
         ]
        },
        {
-       "name" : "CRC_WDTOPLD2",
+       "name" : "WDTOPLD2",
        "info" : "CRC Channel 2 Watchdog Timeout Preload Register A",
        "lenght" : "32",
        "adress" : "0x8c",
@@ -531,7 +531,7 @@
         ]
        },
        {
-       "name" : "CRC_BCTOPLD2",
+       "name" : "BCTOPLD2",
        "info" : "CRC Channel 2 Block Complete Timeout Preload Register B",
        "lenght" : "32",
        "adress" : "0x90",
@@ -573,7 +573,7 @@
         ]
        },
        {
-       "name" : "CRC_REGL2",
+       "name" : "REGL2",
        "info" : "Channel 2 CRC Value Low Register",
        "lenght" : "32",
        "adress" : "0xa8",
@@ -587,7 +587,7 @@
         ]
        },
        {
-       "name" : "CRC_REGH2",
+       "name" : "REGH2",
        "info" : "Channel 2 CRC Value High Register",
        "lenght" : "32",
        "adress" : "0xac",
@@ -657,7 +657,7 @@
         ]
        },
        {
-       "name" : "CRC_WDTOPLD1",
+       "name" : "WDTOPLD1",
        "info" : "CRC Channel 1 Watchdog Timeout Preload Register",
        "lenght" : "32",
        "adress" : "0x4c",
@@ -671,7 +671,7 @@
         ]
        },
        {
-       "name" : "CRC_BUS_SEL",
+       "name" : "BUS_SEL",
        "info" : "Data Bus Selection Register",
        "lenght" : "32",
        "adress" : "0x140",

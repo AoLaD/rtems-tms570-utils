@@ -9,7 +9,7 @@
      "offset" : ["0xFFF7D400"],
      "registers" : [
        {
-       "name" : "I2COAR",
+       "name" : "OAR",
        "info" : "I2C Own Address Manager",
        "lenght" : "32",
        "adress" : "0x0",
@@ -23,7 +23,7 @@
         ]
        },
        {
-       "name" : "I2CIMR",
+       "name" : "IMR",
        "info" : "I2C Interupt Mask Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -73,7 +73,7 @@
         ]
        },
        {
-       "name" : "I2CSTR",
+       "name" : "STR",
        "info" : "I2C Status Register",
        "lenght" : "32",
        "adress" : "0x8",
@@ -159,7 +159,7 @@
         ]
        },
        {
-       "name" : "I2CCKL",
+       "name" : "CKL",
        "info" : "I2C Clock Divider Low Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -173,7 +173,7 @@
         ]
        },
        {
-       "name" : "I2CCKH",
+       "name" : "CKH",
        "info" : "I2C Clock Control High Register",
        "lenght" : "32",
        "adress" : "0x10",
@@ -187,7 +187,7 @@
         ]
        },
        {
-       "name" : "I2CCNT",
+       "name" : "CNT",
        "info" : "I2C Data Count Register",
        "lenght" : "32",
        "adress" : "0x14",
@@ -201,7 +201,7 @@
         ]
        },
        {
-       "name" : "I2CDRR",
+       "name" : "DRR",
        "info" : "I2C Data Receive Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -215,7 +215,7 @@
         ]
        },
        {
-       "name" : "I2CSAR",
+       "name" : "SAR",
        "info" : "I2C Slave Address Register",
        "lenght" : "32",
        "adress" : "0x1c",
@@ -229,7 +229,7 @@
         ]
        },
        {
-       "name" : "I2CDXR",
+       "name" : "DXR",
        "info" : "I2C Data Transmit Register",
        "lenght" : "32",
        "adress" : "0x20",
@@ -243,7 +243,7 @@
         ]
        },
        {
-       "name" : "I2CMDR",
+       "name" : "MDR",
        "info" : "I2C Mode Register",
        "lenght" : "32",
        "adress" : "0x24",
@@ -329,7 +329,7 @@
         ]
        },
        {
-       "name" : "I2CIVR",
+       "name" : "IVR",
        "info" : "I2C Interrupt Vector Register",
        "lenght" : "32",
        "adress" : "0x28",
@@ -349,7 +349,7 @@
         ]
        },
        {
-       "name" : "I2CEMDR",
+       "name" : "EMDR",
        "info" : "I2C Extended Mode Register",
        "lenght" : "32",
        "adress" : "0x2c",
@@ -369,7 +369,7 @@
         ]
        },
        {
-       "name" : "I2CPSC",
+       "name" : "PSC",
        "info" : "I2C Prescale Register",
        "lenght" : "32",
        "adress" : "0x30",
@@ -383,7 +383,7 @@
         ]
        },
        {
-       "name" : "I2CPID1",
+       "name" : "PID11",
        "info" : "I2C Peripheral ID Register 1",
        "lenght" : "32",
        "adress" : "0x34",
@@ -403,7 +403,7 @@
         ]
        },
        {
-       "name" : "I2CPID2",
+       "name" : "PID12",
        "info" : "I2C Peripheral ID Register 2",
        "lenght" : "32",
        "adress" : "0x38",
@@ -417,7 +417,7 @@
         ]
        },
        {
-       "name" : "I2CDMACR",
+       "name" : "DMACR",
        "info" : "I2C DMA Control Register",
        "lenght" : "32",
        "adress" : "0x3c",
@@ -437,7 +437,7 @@
         ]
        },
        {
-       "name" : "I2CPFNC",
+       "name" : "PFNC",
        "info" : "I2C Pin Function Register",
        "lenght" : "32",
        "adress" : "0x48",
@@ -451,7 +451,7 @@
         ]
        },
        {
-       "name" : "I2CPDIR",
+       "name" : "DIR",
        "info" : "I2C Pin Direction Register",
        "lenght" : "32",
        "adress" : "0x4c",
@@ -471,7 +471,7 @@
         ]
        },
        {
-       "name" : "I2CDIN",
+       "name" : "DIN",
        "info" : "I2C Data Input Register",
        "lenght" : "32",
        "adress" : "0x50",
@@ -491,7 +491,7 @@
         ]
        },
        {
-       "name" : "I2CDOUT",
+       "name" : "DOUT",
        "info" : "I2C Data Output Register",
        "lenght" : "32",
        "adress" : "0x54",
@@ -511,7 +511,7 @@
         ]
        },
        {
-       "name" : "I2CDSET",
+       "name" : "SET",
        "info" : "I2C Data Set Register",
        "lenght" : "32",
        "adress" : "0x58",
@@ -531,7 +531,7 @@
         ]
        },
        {
-       "name" : "I2CDCLR",
+       "name" : "CLR",
        "info" : "I2C Data Clear Register",
        "lenght" : "32",
        "adress" : "0x5c",
@@ -551,7 +551,7 @@
         ]
        },
        {
-       "name" : "I2CPDR",
+       "name" : "PDR",
        "info" : "I2C Pin Open Drain Register",
        "lenght" : "32",
        "adress" : "0x60",
@@ -571,7 +571,7 @@
         ]
        },
        {
-       "name" : "I2CPDIS",
+       "name" : "PDIS",
        "info" : "I2C Pull Disable Register",
        "lenght" : "32",
        "adress" : "0x64",
@@ -591,7 +591,7 @@
         ]
        },
        {
-       "name" : "I2CPSEL",
+       "name" : "PSEL",
        "info" : "I2C Pull Select Register",
        "lenght" : "32",
        "adress" : "0x68",
@@ -611,7 +611,7 @@
         ]
        },
        {
-       "name" : "I2CSRS",
+       "name" : "pSRS",
        "info" : "I2C Pins Slew Rate Select Register",
        "lenght" : "32",
        "adress" : "0x6c",

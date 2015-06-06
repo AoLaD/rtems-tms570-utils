@@ -99,7 +99,7 @@
           ]
         },
 {
-          "name" : "PDCLKDIS",
+          "name" : "PDCLKDISREG",
           "info" : "Power Domain Clock Disable Register",
           "lenght" : "32",
           "adress" : "0",
@@ -143,7 +143,7 @@
              }
           ]
         },{
-          "name" : "PDCLKDISSET",
+          "name" : "PDCLKDISSETREG",
           "info" : "Power Domain Clock Disable Set Register",
           "lenght" : "32",
           "adress" : "0",
@@ -188,7 +188,7 @@
           ]
         },
 {
-          "name" : "PDCLKDISCLR",
+          "name" : "PDCLKDISCLRREG",
           "info" : "Power Domain Clock Disable Clear Register",
           "lenght" : "32",
           "adress" : "0",
@@ -233,11 +233,12 @@
           ]
         },
 {
-          "name" : "LOGICPDPWRSTAT0",
-          "info" : "Logic Power Domain PD2 Power Status Register",
+          "name" : "LOGICPDPWRSTAT",
+          "info" : "Logic Power Domain PD2 Power Status Registers",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "40",
+          "array" : "4",
           "fields" : [
              {
                "bit_number" : "24",
@@ -280,152 +281,12 @@
           ]
         },
 {
-          "name" : "LOGICPDPWRSTAT1",
-          "info" : "Logic Power Domain PD3 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "44",
-          "fields" : [
-             {
-               "bit_number" : "24",
-               "bit_Field_Name" : "LOGIC IN TRANS1",
-               "info" : "Logic in transition status for power domain PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "MEM IN TRANS1",
-               "info" : "Memory in transition status for power domain PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "DOMAIN ON1",
-               "info" : "Current state of power domain PD3. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD3 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD3 is in the Active state"}
-                ]
-             },
-             {
-               "bit_number" : "1-0",
-               "bit_Field_Name" : "LOGICPDPWR STAT1",
-               "info" : "Logic power domain PD3 power state. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD3 is switched OFF"},
-                 {"value" : "1h", "desc" : "1h"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD3 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT2",
-          "info" : "Logic Power Domain PD4 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "48",
-          "fields" : [
-             {
-               "bit_number" : "24",
-               "bit_Field_Name" : "LOGIC IN TRANS2",
-               "info" : "Logic in transition status for power domain PD4.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD4 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD4 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "MEM IN TRANS2",
-               "info" : "Memory in transition status for power domain PD4.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD4 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD4 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "DOMAIN ON2",
-               "info" : "Current state of power domain PD4. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD4 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD4 is in the Active state"}
-                ]
-             },
-             {
-               "bit_number" : "1-0",
-               "bit_Field_Name" : "LOGICPDPWR STAT2",
-               "info" : "Logic power domain PD4 power state. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD4 is switched OFF"},
-                 {"value" : "1h", "desc" : "Logic power domain PD4 is in Idle state"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD4 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "LOGICPDPWRSTAT3",
-          "info" : "Logic Power Domain PD5 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "4C",
-          "fields" : [
-             {
-               "bit_number" : "24",
-               "bit_Field_Name" : "LOGIC IN TRANS3",
-               "info" : "Logic in transition status for power domain PD5.",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain PD5 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain PD5 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "MEM IN TRANS3",
-               "info" : "Memory in transition status for power domain PD5.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain PD5 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain PD5 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "DOMAIN ON3",
-               "info" : "Current state of power domain PD5. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain PD5 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain PD5 is in the Active state"}
-                ]
-             },
-             {
-               "bit_number" : "1-0",
-               "bit_Field_Name" : "LOGICPDPWR STAT3",
-               "info" : "Logic power domain PD5 power state. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic power domain PD5 is switched OFF"},
-                 {"value" : "1h", "desc" : "Logic power domain PD5 is in Idle state"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain PD5 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT0",
-          "info" : "Memory Power Domain RAM_PD1 Power Status Register",
+          "name" : "MEMPDPWRSTAT",
+          "info" : "Memory Power Domain RAM_PD1 Power Status Registers",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "80",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "24",
@@ -463,100 +324,6 @@
                  {"value" : "1h", "desc" : "Reserved"},
                  {"value" : "2h", "desc" : "Reserved"},
                  {"value" : "3h", "desc" : "Logic power domain RAM_PD1 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT1",
-          "info" : "Memory Power Domain RAM_PD2 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "84",
-          "fields" : [
-             {
-               "bit_number" : "24",
-               "bit_Field_Name" : "LOGIC IN TRANS1",
-               "info" : "Logic in transition status for power domain RAM_PD2. This power domain only contains",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain RAM_PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain RAM_PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "MEM IN TRANS1",
-               "info" : "Memory in transition status for power domain RAM_PD2.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain RAM_PD2 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain RAM_PD2 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "DOMAIN ON1",
-               "info" : "Current state of power domain RAM_PD2. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain RAM_PD2 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain RAM_PD2 is in the Active state"}
-                ]
-             },
-             {
-               "bit_number" : "1-0",
-               "bit_Field_Name" : "MEMPDPWR STAT1",
-               "info" : "Memory power domain RAM_PD2power state. The default value of this field is controlled by",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory power domain RAM_PD2 is switched OFF"},
-                 {"value" : "1h", "desc" : "Reserved"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain RAM_PD2 is in Active state"}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "MEMPDPWRSTAT2",
-          "info" : "Memory Power Domain RAM_PD3 Power Status Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "88",
-          "fields" : [
-             {
-               "bit_number" : "24",
-               "bit_Field_Name" : "LOGIC IN TRANS2",
-               "info" : "Logic in transition status for power domain RAM_PD3. This power domain only contains",
-               "values" : [
-                 {"value" : "0", "desc" : "Logic in power domain RAM_PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Logic in power domain RAM_PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "16",
-               "bit_Field_Name" : "MEM IN TRANS2",
-               "info" : "Memory in transition status for power domain RAM_PD3.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory in power domain RAM_PD3 is in the steady Active or OFF state"},
-                 {"value" : "1", "desc" : "Memory in power domain RAM_PD3 is in the process of power-down/up"}
-                ]
-             },
-             {
-               "bit_number" : "8",
-               "bit_Field_Name" : "DOMAIN ON2",
-               "info" : "Current state of power domain RAM_PD3. The default value of this field is controlled by the",
-               "values" : [
-                 {"value" : "0", "desc" : "Power domain RAM_PD3 is in the OFF state"},
-                 {"value" : "1", "desc" : "Power domain RAM_PD3 is in the Active state"}
-                ]
-             },
-             {
-               "bit_number" : "1-0",
-               "bit_Field_Name" : "MEMPDPWR STAT2",
-               "info" : "Memory power domain RAM_PD3 power state.",
-               "values" : [
-                 {"value" : "0", "desc" : "Memory power domain RAM_PD3 is switched OFF"},
-                 {"value" : "1h", "desc" : "Reserved"},
-                 {"value" : "2h", "desc" : "Reserved"},
-                 {"value" : "3h", "desc" : "Logic power domain RAM_PD3 is in Active state"}
                 ]
              }
           ]

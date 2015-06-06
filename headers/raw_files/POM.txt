@@ -423,7 +423,7 @@
         },{
           "name" : "REG",
           "info" : "Program Regions",
-          "lenght" : "128",
+          "lenght" : "16",
           "type" : "tms570_pom_region_t",
           "adress" : "FFA04200",
           "offset" : "0",

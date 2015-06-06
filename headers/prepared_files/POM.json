@@ -437,7 +437,7 @@
        {
        "name" : "REG",
        "info" : "Program Regions",
-       "lenght" : "128",
+       "lenght" : "16",
        "adress" : "0xffa04200",
        "array" : "32",
        "type" : "tms570_pom_region_t",

@@ -11,7 +11,7 @@
       "registers" :
       [
 {
-          "name" : "ESMEEPAPR1",
+          "name" : "EEPAPR1",
           "info" : "ESM Enable ERROR Pin Action/Response Register 1",
           "lenght" : "32",
           "adress" : "FFFF F500",
@@ -29,7 +29,7 @@
           ]
         },
 {
-          "name" : "ESMDEPAPR1",
+          "name" : "DEPAPR1",
           "info" : "ESM Disable ERROR Pin Action/Response Register 1",
           "lenght" : "32",
           "adress" : "FFFF F504",
@@ -47,7 +47,7 @@
           ]
         },
 {
-          "name" : "ESMIESR1",
+          "name" : "IESR1",
           "info" : "ESM Interrupt Enable Set/Status Register 1",
           "lenght" : "32",
           "adress" : "FFFF F508",
@@ -65,7 +65,7 @@
           ]
         },
 {
-          "name" : "ESMIECR1",
+          "name" : "IECR1",
           "info" : "ESM Interrupt Enable Clear/Status Register 1",
           "lenght" : "32",
           "adress" : "FFFF F50C",
@@ -83,7 +83,7 @@
           ]
         },
 {
-          "name" : "ESMILSR1",
+          "name" : "ILSR1",
           "info" : "Interrupt Level Set/Status Register 1",
           "lenght" : "32",
           "adress" : "FFFF F510",
@@ -101,7 +101,7 @@
           ]
         },
 {
-          "name" : "ESMILCR1",
+          "name" : "ILCR1",
           "info" : "Interrupt Level Clear/Status Register 1",
           "lenght" : "32",
           "adress" : "FFFF F514",
@@ -119,11 +119,12 @@
           ]
         },
 {
-          "name" : "ESMSR1",
+          "name" : "SR1",
           "info" : "ESM Status Register 1",
           "lenght" : "32",
           "adress" : "FFFF F518",
           "offset" : "0",
+          "array" : "3",
           "fields" : [
              {
                "bit_number" : "31-0",
@@ -137,43 +138,7 @@
           ]
         },
 {
-          "name" : "ESMSR2",
-          "info" : "ESM Status Register 2",
-          "lenght" : "32",
-          "adress" : "FFFF F51C",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "31-0",
-               "bit_Field_Name" : "ESF",
-               "info" : "Error Status Flag. Provides status information on a pending error.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: No error occurred; no interrupt is pending."},
-                 {"value" : "1", "desc" : "Read: Error occurred; interrupt is pending."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "ESMSR3",
-          "info" : "ESM Status Register 3",
-          "lenght" : "32",
-          "adress" : "FFFF F520",
-          "offset" : "0",
-          "fields" : [
-             {
-               "bit_number" : "31-0",
-               "bit_Field_Name" : "ESF",
-               "info" : "Error Status Flag. Provides status information on a pending error.",
-               "values" : [
-                 {"value" : "0", "desc" : "Read: No error occurred."},
-                 {"value" : "1", "desc" : "Read: Error occurred."}
-                ]
-             }
-          ]
-        },
-{
-          "name" : "ESMEPSR",
+          "name" : "EPSR",
           "info" : "ESM ERROR Pin Status Register",
           "lenght" : "32",
           "adress" : "FFFF F524",
@@ -191,7 +156,7 @@
           ]
         },
 {
-          "name" : "ESMIOFFHR",
+          "name" : "IOFFHR",
           "info" : "ESM Interrupt Offset High Register",
           "lenght" : "32",
           "adress" : "FFFF F528",
@@ -214,7 +179,7 @@
           ]
         },
 {
-          "name" : "ESMIOFFLR",
+          "name" : "IOFFLR",
           "info" : "ESM Interrupt Offset Low Register",
           "lenght" : "32",
           "adress" : "FFFF F52C",
@@ -235,7 +200,7 @@
           ]
         },
 {
-          "name" : "ESMLTCR",
+          "name" : "LTCR",
           "info" : "ESM Low-Time Counter Register",
           "lenght" : "32",
           "adress" : "FFFF F530",
@@ -249,7 +214,7 @@
           ]
         },
 {
-          "name" : "ESMLTCPR",
+          "name" : "LTCPR",
           "info" : "ESM Low-Time Counter Preload Register",
           "lenght" : "32",
           "adress" : "FFFF F534",
@@ -263,7 +228,7 @@
           ]
         },
 {
-          "name" : "ESMEKR",
+          "name" : "EKR",
           "info" : "ESM Error Key Register",
           "lenght" : "32",
           "adress" : "FFFF F538",
@@ -283,7 +248,7 @@
           ]
         },
 {
-          "name" : "ESMSSR2",
+          "name" : "SSR2",
           "info" : "ESM Status Shadow Register 2",
           "lenght" : "32",
           "adress" : "FFFF F53C",
@@ -301,7 +266,7 @@
           ]
         },
 {
-          "name" : "ESMIEPSR4",
+          "name" : "IEPSR4",
           "info" : "ESM Influence ERROR Pin Set/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F540",
@@ -319,7 +284,7 @@
           ]
         },
 {
-          "name" : "ESMIEPCR4",
+          "name" : "IEPCR4",
           "info" : "ESM Influence ERROR Pin Clear/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F544",
@@ -337,7 +302,7 @@
           ]
         },
 {
-          "name" : "ESMIESR4",
+          "name" : "IESR4",
           "info" : "ESM Interrupt Enable Set/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F548",
@@ -355,7 +320,7 @@
           ]
         },
 {
-          "name" : "ESMIECR4",
+          "name" : "IECR4",
           "info" : "ESM Interrupt Enable Clear/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F54C",
@@ -373,7 +338,7 @@
           ]
         },
 {
-          "name" : "ESMILSR4",
+          "name" : "ILSR4",
           "info" : "Interrupt Level Set/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F550",
@@ -391,7 +356,7 @@
           ]
         },
 {
-          "name" : "ESMILCR4",
+          "name" : "ILCR4",
           "info" : "Interrupt Level Clear/Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F554",
@@ -409,7 +374,7 @@
           ]
         },
 {
-          "name" : "ESMSR4",
+          "name" : "SR4",
           "info" : "ESM Status Register 4",
           "lenght" : "32",
           "adress" : "FFFF F558",

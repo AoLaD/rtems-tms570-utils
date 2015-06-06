@@ -7,9 +7,10 @@
      "name" : "HTU",
      "full name" : "High-End Timer Transfer Unit",
      "offset" : ["0xFFF7A400", "0xFFF7A500"],
+     "sulfixes" : ["1", "2"],
      "registers" : [
        {
-       "name" : "HTU_GC",
+       "name" : "GC",
        "info" : "Global Control Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -41,7 +42,7 @@
         ]
        },
        {
-       "name" : "HTU_CPENA",
+       "name" : "CPENA",
        "info" : "Control Packet Enable Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -55,7 +56,7 @@
         ]
        },
        {
-       "name" : "HTU_BUSY0",
+       "name" : "BUSY0",
        "info" : "Control Packet Busy Register 0",
        "lenght" : "32",
        "adress" : "0x8",
@@ -87,7 +88,7 @@
         ]
        },
        {
-       "name" : "HTU_BUSY1",
+       "name" : "BUSY1",
        "info" : "Control Packet Busy Register 1",
        "lenght" : "32",
        "adress" : "0xc",
@@ -119,7 +120,7 @@
         ]
        },
        {
-       "name" : "HTU_BUSY2",
+       "name" : "BUSY2",
        "info" : "Control Packet Busy Register 2",
        "lenght" : "32",
        "adress" : "0x10",
@@ -151,7 +152,7 @@
         ]
        },
        {
-       "name" : "HTU_BUSY3",
+       "name" : "BUSY3",
        "info" : "Control Packet Busy Register 3",
        "lenght" : "32",
        "adress" : "0x14",
@@ -183,7 +184,7 @@
         ]
        },
        {
-       "name" : "HTU_ACPE",
+       "name" : "ACPE",
        "info" : "Active Control Packet and Error Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -197,7 +198,7 @@
         ]
        },
        {
-       "name" : "HTU_RLBECTRL",
+       "name" : "RLBECTRL",
        "info" : "Request Lost and Bus Error Control Register",
        "lenght" : "32",
        "adress" : "0x20",
@@ -223,7 +224,7 @@
         ]
        },
        {
-       "name" : "HTU_BFINTS",
+       "name" : "BFINTS",
        "info" : "Buffer Full Interrupt Enable Set Register",
        "lenght" : "32",
        "adress" : "0x24",
@@ -237,7 +238,7 @@
         ]
        },
        {
-       "name" : "HTU_BFINTC",
+       "name" : "BFINTC",
        "info" : "Buffer Full Interrupt Enable Clear Register",
        "lenght" : "32",
        "adress" : "0x28",
@@ -251,7 +252,7 @@
         ]
        },
        {
-       "name" : "HTU_INTOFF0",
+       "name" : "INTOFF0",
        "info" : "Interrupt Offset Register 0",
        "lenght" : "32",
        "adress" : "0x34",
@@ -271,7 +272,7 @@
         ]
        },
        {
-       "name" : "HTU_INTOFF1",
+       "name" : "INTOFF1",
        "info" : "Interrupt Offset Register 1",
        "lenght" : "32",
        "adress" : "0x38",
@@ -291,7 +292,7 @@
         ]
        },
        {
-       "name" : "HTU_BIM",
+       "name" : "BIM",
        "info" : "Buffer Initialization Mode Register",
        "lenght" : "32",
        "adress" : "0x3c",
@@ -305,7 +306,7 @@
         ]
        },
        {
-       "name" : "HTU_RLOSTFL",
+       "name" : "RLOSTFL",
        "info" : "Request Lost Flag Register",
        "lenght" : "32",
        "adress" : "0x40",
@@ -319,7 +320,7 @@
         ]
        },
        {
-       "name" : "HTU_BFINTFL",
+       "name" : "BFINTFL",
        "info" : "Buffer Full Interrupt Flag Register",
        "lenght" : "32",
        "adress" : "0x44",
@@ -333,7 +334,7 @@
         ]
        },
        {
-       "name" : "HTU_BERINTFL",
+       "name" : "BERINTFL",
        "info" : "BER Interrupt Flag Register",
        "lenght" : "32",
        "adress" : "0x48",
@@ -347,7 +348,7 @@
         ]
        },
        {
-       "name" : "HTU_MP1S",
+       "name" : "MP1S",
        "info" : "Memory Protection 1 Start Address Register",
        "lenght" : "32",
        "adress" : "0x4c",
@@ -361,7 +362,7 @@
         ]
        },
        {
-       "name" : "HTU_MP1E",
+       "name" : "MP1E",
        "info" : "Memory Protection 1 End Address Register",
        "lenght" : "32",
        "adress" : "0x50",
@@ -375,7 +376,7 @@
         ]
        },
        {
-       "name" : "HTU_DCTRL",
+       "name" : "DCTRL",
        "info" : "Debug Control Register",
        "lenght" : "32",
        "adress" : "0x54",
@@ -401,7 +402,7 @@
         ]
        },
        {
-       "name" : "HTU_WPR",
+       "name" : "WPR",
        "info" : "Watch Point Register",
        "lenght" : "32",
        "adress" : "0x58",
@@ -415,7 +416,7 @@
         ]
        },
        {
-       "name" : "HTU_WMR",
+       "name" : "WMR",
        "info" : "Watch Mask Register",
        "lenght" : "32",
        "adress" : "0x5c",
@@ -429,7 +430,7 @@
         ]
        },
        {
-       "name" : "HTU_ID",
+       "name" : "ID",
        "info" : "Module Identification Register",
        "lenght" : "32",
        "adress" : "0x60",
@@ -455,7 +456,7 @@
         ]
        },
        {
-       "name" : "HTU_PCR",
+       "name" : "PCR",
        "info" : "Parity Control Register",
        "lenght" : "32",
        "adress" : "0x64",
@@ -481,7 +482,7 @@
         ]
        },
        {
-       "name" : "HTU_PAR",
+       "name" : "PAR",
        "info" : "Parity Address Register",
        "lenght" : "32",
        "adress" : "0x68",
@@ -501,7 +502,7 @@
         ]
        },
        {
-       "name" : "HTU_MPCS",
+       "name" : "MPCS",
        "info" : "Memory Protection Control and Status Register",
        "lenght" : "32",
        "adress" : "0x70",
@@ -533,7 +534,7 @@
         ]
        },
        {
-       "name" : "HTU_MP0S",
+       "name" : "MP0S",
        "info" : "Memory Protection 0 Start Address Register",
        "lenght" : "32",
        "adress" : "0x74",
@@ -547,7 +548,7 @@
         ]
        },
        {
-       "name" : "HTU_MP0E",
+       "name" : "MP0E",
        "info" : "Memory Protection 0 End Address Register",
        "lenght" : "32",
        "adress" : "0x78",

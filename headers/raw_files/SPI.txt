@@ -11,7 +11,7 @@
       "registers" :
       [
 {
-          "name" : "SPIGCR0",
+          "name" : "GCR0",
           "info" : "SPI Global Control Register 0",
           "lenght" : "32",
           "adress" : "0",
@@ -25,7 +25,7 @@
           ]
         },
 {
-          "name" : "SPIGCR1",
+          "name" : "GCR1",
           "info" : "SPI Global Control Register 1",
           "lenght" : "32",
           "adress" : "0",
@@ -59,7 +59,7 @@
           ]
         },
 {
-          "name" : "SPIINT0",
+          "name" : "INT0",
           "info" : "SPI Interrupt Register",
           "lenght" : "32",
           "adress" : "0",
@@ -78,7 +78,7 @@
           ]
         },
 {
-          "name" : "SPILVL",
+          "name" : "LVL",
           "info" : "SPI Interrupt Level Register",
           "lenght" : "32",
           "adress" : "0",
@@ -127,7 +127,7 @@
           ]
         },
 {
-          "name" : "SPIFLG",
+          "name" : "FLG",
           "info" : "SPI Flag Register",
           "lenght" : "32",
           "adress" : "0",
@@ -181,7 +181,7 @@
           ]
         },
 {
-          "name" : "SPIPC0",
+          "name" : "PC0",
           "info" : "SPI Pin Control Register 0",
           "lenght" : "32",
           "adress" : "0",
@@ -225,7 +225,7 @@
           ]
         },
 {
-          "name" : "SPIPC1",
+          "name" : "PC1",
           "info" : "SPI Pin Control Register 1",
           "lenght" : "32",
           "adress" : "0",
@@ -269,7 +269,7 @@
           ]
         },
 {
-          "name" : "SPIPC2",
+          "name" : "PC2",
           "info" : "SPI Pin Control Register 2",
           "lenght" : "32",
           "adress" : "0",
@@ -313,7 +313,7 @@
           ]
         },
 {
-          "name" : "SPIPC3",
+          "name" : "PC3",
           "info" : "SPI Pin Control Register 3",
           "lenght" : "32",
           "adress" : "0",
@@ -357,7 +357,7 @@
           ]
         },
 {
-          "name" : "SPIPC4",
+          "name" : "PC4",
           "info" : "SPI Pin Control Register 4",
           "lenght" : "32",
           "adress" : "0",
@@ -401,7 +401,7 @@
           ]
         },
 {
-          "name" : "SPIPC5",
+          "name" : "PC5",
           "info" : "SPI Pin Control Register 5",
           "lenght" : "32",
           "adress" : "0",
@@ -445,7 +445,7 @@
           ]
         },
 {
-          "name" : "SPIPC6",
+          "name" : "PC6",
           "info" : "SPI Pin Control Register 6",
           "lenght" : "32",
           "adress" : "0",
@@ -489,7 +489,7 @@
           ]
         },
 {
-          "name" : "SPIPC7",
+          "name" : "PC7",
           "info" : "SPI Pin Control Register 7",
           "lenght" : "32",
           "adress" : "0",
@@ -533,7 +533,7 @@
           ]
         },
 {
-          "name" : "SPIPC8",
+          "name" : "PC8",
           "info" : "SPI Pin Control Register 8",
           "lenght" : "32",
           "adress" : "0",
@@ -577,7 +577,7 @@
           ]
         },
 {
-          "name" : "SPIDAT0",
+          "name" : "DAT0",
           "info" : "SPI Transmit Data Register 0",
           "lenght" : "32",
           "adress" : "0",
@@ -591,7 +591,7 @@
           ]
         },
 {
-          "name" : "SPIDAT1",
+          "name" : "DAT1",
           "info" : "SPI Transmit Data Register 1",
           "lenght" : "32",
           "adress" : "0",
@@ -625,7 +625,7 @@
           ]
         },
 {
-          "name" : "SPIBUF",
+          "name" : "BUF",
           "info" : "SPI Receive Buffer Register",
           "lenght" : "32",
           "adress" : "0",
@@ -684,7 +684,7 @@
           ]
         },
 {
-          "name" : "SPIEMU",
+          "name" : "EMU",
           "info" : "SPI Emulation Register",
           "lenght" : "32",
           "adress" : "0",
@@ -698,7 +698,7 @@
           ]
         },
 {
-          "name" : "SPIDELAY",
+          "name" : "DELAY",
           "info" : "SPI Delay Register",
           "lenght" : "32",
           "adress" : "0",
@@ -727,7 +727,7 @@
           ]
         },
 {
-          "name" : "SPIDEF",
+          "name" : "DEF",
           "info" : "SPI Default Chip Select Register",
           "lenght" : "32",
           "adress" : "0",
@@ -741,12 +741,13 @@
           ]
         },
 {
-          "name" : "SPIFMT",
-          "info" : "SPI Data Format Registers",
+          "name" : "FMT{}",
+          "info" : "SPI Data Format Register {}",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "50",
-	  "array" : "4",
+          "group_position" : ["50","54","58","5C"],
+          "group_names" : ["0","1","2","3"],
           "fields" : [
              {
                "bit_number" : "31-24",
@@ -844,7 +845,7 @@
           ]
         },
 {
-          "name" : "SPIPMCTRL",
+          "name" : "PMCTRL",
           "info" : "Parallel/Modulo Mode Control Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1081,13 +1082,12 @@
           ]
         },
 {
-          "name" : "TG{}CTRL",
-          "info" : "TG{} Control Registers",
+          "name" : "TGCTRL",
+          "info" : "TG Control Registers",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "98",
-          "group_position" : ["98"],
-          "group_names" : ["0"],
+          "array" : "16",
           "fields" : [
              {
                "bit_number" : "31",
@@ -1116,13 +1116,12 @@
           ]
         },
 {
-          "name" : "DMA{}CTRL",
+          "name" : "DMACTRL",
           "info" : "DMA Channel Control Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "D8",
-          "group_position" : ["D8"],
-          "group_names" : ["0"],
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31",
@@ -1177,13 +1176,12 @@
           ]
         },
 {
-          "name" : "ICOUNT{}",
-          "info" : "DMA{}COUNT Register",
+          "name" : "DMACOUNT",
+          "info" : "DMA COUNT Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "F8",
-          "group_position" : ["F8"],
-          "group_names" : ["0"],
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31-16",
@@ -1250,7 +1248,7 @@
           ]
         },
 {
-          "name" : "UERRADDR1",
+          "name" : "UERRADDRRX",
           "info" : "RXRAM Uncorrectable Parity Error Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1264,7 +1262,7 @@
           ]
         },
 {
-          "name" : "UERRADDR0",
+          "name" : "UERRADDRTX",
           "info" : "TXRAM Uncorrectable Parity Error Address Register",
           "lenght" : "32",
           "adress" : "0",
@@ -1360,30 +1358,18 @@
           ]
         },
 {
-          "name" : "EXTENDED_PRESCALE1",
-          "info" : "SPI Extended Prescale Register 1",
+          "name" : "EXT_PRESCALE{}",
+          "info" : "SPI Extended Prescale Register {}",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "138",
+          "group_position" : ["138","13C"],
+          "group_names" : ["1","2"],
           "fields" : [
              {
                "bit_number" : "26-16",
-               "bit_Field_Name" : "EPRESCALE_FMT1",
-               "info" : "EPRESCALE_FMT1. Extended Prescale value for SPIFMT1."
-             }
-          ]
-        },
-{
-          "name" : "EXTENDED_PRESCALE2",
-          "info" : "SPI Extended Prescale Register 2",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "13C",
-          "fields" : [
-             {
-               "bit_number" : "26-16",
-               "bit_Field_Name" : "EPRESCALE_FMT3",
-               "info" : "EPRESCALE_FMT3. Extended Prescale value for SPIFMT1."
+               "bit_Field_Name" : "EPRESCALE_FMT{}",
+               "info" : "EPRESCALE_FMT{}. Extended Prescale value for SPIFMT{}."
              }
           ]
         }

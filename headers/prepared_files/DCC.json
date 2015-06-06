@@ -7,9 +7,10 @@
      "name" : "DCC",
      "full name" : "Dual-Clock Comparator",
      "offset" : ["0xFFFFEC00", "0xFFFFF400"],
+     "sulfixes" : ["1", "2"],
      "registers" : [
        {
-       "name" : "DCCGCTRL",
+       "name" : "GCTRL",
        "info" : "DCC Global Control Register",
        "lenght" : "32",
        "adress" : "0x0",
@@ -41,7 +42,7 @@
         ]
        },
        {
-       "name" : "DCCREV",
+       "name" : "REV",
        "info" : "DCC Revision Id Register",
        "lenght" : "32",
        "adress" : "0x4",
@@ -85,7 +86,7 @@
         ]
        },
        {
-       "name" : "DCCCNT0SEED",
+       "name" : "CNT0SEED",
        "info" : "DCC Counter0 Seed Register",
        "lenght" : "32",
        "adress" : "0x8",
@@ -99,7 +100,7 @@
         ]
        },
        {
-       "name" : "DCCVALID0SEED",
+       "name" : "VALID0SEED",
        "info" : "DCC Valid0 Seed Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -113,7 +114,7 @@
         ]
        },
        {
-       "name" : "DCCCNT1SEED",
+       "name" : "CNT1SEED",
        "info" : "DCC Counter1 Seed Register",
        "lenght" : "32",
        "adress" : "0x10",
@@ -127,7 +128,7 @@
         ]
        },
        {
-       "name" : "DCCSTAT",
+       "name" : "STAT",
        "info" : "DCC Status Register",
        "lenght" : "32",
        "adress" : "0x14",
@@ -147,7 +148,7 @@
         ]
        },
        {
-       "name" : "DCCDCNT0",
+       "name" : "CNT0",
        "info" : "DCC Counter0 Value Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -161,7 +162,7 @@
         ]
        },
        {
-       "name" : "DCCVALID0",
+       "name" : "VALID0",
        "info" : "DCC Valid0 Value Register",
        "lenght" : "32",
        "adress" : "0x1c",
@@ -175,7 +176,7 @@
         ]
        },
        {
-       "name" : "DCCDCNT1",
+       "name" : "CNT1",
        "info" : "DCC Counter1 Value Register",
        "lenght" : "32",
        "adress" : "0x20",
@@ -189,7 +190,7 @@
         ]
        },
        {
-       "name" : "DCCCNT1CLKSRC",
+       "name" : "CNT1CLKSRC",
        "info" : "DCC Counter1 Clock Source Selection Register",
        "lenght" : "32",
        "adress" : "0x24",
@@ -209,7 +210,7 @@
         ]
        },
        {
-       "name" : "DCCCNT0CLKSRC",
+       "name" : "CNT0CLKSRC",
        "info" : "DCC Counter0 Clock Source Selection Register",
        "lenght" : "32",
        "adress" : "0x28",

@@ -235,11 +235,34 @@
         ]
        },
        {
-       "name" : "PINMMR",
+       "name" : "PINMUX",
        "info" : "Pin Multiplexing Control Registers",
        "lenght" : "32",
        "adress" : "0xffffeb10",
-       "array" : "32",
+       "type" : "tms570_pinmux_t",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "FAULT_CLEAR",
+         "info" : "Fault Clear"
+         }
+        ]
+       }
+     ]
+   },
+   {
+     "name" : "pinMux",
+     "full name" : "PINMUX Definition",
+     "offset" : ["0xFFFFEB10"],
+     "registers" : [
+       {
+       "name" : "PINMMR{}",
+       "info" : "Pin Multiplexing Control Register {}",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "group_position" : ["0x0", "0x4", "0x8", "0xC", "0x10", "0x14", "0x18", "0x1C", "0x20", "0x24", "0x28", "0x2C", "0x30", "0x34", "0x38", "0x3C", "0x40", "0x44", "0x48", "0x4C", "0x50", "0x54", "0x58", "0x5C", "0x60", "0x64", "0x68", "0x6C", "0x70", "0x74", "0x78"],
+       "group_names" : ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"],
        "fields" : [
          {
          "start_bit" : "24",

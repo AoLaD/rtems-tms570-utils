@@ -9,7 +9,7 @@
      "offset" : ["0xFFF7E400"],
      "registers" : [
        {
-       "name" : "SCIGCR0",
+       "name" : "GCR0",
        "info" : "SCI Global Control Register 0",
        "lenght" : "32",
        "adress" : "0x0",
@@ -29,7 +29,7 @@
         ]
        },
        {
-       "name" : "SCIGCR1",
+       "name" : "GCR1",
        "info" : "SCI Global Control Register 1",
        "lenght" : "32",
        "adress" : "0x4",
@@ -115,7 +115,7 @@
         ]
        },
        {
-       "name" : "SCIGCR2",
+       "name" : "GCR2",
        "info" : "SCI Global Control Register 2",
        "lenght" : "32",
        "adress" : "0x8",
@@ -147,7 +147,7 @@
         ]
        },
        {
-       "name" : "SCISETINT",
+       "name" : "SETINT",
        "info" : "SCI Set Interrupt Register",
        "lenght" : "32",
        "adress" : "0xc",
@@ -215,7 +215,7 @@
         ]
        },
        {
-       "name" : "SCICLEARINT",
+       "name" : "CLEARINT",
        "info" : "SCI Clear Interrupt Register",
        "lenght" : "32",
        "adress" : "0x10",
@@ -283,7 +283,7 @@
         ]
        },
        {
-       "name" : "SCISETINTLVL",
+       "name" : "SETINTLVL",
        "info" : "SCI Set Interrupt Level Register",
        "lenght" : "32",
        "adress" : "0x14",
@@ -339,7 +339,7 @@
         ]
        },
        {
-       "name" : "SCICLEARINTLVL",
+       "name" : "CLEARINTLVL",
        "info" : "SCI Clear Interrupt Level Register",
        "lenght" : "32",
        "adress" : "0x18",
@@ -401,7 +401,7 @@
         ]
        },
        {
-       "name" : "SCIFLR",
+       "name" : "FLR",
        "info" : "SCI Flags Register",
        "lenght" : "32",
        "adress" : "0x1c",
@@ -481,7 +481,7 @@
         ]
        },
        {
-       "name" : "SCIINTVECT0",
+       "name" : "INTVECT0",
        "info" : "SCI Interrupt Vector Offset 0",
        "lenght" : "32",
        "adress" : "0x20",
@@ -495,7 +495,7 @@
         ]
        },
        {
-       "name" : "SCIINTVECT1",
+       "name" : "INTVECT1",
        "info" : "SCI Interrupt Vector Offset 1",
        "lenght" : "32",
        "adress" : "0x24",
@@ -509,7 +509,7 @@
         ]
        },
        {
-       "name" : "SCIFORMAT",
+       "name" : "FORMAT",
        "info" : "SCI Format Control Register",
        "lenght" : "32",
        "adress" : "0x28",
@@ -537,7 +537,7 @@
         ]
        },
        {
-       "name" : "SCIED",
+       "name" : "ED",
        "info" : "Receiver Emulation Data Buffer",
        "lenght" : "32",
        "adress" : "0x30",
@@ -551,7 +551,7 @@
         ]
        },
        {
-       "name" : "SCIRD",
+       "name" : "RD",
        "info" : "Receiver Data Buffer",
        "lenght" : "32",
        "adress" : "0x34",
@@ -565,7 +565,7 @@
         ]
        },
        {
-       "name" : "SCITD",
+       "name" : "TD",
        "info" : "Transmit Data Buffer",
        "lenght" : "32",
        "adress" : "0x38",
@@ -579,7 +579,7 @@
         ]
        },
        {
-       "name" : "SCIPIO0",
+       "name" : "PIO0",
        "info" : "SCI Pin I/O Control Register 0",
        "lenght" : "32",
        "adress" : "0x3c",
@@ -599,7 +599,7 @@
         ]
        },
        {
-       "name" : "SCIPIO1",
+       "name" : "PIO1",
        "info" : "SCI Pin I/O Control Register 1",
        "lenght" : "32",
        "adress" : "0x40",
@@ -619,7 +619,7 @@
         ]
        },
        {
-       "name" : "SCIPIO2",
+       "name" : "PIO2",
        "info" : "SCI Pin I/O Control Register 2",
        "lenght" : "32",
        "adress" : "0x44",
@@ -639,7 +639,7 @@
         ]
        },
        {
-       "name" : "SCIPIO3",
+       "name" : "PIO3",
        "info" : "SCI Pin I/O Control Register 3",
        "lenght" : "32",
        "adress" : "0x48",
@@ -659,7 +659,7 @@
         ]
        },
        {
-       "name" : "SCIPIO4",
+       "name" : "PIO4",
        "info" : "SCI Pin I/O Control Register 4",
        "lenght" : "32",
        "adress" : "0x4c",
@@ -679,7 +679,7 @@
         ]
        },
        {
-       "name" : "SCIPIO5",
+       "name" : "PIO5",
        "info" : "SCI Pin I/O Control Register 5",
        "lenght" : "32",
        "adress" : "0x50",
@@ -699,7 +699,7 @@
         ]
        },
        {
-       "name" : "SCIPIO6",
+       "name" : "PIO6",
        "info" : "SCI Pin I/O Control Register 6",
        "lenght" : "32",
        "adress" : "0x54",
@@ -719,7 +719,7 @@
         ]
        },
        {
-       "name" : "SCIPIO7",
+       "name" : "PIO7",
        "info" : "SCI Pin I/O Control Register 7",
        "lenght" : "32",
        "adress" : "0x58",
@@ -739,7 +739,7 @@
         ]
        },
        {
-       "name" : "SCIPIO8",
+       "name" : "PIO8",
        "info" : "SCI Pin I/O Control Register 8",
        "lenght" : "32",
        "adress" : "0x5c",
@@ -759,7 +759,7 @@
         ]
        },
        {
-       "name" : "LINCOMPARE",
+       "name" : "COMP",
        "info" : "LIN Compare Register",
        "lenght" : "32",
        "adress" : "0x60",
@@ -779,7 +779,7 @@
         ]
        },
        {
-       "name" : "LINRD0",
+       "name" : "RD0",
        "info" : "LIN Receive Buffer 0 Register",
        "lenght" : "32",
        "adress" : "0x64",
@@ -811,7 +811,7 @@
         ]
        },
        {
-       "name" : "LINRD1",
+       "name" : "RD1",
        "info" : "LIN Receive Buffer 1 Register",
        "lenght" : "32",
        "adress" : "0x68",
@@ -843,7 +843,7 @@
         ]
        },
        {
-       "name" : "LINMASK",
+       "name" : "MASK",
        "info" : "LIN Mask Register",
        "lenght" : "32",
        "adress" : "0x6c",
@@ -863,7 +863,7 @@
         ]
        },
        {
-       "name" : "LINID",
+       "name" : "ID",
        "info" : "LIN Identification Register",
        "lenght" : "32",
        "adress" : "0x70",
@@ -889,7 +889,7 @@
         ]
        },
        {
-       "name" : "LINTD0",
+       "name" : "TD0",
        "info" : "LIN Transmit Buffer 0",
        "lenght" : "32",
        "adress" : "0x74",
@@ -921,7 +921,7 @@
         ]
        },
        {
-       "name" : "LINTD1",
+       "name" : "TD1",
        "info" : "LIN Transmit Buffer 1",
        "lenght" : "32",
        "adress" : "0x78",
@@ -953,7 +953,7 @@
         ]
        },
        {
-       "name" : "MBRS",
+       "name" : "MBRSR",
        "info" : "Maximum Baud Rate Selection Register",
        "lenght" : "32",
        "adress" : "0x7c",
