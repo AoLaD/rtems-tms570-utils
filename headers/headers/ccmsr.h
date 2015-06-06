@@ -42,25 +42,26 @@ typedef struct{
   uint32_t CCMKEYR;           /*CCM-R4F Key Register*/
 } tms570_ccmsr_t;
 
-/*------------------------TMS570_CCMSR------------------------*/
+
+/*---------------------TMS570_CCMSRCCMSR---------------------*/
 /* field: CMPE - Compare Error */
-#define TMS570_CCMSR_CMPE BSP_FLD32(16)
+#define TMS570_CCMSR_CCMSR_CMPE BSP_FLD32(16)
 
 /* field: STC - Self-test Complete */
-#define TMS570_CCMSR_STC BSP_FLD32(8)
+#define TMS570_CCMSR_CCMSR_STC BSP_FLD32(8)
 
 /* field: STET - Self-test Error Type */
-#define TMS570_CCMSR_STET BSP_FLD32(1)
+#define TMS570_CCMSR_CCMSR_STET BSP_FLD32(1)
 
 /* field: STE - Self-test Error */
-#define TMS570_CCMSR_STE BSP_FLD32(0)
+#define TMS570_CCMSR_CCMSR_STE BSP_FLD32(0)
 
 
-/*-----------------------TMS570_CCMKEYR-----------------------*/
+/*--------------------TMS570_CCMSRCCMKEYR--------------------*/
 /* field: MKEY - Mode Key */
-#define TMS570_CCMKEYR_MKEY(val) BSP_FLD32(val,0, 3)
-#define TMS570_CCMKEYR_MKEY_GET(reg) BSP_FLD32GET(reg,0, 3)
-#define TMS570_CCMKEYR_MKEY_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
+#define TMS570_CCMSR_CCMKEYR_MKEY(val) BSP_FLD32(val,0, 3)
+#define TMS570_CCMSR_CCMKEYR_MKEY_GET(reg) BSP_FLD32GET(reg,0, 3)
+#define TMS570_CCMSR_CCMKEYR_MKEY_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
 

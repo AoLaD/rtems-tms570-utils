@@ -38,73 +38,56 @@
 #include <bsp/utility.h>
 
 typedef struct{
-  uint32_t DCAN_CTL;          /*CAN Control Register*/
-  uint32_t DCAN_ES;           /*Error and Status Register*/
-  uint32_t DCAN_ERRC;         /*Error Counter Register*/
-  uint32_t DCAN_BTR;          /*Bit Timing Register*/
-  uint32_t DCAN_INT;          /*Interrupt Register*/
-  uint32_t DCAN_TEST;         /*Test Register*/
+  uint32_t CTL;               /*CAN Control Register*/
+  uint32_t ES;                /*Error and Status Register*/
+  uint32_t ERRC;              /*Error Counter Register*/
+  uint32_t BTR;               /*Bit Timing Register*/
+  uint32_t INT;               /*Interrupt Register*/
+  uint32_t TEST;              /*Test Register*/
   uint8_t reserved1 [4];
-  uint32_t DCAN_PERR;         /*Parity Error Code Register*/
+  uint32_t PERR;              /*Parity Error Code Register*/
   uint8_t reserved2 [96];
-  uint32_t DCAN_ABOTR;        /*Auto-Bus-On Time Register*/
-  uint32_t DCAN_TXRQX;        /*Transmission Request X Register*/
-  uint32_t DCAN_TXRQ12;       /*Transmission Request 12 Register*/
-  uint32_t DCAN_TXRQ34;       /*Transmission Request 34 Register*/
-  uint32_t DCAN_TXRQ56;       /*Transmission Request 56 Register*/
-  uint32_t DCAN_TXRQ78;       /*Transmission Request 78 Register*/
-  uint32_t DCAN_NWDATX;       /*New Data X Register*/
-  uint32_t DCAN_NWDAT12;      /*New Data 12 Register*/
-  uint32_t DCAN_NWDAT34;      /*New Data 34 Register*/
-  uint32_t DCAN_NWDAT56;      /*New Data 56 Register*/
-  uint32_t DCAN_NWDAT78;      /*New Data 78 Register*/
-  uint32_t DCAN_INTPNDX;      /*Interrupt Pending X Register*/
-  uint32_t DCAN_INTPND12;     /*Interrupt Pending 12 Register*/
-  uint32_t DCAN_INTPND34;     /*Interrupt Pending 34 Register*/
-  uint32_t DCAN_INTPND56;     /*Interrupt Pending 56 Register*/
-  uint32_t DCAN_INTPND78;     /*Interrupt Pending 78 Register*/
-  uint32_t DCAN_MSGVALX;      /*Message Valid X Register*/
-  uint32_t DCAN_MSGVAL12;     /*Message Valid 12 Register*/
-  uint32_t DCAN_MSGVAL34;     /*Message Valid 34 Register*/
-  uint32_t DCAN_MSGVAL56;     /*Message Valid 56 Register*/
-  uint32_t DCAN_MSGVAL78;     /*Message Valid 78 Register*/
+  uint32_t ABOTR;             /*Auto-Bus-On Time Register*/
+  uint32_t TXRQX;             /*Transmission Request X Register*/
+  uint32_t TXRQx[4];          /*Transmission Request Register*/
+  uint32_t NWDATX;            /*New Data X Register*/
+  uint32_t NWDATx[4];         /*New Data  Register*/
+  uint32_t INTPNDX;           /*Interrupt Pending X Register*/
+  uint32_t INTPNDx[4];        /*Interrupt Pending Register*/
+  uint32_t MSGVALX;           /*Message Valid X Register*/
+  uint32_t MSGVALx[4];        /*Message Valid Register*/
   uint8_t reserved3 [4];
-  uint32_t DCAN_INTMUX12;     /*Interrupt Multiplexer 12 Register*/
-  uint32_t DCAN_INTMUX34;     /*Interrupt Multiplexer 34 Register*/
-  uint32_t DCAN_INTMUX56;     /*Interrupt Multiplexer 56 Register*/
-  uint32_t DCAN_INTMUX78;     /*Interrupt Multiplexer 78 Register*/
+  uint32_t INTMUXx[4];        /*Interrupt Multiplexer Register*/
   uint8_t reserved4 [24];
-  uint32_t DCAN_IF1CMD;       /*IF1 Command Register*/
-  uint32_t DCAN_IF1MSK;       /*IF1 Mask Register*/
-  uint32_t DCAN_IF1ARB;       /*IF1 Arbitration Register*/
-  uint32_t DCAN_IF1MCTL;      /*IF1 Message Control Register*/
-  uint32_t DCAN_IF1DATA;      /*IF1 Data A Register*/
-  uint32_t DCAN_IF1DATB;      /*IF1 Data B Register*/
+  uint32_t IF1CMD;            /*IF1 Command Register*/
+  uint32_t IF1MSK;            /*IF1 Mask Register*/
+  uint32_t IF1ARB;            /*IF1 Arbitration Register*/
+  uint32_t IF1MCTL;           /*IF1 Message Control Register*/
+  uint32_t IF1DATA;           /*IF1 Data A Register*/
+  uint32_t IF1DATB;           /*IF1 Data B Register*/
   uint8_t reserved5 [8];
-  uint32_t DCAN_IF2CMD;       /*IF2 Command Register*/
-  uint32_t DCAN_IF2MSK;       /*IF2 Mask Register*/
-  uint32_t DCAN_IF2ARB;       /*IF2 Arbitration Register*/
-  uint32_t DCAN_IF2MCTL;      /*IF2 Message Control Register*/
-  uint32_t DCAN_IF2DATA;      /*IF2 Data A Register*/
-  uint32_t DCAN_IF2DATB;      /*IF2 Data B Register*/
+  uint32_t IF2CMD;            /*IF2 Command Register*/
+  uint32_t IF2MSK;            /*IF2 Mask Register*/
+  uint32_t IF2ARB;            /*IF2 Arbitration Register*/
+  uint32_t IF2MCTL;           /*IF2 Message Control Register*/
+  uint32_t IF2DATA;           /*IF2 Data A Register*/
+  uint32_t IF2DATB;           /*IF2 Data B Register*/
   uint8_t reserved6 [8];
-  uint32_t DCAN_IF3OBS;       /*IF3 Observation Register*/
-  uint32_t DCAN_IF3MSK;       /*IF3 Mask Register*/
-  uint32_t DCAN_IF3ARB;       /*IF3 Arbitration Register*/
-  uint32_t DCAN_IF3MCTL;      /*IF3 Message Control Register*/
-  uint32_t DCAN_IF3DATA;      /*IF3 Data A Register*/
-  uint32_t DCAN_IF3DATB;      /*IF3 Data B Register*/
+  uint32_t IF3OBS;            /*IF3 Observation Register*/
+  uint32_t IF3MSK;            /*IF3 Mask Register*/
+  uint32_t IF3ARB;            /*IF3 Arbitration Register*/
+  uint32_t IF3MCTL;           /*IF3 Message Control Register*/
+  uint32_t IF3DATA;           /*IF3 Data A Register*/
+  uint32_t IF3DATB;           /*IF3 Data B Register*/
   uint8_t reserved7 [8];
-  uint32_t DCAN_IF3UPD12;     /*IF3 Update Enable 12 Register*/
-  uint32_t DCAN_IF3UPD34;     /*IF3 Update Enable 34 Register*/
-  uint32_t DCAN_IF3UPD56;     /*IF3 Update Enable 56 Register*/
-  uint32_t DCAN_IF3UPD78;     /*IF3 Update Enable 78 Register*/
+  uint32_t IF3UEy[4];         /*IF3 Update Enable Register*/
   uint8_t reserved8 [112];
-  uint32_t DCAN_TIOC;         /*CAN TX IO Control Register*/
-  uint32_t DCAN_RIOC;         /*CAN RX IO Control Register*/
+  uint32_t TIOC;              /*CAN TX IO Control Register*/
+  uint32_t RIOC;              /*CAN RX IO Control Register*/
 } tms570_dcan_t;
 
-/*----------------------TMS570_DCAN_CTL----------------------*/
+
+/*-----------------------TMS570_DCANCTL-----------------------*/
 /* field: WUBA - Automatic wake up on bus activity when in local power down mode */
 #define TMS570_DCAN_CTL_WUBA BSP_FLD32(25)
 
@@ -162,7 +145,7 @@ typedef struct{
 #define TMS570_DCAN_CTL_Init BSP_FLD32(0)
 
 
-/*-----------------------TMS570_DCAN_ES-----------------------*/
+/*-----------------------TMS570_DCANES-----------------------*/
 /* field: PDA - Local power down mode acknowledge */
 #define TMS570_DCAN_ES_PDA BSP_FLD32(10)
 
@@ -193,7 +176,7 @@ typedef struct{
 #define TMS570_DCAN_ES_LEC_SET(reg,val) BSP_FLD32SET(reg, val,0, 2)
 
 
-/*----------------------TMS570_DCAN_ERRC----------------------*/
+/*----------------------TMS570_DCANERRC----------------------*/
 /* field: RP - Receive Error Passive */
 #define TMS570_DCAN_ERRC_RP BSP_FLD32(15)
 
@@ -208,7 +191,7 @@ typedef struct{
 #define TMS570_DCAN_ERRC_TEC_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*----------------------TMS570_DCAN_BTR----------------------*/
+/*-----------------------TMS570_DCANBTR-----------------------*/
 /* field: BRPE - Baud Rate Prescaler Extension. */
 #define TMS570_DCAN_BTR_BRPE(val) BSP_FLD32(val,16, 19)
 #define TMS570_DCAN_BTR_BRPE_GET(reg) BSP_FLD32GET(reg,16, 19)
@@ -235,7 +218,7 @@ typedef struct{
 #define TMS570_DCAN_BTR_BRP_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*----------------------TMS570_DCAN_INT----------------------*/
+/*-----------------------TMS570_DCANINT-----------------------*/
 /* field: Int1ID - Interrupt 1 Identifier (indicates the message object with the highest pending interrupt) */
 #define TMS570_DCAN_INT_Int1ID(val) BSP_FLD32(val,16, 23)
 #define TMS570_DCAN_INT_Int1ID_GET(reg) BSP_FLD32GET(reg,16, 23)
@@ -247,7 +230,7 @@ typedef struct{
 #define TMS570_DCAN_INT_Int0ID_SET(reg,val) BSP_FLD32SET(reg, val,0, 15)
 
 
-/*----------------------TMS570_DCAN_TEST----------------------*/
+/*----------------------TMS570_DCANTEST----------------------*/
 /* field: RDA - RAM Direct Access Enable */
 #define TMS570_DCAN_TEST_RDA BSP_FLD32(9)
 
@@ -269,7 +252,7 @@ typedef struct{
 #define TMS570_DCAN_TEST_Silent BSP_FLD32(3)
 
 
-/*----------------------TMS570_DCAN_PERR----------------------*/
+/*----------------------TMS570_DCANPERR----------------------*/
 /* field: Word_Number - Word number where parity error has been detected */
 #define TMS570_DCAN_PERR_Word_Number(val) BSP_FLD32(val,8, 10)
 #define TMS570_DCAN_PERR_Word_Number_GET(reg) BSP_FLD32GET(reg,8, 10)
@@ -281,14 +264,14 @@ typedef struct{
 #define TMS570_DCAN_PERR_Message_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_DCAN_ABOTR---------------------*/
+/*----------------------TMS570_DCANABOTR----------------------*/
 /* field: ABO_Time - Number of VBUS clock cycles before a Bus-Off recovery sequence is */
 #define TMS570_DCAN_ABOTR_ABO_Time(val) BSP_FLD32(val,0, 31)
 #define TMS570_DCAN_ABOTR_ABO_Time_GET(reg) BSP_FLD32GET(reg,0, 31)
 #define TMS570_DCAN_ABOTR_ABO_Time_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------TMS570_DCAN_TXRQX---------------------*/
+/*----------------------TMS570_DCANTXRQX----------------------*/
 /* field: TxRqstReg8 - TxRqstReg8 */
 #define TMS570_DCAN_TXRQX_TxRqstReg8(val) BSP_FLD32(val,14, 15)
 #define TMS570_DCAN_TXRQX_TxRqstReg8_GET(reg) BSP_FLD32GET(reg,14, 15)
@@ -330,35 +313,14 @@ typedef struct{
 #define TMS570_DCAN_TXRQX_TxRqstReg1_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
-/*---------------------TMS570_DCAN_TXRQ12---------------------*/
-/* field: TxRqs1To32 - Transmission Request Bits (for all message objects) */
-#define TMS570_DCAN_TXRQ12_TxRqs1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_TXRQ12_TxRqs1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_TXRQ12_TxRqs1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+/*----------------------TMS570_DCANTXRQx----------------------*/
+/* field: TxRqsX - Transmission Request Bits (for all message objects) */
+#define TMS570_DCAN_TXRQx_TxRqsX(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_TXRQx_TxRqsX_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_TXRQx_TxRqsX_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*---------------------TMS570_DCAN_TXRQ34---------------------*/
-/* field: TxRqs33To64 - Transmission Request Bits (for all message objects) */
-#define TMS570_DCAN_TXRQ34_TxRqs33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_TXRQ34_TxRqs33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_TXRQ34_TxRqs33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*---------------------TMS570_DCAN_TXRQ56---------------------*/
-/* field: TxRqs65To96 - Transmission Request Bits (for all message objects) */
-#define TMS570_DCAN_TXRQ56_TxRqs65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_TXRQ56_TxRqs65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_TXRQ56_TxRqs65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*---------------------TMS570_DCAN_TXRQ78---------------------*/
-/* field: TxRqs97To128 - Transmission Request Bits (for all message objects) */
-#define TMS570_DCAN_TXRQ78_TxRqs97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_TXRQ78_TxRqs97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_TXRQ78_TxRqs97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*---------------------TMS570_DCAN_NWDATX---------------------*/
+/*---------------------TMS570_DCANNWDATX---------------------*/
 /* field: NewDatReg8 - TxRqstReg8 */
 #define TMS570_DCAN_NWDATX_NewDatReg8(val) BSP_FLD32(val,14, 15)
 #define TMS570_DCAN_NWDATX_NewDatReg8_GET(reg) BSP_FLD32GET(reg,14, 15)
@@ -400,35 +362,14 @@ typedef struct{
 #define TMS570_DCAN_NWDATX_NewDatReg1_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
-/*--------------------TMS570_DCAN_NWDAT12--------------------*/
-/* field: NewDat1To32 - New Data Bits (for all message objects) */
-#define TMS570_DCAN_NWDAT12_NewDat1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_NWDAT12_NewDat1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_NWDAT12_NewDat1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+/*---------------------TMS570_DCANNWDATx---------------------*/
+/* field: NewDatX - New Data Bits (for all message objects) */
+#define TMS570_DCAN_NWDATx_NewDatX(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_NWDATx_NewDatX_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_NWDATx_NewDatX_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------TMS570_DCAN_NWDAT34--------------------*/
-/* field: NewDat33To64 - New Data Bits (for all message objects) */
-#define TMS570_DCAN_NWDAT34_NewDat33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_NWDAT34_NewDat33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_NWDAT34_NewDat33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_NWDAT56--------------------*/
-/* field: NewDat65To96 - New Data Bits (for all message objects) */
-#define TMS570_DCAN_NWDAT56_NewDat65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_NWDAT56_NewDat65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_NWDAT56_NewDat65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_NWDAT78--------------------*/
-/* field: NewDat97To128 - New Data Bits (for all message objects) */
-#define TMS570_DCAN_NWDAT78_NewDat97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_NWDAT78_NewDat97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_NWDAT78_NewDat97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTPNDX--------------------*/
+/*---------------------TMS570_DCANINTPNDX---------------------*/
 /* field: IntPndReg8 - If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Interrupt Pending X Register will be set. */
 #define TMS570_DCAN_INTPNDX_IntPndReg8(val) BSP_FLD32(val,14, 15)
 #define TMS570_DCAN_INTPNDX_IntPndReg8_GET(reg) BSP_FLD32GET(reg,14, 15)
@@ -470,35 +411,14 @@ typedef struct{
 #define TMS570_DCAN_INTPNDX_IntPndReg1_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
-/*--------------------TMS570_DCAN_INTPND12--------------------*/
-/* field: IntPnd1To32 - Interrupt Pending Bits (for all message objects) */
-#define TMS570_DCAN_INTPND12_IntPnd1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTPND12_IntPnd1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTPND12_IntPnd1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+/*---------------------TMS570_DCANINTPNDx---------------------*/
+/* field: IntPndX - Interrupt Pending Bits (for all message objects) */
+#define TMS570_DCAN_INTPNDx_IntPndX(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_INTPNDx_IntPndX_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_INTPNDx_IntPndX_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------TMS570_DCAN_INTPND34--------------------*/
-/* field: IntPnd33To64 - Interrupt Pending Bits (for all message objects) */
-#define TMS570_DCAN_INTPND34_IntPnd33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTPND34_IntPnd33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTPND34_IntPnd33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTPND56--------------------*/
-/* field: IntPnd65To96 - Interrupt Pending Bits (for all message objects) */
-#define TMS570_DCAN_INTPND56_IntPnd65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTPND56_IntPnd65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTPND56_IntPnd65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTPND78--------------------*/
-/* field: IntPnd97To128 - Interrupt Pending Bits (for all message objects) */
-#define TMS570_DCAN_INTPND78_IntPnd97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTPND78_IntPnd97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTPND78_IntPnd97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_MSGVALX--------------------*/
+/*---------------------TMS570_DCANMSGVALX---------------------*/
 /* field: MsgValReg8 - If at least one of the IntPnd bits of these message objects are set, the corresponding bit in the Message Valid X Register will be set. */
 #define TMS570_DCAN_MSGVALX_MsgValReg8(val) BSP_FLD32(val,14, 15)
 #define TMS570_DCAN_MSGVALX_MsgValReg8_GET(reg) BSP_FLD32GET(reg,14, 15)
@@ -540,63 +460,21 @@ typedef struct{
 #define TMS570_DCAN_MSGVALX_MsgValReg1_SET(reg,val) BSP_FLD32SET(reg, val,0, 1)
 
 
-/*--------------------TMS570_DCAN_MSGVAL12--------------------*/
+/*---------------------TMS570_DCANMSGVALx---------------------*/
 /* field: MsgVal1To32 - Message Valid Bits (for all message objects) */
-#define TMS570_DCAN_MSGVAL12_MsgVal1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_MSGVAL12_MsgVal1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_MSGVAL12_MsgVal1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_DCAN_MSGVALx_MsgVal1To32(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_MSGVALx_MsgVal1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_MSGVALx_MsgVal1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------TMS570_DCAN_MSGVAL34--------------------*/
-/* field: MsgVal33To64 - Message Valid Bits (for all message objects) */
-#define TMS570_DCAN_MSGVAL34_MsgVal33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_MSGVAL34_MsgVal33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_MSGVAL34_MsgVal33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_MSGVAL56--------------------*/
-/* field: MsgVal65To96 - Message Valid Bits (for all message objects) */
-#define TMS570_DCAN_MSGVAL56_MsgVal65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_MSGVAL56_MsgVal65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_MSGVAL56_MsgVal65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_MSGVAL78--------------------*/
-/* field: MsgVal97To128 - Message Valid Bits (for all message objects) */
-#define TMS570_DCAN_MSGVAL78_MsgVal97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_MSGVAL78_MsgVal97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_MSGVAL78_MsgVal97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTMUX12--------------------*/
+/*---------------------TMS570_DCANINTMUXx---------------------*/
 /* field: IntMux1To32 - Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines. */
-#define TMS570_DCAN_INTMUX12_IntMux1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTMUX12_IntMux1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTMUX12_IntMux1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_DCAN_INTMUXx_IntMux1To32(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_INTMUXx_IntMux1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_INTMUXx_IntMux1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------TMS570_DCAN_INTMUX34--------------------*/
-/* field: IntMux33To64 - Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines. */
-#define TMS570_DCAN_INTMUX34_IntMux33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTMUX34_IntMux33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTMUX34_IntMux33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTMUX56--------------------*/
-/* field: IntMux65To96 - Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines. */
-#define TMS570_DCAN_INTMUX56_IntMux65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTMUX56_IntMux65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTMUX56_IntMux65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_INTMUX78--------------------*/
-/* field: IntMux97To128 - Multiplexes IntPnd value to either DCAN0INT or DCAN1INT interrupt lines. */
-#define TMS570_DCAN_INTMUX78_IntMux97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_INTMUX78_IntMux97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_INTMUX78_IntMux97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*---------------------TMS570_DCAN_IF1CMD---------------------*/
+/*---------------------TMS570_DCANIF1CMD---------------------*/
 /* field: WR_RD - Write/Read */
 #define TMS570_DCAN_IF1CMD_WR_RD BSP_FLD32(23)
 
@@ -633,7 +511,7 @@ typedef struct{
 #define TMS570_DCAN_IF1CMD_Message_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_DCAN_IF1MSK---------------------*/
+/*---------------------TMS570_DCANIF1MSK---------------------*/
 /* field: MXtd - Mask Extended Identifier */
 #define TMS570_DCAN_IF1MSK_MXtd BSP_FLD32(31)
 
@@ -646,7 +524,7 @@ typedef struct{
 #define TMS570_DCAN_IF1MSK_Msk_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*---------------------TMS570_DCAN_IF1ARB---------------------*/
+/*---------------------TMS570_DCANIF1ARB---------------------*/
 /* field: MsgVal - Message Valid */
 #define TMS570_DCAN_IF1ARB_MsgVal BSP_FLD32(31)
 
@@ -662,7 +540,7 @@ typedef struct{
 #define TMS570_DCAN_IF1ARB_ID_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*--------------------TMS570_DCAN_IF1MCTL--------------------*/
+/*---------------------TMS570_DCANIF1MCTL---------------------*/
 /* field: NewDat - New Data */
 #define TMS570_DCAN_IF1MCTL_NewDat BSP_FLD32(15)
 
@@ -696,7 +574,7 @@ typedef struct{
 #define TMS570_DCAN_IF1MCTL_DLC_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*--------------------TMS570_DCAN_IF1DATA--------------------*/
+/*---------------------TMS570_DCANIF1DATA---------------------*/
 /* field: Data0 - Data 0 */
 #define TMS570_DCAN_IF1DATA_Data0(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF1DATA_Data0_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -718,7 +596,7 @@ typedef struct{
 #define TMS570_DCAN_IF1DATA_Data3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*--------------------TMS570_DCAN_IF1DATB--------------------*/
+/*---------------------TMS570_DCANIF1DATB---------------------*/
 /* field: Data4 - Data 4 */
 #define TMS570_DCAN_IF1DATB_Data4(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF1DATB_Data4_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -740,7 +618,7 @@ typedef struct{
 #define TMS570_DCAN_IF1DATB_Data7_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*---------------------TMS570_DCAN_IF2CMD---------------------*/
+/*---------------------TMS570_DCANIF2CMD---------------------*/
 /* field: WR_RD - Write/Read */
 #define TMS570_DCAN_IF2CMD_WR_RD BSP_FLD32(23)
 
@@ -777,7 +655,7 @@ typedef struct{
 #define TMS570_DCAN_IF2CMD_Message_Number_SET(reg,val) BSP_FLD32SET(reg, val,0, 7)
 
 
-/*---------------------TMS570_DCAN_IF2MSK---------------------*/
+/*---------------------TMS570_DCANIF2MSK---------------------*/
 /* field: MXtd - Mask Extended Identifier */
 #define TMS570_DCAN_IF2MSK_MXtd BSP_FLD32(31)
 
@@ -790,7 +668,7 @@ typedef struct{
 #define TMS570_DCAN_IF2MSK_Msk_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*---------------------TMS570_DCAN_IF2ARB---------------------*/
+/*---------------------TMS570_DCANIF2ARB---------------------*/
 /* field: MsgVal - Message Valid */
 #define TMS570_DCAN_IF2ARB_MsgVal BSP_FLD32(31)
 
@@ -806,7 +684,7 @@ typedef struct{
 #define TMS570_DCAN_IF2ARB_ID_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*--------------------TMS570_DCAN_IF2MCTL--------------------*/
+/*---------------------TMS570_DCANIF2MCTL---------------------*/
 /* field: NewDat - New Data */
 #define TMS570_DCAN_IF2MCTL_NewDat BSP_FLD32(15)
 
@@ -840,7 +718,7 @@ typedef struct{
 #define TMS570_DCAN_IF2MCTL_DLC_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*--------------------TMS570_DCAN_IF2DATA--------------------*/
+/*---------------------TMS570_DCANIF2DATA---------------------*/
 /* field: Data0 - Data 0 */
 #define TMS570_DCAN_IF2DATA_Data0(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF2DATA_Data0_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -862,7 +740,7 @@ typedef struct{
 #define TMS570_DCAN_IF2DATA_Data3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*--------------------TMS570_DCAN_IF2DATB--------------------*/
+/*---------------------TMS570_DCANIF2DATB---------------------*/
 /* field: Data4 - Data 4 */
 #define TMS570_DCAN_IF2DATB_Data4(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF2DATB_Data4_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -884,7 +762,7 @@ typedef struct{
 #define TMS570_DCAN_IF2DATB_Data7_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*---------------------TMS570_DCAN_IF3OBS---------------------*/
+/*---------------------TMS570_DCANIF3OBS---------------------*/
 /* field: IF3_Upd - IF3 Update Data */
 #define TMS570_DCAN_IF3OBS_IF3_Upd BSP_FLD32(15)
 
@@ -919,7 +797,7 @@ typedef struct{
 #define TMS570_DCAN_IF3OBS_Mask BSP_FLD32(0)
 
 
-/*---------------------TMS570_DCAN_IF3MSK---------------------*/
+/*---------------------TMS570_DCANIF3MSK---------------------*/
 /* field: MXtd - Mask Extended Identifier */
 #define TMS570_DCAN_IF3MSK_MXtd BSP_FLD32(31)
 
@@ -932,7 +810,7 @@ typedef struct{
 #define TMS570_DCAN_IF3MSK_Msk_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*---------------------TMS570_DCAN_IF3ARB---------------------*/
+/*---------------------TMS570_DCANIF3ARB---------------------*/
 /* field: MsgVal - Message Valid */
 #define TMS570_DCAN_IF3ARB_MsgVal BSP_FLD32(31)
 
@@ -948,7 +826,7 @@ typedef struct{
 #define TMS570_DCAN_IF3ARB_ID_SET(reg,val) BSP_FLD32SET(reg, val,0, 28)
 
 
-/*--------------------TMS570_DCAN_IF3MCTL--------------------*/
+/*---------------------TMS570_DCANIF3MCTL---------------------*/
 /* field: NewDat - New Data */
 #define TMS570_DCAN_IF3MCTL_NewDat BSP_FLD32(15)
 
@@ -982,7 +860,7 @@ typedef struct{
 #define TMS570_DCAN_IF3MCTL_DLC_SET(reg,val) BSP_FLD32SET(reg, val,0, 3)
 
 
-/*--------------------TMS570_DCAN_IF3DATA--------------------*/
+/*---------------------TMS570_DCANIF3DATA---------------------*/
 /* field: Data0 - Data 0 */
 #define TMS570_DCAN_IF3DATA_Data0(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF3DATA_Data0_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -1004,7 +882,7 @@ typedef struct{
 #define TMS570_DCAN_IF3DATA_Data3_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*--------------------TMS570_DCAN_IF3DATB--------------------*/
+/*---------------------TMS570_DCANIF3DATB---------------------*/
 /* field: Data4 - Data 4 */
 #define TMS570_DCAN_IF3DATB_Data4(val) BSP_FLD32(val,0, 7)
 #define TMS570_DCAN_IF3DATB_Data4_GET(reg) BSP_FLD32GET(reg,0, 7)
@@ -1026,35 +904,14 @@ typedef struct{
 #define TMS570_DCAN_IF3DATB_Data7_SET(reg,val) BSP_FLD32SET(reg, val,24, 31)
 
 
-/*--------------------TMS570_DCAN_IF3UPD12--------------------*/
-/* field: IF3UpdEn1To32 - IF3 Update Enabled (for all message objects) */
-#define TMS570_DCAN_IF3UPD12_IF3UpdEn1To32(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_IF3UPD12_IF3UpdEn1To32_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_IF3UPD12_IF3UpdEn1To32_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+/*---------------------TMS570_DCANIF3UEy---------------------*/
+/* field: IF3UpdEn - IF3 Update Enabled (for all message objects) */
+#define TMS570_DCAN_IF3UEy_IF3UpdEn(val) BSP_FLD32(val,0, 31)
+#define TMS570_DCAN_IF3UEy_IF3UpdEn_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_DCAN_IF3UEy_IF3UpdEn_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*--------------------TMS570_DCAN_IF3UPD34--------------------*/
-/* field: IF3UpdEn33To64 - IF3 Update Enabled (for all message objects) */
-#define TMS570_DCAN_IF3UPD34_IF3UpdEn33To64(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_IF3UPD34_IF3UpdEn33To64_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_IF3UPD34_IF3UpdEn33To64_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_IF3UPD56--------------------*/
-/* field: IF3UpdEn65To96 - IF3 Update Enabled (for all message objects) */
-#define TMS570_DCAN_IF3UPD56_IF3UpdEn65To96(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_IF3UPD56_IF3UpdEn65To96_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_IF3UPD56_IF3UpdEn65To96_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*--------------------TMS570_DCAN_IF3UPD78--------------------*/
-/* field: IF3UpdEn97To128 - IF3 Update Enabled (for all message objects) */
-#define TMS570_DCAN_IF3UPD78_IF3UpdEn97To128(val) BSP_FLD32(val,0, 31)
-#define TMS570_DCAN_IF3UPD78_IF3UpdEn97To128_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_DCAN_IF3UPD78_IF3UpdEn97To128_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
-
-
-/*----------------------TMS570_DCAN_TIOC----------------------*/
+/*----------------------TMS570_DCANTIOC----------------------*/
 /* field: PU - CAN_TX Pullup/Pulldown select. This bit is only active when CAN_TX is configured to be an input. */
 #define TMS570_DCAN_TIOC_PU BSP_FLD32(18)
 
@@ -1074,7 +931,7 @@ typedef struct{
 #define TMS570_DCAN_TIOC_Out BSP_FLD32(1)
 
 
-/*----------------------TMS570_DCAN_RIOC----------------------*/
+/*----------------------TMS570_DCANRIOC----------------------*/
 /* field: PU - CAN_RX Pullup/Pulldown select. This bit is only active when CAN_RX is configured to be an input. */
 #define TMS570_DCAN_RIOC_PU BSP_FLD32(18)
 
