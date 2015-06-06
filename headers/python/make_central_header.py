@@ -5,6 +5,8 @@ import codecs
 #import msvcrt
 import json
 
+
+
 class MCU(object):
     def __init__(self,name, pdf,author,peripherals):
         self.name = name
@@ -67,11 +69,11 @@ def spaces(num):
 def listToString(l):
     ret = "["
     for s in l:
-        ret += '"'+s+'", '        
+        ret += '"'+s+'", '
     return ret[0:-2]+']'
 
-def printInclude(file):    
-    print ('#include <bsp/'+file+'.h>')
+def printInclude(hout,file):
+    hout.write('#include <bsp/'+file+'.h>'+"\n")
     #print ('#include "'+file+'.h"')
 
 def findMinReg(regs):
@@ -83,7 +85,7 @@ def findMinReg(regs):
 			ret = r
 	return ret
 
-def printAdress(file):
+def printAdress(hout,file):
     data = json.loads(codecs.open(file, "r", "utf-8").read(), object_hook=object_decoder)
     for p in data.peripherals:
         for index,adr in enumerate(p.offset):            
@@ -96,7 +98,7 @@ def printAdress(file):
                 adress = hex(findMinReg(p.registers).adress).upper()
             elif(adr == "NONE"):
                 continue
-            print("#define "+name+" (*(volatile "+structName+'*)'+adress+')')
+            hout.write("#define "+name+" (*(volatile "+structName+'*)'+adress+')\n')
     
 import getopt,os
 
@@ -117,31 +119,29 @@ for opt, arg in opts:
       elif opt in ("-d"):
          hdir = arg
       elif opt in ("-f"):
-         files = arg.split()         
+         files = arg.split()
       elif opt in ("-l"):
          licence = codecs.open(arg, "r", "utf-8").readlines()
 if(hdir == "" or files == ""):
     print ('Invalid argument' )
     sys.exit()
 
-    
-        
-
-
+hout = sys.stdout
 name = json.loads(codecs.open(os.path.join(hdir,files[0]+'.json'), "r", "utf-8").read(), object_hook=object_decoder).name
-    
-for line in licence:
-    print(line.replace("\r\n", ""))
-print ("")
-print ("#ifndef LIBBSP_ARM_"+name.upper())
-print ("#define LIBBSP_ARM_"+name.upper())
-print ("")    
 
-for file in files:    
-    printInclude(file)
-print("")
-for file in files:    
-    printAdress(os.path.join(hdir,file)+".json")    
-print ("#endif /* LIBBSP_ARM_"+name.upper()+' */')
+
+for line in licence:
+    hout.write(line)
+hout.write("")
+hout.write("#ifndef LIBBSP_ARM_"+name.upper()+"\n")
+hout.write("#define LIBBSP_ARM_"+name.upper()+"\n")
+hout.write("")
+
+for file in files:
+    printInclude(hout,file)
+hout.write("\n")
+for file in files:
+    printAdress(hout,os.path.join(hdir,file)+".json")
+hout.write("#endif /* LIBBSP_ARM_"+name.upper()+' */\n')
 
 #jason = json.loads(codecs.open(inputfile, "r", "utf-8").read(), object_hook=object_decoder)
