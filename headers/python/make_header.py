@@ -124,13 +124,15 @@ def printRegInfo(hout, reg):
 
     if(lastAdress != reg.adress):
       reserved = makeReserved(lastAdress,reg.adress)
-    lastAdress = reg.adress+int((reg.lenght/8*reg.array))
+    
 
     if(reg.reg_type == None):
         if(reg.lenght == 32):
             regType = 'uint32_t '
+            lastAdress = reg.adress+int((reg.lenght/8*reg.array))
     else:
         regType = reg.reg_type+' '
+        lastAdress = reg.adress+int((reg.lenght*reg.array))
 
     regName = reg.name
     if(int(reg.array) > 1):
@@ -242,13 +244,13 @@ def prepareReg(reg):
 
 def makeRegs(hout, data):
     prefix = data.name.upper() + '_' + data.peripherals[0].name
-    #prefix = data.name.upper()
-    for p in reversed(data.peripherals):
+    #prefix = data.name.upper()    
+    for p in reversed(data.peripherals):        
         numberOfRegs = countRegs(p)
         for i in range(0,numberOfRegs):
             reg = findLowestAdress(p)
             if(reg == None):
-                return
+                break
             if(len(reg.fields) > 0):
                 hout.write(makeFirstLine(reg,prefix))
                 hout.write('\n')

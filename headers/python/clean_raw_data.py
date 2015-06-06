@@ -13,11 +13,12 @@ class MCU(object):
         self.peripherals = peripherals        
 
 class Peripheral(object):
-    def __init__(self,name,full_name,offset,registers):
+    def __init__(self,name,full_name,offset,sulf,registers):
         self.name = name
         self.registers = registers
         self.full_name = full_name
         self.offset = offset
+        self.sulf = sulf
         self.used = 0
 
 class Register(object):
@@ -69,7 +70,10 @@ def object_decoder(obj):
             temporal_values = obj['values']
         return Fields(obj['bit_number'], None, obj['bit_Field_Name'], obj['info'],temporal_values)                    
     elif 'registers' in obj:
-        return Peripheral(obj['name'], obj['full name'],obj['offset'],obj['registers'])
+        sulf = None
+        if('sulfixes' in obj):
+            sulf = obj['sulfixes']
+        return Peripheral(obj['name'], obj['full name'],obj['offset'],sulf,obj['registers'])        
     elif 'peripherals' in obj:
         return MCU(obj['author'], obj['name'],obj['pdf'],obj['peripherals'])
     else:
@@ -98,6 +102,8 @@ def printAll(obj):
             print(spaces(6)+"\"name\" : \""+p.name+"\",")
             print(spaces(6)+'"full name" : "'+p.full_name+'",')
             print(spaces(6)+'"offset" : '+listToString(p.offset)+',')
+            if(p.sulf != None):
+                print(spaces(6)+'"sulfixes" : '+listToString(p.sulf)+',')
             print(spaces(6)+"\"registers\" : [")            
             for indexR,r in enumerate(p.registers):
                   print(spaces(8)+"{")

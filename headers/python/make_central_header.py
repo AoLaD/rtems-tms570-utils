@@ -13,11 +13,12 @@ class MCU(object):
         self.peripherals = peripherals        
 
 class Peripheral(object):
-    def __init__(self,name,full_name,offset,registers):
+    def __init__(self,name,full_name,offset,sulf,registers):
         self.name = name
         self.registers = registers
         self.full_name = full_name
         self.offset = offset
+        self.sulf = sulf
         self.used = 0
 
 class Register(object):
@@ -48,7 +49,10 @@ def object_decoder(obj):
     if 'adress' in obj:            
         return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], None, obj['fields'],None,None,None)
     elif 'registers' in obj:
-        return Peripheral(obj['name'], obj['full name'],obj['offset'],obj['registers'])
+        sulf = None
+        if('sulfixes' in obj):        
+            sulf = obj['sulfixes']
+        return Peripheral(obj['name'], obj['full name'],obj['offset'],sulf,obj['registers'])
     elif 'peripherals' in obj:
         return MCU(obj['name'], obj['name'],obj['pdf'],obj['peripherals'])
     else:
@@ -74,20 +78,20 @@ def findMinReg(regs):
 	local_min = 0xFFFFFFFF
 	ret = regs[0]
 	for r in regs:
-		if(r.adress<local_min):			
+		if(r.adress<local_min):
 			local_min = r.adress
-			ret = r	
+			ret = r
 	return ret
 
-def printAdress(file):    
+def printAdress(file):
     data = json.loads(codecs.open(file, "r", "utf-8").read(), object_hook=object_decoder)
     for p in data.peripherals:
-        for index,adr in enumerate(p.offset):
+        for index,adr in enumerate(p.offset):            
             name = data.name.upper()+'_'+p.name.upper()
             structName = data.name+'_'+p.name.lower()+"_t"
             adress = adr
             if(len(p.offset)>1):
-                name += str(index+1)
+                name += str(p.sulf[index])
             if(adr == "REAL"):
                 adress = hex(findMinReg(p.registers).adress).upper()
             elif(adr == "NONE"):
