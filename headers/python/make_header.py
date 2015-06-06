@@ -8,7 +8,7 @@ import json
 class MCU(object):
     def __init__(self,name, peripherals):
         self.name = name
-        self.peripherals = peripherals        
+        self.peripherals = peripherals
 
 class Peripheral(object):
     def __init__(self,name,registers):
@@ -26,7 +26,7 @@ class Register(object):
         if(temporal_group_pos != None):
             self.group_pos = temporal_group_pos
             for i,number in enumerate(temporal_group_pos):
-                self.group_pos[i] = int(number,16)                
+                self.group_pos[i] = int(number,16)
         self.group_name = temporal_group_name
         self.group_name_actual = None
         self.used = 0
@@ -44,7 +44,7 @@ class Fields(object):
         self.bit_Field_Name = bit_Field_Name
         self.info = info
         self.values = values
-        
+
 import json
 
 
@@ -67,10 +67,10 @@ def object_decoder(obj):
             temporal_type = obj['type']
         return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], temporal_fields,temporal_array,temporal_type, temporal_group_pos,temporal_group_name)
     elif 'bit_Field_Name' in obj:
-        temporal_values = None        
+        temporal_values = None
         if('values' in obj):
-            temporal_values = obj['values']        
-        return Fields(obj['start_bit'], obj['bit_lenght'], obj['bit_Field_Name'], obj['info'],temporal_values)            
+            temporal_values = obj['values']
+        return Fields(obj['start_bit'], obj['bit_lenght'], obj['bit_Field_Name'], obj['info'],temporal_values)
         #return Fields(obj['bit_position'], obj['lenght'], obj['bit_Field_Name'], obj['info'], obj['values'])
     elif 'registers' in obj:
         return Peripheral(obj['name'], obj['registers'])
@@ -79,32 +79,32 @@ def object_decoder(obj):
     else:
         return obj
 
-def makeFile( loaded_jason ):
+def makeFile(hout, loaded_jason ):
     global licence
     for line in licence:
-        print(line.replace("\r\n", ""))
-    print ("#ifndef LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name)
-    print ("#define LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name)
-    print ("")
-    print ("#include <bsp/utility.h>")
+        hout.write(line.replace("\r\n", "\n"))
+    hout.write("#ifndef LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name+'\n')
+    hout.write("#define LIBBSP_ARM_"+loaded_jason.name+'_'+loaded_jason.peripherals[0].name+'\n')
+    hout.write('\n')
+    hout.write("#include <bsp/utility.h>\n")
 
 def findLowestAdress(data):
     last = 0
     minimum = None
     minimum_value = int("0xFFFFFFFF",16)
-    for val in data.registers:        
+    for val in data.registers:
         #prepareReg(val)
         if(val.used != 0):
-            continue        
+            continue
         if(val.adress < minimum_value):
             minimum = val
-            minimum_value = val.adress    
+            minimum_value = val.adress
     return minimum
 
 def fillBlanks(string):
     for i in range(0,30-len(string)) :
         string+=' '
-    return string    
+    return string
 
 reservedID = 0
 def makeReserved(prevAdress, nextAdress):
@@ -112,40 +112,42 @@ def makeReserved(prevAdress, nextAdress):
     rozdil = nextAdress - prevAdress
     string = ''
     reservedID += 1
-    return '  uint8_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n    
-    
+    return '  uint8_t reserved' + str(reservedID) + ' [' + str(rozdil) + '];' #\n
+
 lastAdress = 0
-def printRegInfo(reg):
+def printRegInfo(hout, reg):
     global lastAdress
     reserved = ''
-    
+
     if(lastAdress == 0):
         lastAdress = reg.adress
-    
+
     if(lastAdress != reg.adress):
-      reserved = makeReserved(lastAdress,reg.adress)    
-    lastAdress = reg.adress+int((reg.lenght/8*reg.array))
+      reserved = makeReserved(lastAdress,reg.adress)
+    
 
     if(reg.reg_type == None):
         if(reg.lenght == 32):
             regType = 'uint32_t '
+            lastAdress = reg.adress+int((reg.lenght/8*reg.array))
     else:
         regType = reg.reg_type+' '
-        
+        lastAdress = reg.adress+int((reg.lenght*reg.array))
+
     regName = reg.name
     if(int(reg.array) > 1):
         regName += '['+str(reg.array)+']'
-    
-    info = '/*'+reg.info+'*/'    
+
+    info = '/*'+reg.info+'*/'
     prefix = '  '+regType+regName+';'
 
     if(reg.group_name_actual != None):
         info = info.replace('{}',reg.group_name_actual)
-        prefix = prefix.replace('{}',reg.group_name_actual) 
-    
+        prefix = prefix.replace('{}',reg.group_name_actual)
+
     if(reserved != ''):
-        print(reserved)        
-    print(fillBlanks(prefix)+info)
+        hout.write(reserved+'\n')
+    hout.write(fillBlanks(prefix)+info+'\n')
 
 def countRegs(data):
     count = 0
@@ -156,36 +158,36 @@ def countRegs(data):
             count += 1
     return count
 
-def makeStruct(data):
+def makeStruct(hout, data):
     global lastAdress
     for p in reversed(data.peripherals):
         lastAdress = 0
         for r in p.registers:
             prepareReg(r)
         numberOfRegs = countRegs(p)
-        print ('typedef struct{')
+        hout.write('typedef struct{\n')
         for i in range(0,numberOfRegs):
             #print(data.peripherals[0].registers[0].used)
             reg = findLowestAdress(p)
-            printRegInfo(reg)
+            printRegInfo(hout, reg)
             makeRegUsed(reg)
             prepareReg(reg)
-        print ('} '+data.name+'_'+p.name.lower()+"_t;\n")
+        hout.write('} '+data.name+'_'+p.name.lower()+"_t;\n\n")
 
 def makeFirstLine(reg,prefix):
     block = prefix+reg.name
     if(reg.group_name_actual != None):
         block = block.replace('{}',reg.group_name_actual)
-        
+
     spaceCount = int((60-len(block))/2)
     for i in range(0,spaceCount):
-        block = '-'+block            
-        block += '-'     
+        block = '-'+block
+        block += '-'
     return "/*"+block+"*/"
 
 def makeBlock(reg,prefix):
     block = ''
-    
+
     for i in range(0,len(reg.fields)):
         fieldName = reg.fields[i].bit_Field_Name.replace(" ", "_")
         lenght = int(reg.fields[i].lenght)
@@ -200,7 +202,7 @@ def makeBlock(reg,prefix):
         #    macroName = prefix+reg.name.replace(peripheral,"")+'_'+fieldName
         #if(len(macroName)>27):
         #    macroName = prefix+reg.name[:5]+'_'+fieldName
-        
+
         if (lenght != 1):
             block += "#define "+macroName+'(val) BSP_FLD32(val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += "#define "+macroName+'_GET(reg) BSP_FLD32GET(reg,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
@@ -211,14 +213,14 @@ def makeBlock(reg,prefix):
             block += '\n'
 
     if(reg.group_name_actual != None):
-        block = block.replace('{}',reg.group_name_actual)    
+        block = block.replace('{}',reg.group_name_actual)
     return block
 
 def makeRegUsed(reg):
     if(reg.group_pos != None):
         if(len(reg.group_pos)>1):
             index = reg.group_name.index(reg.group_name_actual)
-            reg.group_name.remove(reg.group_name_actual)            
+            reg.group_name.remove(reg.group_name_actual)
             reg.group_pos.remove(reg.group_pos[index])
             return
     reg.used = 1
@@ -232,26 +234,28 @@ def prepareReg(reg):
             for i,val in enumerate(reg.group_pos):
                 if(val < minimum):
                     minimum = val
-                    indexOfMin = i    
-            reg.group_name_actual = reg.group_name[indexOfMin]        
+                    indexOfMin = i
+            reg.group_name_actual = reg.group_name[indexOfMin]
             reg.adress = reg.group_pos[indexOfMin]
-            
+
         else:
             reg.adress = sys.maxsize
-            
 
-def makeRegs(data):
+
+def makeRegs(hout, data):
     prefix = data.name.upper() + '_' + data.peripherals[0].name
-    #prefix = data.name.upper()
-    for p in reversed(data.peripherals):
+    #prefix = data.name.upper()    
+    for p in reversed(data.peripherals):        
         numberOfRegs = countRegs(p)
         for i in range(0,numberOfRegs):
             reg = findLowestAdress(p)
             if(reg == None):
-                return
+                break
             if(len(reg.fields) > 0):
-                print(makeFirstLine(reg,prefix))
-                print(makeBlock(reg,prefix))
+                hout.write(makeFirstLine(reg,prefix))
+                hout.write('\n')
+                hout.write(makeBlock(reg,prefix))
+                hout.write('\n')
             reg.used = 1
 
 import getopt,os
@@ -278,26 +282,27 @@ def main(argv):
       elif opt in ("-l", "--ifile"):
          licence = codecs.open(arg, "r", "utf-8").readlines()
          #inputfile = arg
-      
+
 
 if __name__ == "__main__":
    main(sys.argv[1:])
-    
+
 exit
-    
+
+hout = sys.stdout
+
 jason = codecs.open(inputfile, "r", "utf-8").read()
 
 nacetlo = json.loads(jason, object_hook=object_decoder)
 
-makeFile(nacetlo)
-print("")
-makeStruct(nacetlo)
-print("")
+makeFile(hout, nacetlo)
+hout.write('\n')
+makeStruct(hout, nacetlo)
+hout.write('\n')
 nacetlo = json.loads(jason, object_hook=object_decoder)
-makeRegs(nacetlo)
-print("")
-print ("#endif /* LIBBSP_ARM_"+nacetlo.name+'_'+nacetlo.peripherals[0].name+' */')
-
+makeRegs(hout, nacetlo)
+hout.write('\n')
+hout.write("#endif /* LIBBSP_ARM_"+nacetlo.name+'_'+nacetlo.peripherals[0].name+' */\n')
 
 #print (nacetlo[0].fields[0].bit_number)
 
