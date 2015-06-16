@@ -1078,11 +1078,12 @@
           ]
         },
 {
-          "name" : "RX0FLOWTHRESH",
-          "info" : "Receive Channel 0 Flow Control Threshold Register",
+          "name" : "RXFLOWTHRESH",
+          "info" : "Receive Channel Flow Control Threshold Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "120",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "7-0",
@@ -1092,11 +1093,12 @@
           ]
         },
 {
-          "name" : "RX0FREEBUFFER",
-          "info" : "Receive Channel 0 Free Buffer Count Register",
+          "name" : "RXFREEBUFFER",
+          "info" : "Receive Channel Free Buffer Count Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "140",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "15-0",
@@ -1110,7 +1112,7 @@
           "info" : "MAC Control Register",
           "lenght" : "32",
           "adress" : "0",
-          "offset" : "160",
+          "offset" : "160",          
           "fields" : [
              {
                "bit_number" : "15",
@@ -1639,11 +1641,12 @@
           ]
         },
 {
-          "name" : "TX0HDP",
-          "info" : "Transmit Channel 0 DMA Head Descriptor Pointer Register",
+          "name" : "TXHDP",
+          "info" : "Transmit Channel DMA Head Descriptor Pointer Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "600",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31-0",
@@ -1653,11 +1656,12 @@
           ]
         },
 {
-          "name" : "RX0HDP",
-          "info" : "Receive Channel 0 DMA Head Descriptor Pointer Register",
+          "name" : "RXHDP",
+          "info" : "Receive Channel DMA Head Descriptor Pointer Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "620",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31-0",
@@ -1667,11 +1671,12 @@
           ]
         },
 {
-          "name" : "TX0CP",
-          "info" : "Transmit Channel 0 Completion Pointer Register",
+          "name" : "TXCP",
+          "info" : "Transmit Channel Completion Pointer Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "640",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31-0",
@@ -1681,25 +1686,12 @@
           ]
         },
 {
-          "name" : "RX0CP",
-          "info" : "Receive Channel 0 Completion Pointer Register",
+          "name" : "RXCP",
+          "info" : "Receive Channel Completion Pointer Register",
           "lenght" : "32",
           "adress" : "0",
           "offset" : "660",
-          "fields" : [
-             {
-               "bit_number" : "31-0",
-               "bit_Field_Name" : "RXnCP",
-               "info" : "Receive channel n completion pointer register is written by the host with the buffer descriptor"
-             }
-          ]
-        },
-{
-          "name" : "RX7CP",
-          "info" : "Receive Channel 7 Completion Pointer Register",
-          "lenght" : "32",
-          "adress" : "0",
-          "offset" : "67C",
+          "array" : "8",
           "fields" : [
              {
                "bit_number" : "31-0",

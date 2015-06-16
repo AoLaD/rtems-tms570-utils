@@ -69,6 +69,8 @@
 #include <bsp/POM.h>
 #include <bsp/SPI.h>
 #include <bsp/STC.h>
+#include <bsp/MDIO.h>
+#include <bsp/EMACM.h>
 
 #define TMS570_ADC1 (*(volatile tms570_adc_t*)0xFFF7C000)
 #define TMS570_ADC2 (*(volatile tms570_adc_t*)0xFFF7C200)
@@ -117,4 +119,6 @@
 #define TMS570_POM (*(volatile tms570_pom_t*)0XFFA04000)
 #define TMS570_SPI (*(volatile tms570_spi_t*)0xFFF7F400)
 #define TMS570_STC (*(volatile tms570_stc_t*)0xFFFFE600)
+#define TMS570_MDIO (*(volatile tms570_mdio_t*)0xFCF78900)
+#define TMS570_EMACM (*(volatile tms570_emacm_t*)0xFCF78000)
 #endif /* LIBBSP_ARM_TMS570 */
