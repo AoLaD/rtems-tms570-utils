@@ -1,0 +1,1714 @@
+{
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "EMACM",
+      "full name" : "Ethernet Media Access Controller (EMAC) Registers",
+      "offset" : ["0xFCF78000"],
+      "registers" :
+      [
+
+{
+          "name" : "TXREVID",
+          "info" : "Transmit Revision ID Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TXREV",
+               "info" : "Transmit module revision",
+               "values" : [
+                 {"value" : "4EC0 020Dh", "desc" : "Current transmit revision value"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "TXCONTROL",
+          "info" : "Transmit Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TXEN",
+               "info" : "Transmit enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmit is disabled."},
+                 {"value" : "1", "desc" : "Transmit is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "TXTEARDOWN",
+          "info" : "Transmit Teardown Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "TXTDNCH",
+               "info" : "Transmit teardown channel. The transmit channel teardown is commanded by writing the encoded",
+               "values" : [
+                 {"value" : "0", "desc" : "Teardown transmit channel 0"},
+                 {"value" : "1h", "desc" : "Teardown transmit channel 1"},
+                 {"value" : "2h", "desc" : "Teardown transmit channel 2"},
+                 {"value" : "3h", "desc" : "Teardown transmit channel 2"},
+                 {"value" : "4h", "desc" : "Teardown transmit channel 4"},
+                 {"value" : "5h", "desc" : "Teardown transmit channel 5"},
+                 {"value" : "6h", "desc" : "Teardown transmit channel 6"},
+                 {"value" : "7h", "desc" : "Teardown transmit channel 7"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RXREVID",
+          "info" : "Receive Revision ID Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RXREV",
+               "info" : "Receive module revision",
+               "values" : [
+                 {"value" : "4EC0 020Dh", "desc" : "Current receive revision value"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RXCONTROL",
+          "info" : "Receive Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RXEN",
+               "info" : "Receive enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Receive is disabled."},
+                 {"value" : "1", "desc" : "Receive is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RXTEARDOWN",
+          "info" : "Receive Teardown Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "18",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "RXTDNCH",
+               "info" : "Receive teardown channel. The receive channel teardown is commanded by writing the encoded value",
+               "values" : [
+                 {"value" : "0", "desc" : "Teardown receive channel 0"},
+                 {"value" : "1h", "desc" : "Teardown receive channel 1"},
+                 {"value" : "2h", "desc" : "Teardown receive channel 2"},
+                 {"value" : "3h", "desc" : "Teardown receive channel 3"},
+                 {"value" : "4h", "desc" : "Teardown receive channel 4"},
+                 {"value" : "5h", "desc" : "Teardown receive channel 5"},
+                 {"value" : "6h", "desc" : "Teardown receive channel 6"},
+                 {"value" : "7h", "desc" : "Teardown receive channel 7"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "TXINTSTATRAW",
+          "info" : "Transmit Interrupt Status (Unmasked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "TX7PEND",
+               "info" : "TX7PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "TX6PEND",
+               "info" : "TX6PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "TX5PEND",
+               "info" : "TX5PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TX4PEND",
+               "info" : "X4PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "TX3PEND",
+               "info" : "TX3PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "TX2PEND",
+               "info" : "TX2PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TX1PEND",
+               "info" : "TX1PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TX0PEND",
+               "info" : "TX0PEND raw interrupt read (before mask)"
+             }
+          ]
+        },
+{
+          "name" : "TXINTSTATMASKED",
+          "info" : "Transmit Interrupt Status (Masked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "TX7PEND",
+               "info" : "TX7PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "TX6PEND",
+               "info" : "TX6PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "TX5PEND",
+               "info" : "TX5PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TX4PEND",
+               "info" : "TX4PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "TX3PEND",
+               "info" : "TX3PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "TX2PEND",
+               "info" : "TX2PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TX1PEND",
+               "info" : "TX1PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TX0PEND",
+               "info" : "TX0PEND masked interrupt read"
+             }
+          ]
+        },
+{
+          "name" : "TXINTMASKSET",
+          "info" : "Transmit Interrupt Mask Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "TX7MASK",
+               "info" : "Transmit channel 7 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "TX6MASK",
+               "info" : "Transmit channel 6 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "TX5MASK",
+               "info" : "Transmit channel 5 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TX4MASK",
+               "info" : "Transmit channel 4 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "TX3MASK",
+               "info" : "Transmit channel 3 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "TX2MASK",
+               "info" : "Transmit channel 2 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TX1MASK",
+               "info" : "Transmit channel 1 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TX0MASK",
+               "info" : "Transmit channel 0 interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "TXINTMASKCLEAR",
+          "info" : "Transmit Interrupt Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "TX7MASK",
+               "info" : "Transmit channel 7 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "TX6MASK",
+               "info" : "Transmit channel 6 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "TX5MASK",
+               "info" : "Transmit channel 5 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TX4MASK",
+               "info" : "Transmit channel 4 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "TX3MASK",
+               "info" : "Transmit channel 3 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "TX2MASK",
+               "info" : "Transmit channel 2 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "TX1MASK",
+               "info" : "Transmit channel 1 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TX0MASK",
+               "info" : "Transmit channel 0 interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "MACINVECTOR",
+          "info" : "MAC Input Vector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "bit_number" : "27",
+               "bit_Field_Name" : "STATPEND",
+               "info" : "EMAC module statistics interrupt (STATPEND) pending status bit"
+             },
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "HOSTPEND",
+               "info" : "EMAC module host error interrupt (HOSTPEND) pending status bit"
+             },
+             {
+               "bit_number" : "25",
+               "bit_Field_Name" : "LINKINT0",
+               "info" : "MDIO module USERPHYSEL0 (LINKINT0) status bit"
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "USERINT0",
+               "info" : "MDIO module USERACCESS0 (USERINT0) status bit"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "TXPEND",
+               "info" : "Transmit channels 0-7 interrupt (TXnPEND) pending status. Bit 16 is TX0PEND."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "RXTHRESHPEND",
+               "info" : "Receive channels 0-7 interrupt (RXnTHRESHPEND) pending status. Bit 8 is"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "RXPEND",
+               "info" : "Receive channels 0-7 interrupt (RXnPEND) pending status bit. Bit 0 is RX0PEND."
+             }
+          ]
+        },
+{
+          "name" : "MACEOIVECTOR",
+          "info" : "MAC End Of Interrupt Vector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "94",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "INTVECT",
+               "info" : "Acknowledge EMAC Control Module Interrupts",
+               "values" : [
+                 {"value" : "0h", "desc" : "Acknowledge C0RXTHRESH Interrupt"},
+                 {"value" : "1h", "desc" : "Acknowledge C0RX Interrupt"},
+                 {"value" : "2h", "desc" : "Acknowledge C0TX Interrupt"},
+                 {"value" : "3h", "desc" : "Acknowledge C0MISC Interrupt (STATPEND, HOSTPEND, MDIO LINKINT0, MDIO USERINT0)"},
+                 {"value" : "4h", "desc" : "Acknowledge C1RXTHRESH Interrupt"},
+                 {"value" : "5h", "desc" : "Acknowledge C1RX Interrupt"},
+                 {"value" : "6h", "desc" : "Acknowledge C1TX Interrupt"},
+                 {"value" : "7h", "desc" : "Acknowledge C1MISC Interrupt (STATPEND, HOSTPEND, MDIO LINKINT0, MDIO USERINT0)"},
+                 {"value" : "8h", "desc" : "Acknowledge C2RXTHRESH Interrupt"},
+                 {"value" : "9h", "desc" : "Acknowledge C2RX Interrupt"},
+                 {"value" : "Ah", "desc" : "Acknowledge C2TX Interrupt"},
+                 {"value" : "Bh", "desc" : "Acknowledge C2MISC Interrupt (STATPEND, HOSTPEND, MDIO LINKINT0, MDIO USERINT0)"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RXINTSTATRAW",
+          "info" : "Receive Interrupt Status (Unmasked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A0",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RX7THRESHPEND",
+               "info" : "RX7THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "RX6THRESHPEND",
+               "info" : "RX6THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RX5THRESHPEND",
+               "info" : "RX5THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "RX4THRESHPEND",
+               "info" : "RX4THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "RX3THRESHPEND",
+               "info" : "RX3THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "RX2THRESHPEND",
+               "info" : "RX2THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "RX1THRESHPEND",
+               "info" : "RX1THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RX0THRESHPEND",
+               "info" : "RX0THRESHPEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RX7PEND",
+               "info" : "RX7PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RX6PEND",
+               "info" : "RX6PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RX5PEND",
+               "info" : "RX5PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RX4PEND",
+               "info" : "RX4PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RX3PEND",
+               "info" : "RX3PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RX2PEND",
+               "info" : "RX2PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RX1PEND",
+               "info" : "RX1PEND raw interrupt read (before mask)"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RX0PEND",
+               "info" : "RX0PEND raw interrupt read (before mask)"
+             }
+          ]
+        },
+{
+          "name" : "RXINTSTATMASKED",
+          "info" : "Receive Interrupt Status (Masked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A4",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RX7THRESHPEND",
+               "info" : "RX7THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "RX6THRESHPEND",
+               "info" : "RX6THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RX5THRESHPEND",
+               "info" : "RX5THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "RX4THRESHPEND",
+               "info" : "RX4THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "RX3THRESHPEND",
+               "info" : "RX3THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "RX2THRESHPEND",
+               "info" : "RX2THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "RX1THRESHPEND",
+               "info" : "RX1THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RX0THRESHPEND",
+               "info" : "RX0THRESHPEND masked interrupt read"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RX7PEND",
+               "info" : "RX7PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RX6PEND",
+               "info" : "RX6PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RX5PEND",
+               "info" : "RX5PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RX4PEND",
+               "info" : "RX4PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RX3PEND",
+               "info" : "RX3PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RX2PEND",
+               "info" : "RX2PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RX1PEND",
+               "info" : "RX1PEND masked interrupt read"
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RX0PEND",
+               "info" : "RX0PEND masked interrupt read"
+             }
+          ]
+        },
+{
+          "name" : "RXINTMASKSET",
+          "info" : "Receive Interrupt Mask Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A8",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RX7THRESHMASK",
+               "info" : "Receive channel 7 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "RX6THRESHMASK",
+               "info" : "Receive channel 6 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RX5THRESHMASK",
+               "info" : "Receive channel 5 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "RX4THRESHMASK",
+               "info" : "Receive channel 4 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "RX3THRESHMASK",
+               "info" : "Receive channel 3 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "RX2THRESHMASK",
+               "info" : "Receive channel 2 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "RX1THRESHMASK",
+               "info" : "Receive channel 1 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RX0THRESHMASK",
+               "info" : "Receive channel 0 threshold mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RX7MASK",
+               "info" : "Receive channel 7 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RX6MASK",
+               "info" : "Receive channel 6 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RX5MASK",
+               "info" : "Receive channel 5 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RX4MASK",
+               "info" : "Receive channel 4 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RX3MASK",
+               "info" : "Receive channel 3 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RX2MASK",
+               "info" : "Receive channel 2 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RX1MASK",
+               "info" : "Receive channel 1 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RX0MASK",
+               "info" : "Receive channel 0 mask set bit. Write 1 to enable interrupt; a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "RXINTMASKCLEAR",
+          "info" : "Receive Interrupt Mask Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "AC",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RX7THRESHMASK",
+               "info" : "Receive channel 7 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "RX6THRESHMASK",
+               "info" : "Receive channel 6 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RX5THRESHMASK",
+               "info" : "Receive channel 5 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "12",
+               "bit_Field_Name" : "RX4THRESHMASK",
+               "info" : "Receive channel 4 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "RX3THRESHMASK",
+               "info" : "Receive channel 3 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "RX2THRESHMASK",
+               "info" : "Receive channel 2 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "RX1THRESHMASK",
+               "info" : "Receive channel 1 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RX0THRESHMASK",
+               "info" : "Receive channel 0 threshold mask clear bit. Write 1 to disable interrupt; a write of 0 has no"
+             },
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RX7MASK",
+               "info" : "Receive channel 7 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RX6MASK",
+               "info" : "Receive channel 6 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RX5MASK",
+               "info" : "Receive channel 5 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RX4MASK",
+               "info" : "Receive channel 4 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RX3MASK",
+               "info" : "Receive channel 3 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RX2MASK",
+               "info" : "Receive channel 2 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RX1MASK",
+               "info" : "Receive channel 1 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RX0MASK",
+               "info" : "Receive channel 0 mask clear bit. Write 1 to disable interrupt; a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "MACINTSTATRAW",
+          "info" : "MAC Interrupt Status (Unmasked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B0",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "HOSTPEND",
+               "info" : "Host pending interrupt (HOSTPEND); raw interrupt read (before mask)."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "STATPEND",
+               "info" : "Statistics pending interrupt (STATPEND); raw interrupt read (before mask)."
+             }
+          ]
+        },
+{
+          "name" : "MACINTSTATMASKED",
+          "info" : "MAC Interrupt Status (Masked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B4",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "HOSTPEND",
+               "info" : "Host pending interrupt (HOSTPEND); masked interrupt read."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "STATPEND",
+               "info" : "Statistics pending interrupt (STATPEND); masked interrupt read."
+             }
+          ]
+        },
+{
+          "name" : "MACINTMASKSET",
+          "info" : "MAC Interrupt Mask Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B8",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "HOSTMASK",
+               "info" : "Host error interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "STATMASK",
+               "info" : "Statistics interrupt mask set bit. Write 1 to enable interrupt, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "MACINTMASKCLEAR",
+          "info" : "MAC Interrupt Mask Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "BC",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "HOSTMASK",
+               "info" : "Host error interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "STATMASK",
+               "info" : "Statistics interrupt mask clear bit. Write 1 to disable interrupt, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "RXMBPENABLE",
+          "info" : "Receive Multicast/Broadcast/Promiscuous Channel Enable",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "100",
+          "fields" : [
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "RXPASSCRC",
+               "info" : "Pass receive CRC enable bit"
+             },
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "RXQOSEN",
+               "info" : "Receive quality of service enable bit"
+             },
+             {
+               "bit_number" : "28",
+               "bit_Field_Name" : "RXNOCHAIN",
+               "info" : "Receive no buffer chaining bit"
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "RXCMFEN",
+               "info" : "Receive copy MAC control frames enable bit. Enables MAC control frames to be transferred to",
+               "values" : [
+                 {"value" : "0", "desc" : "MAC control frames are filtered (but acted upon if enabled)."},
+                 {"value" : "1", "desc" : "MAC control frames are transferred to memory."}
+                ]
+             },
+             {
+               "bit_number" : "23",
+               "bit_Field_Name" : "RXCSFEN",
+               "info" : "Receive copy short frames enable bit. Enables frames or fragments shorter than 64 bytes to be",
+               "values" : [
+                 {"value" : "0", "desc" : "Short frames are filtered."},
+                 {"value" : "1", "desc" : "Short frames are transferred to memory."}
+                ]
+             },
+             {
+               "bit_number" : "22",
+               "bit_Field_Name" : "RXCEFEN",
+               "info" : "Receive copy error frames enable bit. Enables frames containing errors to be transferred to",
+               "values" : [
+                 {"value" : "0", "desc" : "Frames containing errors are filtered."},
+                 {"value" : "1", "desc" : "Frames containing errors are transferred to memory."}
+                ]
+             },
+             {
+               "bit_number" : "21",
+               "bit_Field_Name" : "RXCAFEN",
+               "info" : "Receive copy all frames enable bit. Enables frames that do not address match (includes multicast",
+               "values" : [
+                 {"value" : "0", "desc" : "Frames that do not address match are filtered."},
+                 {"value" : "1", "desc" : "Frames that do not address match are transferred to the promiscuous channel selected by"}
+                ]
+             },
+             {
+               "bit_number" : "18-16",
+               "bit_Field_Name" : "RXPROMCH",
+               "info" : "Receive promiscuous channel select",
+               "values" : [
+                 {"value" : "0", "desc" : "Select channel 0 to receive promiscuous frames"},
+                 {"value" : "1h", "desc" : "Select channel 1 to receive promiscuous frames"},
+                 {"value" : "2h", "desc" : "Select channel 2 to receive promiscuous frames"},
+                 {"value" : "3h", "desc" : "Select channel 3 to receive promiscuous frames"},
+                 {"value" : "4h", "desc" : "Select channel 4 to receive promiscuous frames"},
+                 {"value" : "5h", "desc" : "Select channel 5 to receive promiscuous frames"},
+                 {"value" : "6h", "desc" : "Select channel 6 to receive promiscuous frames"},
+                 {"value" : "7h", "desc" : "Select channel 7 to receive promiscuous frames"}
+                ]
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RXBROADEN",
+               "info" : "Receive broadcast enable. Enable received broadcast frames to be copied to the channel selected",
+               "values" : [
+                 {"value" : "0", "desc" : "Broadcast frames are filtered."},
+                 {"value" : "1", "desc" : "Broadcast frames are copied to the channel selected by RXBROADCH bits."}
+                ]
+             },
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "RXBROADCH",
+               "info" : "Receive broadcast channel select",
+               "values" : [
+                 {"value" : "0", "desc" : "0"},
+                 {"value" : "1h", "desc" : "Select channel 1 to receive broadcast frames"},
+                 {"value" : "2h", "desc" : "Select channel 2 to receive broadcast frames"},
+                 {"value" : "3h", "desc" : "Select channel 3 to receive broadcast frames"},
+                 {"value" : "4h", "desc" : "Select channel 4 to receive broadcast frames"},
+                 {"value" : "5h", "desc" : "Select channel 5 to receive broadcast frames"},
+                 {"value" : "6h", "desc" : "Select channel 6 to receive broadcast frames"},
+                 {"value" : "7h", "desc" : "Select channel 7 to receive broadcast frames"}
+                ]
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RXMULTEN",
+               "info" : "RX multicast enable. Enable received hash matching multicast frames to be copied to the channel",
+               "values" : [
+                 {"value" : "0", "desc" : "Multicast frames are filtered."},
+                 {"value" : "1", "desc" : "Multicast frames are copied to the channel selected by RXMULTCH bits."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RXUNICASTSET",
+          "info" : "Receive Unicast Enable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "104",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RXCH7EN",
+               "info" : "Receive channel 7 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RXCH6EN",
+               "info" : "Receive channel 6 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RXCH5EN",
+               "info" : "Receive channel 5 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RXCH4EN",
+               "info" : "Receive channel 4 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RXCH3EN",
+               "info" : "Receive channel 3 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RXCH2EN",
+               "info" : "Receive channel 2 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RXCH1EN",
+               "info" : "Receive channel 1 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RXCH0EN",
+               "info" : "Receive channel 0 unicast enable set bit. Write 1 to set the enable, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "RXUNICASTCLEAR",
+          "info" : "Receive Unicast Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "108",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "RXCH7EN",
+               "info" : "Receive channel 7 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RXCH6EN",
+               "info" : "Receive channel 6 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "RXCH5EN",
+               "info" : "Receive channel 5 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "RXCH4EN",
+               "info" : "Receive channel 4 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RXCH3EN",
+               "info" : "Receive channel 3 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RXCH2EN",
+               "info" : "Receive channel 2 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RXCH1EN",
+               "info" : "Receive channel 1 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "RXCH0EN",
+               "info" : "Receive channel 0 unicast enable clear bit. Write 1 to clear the enable, a write of 0 has no effect."
+             }
+          ]
+        },
+{
+          "name" : "RXMAXLEN",
+          "info" : "Receive Maximum Length Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10C",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "RXMAXLEN",
+               "info" : "Receive maximum frame length. These bits determine the maximum length of a received frame."
+             }
+          ]
+        },
+{
+          "name" : "RXBUFFEROFFSET",
+          "info" : "Receive Buffer Offset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "110",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "RXBUFFEROFFSET",
+               "info" : "Receive buffer offset value. These bits are written by the EMAC into each frame SOP"
+             }
+          ]
+        },
+{
+          "name" : "RXFILTERLOWTHRESH",
+          "info" : "Receive Filter Low Priority Frame Threshold Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "114",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "RXFILTERTHRESH",
+               "info" : "Receive filter low threshold. These bits contain the free buffer count threshold value for filtering"
+             }
+          ]
+        },
+{
+          "name" : "RX0FLOWTHRESH",
+          "info" : "Receive Channel 0 Flow Control Threshold Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "120",
+          "fields" : [
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "RXnFLOWTHRESH",
+               "info" : "Receive flow threshold. These bits contain the threshold value for issuing flow control on"
+             }
+          ]
+        },
+{
+          "name" : "RX0FREEBUFFER",
+          "info" : "Receive Channel 0 Free Buffer Count Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "140",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "RXnFREEBUF",
+               "info" : "Receive free buffer count. These bits contain the count of free buffers available. The"
+             }
+          ]
+        },
+{
+          "name" : "MACCONTROL",
+          "info" : "MAC Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "160",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "RMIISPEED",
+               "info" : "RMII interface transmit and receive speed select."
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "RXOFFLENBLOCK",
+               "info" : "Receive offset / length word write block.",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not block the DMA writes to the receive buffer descriptor offset / buffer length word."},
+                 {"value" : "1", "desc" : "Block all EMAC DMA controller writes to the receive buffer descriptor offset / buffer length"}
+                ]
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "RXOWNERSHIP",
+               "info" : "Receive ownership write bit value.",
+               "values" : [
+                 {"value" : "0", "desc" : "The EMAC writes the Receive ownership bit to 0 at the end of packet processing."},
+                 {"value" : "1", "desc" : "The EMAC writes the Receive ownership bit to 1 at the end of packet processing. If you do not"}
+                ]
+             },
+             {
+               "bit_number" : "11",
+               "bit_Field_Name" : "CMDIDLE",
+               "info" : "Command Idle bit",
+               "values" : [
+                 {"value" : "0", "desc" : "Idle is not commanded."},
+                 {"value" : "1", "desc" : "Idle is commanded (read IDLE in the MACSTATUS register)."}
+                ]
+             },
+             {
+               "bit_number" : "10",
+               "bit_Field_Name" : "TXSHORTGAPEN",
+               "info" : "Transmit Short Gap Enable",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmit with a short IPG is disabled. Normal 96-bit time IPG is inserted between packets."},
+                 {"value" : "1", "desc" : "Transmit with a short IPG is enabled. Shorter 88-bit time IPG is inserted between packets."}
+                ]
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "TXPTYPE",
+               "info" : "Transmit queue priority type",
+               "values" : [
+                 {"value" : "0", "desc" : "The queue uses a round-robin scheme to select the next channel for transmission."},
+                 {"value" : "1", "desc" : "The queue uses a fixed-priority (channel 7 highest priority) scheme to select the next channel"}
+                ]
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "TXPACE",
+               "info" : "Transmit pacing enable bit",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmit pacing is disabled."},
+                 {"value" : "1", "desc" : "Transmit pacing is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "GMIIEN",
+               "info" : "GMII enable bit",
+               "values" : [
+                 {"value" : "0", "desc" : "GMII RX and TX are held in reset."},
+                 {"value" : "1", "desc" : "GMII RX and TX are enabled for receive and transmit."}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "TXFLOWEN",
+               "info" : "Transmit flow control enable bit. This bit determines if incoming pause frames are acted upon",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmit flow control is disabled. Full-duplex mode: incoming pause frames are not acted"},
+                 {"value" : "1", "desc" : "Transmit flow control is enabled. Full-duplex mode: incoming pause frames are acted upon."}
+                ]
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "RXBUFFERFLOWEN",
+               "info" : "Receive buffer flow control enable bit",
+               "values" : [
+                 {"value" : "0", "desc" : "Receive flow control is disabled. Half-duplex mode: no flow control generated collisions are sent. Full-duplex mode: no outgoing pause frames are sent."},
+                 {"value" : "1", "desc" : "Receive flow control is enabled. Half-duplex mode: collisions are initiated when receive buffer flow control is triggered. Full-duplex mode: outgoing pause frames are sent when receive flow control is triggered."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "LOOPBACK",
+               "info" : "Loopback mode. The loopback mode forces internal full-duplex mode regardless of the FULLDUPLEX bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "Loopback mode is disabled."},
+                 {"value" : "1", "desc" : "Loopback mode is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FULLDUPLEX",
+               "info" : "Full duplex mode.",
+               "values" : [
+                 {"value" : "0", "desc" : "Half-duplex mode is enabled."},
+                 {"value" : "1", "desc" : "Full-duplex mode is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MACSTATUS",
+          "info" : "MAC Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "164",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "IDLE",
+               "info" : "EMAC idle bit. This bit is cleared to 0 at reset; one clock after reset, it goes to 1.",
+               "values" : [
+                 {"value" : "0", "desc" : "The EMAC is not idle."},
+                 {"value" : "1", "desc" : "The EMAC is in the idle state."}
+                ]
+             },
+             {
+               "bit_number" : "23-20",
+               "bit_Field_Name" : "TXERRCODE",
+               "info" : "Transmit host error code. These bits indicate that EMAC detected transmit DMA related host errors.",
+               "values" : [
+                 {"value" : "0", "desc" : "No error"},
+                 {"value" : "1h", "desc" : "SOP error; the buffer is the first buffer in a packet, but the SOP bit is not set in software."},
+                 {"value" : "2h", "desc" : "Ownership bit not set in SOP buffer"},
+                 {"value" : "3h", "desc" : "Zero next buffer descriptor pointer without EOP"},
+                 {"value" : "4h", "desc" : "Zero buffer pointer"},
+                 {"value" : "5h", "desc" : "Zero buffer length"},
+                 {"value" : "6h", "desc" : "Packet length error (sum of buffers is less than packet length)"}
+                ]
+             },
+             {
+               "bit_number" : "18-16",
+               "bit_Field_Name" : "TXERRCH",
+               "info" : "Transmit host error channel. These bits indicate which transmit channel the host error occurred on.",
+               "values" : [
+                 {"value" : "0", "desc" : "The host error occurred on transmit channel 0"},
+                 {"value" : "1h", "desc" : "The host error occurred on transmit channel 1"},
+                 {"value" : "2h", "desc" : "The host error occurred on transmit channel 2"},
+                 {"value" : "3h", "desc" : "The host error occurred on transmit channel 3"},
+                 {"value" : "4h", "desc" : "The host error occurred on transmit channel 4"},
+                 {"value" : "5h", "desc" : "The host error occurred on transmit channel 5"},
+                 {"value" : "6h", "desc" : "The host error occurred on transmit channel 6"},
+                 {"value" : "7h", "desc" : "The host error occurred on transmit channel 7"}
+                ]
+             },
+             {
+               "bit_number" : "15-12",
+               "bit_Field_Name" : "RXERRCODE",
+               "info" : "Receive host error code. These bits indicate that EMAC detected receive DMA related host errors.",
+               "values" : [
+                 {"value" : "0", "desc" : "No error"},
+                 {"value" : "1h", "desc" : "Reserved"},
+                 {"value" : "2h", "desc" : "Ownership bit not set in SOP buffer"},
+                 {"value" : "4h", "desc" : "Zero buffer pointer"}
+                ]
+             },
+             {
+               "bit_number" : "10-8",
+               "bit_Field_Name" : "RXERRCH",
+               "info" : "Receive host error channel. These bits indicate which receive channel the host error occurred on.",
+               "values" : [
+                 {"value" : "0", "desc" : "The host error occurred on receive channel 0"},
+                 {"value" : "1h", "desc" : "The host error occurred on receive channel 1"},
+                 {"value" : "2h", "desc" : "The host error occurred on receive channel 2"},
+                 {"value" : "3h", "desc" : "The host error occurred on receive channel 3"},
+                 {"value" : "4h", "desc" : "The host error occurred on receive channel 4"},
+                 {"value" : "5h", "desc" : "The host error occurred on receive channel 5"},
+                 {"value" : "6h", "desc" : "The host error occurred on receive channel 6"},
+                 {"value" : "7h", "desc" : "The host error occurred on receive channel 7"}
+                ]
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "RXQOSACT",
+               "info" : "Receive Quality of Service (QOS) active bit. When asserted, indicates that receive quality of service",
+               "values" : [
+                 {"value" : "0", "desc" : "Receive quality of service is disabled."},
+                 {"value" : "1", "desc" : "1"}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "RXFLOWACT",
+               "info" : "Receive flow control active bit. When asserted, at least one channel freebuffer count",
+               "values" : [
+                 {"value" : "0", "desc" : "Receive flow control is inactive."},
+                 {"value" : "1", "desc" : "Receive flow control is active."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "TXFLOWACT",
+               "info" : "Transmit flow control active bit. When asserted, this bit indicates that the pause time period is being",
+               "values" : [
+                 {"value" : "0", "desc" : "Transmit flow control is inactive."},
+                 {"value" : "1", "desc" : "Transmit flow control is active."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "EMCONTROL",
+          "info" : "Emulation Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "168",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SOFT",
+               "info" : "Emulation soft bit. This bit is used in conjunction with FREE bit to determine the emulation suspend",
+               "values" : [
+                 {"value" : "0", "desc" : "Soft mode is disabled. EMAC stops immediately during emulation halt."},
+                 {"value" : "1", "desc" : "Soft mode is enabled. During emulation halt, EMAC stops after completion of current operation."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "FREE",
+               "info" : "Emulation free bit. This bit is used in conjunction with SOFT bit to determine the emulation suspend",
+               "values" : [
+                 {"value" : "0", "desc" : "Free-running mode is disabled. During emulation halt, SOFT bit determines operation of EMAC."},
+                 {"value" : "1", "desc" : "Free-running mode is enabled. During emulation halt, EMAC continues to operate."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "FIFOCONTROL",
+          "info" : "FIFO Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "16C",
+          "fields" : [
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "TXCELLTHRESH",
+               "info" : "Transmit FIFO cell threshold. Indicates the number of 64-byte packet cells required to be in the",
+               "values" : [
+                 {"value" : "0-1h", "desc" : "Not a valid value."},
+                 {"value" : "2h", "desc" : "Two 64-byte packet cells required to be in the transmit FIFO."},
+                 {"value" : "3h", "desc" : "Three 64-byte packet cells required to be in the transmit FIFO."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MACCONFIG",
+          "info" : "MAC Configuration Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "170",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "TXCELLDEPTH",
+               "info" : "Transmit cell depth. These bits indicate the number of cells in the transmit FIFO."
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "RXCELLDEPTH",
+               "info" : "Receive cell depth. These bits indicate the number of cells in the receive FIFO."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "ADDRESSTYPE",
+               "info" : "Address type"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "MACCFIG",
+               "info" : "MAC configuration value"
+             }
+          ]
+        },
+{
+          "name" : "SOFTRESET",
+          "info" : "Soft Reset Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "174",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SOFTRESET",
+               "info" : "Software reset. Writing a 1 to this bit causes the EMAC logic to be reset. Software reset occurs",
+               "values" : [
+                 {"value" : "0", "desc" : "A software reset has not occurred."},
+                 {"value" : "1", "desc" : "A software reset has occurred."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MACSRCADDRLO",
+          "info" : "MAC Source Address Low Bytes Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1D0",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "MACSRCADDR0",
+               "info" : "MAC source address lower 8-0 bits (byte 0)"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "MACSRCADDR1",
+               "info" : "MAC source address bits 15-8 (byte 1)"
+             }
+          ]
+        },
+{
+          "name" : "MACSRCADDRHI",
+          "info" : "MAC Source Address High Bytes Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1D4",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "MACSRCADDR2",
+               "info" : "MAC source address bits 23-16 (byte 2)"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "MACSRCADDR3",
+               "info" : "MAC source address bits 31-24 (byte 3)"
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "MACSRCADDR4",
+               "info" : "MAC source address bits 39-32 (byte 4)"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "MACSRCADDR5",
+               "info" : "MAC source address bits 47-40 (byte 5)"
+             }
+          ]
+        },
+{
+          "name" : "MACHASH1",
+          "info" : "MAC Hash Address Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1D8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "MACHASH1",
+               "info" : "Least-significant 32 bits of the hash table corresponding to hash values 0 to 31. If a hash"
+             }
+          ]
+        },
+{
+          "name" : "MACHASH2",
+          "info" : "MAC Hash Address Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1DC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "MACHASH2",
+               "info" : "Most-significant 32 bits of the hash table corresponding to hash values 32 to 63. If a hash"
+             }
+          ]
+        },
+{
+          "name" : "BOFFTEST",
+          "info" : "Back Off Test Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1E0",
+          "fields" : [
+             {
+               "bit_number" : "25-16",
+               "bit_Field_Name" : "RNDNUM",
+               "info" : "Backoff random number generator. This field allows the Backoff Random Number Generator to be"
+             },
+             {
+               "bit_number" : "15-12",
+               "bit_Field_Name" : "COLLCOUNT",
+               "info" : "Collision count. These bits indicate the number of collisions the current frame has experienced."
+             },
+             {
+               "bit_number" : "9-0",
+               "bit_Field_Name" : "TXBACKOFF",
+               "info" : "Backoff count. This field allows the current value of the backoff counter to be observed for test"
+             }
+          ]
+        },
+{
+          "name" : "TPACETEST",
+          "info" : "Transmit Pacing Algorithm Test Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1E4",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "PACEVAL",
+               "info" : "Pacing register current value. A nonzero value in this field indicates that transmit pacing is active. A"
+             }
+          ]
+        },
+{
+          "name" : "RXPAUSE",
+          "info" : "Receive Pause Timer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1E8",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "PAUSETIMER",
+               "info" : "Receive pause timer value. These bits allow the contents of the receive pause timer to be"
+             }
+          ]
+        },
+{
+          "name" : "TXPAUSE",
+          "info" : "Transmit Pause Timer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "1EC",
+          "fields" : [
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "PAUSETIMER",
+               "info" : "Transmit pause timer value. These bits allow the contents of the transmit pause timer to be"
+             }
+          ]
+        },
+{
+          "name" : "MACADDRLO",
+          "info" : "MAC Address Low Bytes Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "500",
+          "fields" : [
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "VALID",
+               "info" : "Address valid bit. This bit should be cleared to zero for unused address channels",
+               "values" : [
+                 {"value" : "0", "desc" : "Address is not valid and will not be used for matching or filtering incoming packets"},
+                 {"value" : "1", "desc" : "Address is valid and will be used for matching or filtering incoming packets"}
+                ]
+             },
+             {
+               "bit_number" : "19",
+               "bit_Field_Name" : "MATCHFILT",
+               "info" : "Match or filter bit",
+               "values" : [
+                 {"value" : "0", "desc" : "The address will be used (if the VALID bit is set) to filter incoming packet addresses"},
+                 {"value" : "1", "desc" : "The address will be used (if the VALID bit is set) to match incoming packet addresses"}
+                ]
+             },
+             {
+               "bit_number" : "18-16",
+               "bit_Field_Name" : "CHANNEL",
+               "info" : "Channel select. Determines which receive channel a valid address match will be transferred to. The"
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "MACADDR0",
+               "info" : "MAC address lower 8-0 bits (byte 0)"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "MACADDR1",
+               "info" : "MAC address bits 15-8 (byte 1)"
+             }
+          ]
+        },
+{
+          "name" : "MACADDRHI",
+          "info" : "MAC Address High Bytes Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "504",
+          "fields" : [
+             {
+               "bit_number" : "31-24",
+               "bit_Field_Name" : "MACADDR2",
+               "info" : "MAC source address bits 23-16 (byte 2)"
+             },
+             {
+               "bit_number" : "23-16",
+               "bit_Field_Name" : "MACADDR3",
+               "info" : "MAC source address bits 31-24 (byte 3)"
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "MACADDR4",
+               "info" : "MAC source address bits 39-32 (byte 4)"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "MACADDR5",
+               "info" : "MAC source address bits 47-40 (byte 5). Bit 40 is the group bit. It is forced to 0 and read as 0."
+             }
+          ]
+        },
+{
+          "name" : "MACINDEX",
+          "info" : "MAC Index Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "508",
+          "fields" : [
+             {
+               "bit_number" : "2-0",
+               "bit_Field_Name" : "MACINDEX",
+               "info" : "MAC address index. All eight addresses share the upper 40 bits. Only the lower byte is unique for each"
+             }
+          ]
+        },
+{
+          "name" : "TX0HDP",
+          "info" : "Transmit Channel 0 DMA Head Descriptor Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "600",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TXnHDP",
+               "info" : "Transmit channel n DMA Head Descriptor pointer. Writing a transmit DMA buffer descriptor"
+             }
+          ]
+        },
+{
+          "name" : "RX0HDP",
+          "info" : "Receive Channel 0 DMA Head Descriptor Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "620",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RXnHDP",
+               "info" : "Receive channel n DMA Head Descriptor pointer. Writing a receive DMA buffer descriptor"
+             }
+          ]
+        },
+{
+          "name" : "TX0CP",
+          "info" : "Transmit Channel 0 Completion Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "640",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "TXnCP",
+               "info" : "Transmit channel n completion pointer register is written by the host with the buffer descriptor"
+             }
+          ]
+        },
+{
+          "name" : "RX0CP",
+          "info" : "Receive Channel 0 Completion Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "660",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RXnCP",
+               "info" : "Receive channel n completion pointer register is written by the host with the buffer descriptor"
+             }
+          ]
+        },
+{
+          "name" : "RX7CP",
+          "info" : "Receive Channel 7 Completion Pointer Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "67C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "RXnCP",
+               "info" : "Receive channel n completion pointer register is written by the host with the buffer descriptor"
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}

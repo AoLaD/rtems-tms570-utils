@@ -1,0 +1,441 @@
+{
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "MDIO",
+      "full name" : "Management Data Input/Output (MDIO)",
+      "offset" : ["0xFCF78900"],
+      "registers" :
+      [{
+          "name" : "REVID",
+          "info" : "MDIO Revision ID Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "0",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "REV",
+               "info" : "Identifies the MDIO Module revision."
+             }
+          ]
+        },
+{
+          "name" : "CONTROL",
+          "info" : "MDIO Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "IDLE",
+               "info" : "State machine IDLE status bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "State machine is not in idle state."},
+                 {"value" : "1", "desc" : "State machine is in idle state."}
+                ]
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "ENABLE",
+               "info" : "State machine enable control bit. If the MDIO state machine is active at the time it is",
+               "values" : [
+                 {"value" : "0", "desc" : "Disables the MDIO state machine."},
+                 {"value" : "1", "desc" : "Enable the MDIO state machine."}
+                ]
+             },
+             {
+               "bit_number" : "28-24",
+               "bit_Field_Name" : "HIGHEST_USER_CHANNEL",
+               "info" : "Highest user channel that is available in the module. It is currently set to 1. This"
+             },
+             {
+               "bit_number" : "20",
+               "bit_Field_Name" : "PREAMBLE",
+               "info" : "Preamble disable",
+               "values" : [
+                 {"value" : "0", "desc" : "Standard MDIO preamble is used."},
+                 {"value" : "1", "desc" : "Disables this device from sending MDIO frame preambles."}
+                ]
+             },
+             {
+               "bit_number" : "19",
+               "bit_Field_Name" : "FAULT",
+               "info" : "Fault indicator. This bit is set to 1 if the MDIO pins fail to read back what the device",
+               "values" : [
+                 {"value" : "0", "desc" : "No failure"},
+                 {"value" : "1", "desc" : "Physical layer fault; the MDIO state machine is reset."}
+                ]
+             },
+             {
+               "bit_number" : "18",
+               "bit_Field_Name" : "FAULTENB",
+               "info" : "Fault detect enable. This bit has to be set to 1 to enable the physical layer fault",
+               "values" : [
+                 {"value" : "0", "desc" : "Disables the physical layer fault detection."},
+                 {"value" : "1", "desc" : "Enables the physical layer fault detection."}
+                ]
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "CLKDIV",
+               "info" : "Clock Divider bits. This field specifies the division ratio between the peripheral clock"
+             }
+          ]
+        },
+{
+          "name" : "ALIVE",
+          "info" : "PHY Alive Status register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "ALIVE",
+               "info" : "MDIO Alive bits. Each of the 32 bits of this register is set if the most recent access to the PHY with",
+               "values" : [
+                 {"value" : "0", "desc" : "The PHY fails to acknowledge the access."},
+                 {"value" : "1", "desc" : "The most recent access to the PHY with an address corresponding to the register bit number was"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "LINK",
+          "info" : "PHY Link Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "LINK",
+               "info" : "MDIO Link state bits. This register is updated after a read of the generic status register of a PHY. The bit",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO link change event."},
+                 {"value" : "1", "desc" : "The PHY with the corresponding address has a link and the PHY acknowledges the read transaction."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "LINKINTRAW",
+          "info" : "MDIO Link Status Change Interrupt (Unmasked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "10",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERPHY1",
+               "info" : "MDIO Link change event, raw value. When asserted, the bit indicates that there was an MDIO link",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO link change event."},
+                 {"value" : "1", "desc" : "An MDIO link change event (change in the LINK register) corresponding to the PHY address in"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERPHY0",
+               "info" : "MDIO Link change event, raw value. When asserted, the bit indicates that there was an MDIO link",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO link change event."},
+                 {"value" : "1", "desc" : "An MDIO link change event (change in the LINK register) corresponding to the PHY address in"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "LINKINTMASKED",
+          "info" : "MDIO Link Status Change Interrupt (Masked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "14",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERPHY1",
+               "info" : "MDIO Link change interrupt, masked value. When asserted, the bit indicates that there was an",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO link change event."},
+                 {"value" : "1", "desc" : "An MDIO link change event (change in the LINK register) corresponding to the PHY address in"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERPHY0",
+               "info" : "MDIO Link change interrupt, masked value. When asserted, the bit indicates that there was an",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO link change event."},
+                 {"value" : "1", "desc" : "An MDIO link change event (change in the LINK register) corresponding to the PHY address in"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "USERINTRAW",
+          "info" : "MDIO User Command Complete Interrupt (Unmasked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "20",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERACCESS1",
+               "info" : "MDIO User command complete event bit. When asserted, the bit indicates that the previously",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO user command complete event."},
+                 {"value" : "1", "desc" : "The previously scheduled PHY read or write command using MDIO user access register"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERACCESS0",
+               "info" : "MDIO User command complete event bit. When asserted, the bit indicates that the previously",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO user command complete event."},
+                 {"value" : "1", "desc" : "The previously scheduled PHY read or write command using MDIO user access register"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "USERINTMASKED",
+          "info" : "MDIO User Command Complete Interrupt (Masked) Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "24",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERACCESS1",
+               "info" : "Masked value of MDIO User command complete interrupt. When asserted, The bit indicates",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO user command complete event."},
+                 {"value" : "1", "desc" : "The previously scheduled PHY read or write command using MDIO user access register"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERACCESS0",
+               "info" : "Masked value of MDIO User command complete interrupt. When asserted, The bit indicates",
+               "values" : [
+                 {"value" : "0", "desc" : "No MDIO user command complete event."},
+                 {"value" : "1", "desc" : "The previously scheduled PHY read or write command using MDIO user access register"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "USERINTMASKSET",
+          "info" : "MDIO User Command Complete Interrupt Mask Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "28",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERACCESS1",
+               "info" : "MDIO user interrupt mask set for USERINTMASKED[1]. Setting a bit to 1 will enable MDIO user",
+               "values" : [
+                 {"value" : "0", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"},
+                 {"value" : "1", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERACCESS0",
+               "info" : "MDIO user interrupt mask set for USERINTMASKED[0]. Setting a bit to 1 will enable MDIO user",
+               "values" : [
+                 {"value" : "0", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"},
+                 {"value" : "1", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "USERINTMASKCLEAR",
+          "info" : "MDIO User Command Complete Interrupt Mask Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "2C",
+          "fields" : [
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "USERACCESS1",
+               "info" : "MDIO user command complete interrupt mask clear for USERINTMASKED[1]. Setting the bit to",
+               "values" : [
+                 {"value" : "0", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS1 is"},
+                 {"value" : "1", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS1 is"}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "USERACCESS0",
+               "info" : "MDIO user command complete interrupt mask clear for USERINTMASKED[0]. Setting the bit to",
+               "values" : [
+                 {"value" : "0", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"},
+                 {"value" : "1", "desc" : "MDIO user command complete interrupts for the MDIO user access register USERACCESS0 is"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "USERACCESS0",
+          "info" : "MDIO User Access Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "GO",
+               "info" : "Go bit. Writing a 1 to this bit causes the MDIO state machine to perform an MDIO access when it"
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "WRITE",
+               "info" : "Write enable bit. Setting this bit to 1 causes the MDIO transaction to be a register write; otherwise,",
+               "values" : [
+                 {"value" : "0", "desc" : "The user command is a read operation."},
+                 {"value" : "1", "desc" : "The user command is a write operation."}
+                ]
+             },
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "ACK",
+               "info" : "Acknowledge bit. This bit is set if the PHY acknowledged the read transaction."
+             },
+             {
+               "bit_number" : "25-21",
+               "bit_Field_Name" : "REGADR",
+               "info" : "Register address bits. This field specifies the PHY register to be accessed for this transaction"
+             },
+             {
+               "bit_number" : "20-16",
+               "bit_Field_Name" : "PHYADR",
+               "info" : "PHY address bits. This field specifies the PHY to be accessed for this transaction."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATA",
+               "info" : "User data bits. These bits specify the data value read from or to be written to the specified PHY"
+             }
+          ]
+        },
+{
+          "name" : "USERPHYSEL0",
+          "info" : "MDIO User PHY Select Register 0",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "84",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "LINKSEL",
+               "info" : "Link status determination select bit. Default value is 0, which implies that the link status is",
+               "values" : [
+                 {"value" : "0", "desc" : "The link status is determined by the MDIO state machine."},
+                 {"value" : "1", "desc" : "Not supported."}
+                ]
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "LINKINTENB",
+               "info" : "Link change interrupt enable. Set to 1 to enable link change status interrupts for PHY address",
+               "values" : [
+                 {"value" : "0", "desc" : "Link change interrupts are disabled."},
+                 {"value" : "1", "desc" : "Link change status interrupts for PHY address specified in PHYADDRMON bits are enabled."}
+                ]
+             },
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "PHYADRMON",
+               "info" : "PHY address whose link status is to be monitored."
+             }
+          ]
+        },
+{
+          "name" : "USERACCESS1",
+          "info" : "MDIO User Access Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "GO",
+               "info" : "Go bit. Writing 1 to this bit causes the MDIO state machine to perform an MDIO access when it is"
+             },
+             {
+               "bit_number" : "30",
+               "bit_Field_Name" : "WRITE",
+               "info" : "Write enable bit. Setting this bit to 1 causes the MDIO transaction to be a register write; otherwise,",
+               "values" : [
+                 {"value" : "0", "desc" : "The user command is a read operation."},
+                 {"value" : "1", "desc" : "The user command is a write operation."}
+                ]
+             },
+             {
+               "bit_number" : "29",
+               "bit_Field_Name" : "ACK",
+               "info" : "Acknowledge bit. This bit is set if the PHY acknowledged the read transaction."
+             },
+             {
+               "bit_number" : "25-21",
+               "bit_Field_Name" : "REGADR",
+               "info" : "Register address bits. This field specifies the PHY register to be accessed for this transaction"
+             },
+             {
+               "bit_number" : "20-16",
+               "bit_Field_Name" : "PHYADR",
+               "info" : "PHY address bits. This field specifies the PHY to be accessed for this transaction."
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "DATA",
+               "info" : "User data bits. These bits specify the data value read from or to be written to the specified PHY"
+             }
+          ]
+        },
+{
+          "name" : "USERPHYSEL1",
+          "info" : "MDIO User PHY Select Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "bit_number" : "7",
+               "bit_Field_Name" : "LINKSEL",
+               "info" : "Link status determination select bit. Default value is 0, which implies that the link status is",
+               "values" : [
+                 {"value" : "0", "desc" : "The link status is determined by the MDIO state machine."},
+                 {"value" : "1", "desc" : "Not supported."}
+                ]
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "LINKINTENB",
+               "info" : "Link change interrupt enable. Set to 1 to enable link change status interrupts for the PHY address",
+               "values" : [
+                 {"value" : "0", "desc" : "Link change interrupts are disabled."},
+                 {"value" : "1", "desc" : "Link change status interrupts for PHY address specified in PHYADDRMON bits are enabled."}
+                ]
+             },
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "PHYADRMON",
+               "info" : "PHY address whose link status is to be monitored."
+             }
+          ]
+        }
+      ]    
+    }
+  ] 
+}
