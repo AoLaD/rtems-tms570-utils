@@ -119,8 +119,8 @@
           ]
         },
 {
-          "name" : "SR1",
-          "info" : "ESM Status Register 1",
+          "name" : "SR",
+          "info" : "ESM Status Register",
           "lenght" : "32",
           "adress" : "FFFF F518",
           "offset" : "0",
