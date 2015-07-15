@@ -91,58 +91,58 @@ def listToString(l):
         ret += '"'+s+'", '        
     return ret[0:-2]+']'
 
-def printAll(obj):
-      print(spaces(0)+"{")
-      print(spaces(2)+'"author" : "'+obj.author+'",')
-      print(spaces(2)+'"pdf" : "'+obj.pdf+'",')
-      print(spaces(2)+"\"name\" : \""+obj.name+"\",")
-      print(spaces(2)+"\"peripherals\" : [")      
+def printAll(hout, obj):
+      hout.write(spaces(0)+"{\n")
+      hout.write(spaces(2)+'"author" : "'+obj.author+'",\n')
+      hout.write(spaces(2)+'"pdf" : "'+obj.pdf+'",\n')
+      hout.write(spaces(2)+"\"name\" : \""+obj.name+"\",\n")
+      hout.write(spaces(2)+"\"peripherals\" : [\n")
       for indexP,p in enumerate(obj.peripherals):
-            print(spaces(4)+"{")
-            print(spaces(6)+"\"name\" : \""+p.name+"\",")
-            print(spaces(6)+'"full name" : "'+p.full_name+'",')
-            print(spaces(6)+'"offset" : '+listToString(p.offset)+',')
+            hout.write(spaces(4)+"{\n")
+            hout.write(spaces(6)+"\"name\" : \""+p.name+"\",\n")
+            hout.write(spaces(6)+'"full name" : "'+p.full_name+'",\n')
+            hout.write(spaces(6)+'"offset" : '+listToString(p.offset)+',\n')
             if(p.sulf != None):
-                print(spaces(6)+'"sulfixes" : '+listToString(p.sulf)+',')
-            print(spaces(6)+"\"registers\" : [")            
+                hout.write(spaces(6)+'"sulfixes" : '+listToString(p.sulf)+',\n')
+            hout.write(spaces(6)+"\"registers\" : [\n")
             for indexR,r in enumerate(p.registers):
-                  print(spaces(8)+"{")
-                  print(spaces(8)+"\"name\" : \""+r.name+"\",")
-                  print(spaces(8)+"\"info\" : \""+r.info+"\",")
-                  print(spaces(8)+"\"lenght\" : \""+r.lenght+"\",")
-                  print(spaces(8)+"\"adress\" : \""+r.adress+"\",")
+                  hout.write(spaces(8)+"{\n")
+                  hout.write(spaces(8)+"\"name\" : \""+r.name+"\",\n")
+                  hout.write(spaces(8)+"\"info\" : \""+r.info+"\",\n")
+                  hout.write(spaces(8)+"\"lenght\" : \""+r.lenght+"\",\n")
+                  hout.write(spaces(8)+"\"adress\" : \""+r.adress+"\",\n")
                   if(r.group_pos != None):
-                        print(spaces(8)+"\"group_position\" : "+listToString(r.group_pos)+",")
+                        hout.write(spaces(8)+"\"group_position\" : "+listToString(r.group_pos)+",\n")
                   if(r.group_name != None):
-                        print(spaces(8)+"\"group_names\" : "+listToString(r.group_name)+",")
+                        hout.write(spaces(8)+"\"group_names\" : "+listToString(r.group_name)+",\n")
                   if(r.array != None):
-                        print(spaces(8)+"\"array\" : \""+str(r.array)+"\",")
+                        hout.write(spaces(8)+"\"array\" : \""+str(r.array)+"\",\n")
                   if(r.reg_type != None):
-                        print(spaces(8)+"\"type\" : \""+str(r.reg_type)+"\",")
-                  print(spaces(8)+"\"fields\" : [")
+                        hout.write(spaces(8)+"\"type\" : \""+str(r.reg_type)+"\",\n")
+                  hout.write(spaces(8)+"\"fields\" : [\n")
                   if(r.fields != None):
                       for indexF,f in enumerate(r.fields):
-                            print(spaces(10)+"{")
-                            print(spaces(10)+"\"start_bit\" : \""+f.start_bit+"\",")
-                            print(spaces(10)+"\"bit_lenght\" : \""+f.lenght+"\",")
-                            print(spaces(10)+"\"bit_Field_Name\" : \""+f.bit_Field_Name+"\",")
-                            print(spaces(10)+"\"info\" : \""+f.info+"\"")
+                            hout.write(spaces(10)+"{\n")
+                            hout.write(spaces(10)+"\"start_bit\" : \""+f.start_bit+"\",\n")
+                            hout.write(spaces(10)+"\"bit_lenght\" : \""+f.lenght+"\",\n")
+                            hout.write(spaces(10)+"\"bit_Field_Name\" : \""+f.bit_Field_Name+"\",\n")
+                            hout.write(spaces(10)+"\"info\" : \""+f.info+"\"\n")
                             if(indexF==len(r.fields)-1):
-                                  print(spaces(10)+"}")
+                                  hout.write(spaces(10)+"}\n")
                             else:
-                                  print(spaces(10)+"},")
-                  print(spaces(9)+"]")
+                                  hout.write(spaces(10)+"},\n")
+                  hout.write(spaces(9)+"]\n")
                   if(indexR==len(p.registers)-1):
-                        print(spaces(8)+"}")
+                        hout.write(spaces(8)+"}\n")
                   else:
-                        print(spaces(8)+"},")
-            print(spaces(6)+"]")
+                        hout.write(spaces(8)+"},\n")
+            hout.write(spaces(6)+"]\n")
             if(indexP==len(obj.peripherals)-1):
-                  print(spaces(4)+"}")
+                  hout.write(spaces(4)+"}\n")
             else:
-                  print(spaces(4)+"},")
-      print(spaces(2)+"]")
-      print(spaces(0)+"}")
+                  hout.write(spaces(4)+"},\n")
+      hout.write(spaces(2)+"]\n")
+      hout.write(spaces(0)+"}\n")
       
 import re 
 def eraseBracket(string):
@@ -190,26 +190,28 @@ def refactor(obj):
                   refactor_reg(r)
             refactor_perip(p)
       
-inputfile = ''
-
 import getopt,os
-
+hhelp = 'test.py -i <inputfile> -o <outputfile>'
 inputfile = ''
 outputfile = ''
-directory = os.path.dirname(os.path.realpath(__file__))
-directory = directory.replace("\\python", "")
 try:
-      opts, args = getopt.getopt(sys.argv[1:],"hi:",["ifile="])
+      opts, args = getopt.getopt(sys.argv[1:],"hi:o:",["ifile="])
 except getopt.GetoptError:
-      print ('test.py -i <inputfile>')
+      print (hhelp)
       sys.exit(2)
 for opt, arg in opts:
       if opt == '-h':
-         print ('test.py -i <inputfile>')
+         print (hhelp)
          sys.exit()
       elif opt in ("-i", "--ifile"):
-         inputfile = arg      
+         inputfile = arg
+      elif opt in ("-o", "--ofile"):
+         outputfile = arg
+if(inputfile == '' or outputfile == ''):
+      print(hhelp)
+      sys.exit(2)      
 
 jason = json.loads(codecs.open(inputfile, "r", "utf-8").read(), object_hook=object_decoder)
 refactor(jason)
-printAll(jason)
+hout = codecs.open(outputfile, "w", "utf-8")
+printAll(hout,jason)

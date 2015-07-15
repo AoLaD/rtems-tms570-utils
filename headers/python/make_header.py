@@ -268,7 +268,7 @@ def main(argv):
    global outputfile
    global licence
    try:
-      opts, args = getopt.getopt(argv,"hi:l:",["ifile=","ofile=","lfile="])
+      opts, args = getopt.getopt(argv,"hi:l:o:",["ifile=","ofile=","lfile="])
    except getopt.GetoptError:
       print ('needed -i <inputfile> -o <outputfile> -l <licencefile>')
       sys.exit(2)
@@ -279,17 +279,22 @@ def main(argv):
       elif opt in ("-i", "--ifile"):
          inputfile = arg
          #inputfile = arg
-      elif opt in ("-l", "--ifile"):
+      elif opt in ("-l", "--lfile"):
          licence = codecs.open(arg, "r", "utf-8").readlines()
          #inputfile = arg
+      elif opt in ("-o", "--ofile"):
+         outputfile = arg
+   if(inputfile == '' or outputfile == '' or licence == ''):
+        print('needed -i <inputfile> -o <outputfile> -l <licencefile>')
+        sys.exit(2)
+      
 
 
 if __name__ == "__main__":
    main(sys.argv[1:])
-
 exit
 
-hout = sys.stdout
+hout = codecs.open(outputfile, "w", "utf-8")
 
 jason = codecs.open(inputfile, "r", "utf-8").read()
 
