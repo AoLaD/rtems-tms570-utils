@@ -576,7 +576,7 @@
           "offset" : "50",
           "array" : "4",
           "type" : "rti_compare",
-          "type" : "tms570_rti_counter_t"          
+          "type" : "tms570_rti_compare_t"          
         }
       ]    
     },

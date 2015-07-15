@@ -564,7 +564,7 @@
        "lenght" : "8",
        "adress" : "0x50",
        "array" : "4",
-       "type" : "tms570_rti_counter_t",
+       "type" : "tms570_rti_compare_t",
        "fields" : [
         ]
        }

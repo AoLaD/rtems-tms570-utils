@@ -569,7 +569,7 @@
           "name" : "GxBUF",
           "info" : "ADC Event Group Results Emulation FIFO Register",
           "lenght" : "32",
-          "type" : "tms570_pom_region_t",
+          "type" : "tms570_gxbuf_t",
           "adress" : "0",
           "offset" : "90",
           "array" : "3",

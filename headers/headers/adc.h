@@ -79,7 +79,7 @@ typedef struct{
   uint32_t CALR;              /*ADC Calibration and Error Offset Correction Register*/
   uint32_t SMSTATE;           /*ADC State Machine Status Register*/
   uint32_t LASTCONV;          /*ADC Channel Last Conversion Value Register*/
-  tms570_pom_region_t GxBUF[3];/*ADC Event Group Results Emulation FIFO Register*/
+  tms570_gxbuf_t GxBUF[3];    /*ADC Event Group Results Emulation FIFO Register*/
   uint32_t EVEMUBUFFER;       /*ADC Event Group Results Emulation FIFO Register*/
   uint32_t G1EMUBUFFER;       /*ADC Group1 Results Emulation FIFO Register*/
   uint32_t G2EMUBUFFER;       /*ADC Group2 Results Emulation FIFO Register*/

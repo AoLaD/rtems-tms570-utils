@@ -606,7 +606,7 @@
        "lenght" : "32",
        "adress" : "0x90",
        "array" : "3",
-       "type" : "tms570_pom_region_t",
+       "type" : "tms570_gxbuf_t",
        "fields" : [
          {
          "start_bit" : "0",

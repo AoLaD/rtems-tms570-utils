@@ -62,7 +62,7 @@ typedef struct{
   uint32_t CAPCTRL;           /*RTI Capture Control Register*/
   uint32_t COMPCTRL;          /*RTI Compare Control Register*/
   tms570_rti_counter_t CNT[2];/*Counters*/
-  tms570_rti_counter_t CMP[4];/*Compares*/
+  tms570_rti_compare_t CMP[4];/*Compares*/
   uint32_t TBLCOMP;           /*RTI Timebase Low Compare Register*/
   uint32_t TBHCOMP;           /*RTI Timebase High Compare Register*/
   uint8_t reserved2 [8];
