@@ -48,7 +48,7 @@ typedef struct{
   uint32_t IECR1;             /*ESM Interrupt Enable Clear/Status Register 1*/
   uint32_t ILSR1;             /*Interrupt Level Set/Status Register 1*/
   uint32_t ILCR1;             /*Interrupt Level Clear/Status Register 1*/
-  uint32_t SR1[3];            /*ESM Status Register 1*/
+  uint32_t SR[3];             /*ESM Status Register*/
   uint32_t EPSR;              /*ESM ERROR Pin Status Register*/
   uint32_t IOFFHR;            /*ESM Interrupt Offset High Register*/
   uint32_t IOFFLR;            /*ESM Interrupt Offset Low Register*/
@@ -108,11 +108,11 @@ typedef struct{
 #define TMS570_ESM_ILCR1_INTLVLCLR_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
-/*-----------------------TMS570_ESMSR1-----------------------*/
+/*------------------------TMS570_ESMSR------------------------*/
 /* field: ESF - Error Status Flag. Provides status information on a pending error. */
-#define TMS570_ESM_SR1_ESF(val) BSP_FLD32(val,0, 31)
-#define TMS570_ESM_SR1_ESF_GET(reg) BSP_FLD32GET(reg,0, 31)
-#define TMS570_ESM_SR1_ESF_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
+#define TMS570_ESM_SR_ESF(val) BSP_FLD32(val,0, 31)
+#define TMS570_ESM_SR_ESF_GET(reg) BSP_FLD32GET(reg,0, 31)
+#define TMS570_ESM_SR_ESF_SET(reg,val) BSP_FLD32SET(reg, val,0, 31)
 
 
 /*-----------------------TMS570_ESMEPSR-----------------------*/

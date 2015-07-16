@@ -1,0 +1,166 @@
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "PCR",
+     "full name" : "peripheral central resource control registers",
+     "offset" : ["0xFFFFE000"],
+     "registers" : [
+       {
+       "name" : "PMPROTSET0",
+       "info" : "Peripheral Memory Protection Set Register 0",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PCSPROTSET",
+         "info" : "Peripheral memory frame protection set."
+         }
+        ]
+       },
+       {
+       "name" : "PMPROTSET1",
+       "info" : "Peripheral Memory Protection Set Register 1",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PCSPROTSET",
+         "info" : "Peripheral memory frame protection set."
+         }
+        ]
+       },
+       {
+       "name" : "PMPROTCLR0",
+       "info" : "Peripheral Memory Protection Clear Register 0",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PCSPROTCLR",
+         "info" : "Peripheral memory frame protection clear."
+         }
+        ]
+       },
+       {
+       "name" : "PMPROTCLR1",
+       "info" : "Peripheral Memory Protection Clear Register 1",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PCSPROTCLR",
+         "info" : "Peripheral memory frame protection clear."
+         }
+        ]
+       },
+       {
+       "name" : "PPROTSET{}",
+       "info" : "Peripheral Protection Set Register {}",
+       "lenght" : "32",
+       "adress" : "0x20",
+       "group_position" : ["0x20", "0x24", "0x28", "0x2C"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PROTSET",
+         "info" : "Peripheral select quadrant protection set."
+         }
+        ]
+       },
+       {
+       "name" : "PPROTCLR{}",
+       "info" : "Peripheral Protection Clear Register {}",
+       "lenght" : "32",
+       "adress" : "0x40",
+       "group_position" : ["0x40", "0x44", "0x48", "0x4C"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PROTCLR",
+         "info" : "Peripheral select quadrant protection clear."
+         }
+        ]
+       },
+       {
+       "name" : "PCSPWRDWNSET{}",
+       "info" : "Peripheral Memory Power-Down Set Register {}",
+       "lenght" : "32",
+       "adress" : "0x60",
+       "group_position" : ["0x60", "0x64"],
+       "group_names" : ["0", "1"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PWRDNSET",
+         "info" : "Peripheral memory clock power-down set."
+         }
+        ]
+       },
+       {
+       "name" : "PCSPWRDWNCLR{}",
+       "info" : "Peripheral Memory Power-Down Clear Register {}",
+       "lenght" : "32",
+       "adress" : "0x70",
+       "group_position" : ["0x70", "0x74"],
+       "group_names" : ["0", "1"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PWRDNCLR",
+         "info" : "Peripheral memory clock power-down clear."
+         }
+        ]
+       },
+       {
+       "name" : "PSPWRDWNSET{}",
+       "info" : "Peripheral Power-Down Set Register {}",
+       "lenght" : "32",
+       "adress" : "0x80",
+       "group_position" : ["0x80", "0x84", "0x88", "0x8C"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PWRDWNSET",
+         "info" : "Peripheral select quadrant clock power-down set."
+         }
+        ]
+       },
+       {
+       "name" : "PSPWRDWNCLR{}",
+       "info" : "Peripheral Power-Down Clear Register {}",
+       "lenght" : "32",
+       "adress" : "0xa0",
+       "group_position" : ["0xA0", "0xA4", "0xA8", "0xAC"],
+       "group_names" : ["0", "1", "2", "3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "PWRDWNCLR",
+         "info" : "Peripheral select quadrant clock power-down clear."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}

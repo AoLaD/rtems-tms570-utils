@@ -1,0 +1,200 @@
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "SYS2",
+     "full name" : "Secondary System Control Registers (SYS2)",
+     "offset" : ["0xFFFFE100"],
+     "registers" : [
+       {
+       "name" : "PLLCTL3",
+       "info" : "PLL Control Register 3",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "29",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "ODPLL2",
+         "info" : "Internal PLL Output Divider"
+         },
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "5",
+         "bit_Field_Name" : "PLLDIV2",
+         "info" : "PLL2 Output Clock Divider"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "REFCLKDIV2",
+         "info" : "REFCLKDIV2"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "PLLMUL2",
+         "info" : "PLL2 Multiplication Factor"
+         }
+        ]
+       },
+       {
+       "name" : "STCCLKDIV",
+       "info" : "CPU Logic BIST Clock Divider",
+       "lenght" : "32",
+       "adress" : "0x8",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "CLKDIV",
+         "info" : "Clock divider/prescaler for CPU clock during logic BIST"
+         }
+        ]
+       },
+       {
+       "name" : "ECPCNTL",
+       "info" : "ECP Control Register",
+       "lenght" : "32",
+       "adress" : "0x24",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ECPSSEL",
+         "info" : "This bit allows the selection between VCLK and OSCIN as the clock source for ECLK."
+         },
+         {
+         "start_bit" : "23",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "ECPCOS",
+         "info" : "ECP continue on suspend."
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "12",
+         "bit_Field_Name" : "ECPINSEL",
+         "info" : "Select ECP input clock source."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "16",
+         "bit_Field_Name" : "ECPDIV",
+         "info" : "ECP divider value."
+         }
+        ]
+       },
+       {
+       "name" : "CLK2CNTRL",
+       "info" : "Clock 2 Control Register",
+       "lenght" : "32",
+       "adress" : "0x3c",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "VCLK3R",
+         "info" : "VBUS clock3 ratio."
+         }
+        ]
+       },
+       {
+       "name" : "VCLKACON1",
+       "info" : "Peripheral Asynchronous Clock Configuration 1 Register",
+       "lenght" : "32",
+       "adress" : "0x40",
+       "fields" : [
+         {
+         "start_bit" : "24",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "VCLKA4R",
+         "info" : "Clock divider for the VCLKA4 source. Output will be present on VCLKA4_DIVR."
+         },
+         {
+         "start_bit" : "20",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "VCLKA4_DIV_CDDIS",
+         "info" : "Disable the VCLKA4 divider output."
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "VCLKA4S",
+         "info" : "Peripheral asynchronous clock4 source."
+         },
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "3",
+         "bit_Field_Name" : "VCLKA3R",
+         "info" : "Clock divider for the VCLKA3 source. Output will be present on VCLKA3_DIVR."
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "VCLKA3_DIV_CDDIS",
+         "info" : "Disable the VCLKA3 divider output."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "VCLKA3S",
+         "info" : "Peripheral asynchronous clock3 source."
+         }
+        ]
+       },
+       {
+       "name" : "CLKSLIP",
+       "info" : "Clock Slip Register",
+       "lenght" : "32",
+       "adress" : "0x70",
+       "fields" : [
+         {
+         "start_bit" : "8",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "PLL1_SLIP_FILTER_COUNT",
+         "info" : "Configure the count for the filtered PLL slip. Count is on 10M clock."
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "PLL1_SLIP_FILTER_KEY",
+         "info" : "Enable the PLL filtering."
+         }
+        ]
+       },
+       {
+       "name" : "EFC_CTLREG",
+       "info" : "EFUSE Controller Control Register",
+       "lenght" : "32",
+       "adress" : "0xec",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "4",
+         "bit_Field_Name" : "EFC_INSTR_WEN",
+         "info" : "Enable user write of 4 EFUSE controller instructions."
+         }
+        ]
+       },
+       {
+       "name" : "{}",
+       "info" : "Die Identification Register",
+       "lenght" : "32",
+       "adress" : "0xf0",
+       "group_position" : ["0xF0", "0xF4", "0xF8", "0xFC"],
+       "group_names" : ["DIEDL_REG0", "DIEDH_REG1", "DIEDL_REG2", "DIEDH_REG3"],
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "DIE",
+         "info" : "This read-only register contains the lower/upper word (31:0) of the die ID information."
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}
