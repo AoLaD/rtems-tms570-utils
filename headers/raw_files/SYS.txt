@@ -1,0 +1,1526 @@
+{
+  "author" : "Premysl Houdek",
+  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+  "name" : "tms570",
+  "peripherals" :
+  [
+    {
+      "name" : "SYS1",
+      "full name" : "Primary System Control Registers (SYS)",
+      "offset" : ["0xFFFFFF00"],      
+      "registers" :
+      [
+  {
+          "name" : "SYSPC{}",
+          "info" : "SYS Pin Control Register {}",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "00",
+          "group_position" : ["0","4","8","0C","10","14","18","1C","20"],
+          "group_names" : ["1","2","3","4","5","6","7","8","9"], 
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ECPCLKFUN",
+               "info" : "ECLK function. This bit changes the function of the ECLK pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "ECLK is in GIO mode."},
+                 {"value" : "1", "desc" : "ECLK is in functional mode as a clock output."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CSDIS",
+          "info" : "Clock Source Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "30",
+          "fields" : [
+             {
+               "bit_number" : "7-3",
+               "bit_Field_Name" : "CLKSR[7-3]OFF",
+               "info" : "Clock source[7-3] off."
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "CLKSR[1-0]OFF",
+               "info" : "Clock source[1-0] off.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source[1-0] is enabled."},
+                 {"value" : "1", "desc" : "Clock source[1-0] is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CSDISSET",
+          "info" : "Clock Source Disable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "34",
+          "fields" : [
+             {
+               "bit_number" : "7-3",
+               "bit_Field_Name" : "SETCLKSR[7-3] OFF",
+               "info" : "Set clock source[7-3] to the disabled state.",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: Clock source[7-3] is enabled."},
+                 {"value" : "1", "desc" : "Read: Clock source[7-3] is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "SETCLKSR[1-0] OFF",
+               "info" : "Set clock source[1-0] to the disabled state."
+             }
+          ]
+        },
+{
+          "name" : "CSDISCLR",
+          "info" : "Clock Source Disable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "38",
+          "fields" : [
+             {
+               "bit_number" : "7-3",
+               "bit_Field_Name" : "CLRCLKSR[7-3] OFF",
+               "info" : "Enables clock source[7-3]."
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "CLRCLKSR[1-0] OFF",
+               "info" : "Enables clock source[1-0]."
+             }
+          ]
+        },
+{
+          "name" : "CDDIS",
+          "info" : "Clock Domain Disable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "3C",
+          "fields" : [
+             {
+               "bit_number" : "11-10",
+               "bit_Field_Name" : "VCLKA[4-3]OFF",
+               "info" : "VCLKA[4-3] domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLKA[4-3] domain is enabled."},
+                 {"value" : "1", "desc" : "The VCLKA[4-3] domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "VCLK3OFF",
+               "info" : "VCLK3 domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLK3 domain is enabled."},
+                 {"value" : "1", "desc" : "The VCLK3 domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "RTICLK1OFF",
+               "info" : "RTICLK1 domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The RTICLK1 domain is enabled."},
+                 {"value" : "1", "desc" : "The RTICLK1 domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "5-4",
+               "bit_Field_Name" : "VCLKA[2-1]OFF",
+               "info" : "VCLKA[2-1] domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLKA[2-1] domain is enabled."},
+                 {"value" : "1", "desc" : "The VCLKA[2-1] domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "VCLK2OFF",
+               "info" : "VCLK2 domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLK2 domain is enabled."},
+                 {"value" : "1", "desc" : "The VCLK2 domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "VCLKPOFF",
+               "info" : "VCLK_periph domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLK_periph domain is enabled."},
+                 {"value" : "1", "desc" : "The VCLK_periph domain is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "HCLKOFF",
+               "info" : "HCLK and VCLK_sys domains off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The HCLK and VCLK_sys domains are enabled."},
+                 {"value" : "1", "desc" : "The HCLK and VCLK_sys domains are disabled."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "GCLKOFF",
+               "info" : "GCLK domain off.",
+               "values" : [
+                 {"value" : "0", "desc" : "The GCLK domain is enabled."},
+                 {"value" : "1", "desc" : "The GCLK domain is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CDDISSET",
+          "info" : "Clock Domain Disable Set Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "40",
+          "fields" : [
+             {
+               "bit_number" : "11-10",
+               "bit_Field_Name" : "SETVCLKA[4-3] OFF",
+               "info" : "Set VCLKA[4-3] domain."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "SETVCLK3OFF",
+               "info" : "Set VCLK3 domain."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "SETRTI1CLKOFF",
+               "info" : "Set RTICLK1 domain."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "SETTVCLKA2OFF",
+               "info" : "Set VCLKA2 domain."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "SETVCLKA1OFF",
+               "info" : "Set VCLKA1 domain."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "SETVCLK2OFF",
+               "info" : "Set VCLK2 domain."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "SETVCLKPOFF",
+               "info" : "Set VCLK_periph domain."
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "SETHCLKOFF",
+               "info" : "Set HCLK and VCLK_sys domains."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "SETGCLKOFF",
+               "info" : "Set GCLK domain."
+             }
+          ]
+        },
+{
+          "name" : "CDDISCLR",
+          "info" : "Clock Domain Disable Clear Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "44",
+          "fields" : [
+             {
+               "bit_number" : "11-10",
+               "bit_Field_Name" : "CLRVCLKA[4-3]OFF",
+               "info" : "Clear VCLKA[4-3] domain."
+             },
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "Reserved",
+               "info" : "Reserved"
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "CLRVCLK3OFF",
+               "info" : "Clear VCLK3 domain."
+             },
+             {
+               "bit_number" : "6",
+               "bit_Field_Name" : "CLRRTI1CLKOFF",
+               "info" : "Clear RTICLK1 domain."
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "CLRTVCLKA2OFF",
+               "info" : "Clear VCLKA2 domain."
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "CLRVCLKA1OFF",
+               "info" : "Clear VCLKA1 domain."
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "CLRVCLK2OFF",
+               "info" : "Clear VCLK2 domain."
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "CLRVCLKPOFF",
+               "info" : "CLRVCLKPOFF"
+             },
+             {
+               "bit_number" : "1",
+               "bit_Field_Name" : "CLRHCLKOFF",
+               "info" : "Clear HCLK and VCLK_sys domains."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CLRGCLKOFF",
+               "info" : "Clear GCLK domain."
+             }
+          ]
+        },
+{
+          "name" : "GHVSRC",
+          "info" : "GCLK, HCLK, VCLK, and VCLK2 Source Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "48",
+          "fields" : [
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "GHVWAKE",
+               "info" : "GCLK, HCLK, VCLK, VCLK2 source on wakeup.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "5h", "desc" : "Clock source5 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "8h-Fh", "desc" : "Reserved - These values should not be used."}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "HVLPM",
+               "info" : "HCLK, VCLK, VCLK2 source on wakeup when GCLK is turned off.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "5h", "desc" : "Clock source5 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "8h-Fh", "desc" : "Reserved - These values should not be used."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "GHVSRC",
+               "info" : "GCLK, HCLK, VCLK, VCLK2 current source.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "5h", "desc" : "Clock source5 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for GCLK, HCLK, VCLK, VCLK2 on wakeup."},
+                 {"value" : "8h-Fh", "desc" : "Reserved - These values should not be used."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "VCLKASRC",
+          "info" : "Peripheral Asynchronous Clock Source Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "4C",
+          "fields" : [
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "VCLKA2S",
+               "info" : "Peripheral asynchronous clock2 source.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for peripheral asynchronous clock2."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for peripheral asynchronous clock2."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for peripheral asynchronous clock2."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for peripheral asynchronous clock2."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for peripheral asynchronous clock2."},
+                 {"value" : "5h", "desc" : "Clock source5 is the source for peripheral asynchronous clock2."},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for peripheral asynchronous clock2."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for peripheral asynchronous clock2."},
+                 {"value" : "8h-Fh", "desc" : "VCLK is the source for peripheral asynchronous clock2."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "VCLKA1S",
+               "info" : "Peripheral asynchronous clock1 source.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for peripheral asynchronous clock1."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for peripheral asynchronous clock1."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for peripheral asynchronous clock1."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for peripheral asynchronous clock1."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for peripheral asynchronous clock1."},
+                 {"value" : "5h", "desc" : "Clock source5 is the source for peripheral asynchronous clock1."},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for peripheral asynchronous clock1."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for peripheral asynchronous clock1."},
+                 {"value" : "8h-Fh", "desc" : "VCLK is the source for peripheral asynchronous clock1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "RCLKSRC",
+          "info" : "RTI Clock Source Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "50",
+          "fields" : [
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "RTI1DIV",
+               "info" : "RTI clock1 Divider.",
+               "values" : [
+                 {"value" : "0", "desc" : "RTICLK1 divider value is 1."},
+                 {"value" : "1h", "desc" : "RTICLK1 divider value is 2."},
+                 {"value" : "2h", "desc" : "RTICLK1 divider value is 4."},
+                 {"value" : "3h", "desc" : "RTICLK1 divider value is 8."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "RTI1SRC",
+               "info" : "RTI clock1 source.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source0 is the source for RTICLK1."},
+                 {"value" : "1h", "desc" : "Clock source1 is the source for RTICLK1."},
+                 {"value" : "2h", "desc" : "Clock source2 is the source for RTICLK1."},
+                 {"value" : "3h", "desc" : "Clock source3 is the source for RTICLK1."},
+                 {"value" : "4h", "desc" : "Clock source4 is the source for RTICLK1."},
+                 {"value" : "5h", "desc" : "5h"},
+                 {"value" : "6h", "desc" : "Clock source6 is the source for RTICLK1."},
+                 {"value" : "7h", "desc" : "Clock source7 is the source for RTICLK1."},
+                 {"value" : "8h-Fh", "desc" : "VCLK is the source for RTICLK1."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CSVSTAT",
+          "info" : "Clock Source Valid Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "54",
+          "fields" : [
+             {
+               "bit_number" : "7-3",
+               "bit_Field_Name" : "CLKSR[7-3]V",
+               "info" : "Clock source[7-0] valid.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source[7-0] is not valid."},
+                 {"value" : "1", "desc" : "Clock source[7-0] is valid."}
+                ]
+             },
+             {
+               "bit_number" : "1-0",
+               "bit_Field_Name" : "CLKSR[1-0]",
+               "info" : "Clock source[1-0] valid.",
+               "values" : [
+                 {"value" : "0", "desc" : "Clock source[1-0] is not valid."},
+                 {"value" : "1", "desc" : "Clock source[1-0] is valid."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MSTGCR",
+          "info" : "Memory Self-Test Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "58",
+          "fields" : [
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "ROM_DIV",
+               "info" : "Prescaler divider bits for ROM clock source.",
+               "values" : [
+                 {"value" : "0", "desc" : "ROM clock source is HCLK divided by 1.PBIST will reset for 16 VBUS cycles."},
+                 {"value" : "1h", "desc" : "ROM clock source is HCLK divided by 2.PBIST will reset for 32 VBUS cycles."},
+                 {"value" : "2h", "desc" : "ROM clock source is HCLK divided by 4.PBIST will reset for 64 VBUS cycles."},
+                 {"value" : "3h", "desc" : "ROM clock source is HCLK divided by 8.PBIST will reset for 96 VBUS cycles."}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "MSTGENA",
+               "info" : "Memory self-test controller global enable key",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Memory self-test controller is enabled."},
+                 {"value" : "Others", "desc" : "Memory self-test controller is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MINITGCR",
+          "info" : "Memory Hardware Initialization Global Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "5C",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "MINITGENA",
+               "info" : "Memory hardware initialization global enable key.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Global memory hardware initialization is enabled."},
+                 {"value" : "Others", "desc" : "Global memory hardware initialization is disabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "MSIENA",
+          "info" : "Memory Self-Test/Initialization Enable Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "60",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "MSIENA",
+               "info" : "PBIST controller and memory initialization enable register. In memory self-test mode, all the"
+             }
+          ]
+        },
+{
+          "name" : "MSTCGSTAT",
+          "info" : "MSTC Global Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "68",
+          "fields" : [
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "MINIDONE",
+               "info" : "Memory hardware initialization complete status."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "MSTDONE",
+               "info" : "Memory self-test run complete status."
+             }
+          ]
+        },
+{
+          "name" : "MINISTAT",
+          "info" : "Memory Hardware Initialization Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "6C",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "MIDONE",
+               "info" : "Memory hardware initialization status bit."
+             }
+          ]
+        },
+{
+          "name" : "PLLCTL1",
+          "info" : "PLL Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "70",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "ROS",
+               "info" : "Reset on PLL Slip",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not reset system when PLL slip is detected"},
+                 {"value" : "1", "desc" : "Reset when PLL slip is detected"}
+                ]
+             },
+             {
+               "bit_number" : "30-29",
+               "bit_Field_Name" : "MASK_SLIP",
+               "info" : "Mask detection of PLL slip",
+               "values" : [
+                 {"value" : "2h", "desc" : "Bypass on PLL Slip is disabled. If a PLL Slip is detected no action is taken."},
+                 {"value" : "Others", "desc" : "Bypass on PLL Slip is enabled. If a PLL Slip is detected the device will automatically bypass the"}
+                ]
+             },
+             {
+               "bit_number" : "28-24",
+               "bit_Field_Name" : "PLLDIV",
+               "info" : "PLL Output Clock Divider"
+             },
+             {
+               "bit_number" : "23",
+               "bit_Field_Name" : "ROF",
+               "info" : "Reset on Oscillator Fail",
+               "values" : [
+                 {"value" : "0", "desc" : "Do not reset system when oscillator is out of range."},
+                 {"value" : "1", "desc" : "Reset system when oscillator is out of range."}
+                ]
+             },
+             {
+               "bit_number" : "21-16",
+               "bit_Field_Name" : "REFCLKDIV",
+               "info" : "Reference Clock Divider"
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "PLLMUL",
+               "info" : "PLL Multiplication Factor"
+             }
+          ]
+        },
+{
+          "name" : "PLLCTL2",
+          "info" : "PLL Control Register 2",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "74",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "FMENA",
+               "info" : "Frequency Modulation Enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "Disable frequency modulation"},
+                 {"value" : "1", "desc" : "Enable frequency modulation"}
+                ]
+             },
+             {
+               "bit_number" : "30-22",
+               "bit_Field_Name" : "SPREADINGRATE",
+               "info" : "NS = SPREADINGRATE + 1"
+             },
+             {
+               "bit_number" : "20-12",
+               "bit_Field_Name" : "MULMOD",
+               "info" : "Multiplier Correction when Frequency Modulation is enabled.",
+               "values" : [
+                 {"value" : "0", "desc" : "No adder to NF"},
+                 {"value" : "8h", "desc" : "MUL_when_MOD = 8/256"},
+                 {"value" : "9h", "desc" : "MUL_when_MOD = 9/256"},
+                 {"value" : "1FFh", "desc" : "MUL_when_MOD = 511/256"}
+                ]
+             },
+             {
+               "bit_number" : "11-9",
+               "bit_Field_Name" : "ODPLL",
+               "info" : "Internal PLL Output Divider."
+             },
+             {
+               "bit_number" : "8-0",
+               "bit_Field_Name" : "SPR_AMOUNT",
+               "info" : "Spreading Amount.",
+               "values" : [
+                 {"value" : "0", "desc" : "NV = 1/2048"},
+                 {"value" : "1h", "desc" : "NV = 2/2048"},
+                 {"value" : "1FFh", "desc" : "NV = 512/2048"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SYSPC10",
+          "info" : "SYS Pin Control Register 10",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "78",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ECPCLK_SLEW",
+               "info" : "ECPCLK slew control. This bit controls between the fast or slow slew mode.",
+               "values" : [
+                 {"value" : "0", "desc" : "Fast mode is enabled; the normal output buffer is used for this pin."},
+                 {"value" : "1", "desc" : "Slow mode is enabled; slew rate control is used for this pin."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "DIEIDL",
+          "info" : "Die Identification Register, Lower Word",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "7C",
+          "fields" : [
+             {
+               "bit_number" : "31-22",
+               "bit_Field_Name" : "LOT",
+               "info" : "These read only bits contain the lower 10 bits of the device lot number."
+             },
+             {
+               "bit_number" : "21-16",
+               "bit_Field_Name" : "WAFER",
+               "info" : "These read only bits contain the wafer number of the device."
+             },
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "Y WAFER COORDINATE",
+               "info" : "These read only bits contain the Y wafer coordinate of the device"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "X WAFER COORDINATE",
+               "info" : "These read only bits contain the X wafer coordinate of the device"
+             }
+          ]
+        },
+{
+          "name" : "DIEIDH",
+          "info" : "Die Identification Register, Upper Word",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "80",
+          "fields" : [
+             {
+               "bit_number" : "13-0",
+               "bit_Field_Name" : "LOT",
+               "info" : "This read-only register contains the upper 14 bits of the device lot number."
+             }
+          ]
+        },
+{
+          "name" : "LPOMONCTL",
+          "info" : "LPO/Clock Monitor Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "88",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "BIAS ENABLE",
+               "info" : "Bias enable.",
+               "values" : [
+                 {"value" : "0", "desc" : "The bias circuit inside the low-power oscillator (LPO) is disabled."},
+                 {"value" : "1", "desc" : "The bias circuit inside LPO is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "16",
+               "bit_Field_Name" : "OSCFRQCONFIGCNT",
+               "info" : "Configures the counter based on OSC frequency.",
+               "values" : [
+                 {"value" : "0", "desc" : "OSC freq is <= 20MHz"},
+                 {"value" : "1", "desc" : "OSC freq is > 20MHz and <= 80MHz"}
+                ]
+             },
+             {
+               "bit_number" : "12-8",
+               "bit_Field_Name" : "HFTRIM",
+               "info" : "High frequency oscillator trim value. This five-bit value is used to center the HF oscillator's",
+               "values" : [
+                 {"value" : "0", "desc" : "29.52"},
+                 {"value" : "1h", "desc" : "34.24%"},
+                 {"value" : "2h", "desc" : "38.85%"},
+                 {"value" : "3h", "desc" : "43.45%"},
+                 {"value" : "4h", "desc" : "47.99%"},
+                 {"value" : "5h", "desc" : "52.55%"},
+                 {"value" : "6h", "desc" : "57.02%"},
+                 {"value" : "7h", "desc" : "61.46%"},
+                 {"value" : "8h", "desc" : "65.92%"},
+                 {"value" : "9h", "desc" : "70.17"},
+                 {"value" : "Ah", "desc" : "74.55%"},
+                 {"value" : "Bh", "desc" : "78.92%"},
+                 {"value" : "Ch", "desc" : "83.17%"},
+                 {"value" : "Dh", "desc" : "87.43%"},
+                 {"value" : "Eh", "desc" : "91.75%"},
+                 {"value" : "Fh", "desc" : "95.89%"},
+                 {"value" : "10h", "desc" : "100.00% Default at Reset."},
+                 {"value" : "11h", "desc" : "104.09"},
+                 {"value" : "12h", "desc" : "108.17"},
+                 {"value" : "13h", "desc" : "112.32"},
+                 {"value" : "14h", "desc" : "116.41"},
+                 {"value" : "15h", "desc" : "120.67"},
+                 {"value" : "16h", "desc" : "124.42"},
+                 {"value" : "17h", "desc" : "128.38"},
+                 {"value" : "18h", "desc" : "132.24"},
+                 {"value" : "19h", "desc" : "136.15"},
+                 {"value" : "1Ah", "desc" : "140.15"},
+                 {"value" : "1Bh", "desc" : "143.94"},
+                 {"value" : "1Ch", "desc" : "148.02"},
+                 {"value" : "1Dh", "desc" : "151.80x"},
+                 {"value" : "1Eh", "desc" : "155.50x"},
+                 {"value" : "1Fh", "desc" : "159.35%"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CLKTEST",
+          "info" : "Clock Test Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "8C",
+          "fields" : [
+             {
+               "bit_number" : "26",
+               "bit_Field_Name" : "ALTLIMPCLOCKENABLE",
+               "info" : "This bit selects a clock driven by the GIOB[0] pin as an alternate limp clock to the clock",
+               "values" : [
+                 {"value" : "0", "desc" : "The 10-MHz LPO fast clock is the compare clock for the clock detect PFD circuit and the"},
+                 {"value" : "1", "desc" : "The ALTLIMPCLOCK driven on the GIOB[0] pin is the compare clock for the clock detect"}
+                ]
+             },
+             {
+               "bit_number" : "25",
+               "bit_Field_Name" : "RANGEDETCTRL",
+               "info" : "Range detection control. This bit's functionality is dependant on the state of the",
+               "values" : [
+                 {"value" : "0", "desc" : "The clock monitor range detection circuitry (RANGEDETECTENABLE) is disabled."},
+                 {"value" : "1", "desc" : "The clock monitor range detection circuitry (RANGEDETECTENABLE) is enabled."}
+                ]
+             },
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "RANGEDETENASSEL",
+               "info" : "Selects range detection enable. This bit resets asynchronously on power on reset.",
+               "values" : [
+                 {"value" : "0", "desc" : "The range detect enable is generated by the hardware in the clock monitor wrapper."},
+                 {"value" : "1", "desc" : "The range detect enable is controlled by the RANGEDETCTRL bit (Bit 25) of the"}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "CLK_TEST_EN",
+               "info" : "Clock test enable. This bit enables the clock going to the ECLK pin.",
+               "values" : [
+                 {"value" : "5h", "desc" : "Clock going to ECLK pin is enabled."},
+                 {"value" : "Others", "desc" : "Clock going to ECLK pin is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "11-8",
+               "bit_Field_Name" : "SEL_GIO_PIN",
+               "info" : "GIOB[0] pin clock source valid, clock source select",
+               "values" : [
+                 {"value" : "0", "desc" : "Oscillator valid status"},
+                 {"value" : "1h", "desc" : "PLL clock status"},
+                 {"value" : "5h", "desc" : "High frequency clock LPO (Low Power Oscillator) clock valid status"},
+                 {"value" : "6h", "desc" : "Secondary PLL free-running clock output valid status"},
+                 {"value" : "8h", "desc" : "Low frequency clock LPO (Low Power Oscillator) clock"},
+                 {"value" : "9h", "desc" : "Oscillator valid status"},
+                 {"value" : "Ah", "desc" : "Oscillator valid status"},
+                 {"value" : "Bh", "desc" : "Oscillator valid status"},
+                 {"value" : "Ch", "desc" : "Oscillator valid status"},
+                 {"value" : "Dh", "desc" : "Oscillator valid status"},
+                 {"value" : "Eh", "desc" : "Oscillator valid status"},
+                 {"value" : "Fh", "desc" : "Oscillator valid status"}
+                ]
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "SEL_ECP_PIN",
+               "info" : "ECLK pin clock source select",
+               "values" : [
+                 {"value" : "0", "desc" : "Oscillator clock"},
+                 {"value" : "1h", "desc" : "PLL clock"},
+                 {"value" : "2h", "desc" : "Not Implemented"},
+                 {"value" : "3h", "desc" : "EXTCLKIN1"},
+                 {"value" : "4h", "desc" : "Low frequency LPO (Low Power Oscillator) clock"},
+                 {"value" : "5h", "desc" : "High frequency clock LPO (Low Power Oscillator) clock"},
+                 {"value" : "6h", "desc" : "Secondary PLL free-running clock output"},
+                 {"value" : "7h", "desc" : "EXCLKIN2"},
+                 {"value" : "8h", "desc" : "GCLK"},
+                 {"value" : "9h", "desc" : "RTI Base"},
+                 {"value" : "Ah", "desc" : "Not Implemented"},
+                 {"value" : "Bh", "desc" : "VCLKA1"},
+                 {"value" : "Ch", "desc" : "VCLKA2"},
+                 {"value" : "Dh", "desc" : "VCLKA3_S"},
+                 {"value" : "Eh", "desc" : "VCLKA4"},
+                 {"value" : "Fh", "desc" : "Flash HD Pump Oscillator"}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "DFTCTRLREG1",
+          "info" : "DFT Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "90",
+          "fields" : [
+             {
+               "bit_number" : "13-12",
+               "bit_Field_Name" : "DFTWRITE",
+               "info" : "DFT logic access."
+             },
+             {
+               "bit_number" : "9-8",
+               "bit_Field_Name" : "DFTREAD",
+               "info" : "DFT logic access."
+             },
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "TEST_MODE_KEY",
+               "info" : "Test mode key. This register is for internal TI use only."
+             }
+          ]
+        },
+{
+         "name" : "DFTCTRLREG2",
+
+          "info" : "DFT Control Register 2",
+
+          "lenght" : "32",
+
+          "adress" : "0",
+
+          "offset" : "94",
+
+          "fields" : [
+
+             {
+
+               "bit_number" : "31-4",
+
+               "bit_Field_Name" : "IMPDF[27:0]",
+
+               "info" : "DFT Implementation defined bits.",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "IMPDF[27:0] - Disabled"},
+
+                 {"value" : "1", "desc" : "IMPDF[27:0] - Enabled"}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "3-0",
+
+               "bit_Field_Name" : "TEST_MODE_KEY",
+
+               "info" : "Test mode key. This register is for internal TI use only.",
+
+               "values" : [
+
+                 {"value" : "0-Fh", "desc" : "Register key disable. All bits in this register will maintain their default value and cannot be"},
+                 {"value" : "Ah", "desc" : "Register key enable. All the bits can be written to only when the key is enabled."}
+
+                ]
+
+             }
+
+          ]
+
+        },
+{
+          "name" : "GPREG1",
+          "info" : "General Purpose Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A0",
+          "fields" : [
+             {
+               "bit_number" : "31",
+               "bit_Field_Name" : "EMIF_FUNC",
+               "info" : "Enable EMIF functions to be output. EMIF_ADDR[0], EMIF_ADDR[1],"
+             },
+             {
+               "bit_number" : "25-20",
+               "bit_Field_Name" : "PLL1_FBSLIP_FILTER_ COUNT",
+               "info" : "FBSLIP down counter programmed value."
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "PLL1_RFSLIP_FILTER_ KEY",
+               "info" : "Configures the system response when a FBSLIP is indicated by the",
+               "values" : [
+                 {"value" : "5h", "desc" : "The FBSLIP filter is bypassed and the FBSLIP indicated by the PLL"},
+                 {"value" : "Ah", "desc" : "The FBSLIP filter is enabled and the one-stage synchronization"},
+                 {"value" : "Fh", "desc" : "The FBSLIP filter is enabled and the two-stage synchronization circuit"}
+                ]
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "OUTPUT_BUFFER_LOW_EMI_MODE",
+               "info" : "Control field for the low-EMI mode of output buffers for",
+               "values" : [
+                 {"value" : "0", "desc" : "Enable EMI mode for each connected output buffers."},
+                 {"value" : "1h-FFFEh", "desc" : "Enable/Disable EMI mode for connected output buffers."},
+                 {"value" : "FFFFh", "desc" : "Disable EMI mode for each connected output buffer."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "IMPFASTS",
+          "info" : "Imprecise Fault Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "A8",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "ECPCLKFUN",
+               "info" : "ECLK function. This bit changes the function of the ECLK pin.",
+               "values" : [
+                 {"value" : "0", "desc" : "ECLK is in GIO mode."},
+                 {"value" : "1", "desc" : "ECLK is in functional mode as a clock output."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "IMPFTADD",
+          "info" : "Imprecise Fault Write Address Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "AC",
+          "fields" : [
+             {
+               "bit_number" : "31-0",
+               "bit_Field_Name" : "IMPFTADD",
+               "info" : "These bits contain the fault address when an imprecise abort occurs."
+             }
+          ]
+        },
+{
+          "name" : "SSIR{}",
+          "info" : "System Software Interrupt Request {} Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "B0",
+          "group_position" : ["B0","B4","B8","BC"],
+          "group_names" : ["1","2","3","4"], 
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "SSKEY1",
+               "info" : "System software interrupt request key. A 075h written to these bits initiates IRQ/FIQ interrupts."
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SSDATA1",
+               "info" : "System software interrupt data. These bits contain user read/write register bits. They may be used"
+             }
+          ]
+        },
+{
+          "name" : "RAMGCR",
+          "info" : "RAM Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "C0",
+          "fields" : [
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "RAM_DFT_EN",
+               "info" : "Functional mode RAM DFT (Design For Test) port enable key.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "RAM DFT port is enabled."},
+                 {"value" : "Others", "desc" : "RAM DFT port is disabled."}
+                ]
+             },
+             {
+               "bit_number" : "2",
+               "bit_Field_Name" : "WST_AENA0",
+               "info" : "eSRAM data phase wait state enable bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "The default address setup time for eSRAM0 is used."},
+                 {"value" : "1", "desc" : "The eSRAM address setup time is increased by one HCLK cycle."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "WST_DENA0",
+               "info" : "eSRAM data phase wait state enable bit.",
+               "values" : [
+                 {"value" : "0", "desc" : "There are no wait states for eSRAM during the data phase."},
+                 {"value" : "1", "desc" : "The eSRAM data phase setup time is increased by one HCLK cycle."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "BMMCR1",
+          "info" : "Bus Matrix Module Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "C4",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "MEMSW",
+               "info" : "Memory swap key.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "Default memory map:"},
+                 {"value" : "5h", "desc" : "Swapped memory map:"},
+                 {"value" : "Others", "desc" : "The device memory map is unchanged."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "CPURSTCR",
+          "info" : "CPU Reset Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "CC",
+          "fields" : [
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "CPU RESET",
+               "info" : "CPU Reset."
+             }
+          ]
+        },
+{
+          "name" : "CLKCNTL",
+          "info" : "Clock Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "D0",
+          "fields" : [
+             {
+               "bit_number" : "27-24",
+               "bit_Field_Name" : "VCLK2R",
+               "info" : "VBUS clock2 ratio.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLK2 speed is HCLK divided by 1."},
+                 {"value" : "Fh", "desc" : "The VCLK2 speed is HCLK divided by 16."}
+                ]
+             },
+             {
+               "bit_number" : "19-16",
+               "bit_Field_Name" : "VCLKR",
+               "info" : "VBUS clock ratio.",
+               "values" : [
+                 {"value" : "0", "desc" : "The VCLK speed is HCLK divided by 1."},
+                 {"value" : "Fh", "desc" : "The VCLK speed is HCLK divided by 16."}
+                ]
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "PENA",
+               "info" : "Peripheral enable bit. The application must set this bit before accessing any peripheral",
+               "values" : [
+                 {"value" : "0", "desc" : "The global peripheral/peripheral memory frames are in reset."},
+                 {"value" : "1", "desc" : "All peripheral/peripheral memory frames are out of reset."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "ECPCNTL",
+          "info" : "ECP Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "D4",
+          "fields" : [
+             {
+               "bit_number" : "24",
+               "bit_Field_Name" : "ECPSSEL",
+               "info" : "This bit allows the selection between VCLK and OSCIN as the clock source for ECLK.",
+               "values" : [
+                 {"value" : "0", "desc" : "VCLK is selected as the ECP clock source."},
+                 {"value" : "1", "desc" : "OSCIN is selected as the ECP clock source."}
+                ]
+             },
+             {
+               "bit_number" : "23",
+               "bit_Field_Name" : "ECPCOS",
+               "info" : "ECP continue on suspend.",
+               "values" : [
+                 {"value" : "0", "desc" : "ECLK output is disabled in suspend mode. ECLK output will be shut off and will not be seen on"},
+                 {"value" : "1", "desc" : "ECLK output is not disabled in suspend mode. ECLK output will not be shut off and will be seen"}
+                ]
+             },
+             {
+               "bit_number" : "17-6",
+               "bit_Field_Name" : "ECPINSEL",
+               "info" : "Select ECP input clock source.",
+               "values" : [
+                 {"value" : "0", "desc" : "Tied Low"},
+                 {"value" : "1h", "desc" : "HCLK"},
+                 {"value" : "2h", "desc" : "External clock"},
+                 {"value" : "3h", "desc" : "Tied Low"}
+                ]
+             },
+             {
+               "bit_number" : "15-0",
+               "bit_Field_Name" : "ECPDIV",
+               "info" : "ECP divider value. The value of ECPDIV bits determine the external clock (ECP clock) frequency"
+             }
+          ]
+        },
+{
+          "name" : "DEVCR1",
+          "info" : "DEV Parity Control Register 1",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "DC",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "DEVPARSEL",
+               "info" : "Device parity select bit key.",
+               "values" : [
+                 {"value" : "Ah", "desc" : "The device parity is odd."},
+                 {"value" : "5h", "desc" : "The device parity is even."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SYSECR",
+          "info" : "System Exception Control Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "E0",
+          "fields" : [
+             {
+               "bit_number" : "15-14",
+               "bit_Field_Name" : "RESET[1-0]",
+               "info" : "Software reset bits. Setting RESET1 or clearing RESET0 causes a system software reset.",
+               "values" : [
+                 {"value" : "1h", "desc" : "No reset will occur."},
+                 {"value" : "1x, x0", "desc" : "A global system reset will occur."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SYSESR",
+          "info" : "System Exception Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "E4",
+          "fields" : [
+             {
+               "bit_number" : "15",
+               "bit_Field_Name" : "PORST",
+               "info" : "Power-up reset. This bit is set when VCCOR (VCC Out of Range) is detected.",
+               "values" : [
+                 {"value" : "0", "desc" : "No reset has occured due to the VCC being out of range."},
+                 {"value" : "1", "desc" : "A reset was caused by VCC being out of range (nPORST was asserted)."}
+                ]
+             },
+             {
+               "bit_number" : "14",
+               "bit_Field_Name" : "OSCRST",
+               "info" : "Reset caused by an oscillator failure or PLL cycle slip. This bit is set when a reset is caused by an",
+               "values" : [
+                 {"value" : "0", "desc" : "No reset has occurred due to an oscillator failure or a PLL cycle slip."},
+                 {"value" : "1", "desc" : "A reset was caused by an oscillator failure or a PLL cycle slip."}
+                ]
+             },
+             {
+               "bit_number" : "13",
+               "bit_Field_Name" : "WDRST",
+               "info" : "Watchdog reset flag. This bit is set when the last reset was caused by the digital windowed",
+               "values" : [
+                 {"value" : "0", "desc" : "No reset has occurred because of the DWWD."},
+                 {"value" : "1", "desc" : "A reset was caused by the DWWD."}
+                ]
+             },
+             {
+               "bit_number" : "5",
+               "bit_Field_Name" : "CPURST",
+               "info" : "CPU reset flag. This bit is set when the CPU is reset.",
+               "values" : [
+                 {"value" : "0", "desc" : "No CPU reset has occurred."},
+                 {"value" : "1", "desc" : "A CPU reset occurred."}
+                ]
+             },
+             {
+               "bit_number" : "4",
+               "bit_Field_Name" : "SWRST",
+               "info" : "Software reset flag. This bit is set when a software system reset has occurred.",
+               "values" : [
+                 {"value" : "0", "desc" : "No software reset has occurred."},
+                 {"value" : "1", "desc" : "A software reset occurred."}
+                ]
+             },
+             {
+               "bit_number" : "3",
+               "bit_Field_Name" : "EXTRST",
+               "info" : "External reset flag. This bit is set when a reset is caused by the external reset pin nRST.",
+               "values" : [
+                 {"value" : "0", "desc" : "The external reset pin has not asserted a reset."},
+                 {"value" : "1", "desc" : "A reset has been caused by the external reset pin."}
+                ]
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "MPMODE",
+               "info" : "This indicates the current memory protection unit (MPU) mode.",
+               "values" : [
+                 {"value" : "0", "desc" : "MPU is disabled."},
+                 {"value" : "1", "desc" : "MPU is enabled."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SYSTASR",
+          "info" : "System Test Abort Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "E8",
+          "fields" : [
+             {
+               "bit_number" : "4-0",
+               "bit_Field_Name" : "EFUSE_Abort",
+               "info" : "Test Abort status flag. These bits are set when test abort occurred:",
+               "values" : [
+                 {"value" : "0", "desc" : "Read: The last operation (if any) completed successfully. This is also the value that the"},
+                 {"value" : "1h", "desc" : "Read: Controller times out because there is no last row sent from the FuseROM."},
+                 {"value" : "2h", "desc" : "Read: The autoload machine was started, either through the SYS_INITZ signal from the system or"},
+                 {"value" : "3h", "desc" : "Read: The autoload machine was started, either through the SYS_INITZ signal from the system or"},
+                 {"value" : "4h", "desc" : "Read: The autoload machine was started, either through the SYS_INITZ signal from the system or"},
+                 {"value" : "1Fh", "desc" : "Write: These bits are cleared to 0."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "GLBSTAT",
+          "info" : "Global Status Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "EC",
+          "fields" : [
+             {
+               "bit_number" : "9",
+               "bit_Field_Name" : "FBSLIP",
+               "info" : "PLL over cycle slip detection."
+             },
+             {
+               "bit_number" : "8",
+               "bit_Field_Name" : "RFSLIP",
+               "info" : "PLL under cycle slip detection."
+             },
+             {
+               "bit_number" : "0",
+               "bit_Field_Name" : "OSCFAIL",
+               "info" : "Oscillator fail flag bit."
+             }
+          ]
+        },
+{
+          "name" : "DEVID",
+
+          "info" : "Device Identification Register",
+
+          "lenght" : "32",
+
+          "adress" : "0",
+
+          "offset" : "F0",
+
+          "fields" : [
+
+             {
+
+               "bit_number" : "31",
+
+               "bit_Field_Name" : "CP15",
+
+               "info" : "CP15 CPU. This bit indicates whether the CPU has a coprocessor 15 (CP15).",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "The CPU has no CP15 present."},
+
+                 {"value" : "1", "desc" : "The CPU has a CP15 present. The CPU ID can be read using the CP15 C0,C0,0 register."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "16-13",
+
+               "bit_Field_Name" : "TECH",
+
+               "info" : "These bits define the process technology by which the device was manufactured.",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "Device manufactured in the C05 process technology."},
+
+                 {"value" : "1h", "desc" : "Device manufactured in the F05 process technology."},
+
+                 {"value" : "2h", "desc" : "Device manufactured in the C035 process technology."},
+
+                 {"value" : "3h", "desc" : "Device manufactured in the F035 process technology."},
+
+                 {"value" : "4h", "desc" : "Device manufactured in the C021 process technology."},
+
+                 {"value" : "5h", "desc" : "Device manufactured in the F021 process technology."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "12",
+
+               "bit_Field_Name" : "I/O VOLTAGE",
+               "info" : "Input/output voltage. This bit defines the I/O voltage of the device.",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "The I/O voltage is 3.3 V."},
+
+                 {"value" : "1", "desc" : "The I/O voltage is 5 V."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "11",
+
+               "bit_Field_Name" : "PERIPHERAL PARITY",
+
+               "info" : "The peripheral memories have no parity.",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "The peripheral memories have no parity."},
+
+                 {"value" : "1", "desc" : "The peripheral memories have parity."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "10-9",
+
+               "bit_Field_Name" : "FLASH ECC",
+
+               "info" : "These bits indicate which parity is present for the program memory.",
+
+               "values" : [
+
+                 {"value" : "0", "desc" : "No memory protection is present."},
+
+                 {"value" : "1h", "desc" : "The program memory (Flash) has single bit parity."},
+
+                 {"value" : "2h", "desc" : "The program memory (Flash) has ECC."},
+
+                 {"value" : "3h", "desc" : "This combination is reserved."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "8",
+
+               "bit_Field_Name" : "RAM ECC",
+
+               "info" : "RAM ECC. This bit indicates whether or not RAM memory ECC is present.",
+
+              "values" : [
+                 {"value" : "0", "desc" : "The RAM memories do not have ECC."},
+
+                 {"value" : "1", "desc" : "The RAM memories have ECC."}
+
+                ]
+
+             },
+
+             {
+
+               "bit_number" : "7-3",
+
+               "bit_Field_Name" : "VERSION",
+
+               "info" : "Version. These bits provide the revision of the device."
+             },
+
+             {
+
+               "bit_number" : "2-0",
+
+               "bit_Field_Name" : "PLATFORM ID",
+
+               "info" : "The device is part of the TMS570Px family. The TMS570Px ID is always 5h."
+
+             }
+
+          ]
+
+        },
+{
+          "name" : "SSIVEC",
+          "info" : "Software Interrupt Vector Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F4",
+          "fields" : [
+             {
+               "bit_number" : "15-8",
+               "bit_Field_Name" : "SSIDATA",
+               "info" : "System software interrupt data key. These bits contain the data key value of the source for the"
+             },
+             {
+               "bit_number" : "7-0",
+               "bit_Field_Name" : "SSIVECT",
+               "info" : "These bits contain the source for the system software interrupt.",
+               "values" : [
+                 {"value" : "0", "desc" : "No software interrupt is pending."},
+                 {"value" : "1h", "desc" : "A software interrupt has been generated by writing the correct key value to The SSIR1 register."},
+                 {"value" : "2h", "desc" : "A software interrupt has been generated by writing the correct key value to The SSIR2 register."},
+                 {"value" : "3h", "desc" : "A software interrupt has been generated by writing the correct key value to The SSIR3 register."},
+                 {"value" : "4h", "desc" : "A software interrupt has been generated by writing the correct key value to The SSIR4 register."}
+                ]
+             }
+          ]
+        },
+{
+          "name" : "SSIF",
+          "info" : "System Software Interrupt Flag Register",
+          "lenght" : "32",
+          "adress" : "0",
+          "offset" : "F8",
+          "fields" : [
+             {
+               "bit_number" : "3-0",
+               "bit_Field_Name" : "SSI_FLAG[4-1]",
+               "info" : "System software interrupt flag[4-1]. This flag is set when the correct SSKEY is written to the"
+             }
+          ]
+        }
+              ]    
+    }
+  ] 
+}
