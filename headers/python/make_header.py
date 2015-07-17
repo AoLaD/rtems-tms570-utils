@@ -209,7 +209,7 @@ def makeBlock(reg,prefix):
             block += "#define "+macroName+'_SET(reg,val) BSP_FLD32SET(reg, val,'+reg.fields[i].start_bit+', '+str(int(reg.fields[i].start_bit)+lenght-1)+')\n'
             block += '\n'
         else:
-            block += "#define "+macroName+' BSP_FLD32('+reg.fields[i].start_bit+')\n'
+            block += "#define "+macroName+' BSP_BIT32('+reg.fields[i].start_bit+')\n'
             block += '\n'
 
     if(reg.group_name_actual != None):
