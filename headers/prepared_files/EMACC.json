@@ -1,0 +1,496 @@
+{
+ "author" : "Premysl Houdek",
+ "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
+ "name" : "tms570",
+ "peripherals" : [
+   {
+     "name" : "EMAC",
+     "full name" : "EMAC Control Module Registers",
+     "offset" : ["0xFCF78800"],
+     "registers" : [
+       {
+       "name" : "REVID",
+       "info" : "EMAC Control Module Revision ID Register",
+       "lenght" : "32",
+       "adress" : "0x0",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "32",
+         "bit_Field_Name" : "REV",
+         "info" : "Identifies the EMAC Control Module revision."
+         }
+        ]
+       },
+       {
+       "name" : "SOFTRESET",
+       "info" : "EMAC Control Module Software Reset Register",
+       "lenght" : "32",
+       "adress" : "0x4",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RESET",
+         "info" : "Software reset bit for the EMAC Control Module."
+         }
+        ]
+       },
+       {
+       "name" : "INTCONTROL",
+       "info" : "EMAC Control Module Interrupt Control Register",
+       "lenght" : "32",
+       "adress" : "0xc",
+       "fields" : [
+         {
+         "start_bit" : "17",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "C0TXPACEEN",
+         "info" : "Enable pacing for TX interrupt pulse generation"
+         },
+         {
+         "start_bit" : "16",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "C0RXPACEEN",
+         "info" : "Enable pacing for RX interrupt pulse generation"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "12",
+         "bit_Field_Name" : "INTPRESCALE",
+         "info" : "Number of internal EMAC module reference clock periods within a 4 us time window (see"
+         }
+        ]
+       },
+       {
+       "name" : "C0RXTHRESHEN",
+       "info" : "EMAC Control Module Receive Threshold Interrupt Enable Register",
+       "lenght" : "32",
+       "adress" : "0x10",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH7THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 7"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH6THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 6"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH5THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 5"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH4THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 4"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH3THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 3"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH2THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 2"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH1THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 1"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH0THRESHEN",
+         "info" : "Enable C0RXTHRESHPULSE interrupt generation for RX Channel 0"
+         }
+        ]
+       },
+       {
+       "name" : "C0RXEN",
+       "info" : "EMAC Control Module Receive Interrupt Enable Register",
+       "lenght" : "32",
+       "adress" : "0x14",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH7EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 7"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH6EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 6"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH5EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 5"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH4EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 4"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH3EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 3"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH2EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 2"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH1EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 1"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH0EN",
+         "info" : "Enable C0RXPULSE interrupt generation for RX Channel 0"
+         }
+        ]
+       },
+       {
+       "name" : "C0TXEN",
+       "info" : "EMAC Control Module Transmit Interrupt Enable Register",
+       "lenght" : "32",
+       "adress" : "0x18",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH7EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 7"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH6EN",
+         "info" : "TXCH6EN"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH5EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 5"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH4EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 4"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH3EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 3"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH2EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 2"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH1EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 1"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH0EN",
+         "info" : "Enable C0TXPULSE interrupt generation for TX Channel 0"
+         }
+        ]
+       },
+       {
+       "name" : "C0MISCEN",
+       "info" : "EMAC Control Module Miscellaneous Interrupt Enable Register",
+       "lenght" : "32",
+       "adress" : "0x1c",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "STATPENDEN",
+         "info" : "Enable C0MISCPULSE interrupt generation when EMAC statistics interrupts are generated"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "HOSTPENDEN",
+         "info" : "HOSTPENDEN"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LINKINT0EN",
+         "info" : "Enable C0MISCPULSE interrupt generation when MDIO LINKINT0 interrupts (corresponding to"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "USERINT0EN",
+         "info" : "Enable C0MISCPULSE interrupt generation when MDIO USERINT0 interrupts (corresponding"
+         }
+        ]
+       },
+       {
+       "name" : "C0RXTHRESHSTAT",
+       "info" : "EMAC Control Module Receive Threshold Interrupt Status Register",
+       "lenght" : "32",
+       "adress" : "0x40",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH7THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 7 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH6THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 6 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH5THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 5 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH4THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 4 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH3THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 3 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH2THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 2 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH1THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 1 masked by the C0RXTHRESHEN register"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH0THRESHSTAT",
+         "info" : "Interrupt status for RX Channel 0 masked by the C0RXTHRESHEN register"
+         }
+        ]
+       },
+       {
+       "name" : "C0RXSTAT",
+       "info" : "EMAC Control Module Receive Interrupt Status Register",
+       "lenght" : "32",
+       "adress" : "0x44",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH7STAT",
+         "info" : "RXCH7STAT"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH6STAT",
+         "info" : "Interrupt status for RX Channel 6 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH5STAT",
+         "info" : "Interrupt status for RX Channel 5 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH4STAT",
+         "info" : "Interrupt status for RX Channel 4 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH3STAT",
+         "info" : "Interrupt status for RX Channel 3 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH2STAT",
+         "info" : "H2STAT Interrupt status for RX Channel 2 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH1STAT",
+         "info" : "Interrupt status for RX Channel 1 masked by the C0RXEN register"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "RXCH0STAT",
+         "info" : "Interrupt status for RX Channel 0 masked by the C0RXEN register"
+         }
+        ]
+       },
+       {
+       "name" : "C0TXSTAT",
+       "info" : "EMAC Control Module Transmit Interrupt Status Register",
+       "lenght" : "32",
+       "adress" : "0x48",
+       "fields" : [
+         {
+         "start_bit" : "7",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH7STAT",
+         "info" : "Interrupt status for TX Channel 7 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "6",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH6STAT",
+         "info" : "TXCH6STAT"
+         },
+         {
+         "start_bit" : "5",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH5STAT",
+         "info" : "Interrupt status for TX Channel 5 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "4",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH4STAT",
+         "info" : "Interrupt status for TX Channel 4 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH3STAT",
+         "info" : "Interrupt status for TX Channel 3 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH2STAT",
+         "info" : "Interrupt status for TX Channel 2 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH1STAT",
+         "info" : "Interrupt status for TX Channel 1 masked by the C0TXEN register"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "TXCH0STAT",
+         "info" : "Interrupt status for TX Channel 0 masked by the C0TXEN register"
+         }
+        ]
+       },
+       {
+       "name" : "C0MISCSTAT",
+       "info" : "EMAC Control Module Miscellaneous Interrupt Status Register",
+       "lenght" : "32",
+       "adress" : "0x4c",
+       "fields" : [
+         {
+         "start_bit" : "3",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "STATPENDSTAT",
+         "info" : "Interrupt status for EMAC STATPEND masked by the C0MISCEN register"
+         },
+         {
+         "start_bit" : "2",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "HOSTPENDSTAT",
+         "info" : "Interrupt status for EMAC HOSTPEND masked by the C0MISCEN register"
+         },
+         {
+         "start_bit" : "1",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "LINKINT0STAT",
+         "info" : "Interrupt status for MDIO LINKINT0 masked by the C0MISCEN register"
+         },
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "1",
+         "bit_Field_Name" : "USERINT0STAT",
+         "info" : "Interrupt status for MDIO USERINT0 masked by the C0MISCEN register"
+         }
+        ]
+       },
+       {
+       "name" : "C0RXIMAX",
+       "info" : "EMAC Control Module Receive Interrupts Per Millisecond Register",
+       "lenght" : "32",
+       "adress" : "0x70",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "RXIMAX",
+         "info" : "RXIMAX is the desired number of C0RXPULSE interrupts generated per millisecond when"
+         }
+        ]
+       },
+       {
+       "name" : "C0TXIMAX",
+       "info" : "EMAC Control Module Transmit Interrupts Per Millisecond Register",
+       "lenght" : "32",
+       "adress" : "0x74",
+       "fields" : [
+         {
+         "start_bit" : "0",
+         "bit_lenght" : "6",
+         "bit_Field_Name" : "TXIMAX",
+         "info" : "TXIMAX is the desired number of C0TXPULSE interrupts generated per millisecond when"
+         }
+        ]
+       }
+     ]
+   }
+ ]
+}
