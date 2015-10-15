@@ -4,7 +4,7 @@
  "name" : "tms570",
  "peripherals" : [
    {
-     "name" : "EMAC",
+     "name" : "EMACC",
      "full name" : "EMAC Control Module Registers",
      "offset" : ["0xFCF78800"],
      "registers" : [

@@ -36,8 +36,8 @@
  * of the authors and should not be interpreted as representing official policies,
  * either expressed or implied, of the FreeBSD Project.
 */
-#ifndef LIBBSP_ARM_TMS570_EMAC
-#define LIBBSP_ARM_TMS570_EMAC
+#ifndef LIBBSP_ARM_TMS570_EMACC
+#define LIBBSP_ARM_TMS570_EMACC
 
 #include <bsp/utility.h>
 
@@ -58,228 +58,228 @@ typedef struct{
   uint8_t reserved3 [32];
   uint32_t C0RXIMAX;          /*EMAC Control Module Receive Interrupts Per Millisecond Register*/
   uint32_t C0TXIMAX;          /*EMAC Control Module Transmit Interrupts Per Millisecond Register*/
-} tms570_emac_t;
+} tms570_emacc_t;
 
 
-/*---------------------TMS570_EMAC_REVID---------------------*/
+/*---------------------TMS570_EMACC_REVID---------------------*/
 /* field: REV - Identifies the EMAC Control Module revision. */
 /* Whole 32 bits */
 
-/*-------------------TMS570_EMAC_SOFTRESET-------------------*/
+/*-------------------TMS570_EMACC_SOFTRESET-------------------*/
 /* field: RESET - Software reset bit for the EMAC Control Module. */
-#define TMS570_EMAC_SOFTRESET_RESET BSP_BIT32(0)
+#define TMS570_EMACC_SOFTRESET_RESET BSP_BIT32(0)
 
 
-/*-------------------TMS570_EMAC_INTCONTROL-------------------*/
+/*------------------TMS570_EMACC_INTCONTROL------------------*/
 /* field: C0TXPACEEN - Enable pacing for TX interrupt pulse generation */
-#define TMS570_EMAC_INTCONTROL_C0TXPACEEN BSP_BIT32(17)
+#define TMS570_EMACC_INTCONTROL_C0TXPACEEN BSP_BIT32(17)
 
 /* field: C0RXPACEEN - Enable pacing for RX interrupt pulse generation */
-#define TMS570_EMAC_INTCONTROL_C0RXPACEEN BSP_BIT32(16)
+#define TMS570_EMACC_INTCONTROL_C0RXPACEEN BSP_BIT32(16)
 
 /* field: INTPRESCALE - Number of internal EMAC module reference clock periods within a 4 us time window (see */
-#define TMS570_EMAC_INTCONTROL_INTPRESCALE(val) BSP_FLD32(val,0, 11)
-#define TMS570_EMAC_INTCONTROL_INTPRESCALE_GET(reg) BSP_FLD32GET(reg,0, 11)
-#define TMS570_EMAC_INTCONTROL_INTPRESCALE_SET(reg,val) BSP_FLD32SET(reg, val,0, 11)
+#define TMS570_EMACC_INTCONTROL_INTPRESCALE(val) BSP_FLD32(val,0, 11)
+#define TMS570_EMACC_INTCONTROL_INTPRESCALE_GET(reg) BSP_FLD32GET(reg,0, 11)
+#define TMS570_EMACC_INTCONTROL_INTPRESCALE_SET(reg,val) BSP_FLD32SET(reg, val,0, 11)
 
 
-/*------------------TMS570_EMAC_C0RXTHRESHEN------------------*/
+/*-----------------TMS570_EMACC_C0RXTHRESHEN-----------------*/
 /* field: RXCH7THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 7 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH7THRESHEN BSP_BIT32(7)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH7THRESHEN BSP_BIT32(7)
 
 /* field: RXCH6THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 6 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH6THRESHEN BSP_BIT32(6)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH6THRESHEN BSP_BIT32(6)
 
 /* field: RXCH5THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 5 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH5THRESHEN BSP_BIT32(5)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH5THRESHEN BSP_BIT32(5)
 
 /* field: RXCH4THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 4 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH4THRESHEN BSP_BIT32(4)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH4THRESHEN BSP_BIT32(4)
 
 /* field: RXCH3THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 3 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH3THRESHEN BSP_BIT32(3)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH3THRESHEN BSP_BIT32(3)
 
 /* field: RXCH2THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 2 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH2THRESHEN BSP_BIT32(2)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH2THRESHEN BSP_BIT32(2)
 
 /* field: RXCH1THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 1 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH1THRESHEN BSP_BIT32(1)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH1THRESHEN BSP_BIT32(1)
 
 /* field: RXCH0THRESHEN - Enable C0RXTHRESHPULSE interrupt generation for RX Channel 0 */
-#define TMS570_EMAC_C0RXTHRESHEN_RXCH0THRESHEN BSP_BIT32(0)
+#define TMS570_EMACC_C0RXTHRESHEN_RXCH0THRESHEN BSP_BIT32(0)
 
 
-/*---------------------TMS570_EMAC_C0RXEN---------------------*/
+/*--------------------TMS570_EMACC_C0RXEN--------------------*/
 /* field: RXCH7EN - Enable C0RXPULSE interrupt generation for RX Channel 7 */
-#define TMS570_EMAC_C0RXEN_RXCH7EN BSP_BIT32(7)
+#define TMS570_EMACC_C0RXEN_RXCH7EN BSP_BIT32(7)
 
 /* field: RXCH6EN - Enable C0RXPULSE interrupt generation for RX Channel 6 */
-#define TMS570_EMAC_C0RXEN_RXCH6EN BSP_BIT32(6)
+#define TMS570_EMACC_C0RXEN_RXCH6EN BSP_BIT32(6)
 
 /* field: RXCH5EN - Enable C0RXPULSE interrupt generation for RX Channel 5 */
-#define TMS570_EMAC_C0RXEN_RXCH5EN BSP_BIT32(5)
+#define TMS570_EMACC_C0RXEN_RXCH5EN BSP_BIT32(5)
 
 /* field: RXCH4EN - Enable C0RXPULSE interrupt generation for RX Channel 4 */
-#define TMS570_EMAC_C0RXEN_RXCH4EN BSP_BIT32(4)
+#define TMS570_EMACC_C0RXEN_RXCH4EN BSP_BIT32(4)
 
 /* field: RXCH3EN - Enable C0RXPULSE interrupt generation for RX Channel 3 */
-#define TMS570_EMAC_C0RXEN_RXCH3EN BSP_BIT32(3)
+#define TMS570_EMACC_C0RXEN_RXCH3EN BSP_BIT32(3)
 
 /* field: RXCH2EN - Enable C0RXPULSE interrupt generation for RX Channel 2 */
-#define TMS570_EMAC_C0RXEN_RXCH2EN BSP_BIT32(2)
+#define TMS570_EMACC_C0RXEN_RXCH2EN BSP_BIT32(2)
 
 /* field: RXCH1EN - Enable C0RXPULSE interrupt generation for RX Channel 1 */
-#define TMS570_EMAC_C0RXEN_RXCH1EN BSP_BIT32(1)
+#define TMS570_EMACC_C0RXEN_RXCH1EN BSP_BIT32(1)
 
 /* field: RXCH0EN - Enable C0RXPULSE interrupt generation for RX Channel 0 */
-#define TMS570_EMAC_C0RXEN_RXCH0EN BSP_BIT32(0)
+#define TMS570_EMACC_C0RXEN_RXCH0EN BSP_BIT32(0)
 
 
-/*---------------------TMS570_EMAC_C0TXEN---------------------*/
+/*--------------------TMS570_EMACC_C0TXEN--------------------*/
 /* field: TXCH7EN - Enable C0TXPULSE interrupt generation for TX Channel 7 */
-#define TMS570_EMAC_C0TXEN_TXCH7EN BSP_BIT32(7)
+#define TMS570_EMACC_C0TXEN_TXCH7EN BSP_BIT32(7)
 
 /* field: TXCH6EN - TXCH6EN */
-#define TMS570_EMAC_C0TXEN_TXCH6EN BSP_BIT32(6)
+#define TMS570_EMACC_C0TXEN_TXCH6EN BSP_BIT32(6)
 
 /* field: TXCH5EN - Enable C0TXPULSE interrupt generation for TX Channel 5 */
-#define TMS570_EMAC_C0TXEN_TXCH5EN BSP_BIT32(5)
+#define TMS570_EMACC_C0TXEN_TXCH5EN BSP_BIT32(5)
 
 /* field: TXCH4EN - Enable C0TXPULSE interrupt generation for TX Channel 4 */
-#define TMS570_EMAC_C0TXEN_TXCH4EN BSP_BIT32(4)
+#define TMS570_EMACC_C0TXEN_TXCH4EN BSP_BIT32(4)
 
 /* field: TXCH3EN - Enable C0TXPULSE interrupt generation for TX Channel 3 */
-#define TMS570_EMAC_C0TXEN_TXCH3EN BSP_BIT32(3)
+#define TMS570_EMACC_C0TXEN_TXCH3EN BSP_BIT32(3)
 
 /* field: TXCH2EN - Enable C0TXPULSE interrupt generation for TX Channel 2 */
-#define TMS570_EMAC_C0TXEN_TXCH2EN BSP_BIT32(2)
+#define TMS570_EMACC_C0TXEN_TXCH2EN BSP_BIT32(2)
 
 /* field: TXCH1EN - Enable C0TXPULSE interrupt generation for TX Channel 1 */
-#define TMS570_EMAC_C0TXEN_TXCH1EN BSP_BIT32(1)
+#define TMS570_EMACC_C0TXEN_TXCH1EN BSP_BIT32(1)
 
 /* field: TXCH0EN - Enable C0TXPULSE interrupt generation for TX Channel 0 */
-#define TMS570_EMAC_C0TXEN_TXCH0EN BSP_BIT32(0)
+#define TMS570_EMACC_C0TXEN_TXCH0EN BSP_BIT32(0)
 
 
-/*--------------------TMS570_EMAC_C0MISCEN--------------------*/
+/*-------------------TMS570_EMACC_C0MISCEN-------------------*/
 /* field: STATPENDEN - Enable C0MISCPULSE interrupt generation when EMAC statistics interrupts are generated */
-#define TMS570_EMAC_C0MISCEN_STATPENDEN BSP_BIT32(3)
+#define TMS570_EMACC_C0MISCEN_STATPENDEN BSP_BIT32(3)
 
 /* field: HOSTPENDEN - HOSTPENDEN */
-#define TMS570_EMAC_C0MISCEN_HOSTPENDEN BSP_BIT32(2)
+#define TMS570_EMACC_C0MISCEN_HOSTPENDEN BSP_BIT32(2)
 
 /* field: LINKINT0EN - Enable C0MISCPULSE interrupt generation when MDIO LINKINT0 interrupts (corresponding to */
-#define TMS570_EMAC_C0MISCEN_LINKINT0EN BSP_BIT32(1)
+#define TMS570_EMACC_C0MISCEN_LINKINT0EN BSP_BIT32(1)
 
 /* field: USERINT0EN - Enable C0MISCPULSE interrupt generation when MDIO USERINT0 interrupts (corresponding */
-#define TMS570_EMAC_C0MISCEN_USERINT0EN BSP_BIT32(0)
+#define TMS570_EMACC_C0MISCEN_USERINT0EN BSP_BIT32(0)
 
 
-/*-----------------TMS570_EMAC_C0RXTHRESHSTAT-----------------*/
+/*----------------TMS570_EMACC_C0RXTHRESHSTAT----------------*/
 /* field: RXCH7THRESHSTAT - Interrupt status for RX Channel 7 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH7THRESHSTAT BSP_BIT32(7)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH7THRESHSTAT BSP_BIT32(7)
 
 /* field: RXCH6THRESHSTAT - Interrupt status for RX Channel 6 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH6THRESHSTAT BSP_BIT32(6)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH6THRESHSTAT BSP_BIT32(6)
 
 /* field: RXCH5THRESHSTAT - Interrupt status for RX Channel 5 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH5THRESHSTAT BSP_BIT32(5)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH5THRESHSTAT BSP_BIT32(5)
 
 /* field: RXCH4THRESHSTAT - Interrupt status for RX Channel 4 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH4THRESHSTAT BSP_BIT32(4)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH4THRESHSTAT BSP_BIT32(4)
 
 /* field: RXCH3THRESHSTAT - Interrupt status for RX Channel 3 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH3THRESHSTAT BSP_BIT32(3)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH3THRESHSTAT BSP_BIT32(3)
 
 /* field: RXCH2THRESHSTAT - Interrupt status for RX Channel 2 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH2THRESHSTAT BSP_BIT32(2)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH2THRESHSTAT BSP_BIT32(2)
 
 /* field: RXCH1THRESHSTAT - Interrupt status for RX Channel 1 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH1THRESHSTAT BSP_BIT32(1)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH1THRESHSTAT BSP_BIT32(1)
 
 /* field: RXCH0THRESHSTAT - Interrupt status for RX Channel 0 masked by the C0RXTHRESHEN register */
-#define TMS570_EMAC_C0RXTHRESHSTAT_RXCH0THRESHSTAT BSP_BIT32(0)
+#define TMS570_EMACC_C0RXTHRESHSTAT_RXCH0THRESHSTAT BSP_BIT32(0)
 
 
-/*--------------------TMS570_EMAC_C0RXSTAT--------------------*/
+/*-------------------TMS570_EMACC_C0RXSTAT-------------------*/
 /* field: RXCH7STAT - RXCH7STAT */
-#define TMS570_EMAC_C0RXSTAT_RXCH7STAT BSP_BIT32(7)
+#define TMS570_EMACC_C0RXSTAT_RXCH7STAT BSP_BIT32(7)
 
 /* field: RXCH6STAT - Interrupt status for RX Channel 6 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH6STAT BSP_BIT32(6)
+#define TMS570_EMACC_C0RXSTAT_RXCH6STAT BSP_BIT32(6)
 
 /* field: RXCH5STAT - Interrupt status for RX Channel 5 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH5STAT BSP_BIT32(5)
+#define TMS570_EMACC_C0RXSTAT_RXCH5STAT BSP_BIT32(5)
 
 /* field: RXCH4STAT - Interrupt status for RX Channel 4 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH4STAT BSP_BIT32(4)
+#define TMS570_EMACC_C0RXSTAT_RXCH4STAT BSP_BIT32(4)
 
 /* field: RXCH3STAT - Interrupt status for RX Channel 3 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH3STAT BSP_BIT32(3)
+#define TMS570_EMACC_C0RXSTAT_RXCH3STAT BSP_BIT32(3)
 
 /* field: RXCH2STAT - H2STAT Interrupt status for RX Channel 2 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH2STAT BSP_BIT32(2)
+#define TMS570_EMACC_C0RXSTAT_RXCH2STAT BSP_BIT32(2)
 
 /* field: RXCH1STAT - Interrupt status for RX Channel 1 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH1STAT BSP_BIT32(1)
+#define TMS570_EMACC_C0RXSTAT_RXCH1STAT BSP_BIT32(1)
 
 /* field: RXCH0STAT - Interrupt status for RX Channel 0 masked by the C0RXEN register */
-#define TMS570_EMAC_C0RXSTAT_RXCH0STAT BSP_BIT32(0)
+#define TMS570_EMACC_C0RXSTAT_RXCH0STAT BSP_BIT32(0)
 
 
-/*--------------------TMS570_EMAC_C0TXSTAT--------------------*/
+/*-------------------TMS570_EMACC_C0TXSTAT-------------------*/
 /* field: TXCH7STAT - Interrupt status for TX Channel 7 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH7STAT BSP_BIT32(7)
+#define TMS570_EMACC_C0TXSTAT_TXCH7STAT BSP_BIT32(7)
 
 /* field: TXCH6STAT - TXCH6STAT */
-#define TMS570_EMAC_C0TXSTAT_TXCH6STAT BSP_BIT32(6)
+#define TMS570_EMACC_C0TXSTAT_TXCH6STAT BSP_BIT32(6)
 
 /* field: TXCH5STAT - Interrupt status for TX Channel 5 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH5STAT BSP_BIT32(5)
+#define TMS570_EMACC_C0TXSTAT_TXCH5STAT BSP_BIT32(5)
 
 /* field: TXCH4STAT - Interrupt status for TX Channel 4 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH4STAT BSP_BIT32(4)
+#define TMS570_EMACC_C0TXSTAT_TXCH4STAT BSP_BIT32(4)
 
 /* field: TXCH3STAT - Interrupt status for TX Channel 3 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH3STAT BSP_BIT32(3)
+#define TMS570_EMACC_C0TXSTAT_TXCH3STAT BSP_BIT32(3)
 
 /* field: TXCH2STAT - Interrupt status for TX Channel 2 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH2STAT BSP_BIT32(2)
+#define TMS570_EMACC_C0TXSTAT_TXCH2STAT BSP_BIT32(2)
 
 /* field: TXCH1STAT - Interrupt status for TX Channel 1 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH1STAT BSP_BIT32(1)
+#define TMS570_EMACC_C0TXSTAT_TXCH1STAT BSP_BIT32(1)
 
 /* field: TXCH0STAT - Interrupt status for TX Channel 0 masked by the C0TXEN register */
-#define TMS570_EMAC_C0TXSTAT_TXCH0STAT BSP_BIT32(0)
+#define TMS570_EMACC_C0TXSTAT_TXCH0STAT BSP_BIT32(0)
 
 
-/*-------------------TMS570_EMAC_C0MISCSTAT-------------------*/
+/*------------------TMS570_EMACC_C0MISCSTAT------------------*/
 /* field: STATPENDSTAT - Interrupt status for EMAC STATPEND masked by the C0MISCEN register */
-#define TMS570_EMAC_C0MISCSTAT_STATPENDSTAT BSP_BIT32(3)
+#define TMS570_EMACC_C0MISCSTAT_STATPENDSTAT BSP_BIT32(3)
 
 /* field: HOSTPENDSTAT - Interrupt status for EMAC HOSTPEND masked by the C0MISCEN register */
-#define TMS570_EMAC_C0MISCSTAT_HOSTPENDSTAT BSP_BIT32(2)
+#define TMS570_EMACC_C0MISCSTAT_HOSTPENDSTAT BSP_BIT32(2)
 
 /* field: LINKINT0STAT - Interrupt status for MDIO LINKINT0 masked by the C0MISCEN register */
-#define TMS570_EMAC_C0MISCSTAT_LINKINT0STAT BSP_BIT32(1)
+#define TMS570_EMACC_C0MISCSTAT_LINKINT0STAT BSP_BIT32(1)
 
 /* field: USERINT0STAT - Interrupt status for MDIO USERINT0 masked by the C0MISCEN register */
-#define TMS570_EMAC_C0MISCSTAT_USERINT0STAT BSP_BIT32(0)
+#define TMS570_EMACC_C0MISCSTAT_USERINT0STAT BSP_BIT32(0)
 
 
-/*--------------------TMS570_EMAC_C0RXIMAX--------------------*/
+/*-------------------TMS570_EMACC_C0RXIMAX-------------------*/
 /* field: RXIMAX - RXIMAX is the desired number of C0RXPULSE interrupts generated per millisecond when */
-#define TMS570_EMAC_C0RXIMAX_RXIMAX(val) BSP_FLD32(val,0, 5)
-#define TMS570_EMAC_C0RXIMAX_RXIMAX_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_EMAC_C0RXIMAX_RXIMAX_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_EMACC_C0RXIMAX_RXIMAX(val) BSP_FLD32(val,0, 5)
+#define TMS570_EMACC_C0RXIMAX_RXIMAX_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_EMACC_C0RXIMAX_RXIMAX_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
-/*--------------------TMS570_EMAC_C0TXIMAX--------------------*/
+/*-------------------TMS570_EMACC_C0TXIMAX-------------------*/
 /* field: TXIMAX - TXIMAX is the desired number of C0TXPULSE interrupts generated per millisecond when */
-#define TMS570_EMAC_C0TXIMAX_TXIMAX(val) BSP_FLD32(val,0, 5)
-#define TMS570_EMAC_C0TXIMAX_TXIMAX_GET(reg) BSP_FLD32GET(reg,0, 5)
-#define TMS570_EMAC_C0TXIMAX_TXIMAX_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
+#define TMS570_EMACC_C0TXIMAX_TXIMAX(val) BSP_FLD32(val,0, 5)
+#define TMS570_EMACC_C0TXIMAX_TXIMAX_GET(reg) BSP_FLD32GET(reg,0, 5)
+#define TMS570_EMACC_C0TXIMAX_TXIMAX_SET(reg,val) BSP_FLD32SET(reg, val,0, 5)
 
 
 
-#endif /* LIBBSP_ARM_TMS570_EMAC */
+#endif /* LIBBSP_ARM_TMS570_EMACC */
