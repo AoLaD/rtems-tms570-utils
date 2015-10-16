@@ -1,11 +1,11 @@
-/*
- * Copyright (c) 2014-2015, Premysl Houdek <kom541000@gmail.com>,<houdepre@fel.cvut.cz>
- *
- * Czech Technical University in Prague
- * Zikova 1903/4
- * 166 36 Praha 6
- * Czech Republic
- *
+
+Copyright (c) 2014-2015, Premysl Houdek <kom541000@gmail.com>,<houdepre@fel.cvut.cz>
+
+Czech Technical University in Prague
+Zikova 1903/4
+166 36 Praha 6
+Czech Republic
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

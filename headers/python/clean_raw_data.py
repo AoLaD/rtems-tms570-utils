@@ -10,7 +10,7 @@ class MCU(object):
         self.name = name
         self.pdf = pdf
         self.author = author
-        self.peripherals = peripherals        
+        self.peripherals = peripherals
 
 class Peripheral(object):
     def __init__(self,name,full_name,offset,sulf,registers):
@@ -33,7 +33,7 @@ class Register(object):
         self.group_name = group_name
         self.group_name_actual = None
         self.reg_type = reg_type
-        self.array = array        
+        self.array = array
         self.used = 0
 
 class Fields(object):
@@ -44,7 +44,7 @@ class Fields(object):
         self.info = info
         self.values = values
         self.used = 0
-        
+
 import json
 def object_decoder(obj):
     if 'adress' in obj:
@@ -65,15 +65,15 @@ def object_decoder(obj):
             temporal_type = obj['type']
         return Register(obj['name'], obj['info'],obj['lenght'], obj['adress'], obj['offset'], temporal_fields,temporal_array,temporal_type, temporal_group_pos,temporal_group_name)
     elif 'bit_Field_Name' in obj:
-        temporal_values = None        
+        temporal_values = None
         if('values' in obj):
             temporal_values = obj['values']
-        return Fields(obj['bit_number'], None, obj['bit_Field_Name'], obj['info'],temporal_values)                    
+        return Fields(obj['bit_number'], None, obj['bit_Field_Name'], obj['info'],temporal_values)
     elif 'registers' in obj:
         sulf = None
         if('sulfixes' in obj):
             sulf = obj['sulfixes']
-        return Peripheral(obj['name'], obj['full name'],obj['offset'],sulf,obj['registers'])        
+        return Peripheral(obj['name'], obj['full name'],obj['offset'],sulf,obj['registers'])
     elif 'peripherals' in obj:
         return MCU(obj['author'], obj['name'],obj['pdf'],obj['peripherals'])
     else:
@@ -84,11 +84,11 @@ def spaces(num):
       for i in range(1, num):
             string += " "
       return string
-    
+
 def listToString(l):
     ret = "["
     for s in l:
-        ret += '"'+s+'", '        
+        ret += '"'+s+'", '
     return ret[0:-2]+']'
 
 def printAll(hout, obj):
@@ -96,6 +96,8 @@ def printAll(hout, obj):
       hout.write(spaces(2)+'"author" : "'+obj.author+'",\n')
       hout.write(spaces(2)+'"pdf" : "'+obj.pdf+'",\n')
       hout.write(spaces(2)+"\"name\" : \""+obj.name+"\",\n")
+      hout.write(spaces(2)+"\"this_file_copyright_type\" : \"BSD 2-Clause\",\n")
+      hout.write(spaces(2)+"\"this_file_copyright_url\" : \"https://github.com/AoLaD/rtems-tms570-utils/blob/master/headers/prepared_files/licence.txt\",\n")
       hout.write(spaces(2)+"\"peripherals\" : [\n")
       for indexP,p in enumerate(obj.peripherals):
             hout.write(spaces(4)+"{\n")
@@ -143,20 +145,20 @@ def printAll(hout, obj):
                   hout.write(spaces(4)+"},\n")
       hout.write(spaces(2)+"]\n")
       hout.write(spaces(0)+"}\n")
-      
-import re 
+
+import re
 def eraseBracket(string):
     string = string.replace('[', "(")
     string = string.replace(']', ")")
     #sys.stderr.write(string+'\n')
-    return re.sub("\((.*)\)", '', string)     
+    return re.sub("\((.*)\)", '', string)
 
 def refactor_field(f):
       f.bit_Field_Name = eraseBracket(f.bit_Field_Name)
       #sys.stderr.write(f.bit_Field_Name+'\n')
       f.bit_Field_Name = f.bit_Field_Name.replace(' ', "_")
       f.bit_Field_Name = f.bit_Field_Name.replace('-', "_")
-      f.bit_Field_Name = f.bit_Field_Name.replace('/', "_")      
+      f.bit_Field_Name = f.bit_Field_Name.replace('/', "_")
       if(f.start_bit.find('-') != -1):
         numbers = f.start_bit.split('-')
         f.start_bit = str(min(int(numbers[0]),int(numbers[1])))
@@ -164,8 +166,8 @@ def refactor_field(f):
       else:
         f.lenght = "1"
       if(f.info.rfind('.') != -1):
-        f.info = f.info[0:f.info.rfind('.')+1]        
-      
+        f.info = f.info[0:f.info.rfind('.')+1]
+
 def refactor_reg(r):
       r.name = r.name.replace(" ", "_")
       r.adress = r.adress.replace("h", "")
@@ -175,21 +177,21 @@ def refactor_reg(r):
       if(r.group_pos != None):
         for i in range(0,len(r.group_pos)):
               r.group_pos[i] = '0x'+r.group_pos[i]
-              
-        
-              
+
+
+
 def refactor_perip(p):
       exit
-                        
+
 def refactor(obj):
-      for p in obj.peripherals: 
+      for p in obj.peripherals:
             for r in p.registers:
                   if(r.fields != None):
                       for f in r.fields:
                             refactor_field(f)
                   refactor_reg(r)
             refactor_perip(p)
-      
+
 import getopt,os
 hhelp = 'test.py -i <inputfile> -o <outputfile>'
 inputfile = ''
@@ -209,7 +211,7 @@ for opt, arg in opts:
          outputfile = arg
 if(inputfile == '' or outputfile == ''):
       print(hhelp)
-      sys.exit(2)      
+      sys.exit(2)
 
 jason = json.loads(codecs.open(inputfile, "r", "utf-8").read(), object_hook=object_decoder)
 refactor(jason)
