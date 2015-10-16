@@ -2,6 +2,8 @@
  "author" : "Premysl Houdek",
  "pdf" : "TMS570LS31x/21x 16/32-Bit RISC Flash Microcontroller Technical Reference Manual",
  "name" : "tms570",
+ "this_file_copyright_type" : "BSD 2-Clause",
+ "this_file_copyright_url" : "https://github.com/AoLaD/rtems-tms570-utils/blob/master/headers/prepared_files/licence.txt",
  "peripherals" : [
    {
      "name" : "RTI",
