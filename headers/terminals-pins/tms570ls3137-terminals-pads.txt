@@ -1,0 +1,376 @@
+ADREFHI (1)                                  V15
+ADREFLO (1)                                  V16
+VCCAD (1)                                    W15
+VSSAD                                        V19
+VSSAD                                        W16
+VSSAD                                        W18
+VSSAD                                        W19
+AD1EVT/MII_RX_ER/RMII_RX_ER                  N19
+MIBSPI3NCS[0]/AD2EVT/GIOB[2]/N2HET2_PIN_nDIS V10
+AD1IN[0]                                     W14
+AD1IN[1]                                     V17
+AD1IN[2]                                     V18
+AD1IN[3]                                     T17
+AD1IN[4]                                     U18
+AD1IN[5]                                     R17
+AD1IN[6]                                     T19
+AD1IN[7]                                     V14
+AD1IN[8] / AD2IN[8]                          P18
+AD1IN[9] / AD2IN[9]                          W17
+AD1IN[10] / AD2IN[10]                        U17
+AD1IN[11] / AD2IN[11]                        U19
+AD1IN[12] / AD2IN[12]                        T16
+AD1IN[13] / AD2IN[13]                        T18
+AD1IN[14] / AD2IN[14]                        R18
+AD1IN[15] / AD2IN[15]                        P19
+AD1IN[16] / AD2IN[0]                         V13
+AD1IN[17] / AD2IN[1]                         U13
+AD1IN[18] / AD2IN[2]                         U14
+AD1IN[19] / AD2IN[3]                         U16
+AD1IN[20] / AD2IN[4]                         U15
+AD1IN[21] / AD2IN[5]                         T15
+AD1IN[22] / AD2IN[6]                         R19
+AD1IN[23] / AD2IN[7]                         R16
+
+N2HET1[0]/SPI4CLK                               K18
+N2HET1[1]/SPI4NENA/N2HET2[8]                    V2
+N2HET1[2]/SPI4SIMO[0]                           W5
+N2HET1[3]/SPI4NCS[0]/N2HET2[10]                 U1
+N2HET1[4]                                       B12
+N2HET1[5]/SPI4SOMI[0]/N2HET2[12]                V6
+N2HET1[6]/SCIRX                                 W3
+N2HET1[7]/N2HET2[14]                            T1
+N2HET1[8]/MIBSPI1SIMO[1]/MII_TXD[3]             E18
+N2HET1[9]/N2HET2[16]                            V7
+N2HET1[10]/MII_TX_CLK/MII_TX_AVCLK4             D19
+N2HET1[11]/MIBSPI3NCS[4]/N2HET2[18]             E3
+N2HET1[12]/MII_CRS/RMII_CRS_DV                  B4
+N2HET1[13]/SCITX                                N2
+N2HET1[14]                                      A11
+N2HET1[15]/MIBSPI1NCS[4]                        N1
+N2HET1[16]                                      A4
+N2HET1[17]                                      A13
+MIBSPI1NCS[1]/N2HET1[17]/MII_COL                F3
+N2HET1[18]                                       J1
+N2HET1[19]                                      B13
+MIBSPI1NCS[2]/N2HET1[19]/MDIO                   G3
+N2HET1[20]                                      P2
+N2HET1[21]                                      H4
+MIBSPI1NCS[3]/N2HET1[21]                         J3
+N2HET1[22]                                      B3
+N2HET1[23]                                       J4
+MIBSPI1NENA/N2HET1[23]/MII_RXD[2]               G19
+N2HET1[24]/MIBSPI1NCS[5]/MII_RXD[0]/RMII_RXD[0] P1
+N2HET1[25]                                      M3
+MIBSPI3NCS[1]/N2HET1[25]/MDCLK                  V5
+N2HET1[26]/MII_RXD[1]/RMII_RXD[1]               A14
+N2HET1[27]                                      A9
+MIBSPI3NCS[2]/I2C_SDA/N2HET1[27]                B2
+N2HET1[28]/MII_RX_CLK/RMII_REFCLK/MII_RX_AVCLK4 K19
+N2HET1[29]                                      A3
+MIBSPI3NCS[3]/I2C_SCL/N2HET1[29]                C3
+N2HET1[30]/MII_RX_DV                            B11
+N2HET1[31]                                      J17
+MIBSPI3NENA/MIBSPI3NCS[5]/N2HET1[31]            W9
+GIOA[5]/EXTCLKIN/N2HET1_PIN_nDIS                B5
+
+
+GIOA[2]/N2HET2[0]                             C1
+EMIF_ADDR[0]/N2HET2[1]                        D4
+GIOA[3]/N2HET2[2]                             E1
+EMIF_ADDR[1]/N2HET2[3]                        D5
+GIOA[6]/N2HET2[4]                             H3
+EMIF_BA[1]/N2HET2[5]                         D16
+GIOA[7]/N2HET2[6]                             M1
+EMIF_nCS[0]/RTP_DATA[15]/N2HET2[7]           N17
+N2HET1[1]/SPI4NENA/N2HET2[8]                  V2
+EMIF_nCS[3]/RTP_DATA[14]/N2HET2[9]           K17
+N2HET1[3]/SPI4NCS[0]/N2HET2[10]               U1
+EMIF_ADDR[6]/RTP_DATA[13]/N2HET2[11]          C4
+N2HET1[5]/SPI4SOMI[0]/N2HET2[12]              V6
+EMIF_ADDR[7]/RTP_DATA[12]/N2HET2[13]          C5
+N2HET1[7]/N2HET2[14]                          T1
+EMIF_ADDR[8]/RTP_DATA[11]/N2HET2[15]          C6
+N2HET1[9]/N2HET2[16]                          V7
+N2HET1[11]/MIBSPI3NCS[4]/N2HET2[18]           E3
+MIBSPI3NCS[0]/AD2EVT/GIOB[2]/N2HET2_PIN_nDIS V10
+
+GIOA[0]                                       A5
+GIOA[1]                                       C2
+GIOA[2]/N2HET2[0]                             C1
+GIOA[3]/N2HET2[2]                             E1
+GIOA[4]                                       A6
+GIOA[5]/EXTCLKIN/N2HET1_PIN_nDIS              B5
+GIOA[6]/N2HET2[4]                             H3
+GIOA[7]/N2HET2[6]                             M1
+GIOB[0]                                       M2
+GIOB[1]                                       K2
+GIOB[2]                                       F2
+GIOB[3]                                      W10
+GIOB[4]                                       G1
+GIOB[5]                                       G2
+GIOB[6]                                       J2
+GIOB[7]                                       F1
+MIBSPI3NCS[0]/AD2EVT/GIOB[2]/N2HET2_PIN_nDIS V10
+
+FRAYRX1   A15
+FRAYTX1   B15
+FRAYTXEN1 B16
+FRAYRX2   A8
+FRAYTX2   B8
+FRAYTXEN2 B9
+
+CAN1RX B10
+CAN1TX A10
+CAN2RX  H1
+CAN2TX  H2
+CAN3RX M19
+CAN3TX M18
+
+LINRX A7
+LINTX B7
+
+N2HET1[6]/SCIRX
+N2HET1[13]/SCITX
+
+MIBSPI3NCS[2]/I2C_SDA/N2HET1[27]  B2
+MIBSPI3NCS[3]/I2C_SCL/N2HET1[29]  C3
+
+SPI2CLK                          E2
+SPI2NCS[0]                       N3
+SPI2NENA/SPI2NCS[1]              D3
+SPI2NENA/SPI2NCS[1]              D3
+SPI2SIMO[0]                      D1
+SPI2SOMI[0]                      D2
+N2HET1[0]/SPI4CLK                K18
+N2HET1[3]/SPI4NCS[0]/N2HET2[10]  U1
+N2HET1[1]/SPI4NENA/N2HET2[8]     V2
+N2HET1[2]/SPI4SIMO[0]            W5
+N2HET1[5]/SPI4SOMI[0]/N2HET2[12] V6
+
+                                                   ZWT
+MIBSPI1CLK                                         F18
+MIBSPI1NCS[0]/MIBSPI1SOMI[1]/MII_TXD[2]             R2
+MIBSPI1NCS[1]/N2HET1[17]/MII_COL                    F3
+MIBSPI1NCS[2]/N2HET1[19]/MDIO                       G3
+MIBSPI1NCS[3]/N2HET1[21]                            J3
+N2HET1[15]/MIBSPI1NCS[4]                            N1
+N2HET1[24]/MIBSPI1NCS[5]/MII_RXD[0]/RMII_RXD[0]     P1
+MIBSPI1NENA/N2HET1[23]/MII_RXD[2]                  G19
+MIBSPI1SIMO[0]                                     F19
+N2HET1[8]/MIBSPI1SIMO[1]/MII_TXD[3]                E18
+MIBSPI1SOMI[0]                                     G18
+MIBSPI1NCS[0]/MIBSPI1SOMI[1]/MII_TXD[2]             R2
+MIBSPI3CLK                                          V9
+MIBSPI3NCS[0]/AD2EVT/GIOB[2]/N2HET2_PIN_nDIS       V10
+MIBSPI3NCS[1]/N2HET1[25]/MDCLK                      V5
+MIBSPI3NCS[2]/I2C_SDA/N2HET1[27]                    B2
+MIBSPI3NCS[3]/I2C_SCL/N2HET1[29]                    C3
+N2HET1[11]/MIBSPI3NCS[4]/N2HET2[18]                 E3
+MIBSPI3NENA/MIBSPI3NCS[5]/N2HET1[31]                W9
+MIBSPI3NENA/MIBSPI3NCS[5]/N2HET1[31]                W9
+MIBSPI3SIMO[0]                                      W8
+MIBSPI3SOMI[0]                                      V8
+MIBSPI5CLK/DMM_DATA[4]/MII_TXEN/RMII_TXEN          H19
+MIBSPI5NCS[0]/DMM_DATA[5]                          E19
+MIBSPI5NCS[1]/DMM_DATA[6]                           B6
+MIBSPI5NCS[2]/DMM_DATA[2]                           W6
+MIBSPI5NCS[3]/DMM_DATA[3]                          T12
+MIBSPI5NENA/DMM_DATA[7]/MII_RXD[3]                 H18
+MIBSPI5SIMO[0]/DMM_DATA[8]/MII_TXD[1]/RMII_TXD[1]  J19
+MIBSPI5SIMO[1]/DMM_DATA[9]                         E16
+MIBSPI5SIMO[2]/DMM_DATA[10]                        H17
+MIBSPI5SIMO[3]/DMM_DATA[11]                        G17
+MIBSPI5SOMI[0]/DMM_DATA[12]/MII_TXD[0]/RMII_TXD[0] J18
+MIBSPI5SOMI[1]/DMM_DATA[13]                        E17
+MIBSPI5SOMI[2]/DMM_DATA[14]                        H16
+MIBSPI5SOMI[3]/DMM_DATA[15]                        G16
+
+MIBSPI3NCS[1]/N2HET1[25]/MDCLK V5
+MIBSPI1NCS[2]/N2HET1[19]/MDIO  G3
+
+N2HET1[12]/MII_CRS/RMII_CRS_DV                     B4
+N2HET1[28]/MII_RX_CLK/RMII_REFCLK/MII_RX_AVCLK4    K19
+AD1EVT/MII_RX_ER/RMII_RX_ER                        N19
+N2HET1[24]/MIBSPI1NCS[5]/MII_RXD[0]/RMII_RXD[0]    P1
+N2HET1[26]/MII_RXD[1]/RMII_RXD[1]                  A14
+MIBSPI5SOMI[0]/DMM_DATA[12]/MII_TXD[0]/RMII_TXD[0] J18
+MIBSPI5SIMO[0]/DMM_DATA[8]/MII_TXD[1]/RMII_TXD[1]  J19
+MIBSPI5CLK/DMM_DATA[4]/MII_TXEN/RMII_TXEN          H19
+
+MIBSPI1NCS[1]/N2HET1[17]/MII_COL                   F3
+N2HET1[12]/MII_CRS/RMII_CRS_DV                     B4
+N2HET1[28]/MII_RX_CLK/RMII_REFCLK/MII_RX_AVCLK4    K19
+N2HET1[30]/MII_RX_DV                               B11
+AD1EVT/MII_RX_ER/RMII_RX_ER                        N19
+N2HET1[28]/MII_RX_CLK/RMII_REFCLK/MII_RX_AVCLK4    K19
+N2HET1[24]/MIBSPI1NCS[5]/MII_RXD[0]/RMII_RXD[0]    P1
+N2HET1[26]/MII_RXD[1]/RMII_RXD[1]                  A14
+MIBSPI1NENA/N2HET1[23]/MII_RXD[2]                  G19
+MIBSPI5NENA/DMM_DATA[7]/MII_RXD[3]                 H18
+N2HET1[10]/MII_TX_CLK/MII_TX_AVCLK4                D19
+N2HET1[10]/MII_TX_CLK/MII_TX_AVCLK4                D19
+MIBSPI5SOMI[0]/DMM_DATA[12]/MII_TXD[0]/RMII_TXD[0] J18
+MIBSPI5SIMO[0]/DMM_DATA[8]/MII_TXD[1]/RMII_TXD[1]  J19
+MIBSPI1NCS[0]/MIBSPI1SOMI[1]/MII_TXD[2]            R2
+N2HET1[8]/MIBSPI1SIMO[1]/MII_TXD[3]                E18
+MIBSPI5CLK/DMM_DATA[4]/MII_TXEN/RMII_TXEN          H19
+
+EMIF_CKE                              L3
+EMIF_CLK                             K3
+ETMDATA[13]/EMIF_nOE                 E12
+EMIF_nWAIT                           P3
+EMIF_nWE                             D17
+EMIF_nCAS                            R4
+EMIF_nRAS                            R3
+EMIF_nCS[0]/RTP_DATA[15]/N2HET2[7]   N17
+EMIF_nCS[2]                          L17
+EMIF_nCS[3]/RTP_DATA[14]/N2HET2[9]   K17
+EMIF_nCS[4]/RTP_DATA[7]              M17
+ETMDATA[15]/EMIF_nDQM[0]             E10
+ETMDATA[14]/EMIF_nDQM[1]             E11
+ETMDATA[12]/EMIF_BA[0]               E13
+EMIF_BA[1]/N2HET2[5]                 D16
+EMIF_ADDR[0]/N2HET2[1]               D4
+EMIF_ADDR[1]/N2HET2[3]               D5
+ETMDATA[11]/EMIF_ADDR[2]             E6
+ETMDATA[10]/EMIF_ADDR[3]             E7
+ETMDATA[9]/EMIF_ADDR[4]              E8
+ETMDATA[8]/EMIF_ADDR[5]              E9
+EMIF_ADDR[6]/RTP_DATA[13]/N2HET2[11] C4
+EMIF_ADDR[7]/RTP_DATA[12]/N2HET2[13] C5
+EMIF_ADDR[8]/RTP_DATA[11]/N2HET2[15] C6
+EMIF_ADDR[9]/RTP_DATA[10]            C7
+EMIF_ADDR[10]/RTP_DATA[9]            C8
+EMIF_ADDR[11]/RTP_DATA[8]            C9
+EMIF_ADDR[12]/RTP_DATA[6]            C10
+EMIF_ADDR[13]/RTP_DATA[5]            C11
+EMIF_ADDR[14]/RTP_DATA[4]            C12
+EMIF_ADDR[15]/RTP_DATA[3]            C13
+EMIF_ADDR[16]/RTP_DATA[2]            D14
+EMIF_ADDR[17]/RTP_DATA[1]            C14
+EMIF_ADDR[18]/RTP_DATA[0]            D15
+EMIF_ADDR[19]/RTP_nENA               C15
+EMIF_ADDR[20]/RTP_nSYNC              C16
+EMIF_ADDR[21]/RTP_CLK                C17
+
+
+ETMDATA[16]/EMIF_DATA[0]  K15
+ETMDATA[17]/EMIF_DATA[1]  L15
+ETMDATA[18]/EMIF_DATA[2]  M15
+ETMDATA[19]/EMIF_DATA[3]  N15
+ETMDATA[20]/EMIF_DATA[4]  E5
+ETMDATA[21]/EMIF_DATA[5]  F5
+ETMDATA[22]/EMIF_DATA[6]  G5
+ETMDATA[23]/EMIF_DATA[7]  K5
+ETMDATA[24]/EMIF_DATA[8]   L5
+ETMDATA[25]/EMIF_DATA[9]  M5
+ETMDATA[26]/EMIF_DATA[10] N5
+ETMDATA[27]/EMIF_DATA[11] P5
+ETMDATA[28]/EMIF_DATA[12] R5
+ETMDATA[29]/EMIF_DATA[13] R6
+ETMDATA[30]/EMIF_DATA[14] R7
+ETMDATA[31]/EMIF_DATA[15] R8
+
+ETMTRACECLKIN/EXTCLKIN2   R9
+ETMTRACECLKOUT            R10
+ETMTRACECTL               R11
+ETMDATA[0]                R12
+ETMDATA[1]                R13
+ETMDATA[2]                J15
+ETMDATA[3]                H15
+ETMDATA[4]                G15
+ETMDATA[5]                F15
+ETMDATA[6]                E15
+ETMDATA[7]                E14
+ETMDATA[8]/EMIF_ADDR[5]   E9
+ETMDATA[9]/EMIF_ADDR[4]   E8
+ETMDATA[10]/EMIF_ADDR[3]  E7
+ETMDATA[11]/EMIF_ADDR[2]  E6
+ETMDATA[12]/EMIF_BA[0]    E13
+ETMDATA[13]/EMIF_nOE      E12
+ETMDATA[14]/EMIF_nDQM[1]  E11
+ETMDATA[15]/EMIF_nDQM[0]  E10
+ETMDATA[16]/EMIF_DATA[0]  K15
+ETMDATA[17]/EMIF_DATA[1]  L15
+ETMDATA[18]/EMIF_DATA[2]  M15
+ETMDATA[19]/EMIF_DATA[3]  N15
+ETMDATA[20]/EMIF_DATA[4]  E5
+ETMDATA[21]/EMIF_DATA[5]  F5
+ETMDATA[22]/EMIF_DATA[6]  G5
+ETMDATA[23]/EMIF_DATA[7]  K5
+ETMDATA[24]/EMIF_DATA[8]   L5
+ETMDATA[25]/EMIF_DATA[9]  M5
+ETMDATA[26]/EMIF_DATA[10] N5
+ETMDATA[27]/EMIF_DATA[11] P5
+ETMDATA[28]/EMIF_DATA[12] R5
+ETMDATA[29]/EMIF_DATA[13] R6
+ETMDATA[30]/EMIF_DATA[14] R7
+ETMDATA[31]/EMIF_DATA[15] R8
+
+                                     ZWT
+EMIF_ADDR[21]/RTP_CLK                C17
+EMIF_ADDR[19]/RTP_nENA               C15
+EMIF_ADDR[20]/RTP_nSYNC              C16
+EMIF_ADDR[18]/RTP_DATA[0]            D15
+EMIF_ADDR[17]/RTP_DATA[1]            C14
+EMIF_ADDR[16]/RTP_DATA[2]            D14
+EMIF_ADDR[15]/RTP_DATA[3]            C13
+EMIF_ADDR[14]/RTP_DATA[4]            C12
+EMIF_ADDR[13]/RTP_DATA[5]            C11
+EMIF_ADDR[12]/RTP_DATA[6]            C10
+EMIF_nCS[4]/RTP_DATA[7]              M17
+EMIF_ADDR[11]/RTP_DATA[8]             C9
+EMIF_ADDR[10]/RTP_DATA[9]             C8
+EMIF_ADDR[9]/RTP_DATA[10]             C7
+EMIF_ADDR[8]/RTP_DATA[11]/N2HET2[15]  C6
+EMIF_ADDR[7]/RTP_DATA[12]/N2HET2[13]  C5
+EMIF_ADDR[6]/RTP_DATA[13]/N2HET2[11]  C4
+EMIF_nCS[0]/RTP_DATA[15]/N2HET2[7]   N17
+EMIF_nCS[3]/RTP_DATA[14]/N2HET2[9]   K17
+
+DMM_CLK                                            F17
+DMM_nENA                                           F16
+DMM_SYNC                                           J16
+DMM_DATA[0]                                        L19
+DMM_DATA[1]                                        L18
+MIBSPI5NCS[2]/DMM_DATA[2]                           W6
+MIBSPI5NCS[3]/DMM_DATA[3]                          T12
+MIBSPI5CLK/DMM_DATA[4]/MII_TXEN/RMII_TXEN          H19
+MIBSPI5NCS[0]/DMM_DATA[5]                          E19
+MIBSPI5NCS[1]/DMM_DATA[6]                           B6
+MIBSPI5NENA/DMM_DATA[7]/MII_RXD[3]                 H18
+MIBSPI5SIMO[0]/DMM_DATA[8]/MII_TXD[1]/RMII_TXD[1]  J19
+MIBSPI5SIMO[1]/DMM_DATA[9]                         E16
+MIBSPI5SIMO[2]/DMM_DATA[10]                        H17
+MIBSPI5SIMO[3]/DMM_DATA[11]                        G17
+MIBSPI5SOMI[0]/DMM_DATA[12]/MII_TXD[0]/RMII_TXD[0] J18
+MIBSPI5SOMI[1]/DMM_DATA[13]                        E17
+MIBSPI5SOMI[2]/DMM_DATA[14]                        H16
+MIBSPI5SOMI[3]/DMM_DATA[15]                        G16
+
+nPORRST W7
+nRST    B17
+nERROR  B14
+
+                                 ZWT
+OSCIN                             K1
+KELVIN_GND                        L2
+OSCOUT                            L1
+ECLK                             A12
+GIOA[5]/EXTCLKIN/N2HET1_PIN_nDIS  B5
+ETMTRACECLKIN/EXTCLKIN2           R9
+VCCPLL                           P11
+
+TEST  U2
+nTRST D18
+RTCK  A16
+TCK   B18
+TDI   A17
+TDO   C18
+TMS   C19
+
+VCCP   F8
+FLTP1  J5
+FLTP2  H5
+
