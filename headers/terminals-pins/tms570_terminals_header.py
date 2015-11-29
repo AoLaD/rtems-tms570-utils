@@ -13,14 +13,21 @@ class chip_pin_desc(object):
     self.mmr_pos = mmr_pos
     self.pin_pad = pin_pad
     self.pin_fnc = {}
+    self.pin_fnc_c = {}
     self.pin_defines = {}
-  def add_pin_fnc(self, pin_fnc_num, pin_fnc_desc):
+  def add_pin_fnc(self, pin_fnc_num, pin_fnc_desc, pin_fnc_c = None):
     if pin_fnc_num in self.pin_fnc:
       if pin_fnc_desc != self.pin_fnc[pin_fnc_num]:
         printf("PIN %d fnction %d conflict %s and %s"%
                (self.pin_index, pin_fnc_num, self.pin_fnc[pin_fnc_num], pin_fnc_desc))
     else:
         self.pin_fnc[pin_fnc_num] = pin_fnc_desc
+        if pin_fnc_c is None:
+          pin_fnc_c = pin_fnc_desc
+        pin_fnc_c = pin_fnc_c.replace('[', '_')
+        pin_fnc_c = pin_fnc_c.replace(']', '_')
+        pin_fnc_c = pin_fnc_c.rstrip('_')
+        self.pin_fnc_c[pin_fnc_num] = pin_fnc_c
   def show(self):
     pad = '?'
     if self.pin_pad is not None:
@@ -28,6 +35,20 @@ class chip_pin_desc(object):
     print("PIN %3d: MMR%d pos %d pad %s"%(self.pin_index, self.mmr_number, self.mmr_pos, pad))
     for fnc_num in self.pin_fnc:
       print("  %d: %s"%(fnc_num, self.pin_fnc[fnc_num]))
+  def update_connections(self, chip_pins = None):
+    if self.pin_pad is not None:
+      pad_prefix = "TMS570_BALL_%s"%(self.pin_pad)
+    else:
+      pad_prefix = "TMS570_MMR_SELECT"
+    for fnc in self.pin_fnc_c.keys():
+      fnc_desc = self.pin_fnc_c[fnc]
+      pin_define = "%s_%s"%(pad_prefix, fnc_desc)
+      self.pin_defines[fnc] = pin_define
+      if chip_pins is not None:
+        pin_fnc_c = self.pin_fnc_c[fnc]
+        if pin_fnc_c not in chip_pins.fnc_list.keys():
+          chip_pins.fnc_list[pin_fnc_c] = []
+        chip_pins.fnc_list[pin_fnc_c].append((pin, pin_define))
   def gen_header_def(self, fout):
     pad_mmr_spec = "TMS570_BALL_WITH_MMR(%d, %d)"%(self.mmr_number, self.mmr_pos)
     if self.pin_pad is not None:
@@ -35,22 +56,16 @@ class chip_pin_desc(object):
       fout.write("\n#define %s %s\n"%(pad_prefix, pad_mmr_spec))
       pad_mmr_spec = pad_prefix
     else:
-      pad_prefix = "TMS570_MMR_SELECT"
       fout.write("\n")
-    fncs = sorted(self.pin_fnc.keys())
+    fncs = sorted(self.pin_fnc_c.keys())
     for fnc in fncs:
-      fnc_desc = self.pin_fnc[fnc]
-      fnc_desc = fnc_desc.replace('[', '_')
-      fnc_desc = fnc_desc.replace(']', '_')
-      fnc_desc = fnc_desc.rstrip('_')
-      pin_define = "%s_%s"%(pad_prefix, fnc_desc)
-      self.pin_defines[fnc] = pin_define
       fout.write("#define %s TMS570_PIN_AND_FNC(%s, %d)\n"%
-                 (pin_define, pad_mmr_spec, fnc))
+                 (self.pin_defines[fnc], pad_mmr_spec, fnc))
 
 class chip_pins_desc(object):
   def __init__(self, chip_name = None, chip_package = None):
     self.pins = {}
+    self.fnc_list = {}
   def pin_desc_for_index(self, pin_index, mmr_number = None, mmr_pos = None, pin_pad = None):
     pin_index = int(pin_index)
     if mmr_number is not None:
@@ -76,8 +91,18 @@ class chip_pins_desc(object):
       pin = self.pins[pin_index]
     return pin
   def show(self):
+    print("List of functions found per pin")
     for pin in self.pins.values():
       pin.show()
+    print("List of pins connected to functions")
+    functions = sorted(self.fnc_list.keys())
+    for fnc in functions:
+      print("Function %s"%fnc)
+      for tp in self.fnc_list[fnc]:
+        print("   %s"%(tp[1]))
+  def update_connections(self):
+    for pin in self.pins.values():
+      pin.update_connections(self)
   def gen_header_def(self, fout):
     plist = sorted(self.pins.keys())
     for pidx in plist:
@@ -110,8 +135,18 @@ if __name__ == '__main__':
           pin_index = mmr_number * 4 + mmr_pos
           pin_fnc_num = mmr_bit % 8
           pin = chip_pins.pin_desc_for_index(pin_index, mmr_number, mmr_pos)
+          pin_fnc_c = pin_fnc
+          if len(pin_fnc_c) >= len('N2HET'):
+            if pin_fnc_c[0:len('N2HET')] == 'N2HET':
+              pin_fnc_c = pin_fnc_c[2:]
+              # Ensure that C name specifies signal number with two digits
+              l = len(pin_fnc_c)
+              if (pin_fnc_c[l-1] == ']') and (pin_fnc_c[l-3] == '['):
+                pin_fnc_c = pin_fnc_c[0:l-2] + '0' + pin_fnc_c[l-2:]
+          # the label on pin on the pakage is without leading zeros in brackets
+          # TRM manual specifies names with leading zeros and same is in Ti headers
           pin_fnc = re_normalize_brackets.sub('[\g<1>]', pin_fnc)
-          pin.add_pin_fnc(pin_fnc_num, pin_fnc)
+          pin.add_pin_fnc(pin_fnc_num, pin_fnc, pin_fnc_c)
         pin_fnc = ''
       else:
         pin_fnc = word
@@ -192,6 +227,7 @@ if __name__ == '__main__':
           max_match = act_match
           pin_match = pin
 
+  chip_pins.update_connections()
   chip_pins.show()
   chip_pins.gen_header_def(fout)
 
