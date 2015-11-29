@@ -13,6 +13,7 @@ class chip_pin_desc(object):
     self.mmr_pos = mmr_pos
     self.pin_pad = pin_pad
     self.pin_fnc = {}
+    self.pin_defines = {}
   def add_pin_fnc(self, pin_fnc_num, pin_fnc_desc):
     if pin_fnc_num in self.pin_fnc:
       if pin_fnc_desc != self.pin_fnc[pin_fnc_num]:
@@ -28,17 +29,24 @@ class chip_pin_desc(object):
     for fnc_num in self.pin_fnc:
       print("  %d: %s"%(fnc_num, self.pin_fnc[fnc_num]))
   def gen_header_def(self, fout):
-    pad_prefix = "TMS570_BALL_%s"%(self.pin_pad)
-    fout.write("\n#define %s TMS570_BALL_WITH_MMR(%d, %d)\n"%
-               (pad_prefix, self.mmr_number, self.mmr_pos))
+    pad_mmr_spec = "TMS570_BALL_WITH_MMR(%d, %d)"%(self.mmr_number, self.mmr_pos)
+    if self.pin_pad is not None:
+      pad_prefix = "TMS570_BALL_%s"%(self.pin_pad)
+      fout.write("\n#define %s %s\n"%(pad_prefix, pad_mmr_spec))
+      pad_mmr_spec = pad_prefix
+    else:
+      pad_prefix = "TMS570_MMR_SELECT"
+      fout.write("\n")
     fncs = sorted(self.pin_fnc.keys())
     for fnc in fncs:
       fnc_desc = self.pin_fnc[fnc]
       fnc_desc = fnc_desc.replace('[', '_')
       fnc_desc = fnc_desc.replace(']', '_')
       fnc_desc = fnc_desc.rstrip('_')
-      fout.write("#define %s_%s TMS570_PIN_AND_FNC(%s, %d)\n"%
-                 (pad_prefix, fnc_desc, pad_prefix, fnc))
+      pin_define = "%s_%s"%(pad_prefix, fnc_desc)
+      self.pin_defines[fnc] = pin_define
+      fout.write("#define %s TMS570_PIN_AND_FNC(%s, %d)\n"%
+                 (pin_define, pad_mmr_spec, fnc))
 
 class chip_pins_desc(object):
   def __init__(self, chip_name = None, chip_package = None):
@@ -74,13 +82,13 @@ class chip_pins_desc(object):
     plist = sorted(self.pins.keys())
     for pidx in plist:
       pin = self.pins[pidx]
-      if pin.pin_pad is not None:
-        pin.gen_header_def(fout)
+      pin.gen_header_def(fout)
 
 if __name__ == '__main__':
 
   iom_in_fname = 'tms570ls3137-terminals-iom.txt'
   pads_in_fname = 'tms570ls3137-terminals-pads.txt'
+  fout = sys.stdout
 
   chip_pins = chip_pins_desc()
 
@@ -185,4 +193,15 @@ if __name__ == '__main__':
           pin_match = pin
 
   chip_pins.show()
-  chip_pins.gen_header_def(sys.stdout)
+  chip_pins.gen_header_def(fout)
+
+
+  fout.write("\n/* Default pinmux select */\n")
+  fout.write("\n#define TMS570_PINMMR_DEFAULT_INIT_LIST(per_pin_action, common_arg) \\\n")
+  plist = sorted(chip_pins.pins.keys())
+  for pidx in plist:
+    pin = chip_pins.pins[pidx]
+    if 0 in pin.pin_defines:
+      pin.pin_defines[0]
+      fout.write("  per_pin_action(common_arg, %s) \\\n"%(pin.pin_defines[0]))
+  fout.write("\n/* End of default PINMMR list */\n\n")
