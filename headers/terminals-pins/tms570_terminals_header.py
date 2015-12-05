@@ -48,8 +48,8 @@ class chip_pin_desc(object):
         pin_fnc_c = self.pin_fnc_c[fnc]
         if pin_fnc_c not in chip_pins.fnc_list.keys():
           chip_pins.fnc_list[pin_fnc_c] = []
-        chip_pins.fnc_list[pin_fnc_c].append((pin, pin_define))
-  def gen_header_def(self, fout):
+        chip_pins.fnc_list[pin_fnc_c].append((self, pin_define, fnc))
+  def gen_header_def(self, chip_pins, fout):
     pad_mmr_spec = "TMS570_BALL_WITH_MMR(%d, %d)"%(self.mmr_number, self.mmr_pos)
     if self.pin_pad is not None:
       pad_prefix = "TMS570_BALL_%s"%(self.pin_pad)
@@ -59,8 +59,33 @@ class chip_pin_desc(object):
       fout.write("\n")
     fncs = sorted(self.pin_fnc_c.keys())
     for fnc in fncs:
-      fout.write("#define %s TMS570_PIN_AND_FNC(%s, %d)\n"%
-                 (self.pin_defines[fnc], pad_mmr_spec, fnc))
+      pin_fnc_c = self.pin_fnc_c[fnc]
+      alt_in = []
+      if pin_fnc_c in chip_pins.fnc_list:
+        for ap in chip_pins.fnc_list[pin_fnc_c]:
+          if ap[0] != self:
+            alt_in.append(ap)
+      if len(alt_in) != 1:
+        fout.write("#define %s TMS570_PIN_AND_FNC(%s, %d)\n"%
+                   (self.pin_defines[fnc], pad_mmr_spec, fnc))
+        if len(alt_in) > 0:
+          print("PIN: %d more input alternatives than 2"%self.pin_index)
+      else:
+        fout.write("#define %s TMS570_PIN_WITH_IN_ALT( \\\n"%(self.pin_defines[fnc]))
+        fout.write("                ")
+        fout.write("TMS570_PIN_AND_FNC(%s, %d), \\\n"%(pad_mmr_spec, fnc))
+        fout.write("                ")
+        alt_pin = alt_in[0][0]
+        if alt_pin.pin_pad is not None:
+          fout.write("TMS570_PIN_AND_FNC(TMS570_BALL_%s, %d )"%
+                   (alt_pin.pin_pad, alt_in[0][2]))
+        else:
+          fout.write("TMS570_PIN_AND_FNC(TMS570_BALL_WITH_MMR(%d, %d), %d )"%
+                   (alt_pin.mmr_number, alt_pin.mmr_pos, alt_in[0][2]))
+        if True:
+          fout.write(" | TMS570_PIN_CLEAR_RQ_MASK )\n")
+        else:
+          fout.write(")\n")
 
 class chip_pins_desc(object):
   def __init__(self, chip_name = None, chip_package = None):
@@ -107,7 +132,7 @@ class chip_pins_desc(object):
     plist = sorted(self.pins.keys())
     for pidx in plist:
       pin = self.pins[pidx]
-      pin.gen_header_def(fout)
+      pin.gen_header_def(self, fout)
 
 if __name__ == '__main__':
 
