@@ -1,0 +1,10 @@
+set endian big
+target remote localhost:3333
+#monitor flash probe 0
+#monitor gdb_breakpoint_override hard
+#load
+
+hbreak _Terminate
+hbreak __assert_func
+
+source gdb_initial_commands
