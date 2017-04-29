@@ -1,0 +1,92 @@
+         GIOB[2] Select            390h PINMMR160[16] PINMMR160[17]
+         MII/RMII Select                PINMMR160[24]
+ADC Alternate Trigger Table Select 394h PINMMR161[0]  PINMMR161[1]
+ADC1 Alternate Trigger Source for       PINMMR161[8]  PINMMR161[9]
+         Trigger Input 2
+ADC1 Alternate Trigger Source for       PINMMR161[16] PINMMR161[17]
+         Trigger Input 4
+ADC1 Alternate Trigger Source for       PINMMR161[24] PINMMR161[25]
+         Trigger Input 6
+ADC1 Alternate Trigger Source for  398h PINMMR162[0]  PINMMR162[1]
+         Trigger Input 7
+ADC1 Alternate Trigger Source for       PINMMR162[8]  PINMMR162[9]
+         Trigger Input 8
+ADC2 Alternate Trigger Source for       PINMMR162[16] PINMMR162[17]
+         Trigger Input 2
+ADC2 Alternate Trigger Source for       PINMMR162[24] PINMMR162[25]
+         Trigger Input 4
+ADC2 Alternate Trigger Source for  39Ch PINMMR163[0]  PINMMR163[1]
+         Trigger Input 6
+ADC2 Alternate Trigger Source for       PINMMR163[8]  PINMMR163[9]
+         Trigger Input 7
+ADC2 Alternate Trigger Source for       PINMMR163[16] PINMMR163[17]
+         Trigger Input 8
+  Selecting Start of Conversion    3A0h PINMMR164[0]
+      (SOC1A) of ePWM1
+  Selecting Start of Conversion         PINMMR164[8]
+      (SOC2A) of ePWM2
+  Selecting Start of Conversion         PINMMR164[16]
+      (SOC3A) of ePWM3
+  Selecting Start of Conversion         PINMMR164[24]
+      (SOC4A) of ePWM4
+  Selecting Start of Conversion    3A4h PINMMR165[0]
+      (SOC5A) of ePWM5
+  Selecting Start of Conversion         PINMMR165[8]
+      (SOC6A) of ePWM6
+  Selecting Start of Conversion         PINMMR165[16]
+      (SOC7A) of ePWM7
+     ePWM1 SYNCI Select                 PINMMR165[24] PINMMR165[25]
+  ePWMx TBCLKSYNC Enable           3A8h PINMMR166[1]
+   ePWM1 Trip Zone 4 Select        3ACh PINMMR167[0]  PINMMR167[1]  PINMMR167[2]
+   ePWM2 Trip Zone 4 Select             PINMMR167[8]  PINMMR167[9]  PINMMR167[10]
+   ePWM3 Trip Zone 4 Select             PINMMR167[16] PINMMR167[17] PINMMR167[18]
+   ePWM4 Trip Zone 4 Select             PINMMR167[24] PINMMR167[25] PINMMR167[26]
+   ePWM5 Trip Zone 4 Select        3B0h PINMMR168[0]  PINMMR168[1]  PINMMR168[2]
+   ePWM6 Trip Zone 4 Select             PINMMR168[8]  PINMMR168[9]  PINMMR168[10]
+   ePWM7 Trip Zone 4 Select             PINMMR168[16] PINMMR168[17] PINMMR168[18]
+    eCAP1 Input Filtering Select  3B4h PINMMR169[0]  PINMMR169[1]
+    eCAP2 Input Filtering Select       PINMMR169[8]  PINMMR169[9]
+    eCAP3 Input Filtering Select       PINMMR169[16] PINMMR169[17]
+    eCAP4 Input Filtering Select       PINMMR169[24] PINMMR169[25]
+    eCAP5 Input Filtering Select  3B8h PINMMR170[0]  PINMMR170[1]
+    eCAP6 Input Filtering Select       PINMMR170[8]  PINMMR170[9]
+   eQEP1A Input Filtering Select       PINMMR170[16] PINMMR170[17]
+   eQEP1B Input Filtering Select       PINMMR170[24] PINMMR170[25]
+   eQEP1I Input Filtering Select  3BCh PINMMR171[0]  PINMMR171[1]
+   eQEP1S Input Filtering Select       PINMMR171[8]  PINMMR171[9]
+   eQEP2A Input Filtering Select       PINMMR171[16] PINMMR171[17]
+   eQEP2B Input Filtering Select       PINMMR171[24] PINMMR171[25]
+   eQEP2I Input Filtering Select  3C0h PINMMR172[0]  PINMMR172[1]
+   eQEP2S Input Filtering Select       PINMMR172[8]  PINMMR172[9]
+  ePWMx Trip Zone1 (TZ1n) Input        PINMMR172[16] PINMMR172[17] PINMMR172[18]
+         Filtering Select
+  ePWMx Trip Zone2 (TZ2n) Input        PINMMR172[24] PINMMR172[25] PINMMR172[26]
+         Filtering Select
+  ePWMx Trip Zone3 (TZ3n) Input   3C4h PINMMR173[0]  PINMMR173[1]  PINMMR173[2]
+         Filtering Select
+ePWM SYNCI Input Filtering Select      PINMMR173[8]  PINMMR173[9]  PINMMR173[10]
+   Temperature Sensor 1 Select         PINMMR173[16] PINMMR173[17]
+   Temperature Sensor 2 Select         PINMMR173[24] PINMMR173[25]
+   Temperature Sensor 3 Select    3C8h PINMMR174[0]  PINMMR174[1]
+       EMIF Output Enable              PINMMR174[8]  PINMMR174[9]
+      ESM1 nERROR Select               PINMMR174[16] PINMMR174[17]
+ Temperature Sensor Power Down         PINMMR174[24]
+              Enable
+   GIOA[0] DMA Request Select     3CCh PINMMR175[0]
+   GIOA[1] DMA Request Select          PINMMR175[8]
+   GIOA[2] DMA Request Select          PINMMR175[16]
+   GIOA[3] DMA Request Select          PINMMR175[24]
+   GIOA[4] DMA Request Select     3D0h PINMMR176[0]
+   GIOA[5] DMA Request Select          PINMMR176[8]
+   GIOA[6] DMA Request Select          PINMMR176[16]
+   GIOA[7] DMA Request Select          PINMMR176[24]
+   GIOB[0] DMA Request Select     3D4h PINMMR177[0]
+   GIOB[1] DMA Request Select          PINMMR177[8]
+   GIOB[2] DMA Request Select          PINMMR177[16]
+   GIOB3] DMA Request Select           PINMMR177[24]
+   GIOB[4] DMA Request Select     3D8h PINMMR178[0]
+   GIOB[5] DMA Request Select          PINMMR178[8]
+   GIOB[6] DMA Request Select          PINMMR178[16]
+   GIOB[7] DMA Request Select          PINMMR178[24]
+     NHET2 Pin Disable Select     3DCh PINMMR179[0]  PINMMR179[1]
+     NHET1 Pin Disable Select          PINMMR179[8]  PINMMR179[9]
